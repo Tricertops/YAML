@@ -1,0 +1,1512 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		4480A807A37D4A03BB173F77 /* install */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 19857BB080F64A2F99EF5948 /* Build configuration list for PBXAggregateTarget "install" */;
+			buildPhases = (
+				3016CF6A2B494FEE991E6DC1 /* CMake PostBuild Rules */,
+			);
+			dependencies = (
+				3D632DFE670C4B4C9C23DF2F /* PBXTargetDependency */,
+			);
+			name = install;
+			productName = install;
+		};
+		7990109DECEF49FB8833975B /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 520B5B3993FF4DF695C800D5 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				297C07E3F34E4422A52BEFA1 /* CMake Rules */,
+			);
+			dependencies = (
+				170F655409A4411882444656 /* PBXTargetDependency */,
+				3602BB8CCE9D4AF5ABF23356 /* PBXTargetDependency */,
+				FB0B24CFD8134934BCE249AE /* PBXTargetDependency */,
+				0AB544D4C4C248F698BA3794 /* PBXTargetDependency */,
+				33058FF870EF42BB80D7D01B /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+		AC738A4573DF45CD9732DA16 /* RUN_TESTS */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = AC789D8023664A54B42357FD /* Build configuration list for PBXAggregateTarget "RUN_TESTS" */;
+			buildPhases = (
+				57E9905F13CE45E5982A52D4 /* CMake PostBuild Rules */,
+			);
+			dependencies = (
+			);
+			name = RUN_TESTS;
+			productName = RUN_TESTS;
+		};
+		C60A13F44C674DF78390149E /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 18C37077C91C44F5B79B5C4B /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				B78F03946A3148D6B4402387 /* CMake Rules */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		1C3530EDB0E34CC1B03BC928 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/src/gmock-all.cc */ = {isa = PBXBuildFile; fileRef = C90C7A6A161C454DB941E3A0 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/src/gmock-all.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		1E492FED04BD4775AE0C359B /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = B8B9895AE039488BA9770102 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/CMakeLists.txt */; settings = {COMPILER_FLAGS = ""; }; };
+		3B117B87452F4F439E5CD7EF /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/src/gtest-all.cc */ = {isa = PBXBuildFile; fileRef = 381E65943DF84F4F8DDDDB74 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/src/gtest-all.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		515D1B627E724211AE020DFB /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 5859344F3BD449678E3680A8 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/CMakeLists.txt */; settings = {COMPILER_FLAGS = ""; }; };
+		52BDE7BCC426416FA10DE678 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/src/gmock_main.cc */ = {isa = PBXBuildFile; fileRef = 736F3541BBA2417A801F6CAA /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/src/gmock_main.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		6FEDBE3B6DF741B7B7632467 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/src/gtest-all.cc */ = {isa = PBXBuildFile; fileRef = 0AF3F6E645FA4CAD8E0FD80D /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/src/gtest-all.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		7922B531D171475D984791DB /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/src/gmock-all.cc */ = {isa = PBXBuildFile; fileRef = F2131301FD9B40D3A0D1FC5C /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/src/gmock-all.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		B5C1A60BF299471D8A32C023 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = C87004D0F2EB441EA0650016 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/CMakeLists.txt */; settings = {COMPILER_FLAGS = ""; }; };
+		BE4AAE86B6E64B81ACC4B694 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/src/gtest-all.cc */ = {isa = PBXBuildFile; fileRef = 6CE854214CBD4F9288E7339B /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/src/gtest-all.cc */; settings = {COMPILER_FLAGS = ""; }; };
+		C008B71718324948B4443D5A /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = F8C73CA5D4DB4414B109F1EF /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/CMakeLists.txt */; settings = {COMPILER_FLAGS = ""; }; };
+		E5D66A9D0424406AB49285DA /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/src/gtest_main.cc */ = {isa = PBXBuildFile; fileRef = 4992D3A9D79D467099DAF4D7 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/src/gtest_main.cc */; settings = {COMPILER_FLAGS = ""; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		11305A73B48549BBB63FB668 = {
+			isa = PBXBuildStyle;
+		};
+		2F315DBD849A4526BDD2C462 /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		697108F686E4447BB7E58060 /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+		6FA64760B9294D148E8F2076 /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		AD7651242DDD4C8A9008CA30 /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		168CA10C71F74F688BC2CE8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE956ECDD9D54F38A9AF6E29 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C60A13F44C674DF78390149E;
+			remoteInfo = ZERO_CHECK;
+		};
+		2106410A16B1450AB2154438 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE956ECDD9D54F38A9AF6E29 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8CE0587BB9BA4402A4BF9550;
+			remoteInfo = gtest;
+		};
+		377F6741098E43BFA20872EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE956ECDD9D54F38A9AF6E29 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C60A13F44C674DF78390149E;
+			remoteInfo = ZERO_CHECK;
+		};
+		465EF8E1BE434A27A6EA9890 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE956ECDD9D54F38A9AF6E29 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7990109DECEF49FB8833975B;
+			remoteInfo = ALL_BUILD;
+		};
+		468F5F90C90A42E18348F735 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE956ECDD9D54F38A9AF6E29 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CC7E405AA8A746D994C4A44B;
+			remoteInfo = gmock;
+		};
+		824E622FAFCA42B99B517D63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE956ECDD9D54F38A9AF6E29 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 903DF869BDD2477085A83643;
+			remoteInfo = gmock_main;
+		};
+		C7A07DA082284F32B7BD530D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE956ECDD9D54F38A9AF6E29 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C60A13F44C674DF78390149E;
+			remoteInfo = ZERO_CHECK;
+		};
+		E404DC7A00694B59B72629D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE956ECDD9D54F38A9AF6E29 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8CE0587BB9BA4402A4BF9550;
+			remoteInfo = gtest;
+		};
+		ED6B2AE824064808B5894336 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE956ECDD9D54F38A9AF6E29 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDF48AE257A24421A890C4E3;
+			remoteInfo = gtest_main;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0AF3F6E645FA4CAD8E0FD80D /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/src/gtest-all.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = "gtest-all.cc"; path = "gtest/src/gtest-all.cc"; sourceTree = SOURCE_ROOT; };
+		28DA6EDC76744DE0846ACAAE /* gmock_main */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libgmock_main.a; refType = 0; sourceTree = BUILT_PRODUCTS_DIR; };
+		381E65943DF84F4F8DDDDB74 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/src/gtest-all.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = "gtest-all.cc"; path = "gtest/src/gtest-all.cc"; sourceTree = SOURCE_ROOT; };
+		4992D3A9D79D467099DAF4D7 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/src/gtest_main.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = gtest_main.cc; path = gtest/src/gtest_main.cc; sourceTree = SOURCE_ROOT; };
+		5859344F3BD449678E3680A8 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		6C118CEFDC0F47129165FA9C /* gtest */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libgtest.a; refType = 0; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CE854214CBD4F9288E7339B /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/src/gtest-all.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = "gtest-all.cc"; path = "gtest/src/gtest-all.cc"; sourceTree = SOURCE_ROOT; };
+		736F3541BBA2417A801F6CAA /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/src/gmock_main.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = gmock_main.cc; path = src/gmock_main.cc; sourceTree = SOURCE_ROOT; };
+		74D82F74E4214F8BA93A5E62 /* gmock */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libgmock.a; refType = 0; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6D6EF9717264F1882279986 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		B8B9895AE039488BA9770102 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = gtest/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		C24BA5843D4844A8965AAF2A /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		C87004D0F2EB441EA0650016 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		C90C7A6A161C454DB941E3A0 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/src/gmock-all.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = "gmock-all.cc"; path = "src/gmock-all.cc"; sourceTree = SOURCE_ROOT; };
+		E60510DE26214C8194603CD5 /* gtest_main */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libgtest_main.a; refType = 0; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2131301FD9B40D3A0D1FC5C /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/src/gmock-all.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = "gmock-all.cc"; path = "src/gmock-all.cc"; sourceTree = SOURCE_ROOT; };
+		F8C73CA5D4DB4414B109F1EF /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = gtest/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		084D140BA1DE439DAE84C79B /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				0AF3F6E645FA4CAD8E0FD80D /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/src/gtest-all.cc */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		22AABFCFF5BF4CA6ADE82B71 /* gtest_main */ = {
+			isa = PBXGroup;
+			children = (
+				B5100BCE20964C2F9DA47F9F /* Source Files */,
+				B8B9895AE039488BA9770102 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/CMakeLists.txt */,
+			);
+			name = gtest_main;
+			sourceTree = "<group>";
+		};
+		2C7CD85742EC46159B0E52D0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		533F7F1799C74EEF9A9DF94A /* gmock */ = {
+			isa = PBXGroup;
+			children = (
+				766C47C327204BA1A80C1E96 /* Source Files */,
+				C87004D0F2EB441EA0650016 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/CMakeLists.txt */,
+			);
+			name = gmock;
+			sourceTree = "<group>";
+		};
+		55F5F20D75B843A8860ACC49 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				381E65943DF84F4F8DDDDB74 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/src/gtest-all.cc */,
+				F2131301FD9B40D3A0D1FC5C /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/src/gmock-all.cc */,
+				736F3541BBA2417A801F6CAA /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/src/gmock_main.cc */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		589E544127AF4785A7BE540F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				74D82F74E4214F8BA93A5E62 /* gmock */,
+				28DA6EDC76744DE0846ACAAE /* gmock_main */,
+				6C118CEFDC0F47129165FA9C /* gtest */,
+				E60510DE26214C8194603CD5 /* gtest_main */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		658D34A6EFD749209C7F625A /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		766C47C327204BA1A80C1E96 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				6CE854214CBD4F9288E7339B /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/src/gtest-all.cc */,
+				C90C7A6A161C454DB941E3A0 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/src/gmock-all.cc */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		7E78069A5FB645A29448C929 /* gmock_main */ = {
+			isa = PBXGroup;
+			children = (
+				55F5F20D75B843A8860ACC49 /* Source Files */,
+				5859344F3BD449678E3680A8 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/CMakeLists.txt */,
+			);
+			name = gmock_main;
+			sourceTree = "<group>";
+		};
+		8858E8658D2C4A9B9E7F1E96 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		A0D076A3E25A42198E94604A = {
+			isa = PBXGroup;
+			children = (
+				D4750819AB944C729D5D3A9A /* Sources */,
+				2C7CD85742EC46159B0E52D0 /* Resources */,
+				589E544127AF4785A7BE540F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A0FCC7E9655C4348A0818124 /* ZERO_CHECK */ = {
+			isa = PBXGroup;
+			children = (
+				8858E8658D2C4A9B9E7F1E96 /* CMake Rules */,
+				C24BA5843D4844A8965AAF2A /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		B5100BCE20964C2F9DA47F9F /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				4992D3A9D79D467099DAF4D7 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/src/gtest_main.cc */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		BB92E7EDDD52479C9991DA36 /* gtest */ = {
+			isa = PBXGroup;
+			children = (
+				084D140BA1DE439DAE84C79B /* Source Files */,
+				F8C73CA5D4DB4414B109F1EF /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/CMakeLists.txt */,
+			);
+			name = gtest;
+			sourceTree = "<group>";
+		};
+		C24A1052F36343E4B40465C1 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				658D34A6EFD749209C7F625A /* CMake Rules */,
+				A6D6EF9717264F1882279986 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		D4750819AB944C729D5D3A9A /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A0FCC7E9655C4348A0818124 /* ZERO_CHECK */,
+				7E78069A5FB645A29448C929 /* gmock_main */,
+				C24A1052F36343E4B40465C1 /* ALL_BUILD */,
+				533F7F1799C74EEF9A9DF94A /* gmock */,
+				22AABFCFF5BF4CA6ADE82B71 /* gtest_main */,
+				BB92E7EDDD52479C9991DA36 /* gtest */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8CE0587BB9BA4402A4BF9550 /* gtest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A00078ADFA94C628821950C /* Build configuration list for PBXNativeTarget "gtest" */;
+			buildPhases = (
+				EA0F46773E694ADFA391CB20 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = gtest;
+			productName = gtest;
+			productReference = 6C118CEFDC0F47129165FA9C /* gtest */;
+			productType = "com.apple.product-type.library.static";
+		};
+		903DF869BDD2477085A83643 /* gmock_main */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E89B89B6C18405BB394A183 /* Build configuration list for PBXNativeTarget "gmock_main" */;
+			buildPhases = (
+				6A13F41FFD194FA9B2FAF914 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ABF84BDB240D4ABFA474E9CA /* PBXTargetDependency */,
+			);
+			name = gmock_main;
+			productName = gmock_main;
+			productReference = 28DA6EDC76744DE0846ACAAE /* gmock_main */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CC7E405AA8A746D994C4A44B /* gmock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0FB5E53619D4D53A2382753 /* Build configuration list for PBXNativeTarget "gmock" */;
+			buildPhases = (
+				E677A13306004BA18C0A6900 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				600267BF40A3422DB1D17EDC /* PBXTargetDependency */,
+			);
+			name = gmock;
+			productName = gmock;
+			productReference = 74D82F74E4214F8BA93A5E62 /* gmock */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EDF48AE257A24421A890C4E3 /* gtest_main */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7B8D6705EA84CFCAECD1324 /* Build configuration list for PBXNativeTarget "gtest_main" */;
+			buildPhases = (
+				2560A737526245BCA16BEDDA /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				178FC2613D854BC09CEB784E /* PBXTargetDependency */,
+			);
+			name = gtest_main;
+			productName = gtest_main;
+			productReference = E60510DE26214C8194603CD5 /* gtest_main */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AE956ECDD9D54F38A9AF6E29 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+			};
+			buildConfigurationList = ED3B9A81BC9F40ACBA171828 /* Build configuration list for PBXProject "gmock" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				6FA64760B9294D148E8F2076 /* Debug */,
+				2F315DBD849A4526BDD2C462 /* Release */,
+				AD7651242DDD4C8A9008CA30 /* MinSizeRel */,
+				697108F686E4447BB7E58060 /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = A0D076A3E25A42198E94604A;
+			projectDirPath = "../../yaml-cpp/test/gmock-1.7.0";
+			projectRoot = "";
+			targets = (
+				7990109DECEF49FB8833975B /* ALL_BUILD */,
+				AC738A4573DF45CD9732DA16 /* RUN_TESTS */,
+				C60A13F44C674DF78390149E /* ZERO_CHECK */,
+				CC7E405AA8A746D994C4A44B /* gmock */,
+				903DF869BDD2477085A83643 /* gmock_main */,
+				4480A807A37D4A03BB173F77 /* install */,
+				8CE0587BB9BA4402A4BF9550 /* gtest */,
+				EDF48AE257A24421A890C4E3 /* gtest_main */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06026A85AD924C199D522F34 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		297C07E3F34E4422A52BEFA1 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0 -f /Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		3016CF6A2B494FEE991E6DC1 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0 -f /Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/CMakeScripts/install_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		31FA3807D9594F06A428AB5E = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		57E9905F13CE45E5982A52D4 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0 -f /Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/CMakeScripts/RUN_TESTS_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		6F02E07FB10B46F680E85DF0 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		B78F03946A3148D6B4402387 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0 -f /Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		EF0C650326E2462CBB8FCF8F = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2560A737526245BCA16BEDDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5D66A9D0424406AB49285DA /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/src/gtest_main.cc */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A13F41FFD194FA9B2FAF914 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B117B87452F4F439E5CD7EF /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/src/gtest-all.cc */,
+				7922B531D171475D984791DB /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/src/gmock-all.cc */,
+				52BDE7BCC426416FA10DE678 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/src/gmock_main.cc */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E677A13306004BA18C0A6900 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE4AAE86B6E64B81ACC4B694 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/src/gtest-all.cc */,
+				1C3530EDB0E34CC1B03BC928 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/src/gmock-all.cc */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA0F46773E694ADFA391CB20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FEDBE3B6DF741B7B7632467 /* /Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/src/gtest-all.cc */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0AB544D4C4C248F698BA3794 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8CE0587BB9BA4402A4BF9550 /* gtest */;
+			targetProxy = E404DC7A00694B59B72629D8 /* PBXContainerItemProxy */;
+		};
+		170F655409A4411882444656 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 903DF869BDD2477085A83643 /* gmock_main */;
+			targetProxy = 824E622FAFCA42B99B517D63 /* PBXContainerItemProxy */;
+		};
+		178FC2613D854BC09CEB784E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8CE0587BB9BA4402A4BF9550 /* gtest */;
+			targetProxy = 2106410A16B1450AB2154438 /* PBXContainerItemProxy */;
+		};
+		33058FF870EF42BB80D7D01B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C60A13F44C674DF78390149E /* ZERO_CHECK */;
+			targetProxy = 168CA10C71F74F688BC2CE8A /* PBXContainerItemProxy */;
+		};
+		3602BB8CCE9D4AF5ABF23356 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CC7E405AA8A746D994C4A44B /* gmock */;
+			targetProxy = 468F5F90C90A42E18348F735 /* PBXContainerItemProxy */;
+		};
+		3D632DFE670C4B4C9C23DF2F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7990109DECEF49FB8833975B /* ALL_BUILD */;
+			targetProxy = 465EF8E1BE434A27A6EA9890 /* PBXContainerItemProxy */;
+		};
+		600267BF40A3422DB1D17EDC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C60A13F44C674DF78390149E /* ZERO_CHECK */;
+			targetProxy = C7A07DA082284F32B7BD530D /* PBXContainerItemProxy */;
+		};
+		ABF84BDB240D4ABFA474E9CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C60A13F44C674DF78390149E /* ZERO_CHECK */;
+			targetProxy = 377F6741098E43BFA20872EB /* PBXContainerItemProxy */;
+		};
+		FB0B24CFD8134934BCE249AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDF48AE257A24421A890C4E3 /* gtest_main */;
+			targetProxy = ED6B2AE824064808B5894336 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0681D21949A74E02B059EDF2 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = RUN_TESTS;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		0B6130844CF747CA8F61097C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = RUN_TESTS;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		0B739515A1CD4DD69A053552 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		194AF378393440D1B3D72878 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "     -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gtest_main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/gtest";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		22701F9A5DB243E0A75DED31 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		27928D1B94194B1AA7299536 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		2B6E0B8CFCE94CF3954F0FD7 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "      -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gtest;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/gtest";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		3110B804B0BF45DAB27AC541 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/build";
+			};
+			name = Debug;
+		};
+		31C63DACB8C646C98CE7C74C /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "      -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gmock_main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		36D776B9DEBE46CD8384EEDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "      -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gtest_main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/gtest";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		3E955E106C9941DBA46A992D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		3FFFC27412664BB1B52A0FDD /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "         -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gtest;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/gtest";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		461D9FEFDE534A469B1D54E4 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = RUN_TESTS;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		5F8FBE236307455885ACC09C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		634AA9764B9F43D8BA02D61A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "      -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gtest;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/gtest";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		70BC3FE756AB455A8C6E785B /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/build";
+			};
+			name = RelWithDebInfo;
+		};
+		77C57CE1B44D42CA9C1A68D9 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/build";
+			};
+			name = MinSizeRel;
+		};
+		7D399770CB1D435291FF7C0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = RUN_TESTS;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		873D129E811449BD8647E16F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "     -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gtest;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/gtest";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		8C209A0358DF4A77ACBCD5F5 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		922CAE5A64784D00AD3DADBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "      -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gmock_main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		9A09D71010044066B781F782 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "      -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gtest_main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/gtest";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		A83352F1957E442C998ECFC2 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "         -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gmock_main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		AEA4DF3979B2457985305C54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		B02F02A3B736466D8CAB8626 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		B6F623425B31467D8C4A518B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		B9815C73D9894845BD3AA22D /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		BF386A2500794D319FA0A0E1 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "         -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gtest_main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/gtest";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		C09972ACCC944E66A5052E96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "     -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gmock;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		C8AD1088C214400485F3B30B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "      -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gmock;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		CD6C3930483543BC853C55E8 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "      -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gmock;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		E1E9BC0723274CE1938C5585 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "         -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gmock;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		EBC51CFDD3AD41E2AA3D5090 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/build";
+			};
+			name = Release;
+		};
+		EDEA7972FBBA41DBAD271B74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		F1BB9778688E4F3BA4ED359D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		F73729C5A7BD41AF9447FC36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/src", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest/include", "/Users/Martin/Development/Libraries/YAML/Core/yaml-cpp/test/gmock-1.7.0/gtest", );
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "     -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gmock_main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18C37077C91C44F5B79B5C4B /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEA4DF3979B2457985305C54 /* Debug */,
+				5F8FBE236307455885ACC09C /* Release */,
+				B02F02A3B736466D8CAB8626 /* MinSizeRel */,
+				22701F9A5DB243E0A75DED31 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		19857BB080F64A2F99EF5948 /* Build configuration list for PBXAggregateTarget "install" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDEA7972FBBA41DBAD271B74 /* Debug */,
+				F1BB9778688E4F3BA4ED359D /* Release */,
+				8C209A0358DF4A77ACBCD5F5 /* MinSizeRel */,
+				0B739515A1CD4DD69A053552 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		1E89B89B6C18405BB394A183 /* Build configuration list for PBXNativeTarget "gmock_main" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F73729C5A7BD41AF9447FC36 /* Debug */,
+				922CAE5A64784D00AD3DADBE /* Release */,
+				31C63DACB8C646C98CE7C74C /* MinSizeRel */,
+				A83352F1957E442C998ECFC2 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		520B5B3993FF4DF695C800D5 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E955E106C9941DBA46A992D /* Debug */,
+				B6F623425B31467D8C4A518B /* Release */,
+				B9815C73D9894845BD3AA22D /* MinSizeRel */,
+				27928D1B94194B1AA7299536 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7A00078ADFA94C628821950C /* Build configuration list for PBXNativeTarget "gtest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				873D129E811449BD8647E16F /* Debug */,
+				634AA9764B9F43D8BA02D61A /* Release */,
+				2B6E0B8CFCE94CF3954F0FD7 /* MinSizeRel */,
+				3FFFC27412664BB1B52A0FDD /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AC789D8023664A54B42357FD /* Build configuration list for PBXAggregateTarget "RUN_TESTS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B6130844CF747CA8F61097C /* Debug */,
+				7D399770CB1D435291FF7C0A /* Release */,
+				461D9FEFDE534A469B1D54E4 /* MinSizeRel */,
+				0681D21949A74E02B059EDF2 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B7B8D6705EA84CFCAECD1324 /* Build configuration list for PBXNativeTarget "gtest_main" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				194AF378393440D1B3D72878 /* Debug */,
+				36D776B9DEBE46CD8384EEDF /* Release */,
+				9A09D71010044066B781F782 /* MinSizeRel */,
+				BF386A2500794D319FA0A0E1 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C0FB5E53619D4D53A2382753 /* Build configuration list for PBXNativeTarget "gmock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C09972ACCC944E66A5052E96 /* Debug */,
+				C8AD1088C214400485F3B30B /* Release */,
+				CD6C3930483543BC853C55E8 /* MinSizeRel */,
+				E1E9BC0723274CE1938C5585 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		ED3B9A81BC9F40ACBA171828 /* Build configuration list for PBXProject "gmock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3110B804B0BF45DAB27AC541 /* Debug */,
+				EBC51CFDD3AD41E2AA3D5090 /* Release */,
+				77C57CE1B44D42CA9C1A68D9 /* MinSizeRel */,
+				70BC3FE756AB455A8C6E785B /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AE956ECDD9D54F38A9AF6E29 /* Project object */;
+}
