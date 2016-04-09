@@ -1235,19 +1235,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				HEADER_SEARCH_PATHS = (
 					$inherited,
 					"test/gmock-1.7.0/gtest/**",
 				);
-				OTHER_CPLUSPLUSFLAGS = "     -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_CPLUSPLUSFLAGS = "-DGTEST_HAS_PTHREAD=1";
 				PRODUCT_NAME = gtest_main;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
 			};
 			name = Debug;
 		};
@@ -1255,18 +1248,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				HEADER_SEARCH_PATHS = (
 					$inherited,
 					"test/gmock-1.7.0/**",
 				);
-				OTHER_CPLUSPLUSFLAGS = "      -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_CPLUSPLUSFLAGS = "-DGTEST_HAS_PTHREAD=1";
 				PRODUCT_NAME = gmock;
 				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
+					$inherited,
+					"-Wno-missing-field-initializers",
 				);
 			};
 			name = Release;
@@ -1274,37 +1264,21 @@
 		2BB73165B3A3457A94772FC7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				PRODUCT_NAME = ALL_BUILD;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
 			};
 			name = Release;
 		};
 		2C949E2CBC9048629EEE6FCE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				PRODUCT_NAME = ZERO_CHECK;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
 			};
 			name = Debug;
 		};
 		30A27A6D882B4F52A54B9831 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				MACH_O_TYPE = mh_execute;
-				OTHER_CPLUSPLUSFLAGS = "   -std=c++11  ";
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
@@ -1312,10 +1286,8 @@
 				);
 				PRODUCT_NAME = read;
 				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
+					$inherited,
+					"-Wno-unused-parameter",
 				);
 			};
 			name = Debug;
@@ -1323,23 +1295,14 @@
 		45224A3150A846149D9A361E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				PRODUCT_NAME = ZERO_CHECK;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
 			};
 			name = Release;
 		};
 		4A14483AEE0D4EFF95B077E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				MACH_O_TYPE = mh_execute;
-				OTHER_CPLUSPLUSFLAGS = "   -std=c++11  ";
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
@@ -1347,10 +1310,8 @@
 				);
 				PRODUCT_NAME = sandbox;
 				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
+					$inherited,
+					"-Wno-unused-parameter",
 				);
 			};
 			name = Debug;
@@ -1358,12 +1319,14 @@
 		4D54B2599E604132923FE1F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_PEDANTIC = YES;
 				HEADER_SEARCH_PATHS = (
 					include,
 					src,
@@ -1372,6 +1335,11 @@
 				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
 				SKIP_INSTALL = YES;
 				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Wmost",
+				);
 			};
 			name = Debug;
 		};
@@ -1379,18 +1347,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				HEADER_SEARCH_PATHS = (
 					$inherited,
 					"test/gmock-1.7.0/**",
 				);
-				OTHER_CPLUSPLUSFLAGS = "      -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_CPLUSPLUSFLAGS = "-DGTEST_HAS_PTHREAD=1";
 				PRODUCT_NAME = gmock_main;
 				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
+					$inherited,
+					"-Wno-missing-field-initializers",
 				);
 			};
 			name = Release;
@@ -1398,14 +1363,7 @@
 		5C359981BAE2470287B031DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				PRODUCT_NAME = install;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
 			};
 			name = Debug;
 		};
@@ -1413,49 +1371,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
-				OTHER_CPLUSPLUSFLAGS = (
-					"-Wall",
-					"-Wextra",
-					"-pedantic",
-					"-Wno-long-long",
-					"-std=c++11",
-				);
 				PRODUCT_NAME = "yaml-cpp";
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
 			};
 			name = Debug;
 		};
 		73D42D2AA5CF40DA81CB54CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				PRODUCT_NAME = install;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
 			};
 			name = Release;
 		};
 		78A5F830B4B040F1B96751B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				PRODUCT_NAME = RUN_TESTS;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
 			};
 			name = Release;
 		};
@@ -1463,19 +1393,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				HEADER_SEARCH_PATHS = (
 					$inherited,
 					"test/gmock-1.7.0/gtest/**",
 				);
-				OTHER_CPLUSPLUSFLAGS = "      -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_CPLUSPLUSFLAGS = "-DGTEST_HAS_PTHREAD=1";
 				PRODUCT_NAME = gtest_main;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
 			};
 			name = Release;
 		};
@@ -1483,56 +1406,27 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
-				OTHER_CPLUSPLUSFLAGS = (
-					"-Wall",
-					"-Wextra",
-					"-pedantic",
-					"-Wno-long-long",
-					"-std=c++11",
-				);
 				PRODUCT_NAME = "yaml-cpp";
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
 			};
 			name = Release;
 		};
 		7E033451B933439E823A1625 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				MACH_O_TYPE = mh_execute;
-				OTHER_CPLUSPLUSFLAGS = "    -std=c++11  ";
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
 					"$(CONFIGURATION_BUILD_DIR)/libyaml-cpp.a",
 				);
 				PRODUCT_NAME = parse;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
 			};
 			name = Release;
 		};
 		8B9FE660AF294EDF9FFD0FF9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				PRODUCT_NAME = ALL_BUILD;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
 			};
 			name = Debug;
 		};
@@ -1540,18 +1434,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				HEADER_SEARCH_PATHS = (
 					$inherited,
 					"test/gmock-1.7.0/**",
 				);
-				OTHER_CPLUSPLUSFLAGS = "     -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_CPLUSPLUSFLAGS = "-DGTEST_HAS_PTHREAD=1";
 				PRODUCT_NAME = gmock;
 				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
+					$inherited,
+					"-Wno-missing-field-initializers",
 				);
 			};
 			name = Debug;
@@ -1559,37 +1450,18 @@
 		A5B3213D9979415FB513C069 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				PRODUCT_NAME = format;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
 			};
 			name = Debug;
 		};
 		C8AE4466A8B3407F944B5A25 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				HEADER_SEARCH_PATHS = (
 					$inherited,
 					"test/**",
 				);
 				MACH_O_TYPE = mh_execute;
-				OTHER_CPLUSPLUSFLAGS = (
-					"-Wall",
-					"-Wextra",
-					"-pedantic",
-					"-Wno-long-long",
-					"-std=c++11",
-					"-Wno-c99-extensions",
-					"-Wno-variadic-macros",
-					"-Wno-sign-compare",
-					"-std=c++11",
-				);
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
@@ -1598,10 +1470,8 @@
 				);
 				PRODUCT_NAME = "run-tests";
 				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
+					$inherited,
+					"-Wno-sign-compare",
 				);
 			};
 			name = Release;
@@ -1609,11 +1479,13 @@
 		D31F7BC9E3264E7FBB7BF826 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_PEDANTIC = YES;
 				HEADER_SEARCH_PATHS = (
 					include,
 					src,
@@ -1622,43 +1494,29 @@
 				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
 				SKIP_INSTALL = YES;
 				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Wmost",
+				);
 			};
 			name = Release;
 		};
 		D40E0914A5E94D73A00CAB53 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				PRODUCT_NAME = format;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
 			};
 			name = Release;
 		};
 		E91FA0231D7A4C5D8E8DF516 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				HEADER_SEARCH_PATHS = (
 					$inherited,
 					"test/**",
 				);
 				MACH_O_TYPE = mh_execute;
-				OTHER_CPLUSPLUSFLAGS = (
-					"-Wall",
-					"-Wextra",
-					"-pedantic",
-					"-Wno-long-long",
-					"-std=c++11",
-					"-Wno-c99-extensions",
-					"-Wno-variadic-macros",
-					"-Wno-sign-compare",
-					"-std=c++11",
-				);
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
@@ -1667,10 +1525,8 @@
 				);
 				PRODUCT_NAME = "run-tests";
 				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
+					$inherited,
+					"-Wno-sign-compare",
 				);
 			};
 			name = Debug;
@@ -1679,18 +1535,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				HEADER_SEARCH_PATHS = (
 					$inherited,
 					"test/gmock-1.7.0/**",
 				);
-				OTHER_CPLUSPLUSFLAGS = "     -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_CPLUSPLUSFLAGS = "-DGTEST_HAS_PTHREAD=1";
 				PRODUCT_NAME = gmock_main;
 				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
+					$inherited,
+					"-Wno-missing-field-initializers",
 				);
 			};
 			name = Debug;
@@ -1698,9 +1551,7 @@
 		EC5A18E6677C47958DEC98B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				MACH_O_TYPE = mh_execute;
-				OTHER_CPLUSPLUSFLAGS = "    -std=c++11  ";
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
@@ -1708,10 +1559,8 @@
 				);
 				PRODUCT_NAME = sandbox;
 				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
+					$inherited,
+					"-Wno-unused-parameter",
 				);
 			};
 			name = Release;
@@ -1720,18 +1569,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				HEADER_SEARCH_PATHS = (
 					$inherited,
 					"test/gmock-1.7.0/gtest/**",
 				);
-				OTHER_CPLUSPLUSFLAGS = "      -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_CPLUSPLUSFLAGS = "-DGTEST_HAS_PTHREAD=1";
 				PRODUCT_NAME = gtest;
 				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
+					$inherited,
+					"-Wno-missing-field-initializers",
 				);
 			};
 			name = Release;
@@ -1739,35 +1585,20 @@
 		F23603687AB9487FA2D39FFB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				MACH_O_TYPE = mh_execute;
-				OTHER_CPLUSPLUSFLAGS = "   -std=c++11  ";
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
 					"$(CONFIGURATION_BUILD_DIR)/libyaml-cpp.a",
 				);
 				PRODUCT_NAME = parse;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
 			};
 			name = Debug;
 		};
 		F3659D0A6069482C811921B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				PRODUCT_NAME = RUN_TESTS;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
 			};
 			name = Debug;
 		};
@@ -1775,18 +1606,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				HEADER_SEARCH_PATHS = (
 					$inherited,
 					"test/gmock-1.7.0/gtest/**",
 				);
-				OTHER_CPLUSPLUSFLAGS = "     -DGTEST_HAS_PTHREAD=1    ";
+				OTHER_CPLUSPLUSFLAGS = "-DGTEST_HAS_PTHREAD=1";
 				PRODUCT_NAME = gtest;
 				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
+					$inherited,
+					"-Wno-missing-field-initializers",
 				);
 			};
 			name = Debug;
@@ -1794,9 +1622,7 @@
 		FF24968097574E2CB943B013 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				MACH_O_TYPE = mh_execute;
-				OTHER_CPLUSPLUSFLAGS = "    -std=c++11  ";
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
@@ -1804,10 +1630,8 @@
 				);
 				PRODUCT_NAME = read;
 				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
+					$inherited,
+					"-Wno-unused-parameter",
 				);
 			};
 			name = Release;
