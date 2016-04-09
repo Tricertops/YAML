@@ -1253,7 +1253,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = gmock;
 				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1277,7 +1276,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = RUN_TESTS;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1309,7 +1307,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = gtest_main;
 				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/gtest";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1336,12 +1333,11 @@
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
-					"/Users/Martin/Development/Libraries/YAML/Core/RelWithDebInfo/libyaml-cpp.a",
+					"$(CONFIGURATION_BUILD_DIR)/libyaml-cpp.a",
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = sandbox;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core/util;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1360,7 +1356,6 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core/build;
 				USE_HEADERMAP = NO;
 			};
 			name = MinSizeRel;
@@ -1379,7 +1374,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = format;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1411,7 +1405,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = gmock;
 				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1435,7 +1428,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = ALL_BUILD;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1459,7 +1451,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = ZERO_CHECK;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1486,12 +1477,11 @@
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
-					"/Users/Martin/Development/Libraries/YAML/Core/Debug/libyaml-cpp.a",
+					"$(CONFIGURATION_BUILD_DIR)/libyaml-cpp.a",
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = read;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core/util;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1515,7 +1505,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = format;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1539,7 +1528,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = install;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1573,7 +1561,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = "yaml-cpp";
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1597,7 +1584,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = ZERO_CHECK;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1624,12 +1610,11 @@
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
-					"/Users/Martin/Development/Libraries/YAML/Core/Debug/libyaml-cpp.a",
+					"$(CONFIGURATION_BUILD_DIR)/libyaml-cpp.a",
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = sandbox;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core/util;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1648,7 +1633,6 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core/build;
 				USE_HEADERMAP = NO;
 			};
 			name = Debug;
@@ -1675,7 +1659,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = gmock_main;
 				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1699,7 +1682,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = install;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1726,12 +1708,11 @@
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
-					"/Users/Martin/Development/Libraries/YAML/Core/RelWithDebInfo/libyaml-cpp.a",
+					"$(CONFIGURATION_BUILD_DIR)/libyaml-cpp.a",
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = read;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core/util;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1755,7 +1736,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = install;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1789,7 +1769,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = "yaml-cpp";
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1808,7 +1787,6 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core/build;
 				USE_HEADERMAP = NO;
 			};
 			name = RelWithDebInfo;
@@ -1827,7 +1805,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = install;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1851,7 +1828,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = RUN_TESTS;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1883,7 +1859,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = gtest_main;
 				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/gtest";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1917,7 +1892,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = "yaml-cpp";
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1958,13 +1932,12 @@
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
-					"/Users/Martin/Development/Libraries/YAML/Core/RelWithDebInfo/libyaml-cpp.a",
-					"/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/RelWithDebInfo/libgmock.a",
+					"$(CONFIGURATION_BUILD_DIR)/libyaml-cpp.a",
+					"$(CONFIGURATION_BUILD_DIR)/libgmock.a",
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = "run-tests";
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core/test;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1991,12 +1964,11 @@
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
-					"/Users/Martin/Development/Libraries/YAML/Core/Release/libyaml-cpp.a",
+					"$(CONFIGURATION_BUILD_DIR)/libyaml-cpp.a",
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = parse;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core/util;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2023,12 +1995,11 @@
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
-					"/Users/Martin/Development/Libraries/YAML/Core/MinSizeRel/libyaml-cpp.a",
+					"$(CONFIGURATION_BUILD_DIR)/libyaml-cpp.a",
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = parse;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core/util;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2052,7 +2023,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = ALL_BUILD;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2076,7 +2046,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = ALL_BUILD;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2100,7 +2069,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = ALL_BUILD;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2132,7 +2100,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = gtest;
 				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/gtest";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2164,7 +2131,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = gmock;
 				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2196,7 +2162,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = gmock;
 				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2230,7 +2195,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = "yaml-cpp";
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2254,7 +2218,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = format;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2286,7 +2249,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = gtest_main;
 				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/gtest";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2318,7 +2280,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = gtest_main;
 				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/gtest";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2350,7 +2311,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = gtest;
 				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/gtest";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2382,7 +2342,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = gmock_main;
 				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2414,7 +2373,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = gmock_main;
 				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2455,13 +2413,12 @@
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
-					"/Users/Martin/Development/Libraries/YAML/Core/Release/libyaml-cpp.a",
-					"/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/Release/libgmock.a",
+					"$(CONFIGURATION_BUILD_DIR)/libyaml-cpp.a",
+					"$(CONFIGURATION_BUILD_DIR)/libgmock.a",
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = "run-tests";
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core/test;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2485,7 +2442,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = ZERO_CHECK;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2509,7 +2465,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = RUN_TESTS;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2536,12 +2491,11 @@
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
-					"/Users/Martin/Development/Libraries/YAML/Core/MinSizeRel/libyaml-cpp.a",
+					"$(CONFIGURATION_BUILD_DIR)/libyaml-cpp.a",
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = read;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core/util;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2560,7 +2514,6 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core/build;
 				USE_HEADERMAP = NO;
 			};
 			name = Release;
@@ -2579,7 +2532,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = format;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2606,12 +2558,11 @@
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
-					"/Users/Martin/Development/Libraries/YAML/Core/RelWithDebInfo/libyaml-cpp.a",
+					"$(CONFIGURATION_BUILD_DIR)/libyaml-cpp.a",
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = parse;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core/util;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2652,13 +2603,12 @@
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
-					"/Users/Martin/Development/Libraries/YAML/Core/MinSizeRel/libyaml-cpp.a",
-					"/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/MinSizeRel/libgmock.a",
+					"$(CONFIGURATION_BUILD_DIR)/libyaml-cpp.a",
+					"$(CONFIGURATION_BUILD_DIR)/libgmock.a",
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = "run-tests";
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core/test;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2699,13 +2649,12 @@
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
-					"/Users/Martin/Development/Libraries/YAML/Core/Debug/libyaml-cpp.a",
-					"/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/Debug/libgmock.a",
+					"$(CONFIGURATION_BUILD_DIR)/libyaml-cpp.a",
+					"$(CONFIGURATION_BUILD_DIR)/libgmock.a",
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = "run-tests";
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core/test;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2732,12 +2681,11 @@
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
-					"/Users/Martin/Development/Libraries/YAML/Core/MinSizeRel/libyaml-cpp.a",
+					"$(CONFIGURATION_BUILD_DIR)/libyaml-cpp.a",
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = sandbox;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core/util;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2769,7 +2717,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = gmock_main;
 				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2796,12 +2743,11 @@
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
-					"/Users/Martin/Development/Libraries/YAML/Core/Release/libyaml-cpp.a",
+					"$(CONFIGURATION_BUILD_DIR)/libyaml-cpp.a",
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = sandbox;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core/util;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2833,7 +2779,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = gtest;
 				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/gtest";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2860,12 +2805,11 @@
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
-					"/Users/Martin/Development/Libraries/YAML/Core/Debug/libyaml-cpp.a",
+					"$(CONFIGURATION_BUILD_DIR)/libyaml-cpp.a",
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = parse;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core/util;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2889,7 +2833,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = RUN_TESTS;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2921,7 +2864,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = gtest;
 				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/Martin/Development/Libraries/YAML/Core/test/gmock-1.7.0/gtest";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2945,7 +2887,6 @@
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = ZERO_CHECK;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -2972,12 +2913,11 @@
 				OTHER_LDFLAGS = (
 					"-Wl,-search_paths_first",
 					"-Wl,-headerpad_max_install_names",
-					"/Users/Martin/Development/Libraries/YAML/Core/Release/libyaml-cpp.a",
+					"$(CONFIGURATION_BUILD_DIR)/libyaml-cpp.a",
 				);
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = read;
 				SECTORDER_FLAGS = "";
-				SYMROOT = /Users/Martin/Development/Libraries/YAML/Core/util;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
