@@ -1,5 +1,5 @@
 //
-//  Bridge.h
+//  YAMLBridge.h
 //  YAML Bridge
 //
 //  Created by Martin Kiss on 9.4.16.

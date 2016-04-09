@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5B10ED951CB958F900B1B74C"
-               BuildableName = "YAMLBridge.framework"
-               BlueprintName = "YAML Bridge"
+               BlueprintIdentifier = "5B10EDC81CB95B7000B1B74C"
+               BuildableName = "YAMLCore.framework"
+               BlueprintName = "YAML Core"
                ReferencedContainer = "container:YAML.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,26 +28,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5B10ED9E1CB958F900B1B74C"
-               BuildableName = "YAMLBridgeTests.xctest"
-               BlueprintName = "YAML Bridge Tests"
-               ReferencedContainer = "container:YAML.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5B10ED951CB958F900B1B74C"
-            BuildableName = "YAMLBridge.framework"
-            BlueprintName = "YAML Bridge"
-            ReferencedContainer = "container:YAML.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -64,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5B10ED951CB958F900B1B74C"
-            BuildableName = "YAMLBridge.framework"
-            BlueprintName = "YAML Bridge"
+            BlueprintIdentifier = "5B10EDC81CB95B7000B1B74C"
+            BuildableName = "YAMLCore.framework"
+            BlueprintName = "YAML Core"
             ReferencedContainer = "container:YAML.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5B10ED951CB958F900B1B74C"
-            BuildableName = "YAMLBridge.framework"
-            BlueprintName = "YAML Bridge"
+            BlueprintIdentifier = "5B10EDC81CB95B7000B1B74C"
+            BuildableName = "YAMLCore.framework"
+            BlueprintName = "YAML Core"
             ReferencedContainer = "container:YAML.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
