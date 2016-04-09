@@ -6,11 +6,78 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		5BF0AA851CB907910043126F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BF0AA741CB907910043126F /* YAML_CPP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6D1278E166A4416E85B9DFD0;
+			remoteInfo = "yaml-cpp";
+		};
+		5BF0AA871CB907910043126F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BF0AA741CB907910043126F /* YAML_CPP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9D55B1EC7FEF4C7BA4BEB595;
+			remoteInfo = "run-tests";
+		};
+		5BF0AA891CB907910043126F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BF0AA741CB907910043126F /* YAML_CPP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F6C1BCFB54C64A90940A5CD1;
+			remoteInfo = gmock;
+		};
+		5BF0AA8B1CB907910043126F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BF0AA741CB907910043126F /* YAML_CPP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DB9CB0CB97A441CF93D19002;
+			remoteInfo = gmock_main;
+		};
+		5BF0AA8D1CB907910043126F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BF0AA741CB907910043126F /* YAML_CPP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5B6854E9D59146289FB30549;
+			remoteInfo = gtest;
+		};
+		5BF0AA8F1CB907910043126F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BF0AA741CB907910043126F /* YAML_CPP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 64D358E9917C4BF394C112B6;
+			remoteInfo = gtest_main;
+		};
+		5BF0AA911CB907910043126F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BF0AA741CB907910043126F /* YAML_CPP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EAAEA47187A3413E824BB835;
+			remoteInfo = parse;
+		};
+		5BF0AA931CB907910043126F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BF0AA741CB907910043126F /* YAML_CPP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7E29294DD88141E0ADA2377A;
+			remoteInfo = read;
+		};
+		5BF0AA951CB907910043126F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BF0AA741CB907910043126F /* YAML_CPP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3E0700ED27704BB48C002651;
+			remoteInfo = sandbox;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		5BF0AA511CB8FCFF0043126F /* YAMLBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YAMLBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF0AA531CB8FCFF0043126F /* YAMLBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YAMLBridge.h; sourceTree = "<group>"; };
 		5BF0AA551CB8FCFF0043126F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BF0AA6F1CB903ED0043126F /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		5BF0AA741CB907910043126F /* YAML_CPP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YAML_CPP.xcodeproj; path = Core/YAML_CPP.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				5BF0AA521CB8FCFF0043126F /* Bridge */,
+				5BF0AA971CB907970043126F /* Core */,
 				5BF0AA421CB8FCCB0043126F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,6 +116,30 @@
 				5BF0AA531CB8FCFF0043126F /* YAMLBridge.h */,
 			);
 			path = Bridge;
+			sourceTree = "<group>";
+		};
+		5BF0AA751CB907910043126F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5BF0AA861CB907910043126F /* libyaml-cpp.a */,
+				5BF0AA881CB907910043126F /* run-tests */,
+				5BF0AA8A1CB907910043126F /* libgmock.a */,
+				5BF0AA8C1CB907910043126F /* libgmock_main.a */,
+				5BF0AA8E1CB907910043126F /* libgtest.a */,
+				5BF0AA901CB907910043126F /* libgtest_main.a */,
+				5BF0AA921CB907910043126F /* parse */,
+				5BF0AA941CB907910043126F /* read */,
+				5BF0AA961CB907910043126F /* sandbox */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5BF0AA971CB907970043126F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				5BF0AA741CB907910043126F /* YAML_CPP.xcodeproj */,
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -105,12 +197,84 @@
 			mainGroup = 5BF0AA371CB8FCCB0043126F;
 			productRefGroup = 5BF0AA421CB8FCCB0043126F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5BF0AA751CB907910043126F /* Products */;
+					ProjectRef = 5BF0AA741CB907910043126F /* YAML_CPP.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5BF0AA501CB8FCFF0043126F /* YAML Bridge */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5BF0AA861CB907910043126F /* libyaml-cpp.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libyaml-cpp.a";
+			remoteRef = 5BF0AA851CB907910043126F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5BF0AA881CB907910043126F /* run-tests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "run-tests";
+			remoteRef = 5BF0AA871CB907910043126F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5BF0AA8A1CB907910043126F /* libgmock.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libgmock.a;
+			remoteRef = 5BF0AA891CB907910043126F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5BF0AA8C1CB907910043126F /* libgmock_main.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libgmock_main.a;
+			remoteRef = 5BF0AA8B1CB907910043126F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5BF0AA8E1CB907910043126F /* libgtest.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libgtest.a;
+			remoteRef = 5BF0AA8D1CB907910043126F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5BF0AA901CB907910043126F /* libgtest_main.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libgtest_main.a;
+			remoteRef = 5BF0AA8F1CB907910043126F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5BF0AA921CB907910043126F /* parse */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = parse;
+			remoteRef = 5BF0AA911CB907910043126F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5BF0AA941CB907910043126F /* read */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = read;
+			remoteRef = 5BF0AA931CB907910043126F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5BF0AA961CB907910043126F /* sandbox */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = sandbox;
+			remoteRef = 5BF0AA951CB907910043126F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5BF0AA4F1CB8FCFF0043126F /* Resources */ = {
