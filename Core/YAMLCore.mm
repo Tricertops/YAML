@@ -6,27 +6,7 @@
 //  Copyright © 2016 Tricertops. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wextra-semi"
-
-#import "yaml-cpp/yaml.h"
-
-#pragma clang diagnostic pop
-
-
-
-@interface YAMLCore : NSObject
-
-@end
-
-
-@implementation YAMLCore
-
-+ (void)link {
-    YAML::LoadAll("");
-}
-
-@end
+//! Framework needs to contains at least one implementation file. Otherwise it won’t link properly.
+//! Also notice the “Other Linker Flag: -all_load” to force linking whole libyaml-cpp.a library.
 

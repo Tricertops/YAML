@@ -7,10 +7,8 @@
 //
 
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wextra-semi"
+//! This framework contains C++ library with official YAML implementation.
+
 
 #import "yaml-cpp/yaml.h"
-
-#pragma clang diagnostic pop
 
