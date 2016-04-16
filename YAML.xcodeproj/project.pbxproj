@@ -18,8 +18,7 @@
 		5B54D5A01CC22EC800DA0729 /* YAMLEmitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B54D59E1CC22EC800DA0729 /* YAMLEmitter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B54D5A11CC22EC800DA0729 /* YAMLEmitter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5B54D59F1CC22EC800DA0729 /* YAMLEmitter.mm */; };
 		5B54D5B01CC232E900DA0729 /* YAMLEmitterStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B54D5AF1CC2311100DA0729 /* YAMLEmitterStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5B54D5B21CC2358E00DA0729 /* YAMLBridgeDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B54D5B11CC2358E00DA0729 /* YAMLBridgeDefines.h */; };
-		5B54D5B41CC24CAE00DA0729 /* YAMLEmitterStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B54D5B31CC24CAE00DA0729 /* YAMLEmitterStyle.m */; };
+		5B54D5B21CC2358E00DA0729 /* YAMLBridgeDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B54D5B11CC2358E00DA0729 /* YAMLBridgeDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,7 +124,6 @@
 		5B54D59F1CC22EC800DA0729 /* YAMLEmitter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YAMLEmitter.mm; sourceTree = "<group>"; };
 		5B54D5AF1CC2311100DA0729 /* YAMLEmitterStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YAMLEmitterStyle.h; sourceTree = "<group>"; };
 		5B54D5B11CC2358E00DA0729 /* YAMLBridgeDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAMLBridgeDefines.h; sourceTree = "<group>"; };
-		5B54D5B31CC24CAE00DA0729 /* YAMLEmitterStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAMLEmitterStyle.m; sourceTree = "<group>"; };
 		5BF0AA741CB907910043126F /* YAML_CPP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = YAML_CPP.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,7 +162,6 @@
 				5B10ED981CB958F900B1B74C /* YAMLBridge.h */,
 				5B54D5B11CC2358E00DA0729 /* YAMLBridgeDefines.h */,
 				5B54D5AF1CC2311100DA0729 /* YAMLEmitterStyle.h */,
-				5B54D5B31CC24CAE00DA0729 /* YAMLEmitterStyle.m */,
 				5B54D59E1CC22EC800DA0729 /* YAMLEmitter.h */,
 				5B54D59F1CC22EC800DA0729 /* YAMLEmitter.mm */,
 				5B10EDC01CB95A8700B1B74C /* Tests */,
@@ -451,7 +448,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B54D5A11CC22EC800DA0729 /* YAMLEmitter.mm in Sources */,
-				5B54D5B41CC24CAE00DA0729 /* YAMLEmitterStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
