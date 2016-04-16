@@ -17,9 +17,5 @@
 
 @implementation YAMLBridgeTests
 
-- (void)test {
-    
-}
-
 @end
 
