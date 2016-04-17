@@ -32,7 +32,7 @@
 - (YAML::EMITTER_MANIP)booleanLengthManipulatorForStyle:(YAMLStyleBoolean)style;
 
 - (YAML::EMITTER_MANIP)stringFormatManipulatorForStyle:(YAMLStyleString)style;
-- (YAML::EMITTER_MANIP)stringOutputCharsetManipulatorForStyle:(YAMLStyleString)style;
+- (YAML::EMITTER_MANIP)stringCharsetManipulatorForStyle:(YAMLStyleString)style;
 
 - (YAML::EMITTER_MANIP)integerBaseManipulatorForStyle:(YAMLStyleInteger)style;
 
@@ -41,11 +41,11 @@
 - (YAML::EMITTER_MANIP)dictionaryFormatManipulatorForStyle:(YAMLStyleDictionary)style;
 - (YAML::EMITTER_MANIP)dictionaryKeyFormatManipulatorForStyle:(YAMLStyleDictionary)style;
 
-- (NSUInteger)validateIndentation:(NSUInteger)spaces;
-- (NSUInteger)validateCommentSpacing:(NSUInteger)spaces;
+- (int)validateIndentation:(NSUInteger)spaces;
+- (int)validateCommentSpacing:(NSUInteger)spaces;
 
-- (NSUInteger)validateFloatPrecision:(NSUInteger)digits;
-- (NSUInteger)validateDoublePrecision:(NSUInteger)digits;
+- (int)validateFloatPrecision:(NSUInteger)digits;
+- (int)validateDoublePrecision:(NSUInteger)digits;
 
 @end
 
@@ -78,7 +78,7 @@
     NSError *error = nil;
     NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingToURL:fileURL error:&error];
     
-    if (YAML_WARNING(fileHandle == nil, @"Failed to create %@ for URL ‘%@’: %@", NSFileHandle.class, fileURL, error.localizedDescription)) {
+    if (YAML_WARNING(fileHandle == nil, "Failed to create %@ for URL '%@': %@", NSFileHandle.class, fileURL, error.localizedDescription)) {
         return nil;
     }
     
@@ -148,7 +148,7 @@
     self->_stringStyle = style;
     
     self->_emitter->SetStringFormat([self stringFormatManipulatorForStyle:style]);
-    self->_emitter->SetOutputCharset([self stringOutputCharsetManipulatorForStyle:style]);
+    self->_emitter->SetOutputCharset([self stringCharsetManipulatorForStyle:style]);
 }
 
 - (void)setIntegerStyle:(YAMLStyleInteger)style {
@@ -223,7 +223,7 @@
         case YAMLStyleBoolean_ON_OFF:
             return YAML::OnOffBool;
     }
-    YAML_WARNING(style, @"Unsupported style ‘%td’", style);
+    YAML_WARNING(style, "Unsupported style %td", style);
     return YAML::TrueFalseBool; // Default.
 }
 
@@ -248,7 +248,7 @@
         case YAMLStyleBoolean_ON_OFF:
             return YAML::UpperCase;
     }
-    YAML_WARNING(style, @"Unsupported style ‘%td’", style);
+    YAML_WARNING(style, "Unsupported style %td", style);
     return YAML::LowerCase; // Default.
 }
 
@@ -271,7 +271,7 @@
         case YAMLStyleBoolean_Y_N:
             return YAML::ShortBool;
     }
-    YAML_WARNING(style, @"Unsupported style ‘%td’", style);
+    YAML_WARNING(style, "Unsupported style %td", style);
     return YAML::LongBool; // Default.
 }
 
@@ -290,11 +290,11 @@
         case YAMLStyleString_DoubleQuotedASCII:
             return YAML::DoubleQuoted;
     }
-    YAML_WARNING(style, @"Unsupported style ‘%td’", style);
+    YAML_WARNING(style, "Unsupported style %td", style);
     return YAML::Auto; // Default.
 }
 
-- (YAML::EMITTER_MANIP)stringOutputCharsetManipulatorForStyle:(YAMLStyleString)style {
+- (YAML::EMITTER_MANIP)stringCharsetManipulatorForStyle:(YAMLStyleString)style {
     switch (style) {
         case YAMLStyleString_Plain:
         case YAMLStyleString_Literal:
@@ -305,7 +305,7 @@
         case YAMLStyleString_DoubleQuotedASCII:
             return YAML::EscapeNonAscii;
     }
-    YAML_WARNING(style, @"Unsupported style ‘%td’", style);
+    YAML_WARNING(style, "Unsupported style %td", style);
     return YAML::EmitNonAscii; // Default.
 }
 
@@ -320,7 +320,7 @@
         case YAMLStyleInteger_Octal:
             return YAML::Oct;
     }
-    YAML_WARNING(style, @"Unsupported style ‘%td’", style);
+    YAML_WARNING(style, "Unsupported style %td", style);
     return YAML::Dec; // Default.
 }
 
@@ -332,7 +332,7 @@
         case YAMLStyleArray_Flow:
             return YAML::Flow;
     }
-    YAML_WARNING(style, @"Unsupported style ‘%td’", style);
+    YAML_WARNING(style, "Unsupported style %td", style);
     return YAML::Block; // Default.
 }
 
@@ -345,7 +345,7 @@
         case YAMLStyleDictionary_Flow:
             return YAML::Flow;
     }
-    YAML_WARNING(style, @"Unsupported style ‘%td’", style);
+    YAML_WARNING(style, "Unsupported style %td", style);
     return YAML::Block; // Default.
 }
 
@@ -358,45 +358,45 @@
         case YAMLStyleDictionary_BlockLongKeys:
             return YAML::LongKey;
     }
-    YAML_WARNING(style, @"Unsupported style ‘%td’", style);
+    YAML_WARNING(style, "Unsupported style %td", style);
     return YAML::Auto; // Default.
 }
 
-- (NSUInteger)validateIndentation:(NSUInteger)spaces {
-    if (YAML_WARNING(spaces < 2, @"Indentation too low: %tu", spaces)) {
+- (int)validateIndentation:(NSUInteger)spaces {
+    if (YAML_WARNING(spaces < 2, "Indentation too low: %tu", spaces)) {
         return 2; // Minimum.
     }
-    if (YAML_WARNING(spaces > 100, @"Indentation is ridiculous: %tu", spaces)) {
+    if (YAML_WARNING(spaces > 100, "Indentation is ridiculous: %tu", spaces)) {
         return 2; // Default.
     }
-    return spaces;
+    return (int)spaces;
 }
 
-- (NSUInteger)validateCommentSpacing:(NSUInteger)spaces {
-    if (YAML_WARNING(spaces < 1, @"There must be at least one space: %tu", spaces)) {
+- (int)validateCommentSpacing:(NSUInteger)spaces {
+    if (YAML_WARNING(spaces < 1, "There must be at least one space: %tu", spaces)) {
         return 1; // Minimum.
     }
-    if (YAML_WARNING(spaces > 100, @"Spacing is ridiculous: %tu", spaces)) {
+    if (YAML_WARNING(spaces > 100, "Spacing is ridiculous: %tu", spaces)) {
         return 2; // Default.
     }
-    return spaces;
+    return (int)spaces;
 }
 
-- (NSUInteger)validateFloatPrecision:(NSUInteger)precision {
+- (int)validateFloatPrecision:(NSUInteger)precision {
     // Not a warning, since we use primarily `double` type.
     // FLT_DIG is 6
     if (precision > 7) {
         return 7; // Maximum.
     }
-    return precision;
+    return (int)precision;
 }
 
-- (NSUInteger)validateDoublePrecision:(NSUInteger)precision {
+- (int)validateDoublePrecision:(NSUInteger)precision {
     // DBL_DIG is 15
-    if (YAML_WARNING(precision > 16, @"Precision too large: %tu", precision)) {
+    if (YAML_WARNING(precision > 16, "Precision too large: %tu", precision)) {
         return 16; // Maximum.
     }
-    return precision;
+    return (int)precision;
 }
 
 @end
