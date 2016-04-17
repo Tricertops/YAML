@@ -28,9 +28,9 @@
 
 @interface YAMLWriter (Initializers)
 
-- (instancetype)init;
-- (instancetype)initWithFileURL:(NSURL *)fileURL;
-- (instancetype)initWithFileHandle:(NSFileHandle *)fileHandle;
+- (nonnull instancetype)init;
+- (nonnull instancetype)initWithFileURL:(nonnull NSURL *)fileURL;
+- (nonnull instancetype)initWithFileHandle:(nonnull NSFileHandle *)fileHandle;
 
 @end
 
@@ -40,8 +40,8 @@
 @interface YAMLWriter (ResultGetters)
 
 @property (readonly) NSUInteger outputLength;
-@property (readonly) NSString *outputString;
-@property (readonly) NSError *error;
+@property (readonly, nonnull) NSString *outputString;
+@property (readonly, nullable) NSError *error;
 
 @end
 
@@ -66,40 +66,45 @@
 
 #pragma mark - Writing Methods
 
+typedef BOOL (^YAMLWriterBlock)(void);
+
 @interface YAMLWriter (WritingMethods)
 
 - (BOOL)beginDocument;
 - (BOOL)endDocument;
+- (BOOL)writeDocument:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block;
 
 - (BOOL)beginArray;
-- (BOOL)beginArrayWithStyle:(YAMLStyleArray)arrayStyle;
+- (BOOL)beginArrayWithStyle:(YAMLStyleArray)style;
 - (BOOL)endArray;
+- (BOOL)writeArray:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block;
 
 - (BOOL)beginDictionary;
-- (BOOL)beginDictionaryWithStyle:(YAMLStyleDictionary)dictionaryStyle;
+- (BOOL)beginDictionaryWithStyle:(YAMLStyleDictionary)style;
 - (BOOL)endDictionary;
+- (BOOL)writeDictionary:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block;
 - (BOOL)expectKey;
 - (BOOL)expectKeyAsLong:(BOOL)longKey;
 - (BOOL)expectValue;
 
-- (BOOL)writeString:(NSString *)string;
-- (BOOL)writeString:(NSString *)string style:(YAMLStyleString)stringStyle; //TODO: Escape Unicode?
+- (BOOL)writeString:(nonnull NSString *)string;
+- (BOOL)writeString:(nonnull NSString *)string style:(YAMLStyleString)style; //TODO: Escape Unicode?
 - (BOOL)writeBoolean:(BOOL)boolean;
-- (BOOL)writeBoolean:(BOOL)boolean style:(YAMLStyleBoolean)booleanStyle;
+- (BOOL)writeBoolean:(BOOL)boolean style:(YAMLStyleBoolean)style;
 - (BOOL)writeInteger:(NSInteger)integer;
-- (BOOL)writeInteger:(NSInteger)integer style:(YAMLStyleInteger)integerStyle;
+- (BOOL)writeInteger:(NSInteger)integer style:(YAMLStyleInteger)style;
 - (BOOL)writeNumber:(double)number;
-- (BOOL)writeNumber:(double)number precision:(NSUInteger)numberOfIntegerDigits;
-- (BOOL)writeData:(NSData *)data;
+- (BOOL)writeNumber:(double)number precision:(NSUInteger)precision;
+- (BOOL)writeData:(nonnull NSData *)data;
 
 - (BOOL)writeNull;
 - (BOOL)writeNewLine;
-- (BOOL)writeComment:(NSString *)comment;
-- (BOOL)writeComment:(NSString *)comment leadingSpaces:(NSUInteger)leading;
-- (BOOL)writeComment:(NSString *)comment leadingSpaces:(NSUInteger)leading trailingSpaces:(NSUInteger)trailingSpaces;
+- (BOOL)writeComment:(nonnull NSString *)comment;
+- (BOOL)writeComment:(nonnull NSString *)comment leadingSpaces:(NSUInteger)leadingSpaces;
+- (BOOL)writeComment:(nonnull NSString *)comment leadingSpaces:(NSUInteger)leadingSpaces trailingSpaces:(NSUInteger)trailingSpaces;
 
-- (BOOL)writeAnchor:(NSString *)name;
-- (BOOL)writeAlias:(NSString *)name;
+- (BOOL)writeAnchor:(nonnull NSString *)name;
+- (BOOL)writeAlias:(nonnull NSString *)name;
 
 @end
 

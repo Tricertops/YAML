@@ -14,3 +14,6 @@
 
 #define YAML_WRITEONLY_PROPERTY \
     YAML_UNAVAILABLE("This property is write-only.")
+
+#define YAML_NO_ESCAPE \
+    __attribute__((noescape))
