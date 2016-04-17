@@ -37,13 +37,13 @@ typedef enum : NSUInteger {
 #pragma mark - String
 
 typedef enum : NSUInteger {
-    YAMLStyleString_Auto, //TODO: Better name.
+    YAMLStyleString_Plain,
     YAMLStyleString_Literal,
     YAMLStyleString_SingleQuoted,
     YAMLStyleString_DoubleQuoted,
-    //TODO: Escaped Unicode?
+    YAMLStyleString_DoubleQuotedASCII,
     
-    YAMLStyleString_Default = YAMLStyleString_Auto,
+    YAMLStyleString_Default = YAMLStyleString_Plain,
     YAMLStyleString_JSON = YAMLStyleString_DoubleQuoted,
     
 } YAMLStyleString;
@@ -77,6 +77,7 @@ typedef enum : NSUInteger {
 
 typedef enum : NSUInteger {
     YAMLStyleDictionary_Block,
+    YAMLStyleDictionary_LongKeys,
     YAMLStyleDictionary_Flow,
     
     YAMLStyleDictionary_Default = YAMLStyleDictionary_Block,

@@ -50,7 +50,6 @@
 
 @interface YAMLWriter (GlobalStyle)
 
-@property BOOL allowsUnicode;
 @property YAMLStyleBoolean booleanStyle;
 @property YAMLStyleString stringStyle;
 @property YAMLStyleInteger integerStyle;
@@ -91,7 +90,7 @@ typedef BOOL (^YAMLWriterBlock)(void);
 - (BOOL)writeKey:(nonnull NSString *)key value:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block    YAML_SWIFT_NAME(write(key:value:));
 
 - (BOOL)writeString:(nullable NSString *)string    YAML_SWIFT_NAME(write(_:));
-- (BOOL)writeString:(nullable NSString *)string style:(YAMLStyleString)style    YAML_SWIFT_NAME(write(_:style:)); //TODO: Escape Unicode?
+- (BOOL)writeString:(nullable NSString *)string style:(YAMLStyleString)style    YAML_SWIFT_NAME(write(_:style:));
 
 - (BOOL)writeNewLine;
 
