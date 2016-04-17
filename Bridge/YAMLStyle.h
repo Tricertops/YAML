@@ -11,7 +11,7 @@
 
 #pragma mark Boolean
 
-typedef enum : NSUInteger {
+YAML_ENUM(YAMLStyleBoolean) {
     YAMLStyleBoolean_true_false,
     YAMLStyleBoolean_True_False,
     YAMLStyleBoolean_TRUE_FALSE,
@@ -31,12 +31,12 @@ typedef enum : NSUInteger {
     YAMLStyleBoolean_Default = YAMLStyleBoolean_true_false,
     YAMLStyleBoolean_JSON = YAMLStyleBoolean_true_false,
     
-} YAMLStyleBoolean;
+};
 
 
 #pragma mark - String
 
-typedef enum : NSUInteger {
+YAML_ENUM(YAMLStyleString) {
     YAMLStyleString_Plain,
     YAMLStyleString_Literal,
     YAMLStyleString_SingleQuoted,
@@ -46,12 +46,12 @@ typedef enum : NSUInteger {
     YAMLStyleString_Default = YAMLStyleString_Plain,
     YAMLStyleString_JSON = YAMLStyleString_DoubleQuoted,
     
-} YAMLStyleString;
+};
 
 
 #pragma mark - Integer
 
-typedef enum : NSUInteger {
+YAML_ENUM(YAMLStyleInteger) {
     YAMLStyleInteger_Decimal,
     YAMLStyleInteger_Hexadecimal,
     YAMLStyleInteger_Octal,
@@ -59,28 +59,28 @@ typedef enum : NSUInteger {
     YAMLStyleInteger_Default = YAMLStyleInteger_Decimal,
     YAMLStyleInteger_JSON = YAMLStyleInteger_Decimal,
     
-} YAMLStyleInteger;
+};
 
 
 #pragma mark - Array
 
-typedef enum : NSUInteger {
+YAML_ENUM(YAMLStyleArray) {
     YAMLStyleArray_Block,
     YAMLStyleArray_Flow,
     
     YAMLStyleArray_Default = YAMLStyleArray_Block,
     YAMLStyleArray_JSON = YAMLStyleArray_Flow,
-} YAMLStyleArray;
+};
 
 
 #pragma mark - Dictionary
 
-typedef enum : NSUInteger {
+YAML_ENUM(YAMLStyleDictionary) {
     YAMLStyleDictionary_Block,
-    YAMLStyleDictionary_LongKeys,
+    YAMLStyleDictionary_BlockLongKeys,
     YAMLStyleDictionary_Flow,
     
     YAMLStyleDictionary_Default = YAMLStyleDictionary_Block,
     YAMLStyleDictionary_JSON = YAMLStyleDictionary_Flow,
-} YAMLStyleDictionary;
+};
 

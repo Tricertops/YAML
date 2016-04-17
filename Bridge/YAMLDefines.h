@@ -20,3 +20,6 @@
 
 #define YAML_SWIFT_NAME(name) \
     NS_SWIFT_NAME(name)
+
+#define YAML_ENUM(name) \
+    typedef NS_ENUM(NSInteger, name)

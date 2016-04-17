@@ -69,15 +69,24 @@ typedef BOOL (^YAMLWriterBlock)(void);
 
 @interface YAMLWriter (WritingMethods)
 
+
+//MARK: Writing Document
+
 - (BOOL)beginDocument;
 - (BOOL)endDocument;
 - (BOOL)writeDocument:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block;
+
+
+//MARK: Writing Array (Sequence)
 
 - (BOOL)beginArray;
 - (BOOL)beginArrayWithStyle:(YAMLStyleArray)style;
 - (BOOL)beginArrayWithStyle:(YAMLStyleArray)style indentation:(NSUInteger)indentation;
 - (BOOL)endArray;
 - (BOOL)writeArray:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block;
+
+
+//MARK: Writing Dictionary (Map)
 
 - (BOOL)beginDictionary;
 - (BOOL)beginDictionaryWithStyle:(YAMLStyleDictionary)style;
@@ -89,10 +98,11 @@ typedef BOOL (^YAMLWriterBlock)(void);
 - (BOOL)expectValue;
 - (BOOL)writeKey:(nonnull NSString *)key value:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block    YAML_SWIFT_NAME(write(key:value:));
 
+
+//MARK: Writing Scalars
+
 - (BOOL)writeString:(nullable NSString *)string    YAML_SWIFT_NAME(write(_:));
 - (BOOL)writeString:(nullable NSString *)string style:(YAMLStyleString)style    YAML_SWIFT_NAME(write(_:style:));
-
-- (BOOL)writeNewLine;
 
 - (BOOL)writeBoolean:(BOOL)boolean    YAML_SWIFT_NAME(write(_:));
 - (BOOL)writeBoolean:(BOOL)boolean style:(YAMLStyleBoolean)style    YAML_SWIFT_NAME(write(_:style:));
@@ -103,16 +113,25 @@ typedef BOOL (^YAMLWriterBlock)(void);
 - (BOOL)writeNumber:(double)number    YAML_SWIFT_NAME(write(_:));
 - (BOOL)writeNumber:(double)number precision:(NSUInteger)precision    YAML_SWIFT_NAME(write(_:precision:));
 
+- (BOOL)writeNull;
+
 - (BOOL)writeData:(nullable NSData *)data    YAML_SWIFT_NAME(write(_:));
 
-- (BOOL)writeNull;
+
+//MARK: Writing Comments & Whitespace
 
 - (BOOL)writeComment:(nonnull NSString *)comment    YAML_SWIFT_NAME(write(comment:));
 - (BOOL)writeComment:(nonnull NSString *)comment leadingSpaces:(NSUInteger)leadingSpaces    YAML_SWIFT_NAME(write(comment:leadingSpaces:));
 - (BOOL)writeComment:(nonnull NSString *)comment leadingSpaces:(NSUInteger)leadingSpaces trailingSpaces:(NSUInteger)trailingSpaces    YAML_SWIFT_NAME(write(comment:leadingSpaces:trailingSpaces:));
 
+- (BOOL)writeNewLine;
+
+
+//MARK: Writing Anchors & Aliases
+
 - (BOOL)writeAnchor:(nonnull NSString *)name    YAML_SWIFT_NAME(write(anchor:));
 - (BOOL)writeAlias:(nonnull NSString *)name    YAML_SWIFT_NAME(write(alias:));
+
 
 @end
 
