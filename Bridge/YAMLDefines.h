@@ -17,3 +17,6 @@
 
 #define YAML_NO_ESCAPE \
     __attribute__((noescape))
+
+#define YAML_SWIFT_NAME(name) \
+    NS_SWIFT_NAME(name)

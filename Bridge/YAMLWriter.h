@@ -76,53 +76,44 @@ typedef BOOL (^YAMLWriterBlock)(void);
 
 - (BOOL)beginArray;
 - (BOOL)beginArrayWithStyle:(YAMLStyleArray)style;
+- (BOOL)beginArrayWithStyle:(YAMLStyleArray)style indentation:(NSUInteger)indentation;
 - (BOOL)endArray;
 - (BOOL)writeArray:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block;
 
 - (BOOL)beginDictionary;
 - (BOOL)beginDictionaryWithStyle:(YAMLStyleDictionary)style;
+- (BOOL)beginDictionaryWithStyle:(YAMLStyleDictionary)style indentation:(NSUInteger)indentation;
 - (BOOL)endDictionary;
 - (BOOL)writeDictionary:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block;
 - (BOOL)expectKey;
-- (BOOL)expectKeyAsLong:(BOOL)longKey;
+- (BOOL)expectKeyAsLong:(BOOL)longKey    YAML_SWIFT_NAME(expectKey(long:));
 - (BOOL)expectValue;
+- (BOOL)writeKey:(nonnull NSString *)key value:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block    YAML_SWIFT_NAME(write(key:value:));
 
-- (BOOL)writeString:(nonnull NSString *)string;
-- (BOOL)writeString:(nonnull NSString *)string style:(YAMLStyleString)style; //TODO: Escape Unicode?
-- (BOOL)writeBoolean:(BOOL)boolean;
-- (BOOL)writeBoolean:(BOOL)boolean style:(YAMLStyleBoolean)style;
-- (BOOL)writeInteger:(NSInteger)integer;
-- (BOOL)writeInteger:(NSInteger)integer style:(YAMLStyleInteger)style;
-- (BOOL)writeNumber:(double)number;
-- (BOOL)writeNumber:(double)number precision:(NSUInteger)precision;
-- (BOOL)writeData:(nonnull NSData *)data;
+- (BOOL)writeString:(nullable NSString *)string    YAML_SWIFT_NAME(write(_:));
+- (BOOL)writeString:(nullable NSString *)string style:(YAMLStyleString)style    YAML_SWIFT_NAME(write(_:style:)); //TODO: Escape Unicode?
+
+- (BOOL)writeNewLine;
+
+- (BOOL)writeBoolean:(BOOL)boolean    YAML_SWIFT_NAME(write(_:));
+- (BOOL)writeBoolean:(BOOL)boolean style:(YAMLStyleBoolean)style    YAML_SWIFT_NAME(write(_:style:));
+
+- (BOOL)writeInteger:(NSInteger)integer    YAML_SWIFT_NAME(write(_:));
+- (BOOL)writeInteger:(NSInteger)integer style:(YAMLStyleInteger)style    YAML_SWIFT_NAME(write(_:style:));
+
+- (BOOL)writeNumber:(double)number    YAML_SWIFT_NAME(write(_:));
+- (BOOL)writeNumber:(double)number precision:(NSUInteger)precision    YAML_SWIFT_NAME(write(_:precision:));
+
+- (BOOL)writeData:(nullable NSData *)data    YAML_SWIFT_NAME(write(_:));
 
 - (BOOL)writeNull;
-- (BOOL)writeNewLine;
-- (BOOL)writeComment:(nonnull NSString *)comment;
-- (BOOL)writeComment:(nonnull NSString *)comment leadingSpaces:(NSUInteger)leadingSpaces;
-- (BOOL)writeComment:(nonnull NSString *)comment leadingSpaces:(NSUInteger)leadingSpaces trailingSpaces:(NSUInteger)trailingSpaces;
 
-- (BOOL)writeAnchor:(nonnull NSString *)name;
-- (BOOL)writeAlias:(nonnull NSString *)name;
+- (BOOL)writeComment:(nonnull NSString *)comment    YAML_SWIFT_NAME(write(comment:));
+- (BOOL)writeComment:(nonnull NSString *)comment leadingSpaces:(NSUInteger)leadingSpaces    YAML_SWIFT_NAME(write(comment:leadingSpaces:));
+- (BOOL)writeComment:(nonnull NSString *)comment leadingSpaces:(NSUInteger)leadingSpaces trailingSpaces:(NSUInteger)trailingSpaces    YAML_SWIFT_NAME(write(comment:leadingSpaces:trailingSpaces:));
 
-@end
-
-
-#pragma mark - Unavailable Getters
-
-@interface YAMLWriter (UnavailableGetters)
-
-- (BOOL)allowsUnicode YAML_WRITEONLY_PROPERTY;
-- (YAMLStyleBoolean)booleanStyle YAML_WRITEONLY_PROPERTY;
-- (YAMLStyleString)stringStyle YAML_WRITEONLY_PROPERTY;
-- (YAMLStyleInteger)integerStyle YAML_WRITEONLY_PROPERTY;
-- (YAMLStyleArray)arrayStyle YAML_WRITEONLY_PROPERTY;
-- (YAMLStyleDictionary)dictionaryStyle YAML_WRITEONLY_PROPERTY;
-- (NSUInteger)indentationSpaces YAML_WRITEONLY_PROPERTY;
-- (NSUInteger)commentLeadingSpaces YAML_WRITEONLY_PROPERTY;
-- (NSUInteger)commentTrailingSpaces YAML_WRITEONLY_PROPERTY;
-- (NSUInteger)numberPrecision YAML_WRITEONLY_PROPERTY;
+- (BOOL)writeAnchor:(nonnull NSString *)name    YAML_SWIFT_NAME(write(anchor:));
+- (BOOL)writeAlias:(nonnull NSString *)name    YAML_SWIFT_NAME(write(alias:));
 
 @end
 
