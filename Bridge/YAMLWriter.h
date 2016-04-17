@@ -49,7 +49,7 @@
 
 #pragma mark - Global Style
 
-@interface YAMLWriter (GlobalStyle)
+@interface YAMLWriter () // Not a category, because of stored properties.
 
 @property YAMLStyleBoolean booleanStyle;
 @property YAMLStyleString stringStyle;

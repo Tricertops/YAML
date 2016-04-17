@@ -37,7 +37,7 @@
 
 #define YAML_UNEXPECTED(condition, message...) \
     ( (void) ({ \
-        if (condition) { \
+        if (!!(condition)) { \
             _YAMLPrintValidationMessage(__PRETTY_FUNCTION__, __LINE__, @"Unexpected", #condition, @"" message); \
             abort(); \
         } \
@@ -45,7 +45,7 @@
 
 #define YAML_WARNING(condition, message...) \
     ( (BOOL) ({ \
-        BOOL __result = (condition); \
+        BOOL __result = !!(condition); \
         if (__result) { \
             _YAMLPrintValidationMessage(__PRETTY_FUNCTION__, __LINE__, @"Warning", #condition, @"" message); \
         } \
