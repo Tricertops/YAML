@@ -9,10 +9,10 @@
 #import "YAMLDefines.h"
 
 
-void _YAMLPrintUnexpectedMessage(const char *function, int line, const char *code, NSString *format, ...) {
+void _YAMLPrintValidationMessage(const char *function, int line, NSString *label, const char *code, NSString *format, ...) {
     NSMutableString *log = [NSMutableString new];
-    [log appendFormat:@"*** %s:%i  ", function, line];
-    [log appendFormat:@"Unexpected “%s”", code];
+    [log appendFormat:@"YAML: %s#%i  ", function, line];
+    [log appendFormat:@"%@! “%s”", label ?: @"Invalid", code];
     
     va_list vargs;
     va_start(vargs, format);
@@ -20,7 +20,7 @@ void _YAMLPrintUnexpectedMessage(const char *function, int line, const char *cod
     va_end(vargs);
     
     if (message.length) {
-        [log appendFormat:@": %@", message];
+        [log appendFormat:@" – %@", message];
     }
     
     NSLog(@"%@", log); \

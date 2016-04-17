@@ -32,9 +32,18 @@
 #define YAML_UNEXPECTED(condition, message...) \
     ( (void) ({ \
         if (condition) { \
-            _YAMLPrintUnexpectedMessage(__PRETTY_FUNCTION__, __LINE__, #condition, @"" message); \
+            _YAMLPrintValidationMessage(__PRETTY_FUNCTION__, __LINE__, @"Unexpected", #condition, @"" message); \
             abort(); \
         } \
+    }) )
+
+#define YAML_WARNING(condition, message...) \
+    ( (BOOL) ({ \
+        BOOL __result = (condition); \
+        if (__result) { \
+            _YAMLPrintValidationMessage(__PRETTY_FUNCTION__, __LINE__, @"Warning", #condition, @"" message); \
+        } \
+        __result; \
     }) )
 
 
@@ -48,4 +57,4 @@ typedef BOOL (^YAMLWriterBlock)(void);
 
 #pragma mark - Internal
 
-YAML_EXTERN void _YAMLPrintUnexpectedMessage(const char *function, int line, const char *code, NSString *message, ...) NS_FORMAT_FUNCTION(4, 5);
+YAML_EXTERN void _YAMLPrintValidationMessage(const char *function, int line, NSString *label, const char *code, NSString *message, ...) NS_FORMAT_FUNCTION(5, 6);

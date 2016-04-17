@@ -20,6 +20,7 @@
 		5B54D5B21CC2358E00DA0729 /* YAMLDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B54D5B11CC2358E00DA0729 /* YAMLDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B54D5B61CC3669500DA0729 /* YAMLWriter_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B54D5B51CC3669500DA0729 /* YAMLWriter_Tests.swift */; };
 		5B54D5CA1CC3858300DA0729 /* YAMLDefines.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5B54D5C91CC3858300DA0729 /* YAMLDefines.mm */; };
+		5B54D5CC1CC3904C00DA0729 /* YAMLFileDescriptorOutputBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B54D5CB1CC3904C00DA0729 /* YAMLFileDescriptorOutputBuffer.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		5B54D5B11CC2358E00DA0729 /* YAMLDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAMLDefines.h; sourceTree = "<group>"; };
 		5B54D5B51CC3669500DA0729 /* YAMLWriter_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YAMLWriter_Tests.swift; sourceTree = "<group>"; };
 		5B54D5C91CC3858300DA0729 /* YAMLDefines.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YAMLDefines.mm; sourceTree = "<group>"; };
+		5B54D5CB1CC3904C00DA0729 /* YAMLFileDescriptorOutputBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAMLFileDescriptorOutputBuffer.h; sourceTree = "<group>"; };
 		5BF0AA741CB907910043126F /* YAML_CPP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = YAML_CPP.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +169,7 @@
 				5B54D5AF1CC2311100DA0729 /* YAMLStyle.h */,
 				5B54D59E1CC22EC800DA0729 /* YAMLWriter.h */,
 				5B54D59F1CC22EC800DA0729 /* YAMLWriter.mm */,
+				5B54D5CB1CC3904C00DA0729 /* YAMLFileDescriptorOutputBuffer.h */,
 				5B10EDC01CB95A8700B1B74C /* Tests */,
 			);
 			path = Bridge;
@@ -236,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B54D5A01CC22EC800DA0729 /* YAMLWriter.h in Headers */,
+				5B54D5CC1CC3904C00DA0729 /* YAMLFileDescriptorOutputBuffer.h in Headers */,
 				5B54D5B01CC232E900DA0729 /* YAMLStyle.h in Headers */,
 				5B10ED991CB958F900B1B74C /* YAMLBridge.h in Headers */,
 				5B54D5B21CC2358E00DA0729 /* YAMLDefines.h in Headers */,

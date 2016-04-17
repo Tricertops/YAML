@@ -9,16 +9,15 @@
 #import "YAMLDefines.h"
 #import "YAMLStyle.h"
 
+
 //TODO: Version directive?
 //TODO: Tags?
 //TODO: Dates?
 
 
-#pragma mark -
+#pragma mark - YAML Writer Class
 
 @interface YAMLWriter : NSObject
-
-+ (BOOL)test;
 
 @end
 
@@ -28,8 +27,8 @@
 @interface YAMLWriter (Initializers)
 
 - (nonnull instancetype)init;
-- (nonnull instancetype)initWithFileURL:(nonnull NSURL *)fileURL;
-- (nonnull instancetype)initWithFileHandle:(nonnull NSFileHandle *)fileHandle;
+- (nullable instancetype)initWithFileURL:(nonnull NSURL *)fileURL;
+- (nullable instancetype)initWithFileHandle:(nonnull NSFileHandle *)fileHandle;
 
 @end
 
