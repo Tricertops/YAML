@@ -405,3 +405,293 @@
 
 @end
 
+
+#pragma mark - Writing Methods
+
+@implementation YAMLWriter (WritingMethods)
+
+
+//MARK: Raw Emitting
+
+- (void)applyLocalIndentation:(NSUInteger)spaces {
+    *(self->_emitter) << YAML::Indent([self validateIndentation:spaces]);
+}
+
+- (void)applyLocalNumberPrecision:(NSUInteger)precision {
+    *(self->_emitter) << YAML::FloatPrecision([self validateFloatPrecision:precision]);
+    *(self->_emitter) << YAML::DoublePrecision([self validateDoublePrecision:precision]);
+}
+
+- (void)emitManipulator:(YAML::EMITTER_MANIP)manipulator {
+    *(self->_emitter) << manipulator;
+}
+
+- (void)emitString:(nonnull NSString *)string {
+    YAML_UNEXPECTED(string == nil);
+    
+    *(self->_emitter) << string.UTF8String;
+}
+
+- (void)emitBoolean:(BOOL)boolean {
+    YAML_WARNING(boolean != NO && boolean != YES);
+    
+    *(self->_emitter) << (bool)boolean;
+}
+
+- (void)emitInteger:(NSInteger)integer {
+    *(self->_emitter) << integer;
+}
+
+- (void)emitDouble:(double)number {
+    *(self->_emitter) << number;
+}
+
+- (void)emitNull {
+    *(self->_emitter) << YAML::Null;
+}
+
+- (void)emitData:(nonnull NSData *)data {
+    YAML_UNEXPECTED(data == nil);
+    
+    *(self->_emitter) << YAML::Binary((const unsigned char *)data.bytes, (std::size_t)data.length);
+}
+
+- (void)emitComment:(nonnull NSString *)comment {
+    YAML_UNEXPECTED(comment == nil);
+    YAML_WARNING(comment.length == 0, "Empty comment");
+    
+    *(self->_emitter) << YAML::Comment(comment.UTF8String);
+}
+
+- (void)emitAnchor:(nonnull NSString *)name {
+    YAML_UNEXPECTED(name == nil);
+    YAML_WARNING(name.length == 0, "Empty anchor name");
+    
+    *(self->_emitter) << YAML::Anchor(name.UTF8String);
+}
+
+- (void)emitAlias:(nonnull NSString *)name {
+    YAML_UNEXPECTED(name == nil);
+    YAML_WARNING(name.length == 0, "Empty alias name");
+    
+    *(self->_emitter) << YAML::Alias(name.UTF8String);
+}
+
+
+//MARK: Convenience
+
+- (BOOL)checkAndReturnError:(YAML_ERROR_TYPE)error {
+    if (error != nil) {
+        *error = self.error;
+    }
+    return self->_emitter->good();
+}
+
+
+//MARK: Writing Document
+
+- (BOOL)beginDocumentWithError:(YAML_ERROR_TYPE)error {
+    [self emitManipulator:YAML::BeginDoc];
+    return [self checkAndReturnError:error];
+}
+
+- (BOOL)endDocumentWithError:(YAML_ERROR_TYPE)error {
+    [self emitManipulator:YAML::EndDoc];
+    return [self checkAndReturnError:error];
+}
+
+- (BOOL)writeDocument:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block error:(YAML_ERROR_TYPE)error {
+    YAML_UNEXPECTED(block == nil);
+    
+    return YES
+    && [self beginDocumentWithError:error]
+    && block()
+    && [self endDocumentWithError:error];
+}
+
+
+//MARK: Writing Array (Sequence)
+
+- (BOOL)beginArrayWithError:(YAML_ERROR_TYPE)error {
+    [self emitManipulator:YAML::BeginSeq];
+    return [self checkAndReturnError:error];
+}
+
+- (BOOL)beginArrayWithStyle:(YAMLStyleArray)style error:(YAML_ERROR_TYPE)error {
+    [self emitManipulator:[self arrayFormatManipulatorForStyle:style]];
+    return [self beginArrayWithError:error];
+}
+
+- (BOOL)beginArrayWithStyle:(YAMLStyleArray)style indentation:(NSUInteger)spaces error:(YAML_ERROR_TYPE)error {
+    [self applyLocalIndentation:spaces];
+    return [self beginArrayWithStyle:style error:error];
+}
+
+- (BOOL)endArrayWithError:(YAML_ERROR_TYPE)error {
+    [self emitManipulator:YAML::EndSeq];
+    return [self checkAndReturnError:error];
+}
+
+- (BOOL)writeArray:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block error:(YAML_ERROR_TYPE)error {
+    YAML_UNEXPECTED(block == nil);
+    
+    return YES
+    && [self beginArrayWithError:error]
+    && block()
+    && [self endArrayWithError:error];
+}
+
+
+//MARK: Writing Dictionary (Map)
+
+- (BOOL)beginDictionaryWithError:(YAML_ERROR_TYPE)error {
+    [self emitManipulator:YAML::BeginMap];
+    return [self checkAndReturnError:error];
+}
+
+- (BOOL)beginDictionaryWithStyle:(YAMLStyleDictionary)style error:(YAML_ERROR_TYPE)error {
+    [self emitManipulator:[self dictionaryFormatManipulatorForStyle:style]];
+    [self emitManipulator:[self dictionaryKeyFormatManipulatorForStyle:style]];
+    return [self beginDictionaryWithError:error];
+}
+
+- (BOOL)beginDictionaryWithStyle:(YAMLStyleDictionary)style indentation:(NSUInteger)spaces error:(YAML_ERROR_TYPE)error {
+    [self applyLocalIndentation:spaces];
+    return [self beginDictionaryWithStyle:style error:error];
+}
+
+- (BOOL)endDictionaryWithError:(YAML_ERROR_TYPE)error {
+    [self emitManipulator:YAML::EndMap];
+    return [self checkAndReturnError:error];
+}
+
+- (BOOL)writeDictionary:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block error:(YAML_ERROR_TYPE)error {
+    YAML_UNEXPECTED(block == nil);
+    
+    return YES
+    && [self beginDictionaryWithError:error]
+    && block()
+    && [self endDictionaryWithError:error];
+}
+
+- (BOOL)expectKeyWithError:(YAML_ERROR_TYPE)error {
+    [self emitManipulator:YAML::Key];
+    return [self checkAndReturnError:error];
+}
+
+- (BOOL)expectKeyAsLong:(BOOL)longKey error:(YAML_ERROR_TYPE)error {
+    [self emitManipulator:(longKey? YAML::LongKey : YAML::Auto)];
+    return [self expectKeyWithError:error];
+}
+
+- (BOOL)expectValueWithError:(YAML_ERROR_TYPE)error {
+    [self emitManipulator:YAML::Value];
+    return [self checkAndReturnError:error];
+}
+
+- (BOOL)writeKey:(nonnull NSString *)key value:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block {
+    YAML_UNEXPECTED(key == nil);
+    YAML_UNEXPECTED(block == nil);
+    
+    return YES
+    && [self expectKeyWithError:nil]
+    && [self writeString:key error:nil]
+    && [self expectValueWithError:nil]
+    && block();
+}
+
+
+//MARK: Writing Scalars
+
+- (BOOL)writeString:(nullable NSString *)string error:(YAML_ERROR_TYPE)error {
+    if (string == nil) {
+        [self writeNullWithError:error];
+    }
+    else {
+        [self emitString:string];
+    }
+    return [self checkAndReturnError:error];
+}
+
+- (BOOL)writeString:(nullable NSString *)string style:(YAMLStyleString)style error:(YAML_ERROR_TYPE)error {
+    [self emitManipulator:[self stringFormatManipulatorForStyle:style]];
+    [self emitManipulator:[self stringCharsetManipulatorForStyle:style]];
+    return [self writeString:string error:error];
+}
+
+- (BOOL)writeBoolean:(BOOL)boolean error:(YAML_ERROR_TYPE)error {
+    [self emitBoolean:boolean];
+    return [self checkAndReturnError:error];
+}
+
+- (BOOL)writeBoolean:(BOOL)boolean style:(YAMLStyleBoolean)style error:(YAML_ERROR_TYPE)error {
+    [self emitManipulator:[self booleanFormatManipulatorForStyle:style]];
+    [self emitManipulator:[self booleanCaseManipulatorForStyle:style]];
+    [self emitManipulator:[self booleanLengthManipulatorForStyle:style]];
+    return [self writeBoolean:boolean error:error];
+}
+
+- (BOOL)writeInteger:(NSInteger)integer error:(YAML_ERROR_TYPE)error {
+    [self emitInteger:integer];
+    return [self checkAndReturnError:error];
+}
+
+- (BOOL)writeInteger:(NSInteger)integer style:(YAMLStyleInteger)style error:(YAML_ERROR_TYPE)error {
+    [self emitManipulator:[self integerBaseManipulatorForStyle:style]];
+    return [self writeInteger:integer error:error];
+}
+
+- (BOOL)writeNumber:(double)number error:(YAML_ERROR_TYPE)error {
+    [self emitDouble:number];
+    return [self checkAndReturnError:error];
+}
+
+- (BOOL)writeNumber:(double)number precision:(NSUInteger)precision error:(YAML_ERROR_TYPE)error {
+    [self applyLocalNumberPrecision:precision];
+    return [self writeNumber:number error:error];
+}
+
+- (BOOL)writeNullWithError:(YAML_ERROR_TYPE)error {
+    [self emitNull];
+    return [self checkAndReturnError:error];
+}
+
+- (BOOL)writeData:(nullable NSData *)data error:(YAML_ERROR_TYPE)error {
+    if (data == nil) {
+        [self writeNullWithError:error];
+    }
+    else {
+        [self emitData:data];
+    }
+    return [self checkAndReturnError:error];
+}
+
+
+//MARK: Writing Comments & Whitespace
+
+- (BOOL)writeComment:(nonnull NSString *)comment error:(YAML_ERROR_TYPE)error {
+    [self emitComment:comment];
+    return [self checkAndReturnError:error];
+}
+
+- (BOOL)writeNewLineWithError:(YAML_ERROR_TYPE)error {
+    [self emitManipulator:YAML::Newline];
+    return [self checkAndReturnError:error];
+}
+
+
+//MARK: Writing Anchors & Aliases
+
+- (BOOL)writeAnchor:(nonnull NSString *)name error:(YAML_ERROR_TYPE)error {
+    [self emitAnchor:name];
+    return [self checkAndReturnError:error];
+}
+
+- (BOOL)writeAlias:(nonnull NSString *)name error:(YAML_ERROR_TYPE)error {
+    [self emitAlias:name];
+    return [self checkAndReturnError:error];
+}
+
+
+@end
+

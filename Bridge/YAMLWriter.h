@@ -120,8 +120,6 @@
 //MARK: Writing Comments & Whitespace
 
 - (BOOL)writeComment:(nonnull NSString *)comment error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(write(comment:));
-- (BOOL)writeComment:(nonnull NSString *)comment leadingSpaces:(NSUInteger)leadingSpaces error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(write(comment:leadingSpaces:));
-- (BOOL)writeComment:(nonnull NSString *)comment leadingSpaces:(NSUInteger)leadingSpaces trailingSpaces:(NSUInteger)trailingSpaces error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(write(comment:leadingSpaces:trailingSpaces:));
 
 - (BOOL)writeNewLineWithError:(YAML_ERROR_TYPE)error;
 
