@@ -15,22 +15,25 @@ import YAMLBridge
 
 class YAMLWriter_Tests: XCTestCase {
     
-    var fileURL: NSURL {
-        let tempURL = NSURL(fileURLWithPath: NSTemporaryDirectory())
-        let randomURL = tempURL.URLByAppendingPathComponent(NSUUID().UUIDString, isDirectory: true)
-        let fileURL = randomURL.URLByAppendingPathComponent("\(self.dynamicType).yaml", isDirectory: false)
-        return fileURL
-    }
+    var fileURL: NSURL!
     
     override func setUp() {
         super.setUp()
-        NSFileManager.defaultManager().createFileAtPath(self.fileURL.path!, contents: nil, attributes: nil)
+        
+        let tempURL = NSURL(fileURLWithPath: NSTemporaryDirectory())
+        let randomURL = tempURL.URLByAppendingPathComponent(NSUUID().UUIDString, isDirectory: true)
+        try! NSFileManager.defaultManager().createDirectoryAtURL(randomURL, withIntermediateDirectories: true, attributes: nil)
+        let fileURL = randomURL.URLByAppendingPathComponent("\(self.dynamicType).yaml", isDirectory: false)
+        NSFileManager.defaultManager().createFileAtPath(fileURL.path!, contents: nil, attributes: nil)
+        self.fileURL = fileURL;
     }
     
     override func tearDown() {
         super.tearDown()
-        let _ = try? NSFileManager.defaultManager().removeItemAtURL(self.fileURL)
+        try! NSFileManager.defaultManager().removeItemAtURL(self.fileURL)
+        self.fileURL = nil
     }
+    
     
     func test_Creating() {
         XCTAssertNotNil( YAMLWriter() )
