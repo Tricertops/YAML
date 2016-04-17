@@ -12,5 +12,14 @@
 
 @implementation YAMLWriter
 
++ (BOOL)test {
+    YAML::Emitter emitter;
+    
+    emitter << YAML::Null;
+    
+    NSLog(@"YAML:\n%@", @(emitter.c_str()));
+    return emitter.good();
+}
+
 @end
 

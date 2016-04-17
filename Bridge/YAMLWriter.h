@@ -19,6 +19,8 @@
 
 @interface YAMLWriter : NSObject
 
++ (BOOL)test;
+
 @end
 
 

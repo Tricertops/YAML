@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5B10ED991CB958F900B1B74C /* YAMLBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B10ED981CB958F900B1B74C /* YAMLBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B10EDA01CB958F900B1B74C /* YAMLBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B10ED961CB958F900B1B74C /* YAMLBridge.framework */; };
-		5B10EDC31CB95A8E00B1B74C /* YAMLBridgeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B10EDC21CB95A8700B1B74C /* YAMLBridgeTests.m */; };
 		5B10EE001CB95DC300B1B74C /* libyaml-cpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B10EDE91CB95CB900B1B74C /* libyaml-cpp.a */; };
 		5B10EE031CB95F4700B1B74C /* YAMLCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B10EDC91CB95B7000B1B74C /* YAMLCore.framework */; };
 		5B10EE081CB95FA100B1B74C /* YAMLCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B10EDD11CB95BA000B1B74C /* YAMLCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -19,6 +18,7 @@
 		5B54D5A11CC22EC800DA0729 /* YAMLWriter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5B54D59F1CC22EC800DA0729 /* YAMLWriter.mm */; };
 		5B54D5B01CC232E900DA0729 /* YAMLStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B54D5AF1CC2311100DA0729 /* YAMLStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B54D5B21CC2358E00DA0729 /* YAMLDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B54D5B11CC2358E00DA0729 /* YAMLDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B54D5B61CC3669500DA0729 /* YAMLWriter_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B54D5B51CC3669500DA0729 /* YAMLWriter_Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,7 +114,6 @@
 		5B10ED9A1CB958F900B1B74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B10ED9F1CB958F900B1B74C /* YAMLBridgeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YAMLBridgeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B10EDC11CB95A8700B1B74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B10EDC21CB95A8700B1B74C /* YAMLBridgeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YAMLBridgeTests.m; sourceTree = "<group>"; };
 		5B10EDC91CB95B7000B1B74C /* YAMLCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YAMLCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B10EDD11CB95BA000B1B74C /* YAMLCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YAMLCore.h; sourceTree = "<group>"; };
 		5B10EDD21CB95BB400B1B74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -124,6 +123,7 @@
 		5B54D59F1CC22EC800DA0729 /* YAMLWriter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YAMLWriter.mm; sourceTree = "<group>"; };
 		5B54D5AF1CC2311100DA0729 /* YAMLStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YAMLStyle.h; sourceTree = "<group>"; };
 		5B54D5B11CC2358E00DA0729 /* YAMLDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAMLDefines.h; sourceTree = "<group>"; };
+		5B54D5B51CC3669500DA0729 /* YAMLWriter_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YAMLWriter_Tests.swift; sourceTree = "<group>"; };
 		5BF0AA741CB907910043126F /* YAML_CPP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = YAML_CPP.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,7 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				5B10EDC11CB95A8700B1B74C /* Info.plist */,
-				5B10EDC21CB95A8700B1B74C /* YAMLBridgeTests.m */,
+				5B54D5B51CC3669500DA0729 /* YAMLWriter_Tests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -455,7 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B10EDC31CB95A8E00B1B74C /* YAMLBridgeTests.m in Sources */,
+				5B54D5B61CC3669500DA0729 /* YAMLWriter_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,17 +529,20 @@
 		5B10EDA91CB958F900B1B74C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Bridge/Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tricertops.YAML.Bridge.Tests;
 				PRODUCT_NAME = YAMLBridgeTests;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		5B10EDAA1CB958F900B1B74C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Bridge/Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
