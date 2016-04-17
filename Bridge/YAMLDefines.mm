@@ -12,6 +12,9 @@
 #import "YAMLDefines.h"
 
 
+NSString * const YAMLErrorDomain = @"YAMLErrorDomain";
+
+
 void _YAMLPrintValidationMessage(const char *function, int line, NSString *label, const char *code, NSString *format, ...) {
     NSMutableString *log = [NSMutableString new];
     [log appendFormat:@"YAML: %s#%i  ", function, line];

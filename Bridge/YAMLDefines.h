@@ -29,6 +29,9 @@
 #define YAML_ENUM(name) \
     typedef NS_ENUM(NSInteger, name)
 
+#define YAML_ENUM_ANONYMOUS \
+    NS_ENUM(NSInteger)
+
 
 #pragma mark Validation
 
@@ -56,6 +59,16 @@
     NSError * _Nullable * _Nullable
 
 typedef BOOL (^YAMLWriterBlock)(void);
+
+
+#pragma mark - Errors
+
+extern NSString * const YAMLErrorDomain;
+
+YAML_ENUM_ANONYMOUS {
+    YAMLErrorNone = 0,
+    YAMLErrorWriter,
+};
 
 
 #pragma mark - Internal

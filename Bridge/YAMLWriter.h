@@ -36,9 +36,9 @@
 @end
 
 
-#pragma mark - Result Getters
+#pragma mark - Result Accessors
 
-@interface YAMLWriter (ResultGetters)
+@interface YAMLWriter (ResultAccessors)
 
 @property (readonly) NSUInteger outputLength;
 @property (readonly, nonnull) NSString *outputString;

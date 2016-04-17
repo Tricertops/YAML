@@ -75,3 +75,28 @@
 
 @end
 
+
+#pragma mark - Result Accessors
+
+@implementation YAMLWriter (ResultAccessors)
+
+- (NSUInteger)outputLength {
+    return self->_emitter->size();
+}
+
+- (nonnull NSString *)outputString {
+    return @(self->_emitter->c_str());
+}
+
+- (nullable NSError *)error {
+    if (self->_emitter->good()) {
+        return nil;
+    }
+    
+    NSString *message = @(self->_emitter->GetLastError().c_str());
+    return [NSError errorWithDomain:YAMLErrorDomain
+                               code:YAMLErrorWriter
+                           userInfo:@{ NSLocalizedDescriptionKey: message }];
+}
+
+@end
