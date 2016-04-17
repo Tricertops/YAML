@@ -9,6 +9,6 @@
 @import Foundation;
 
 
-#import "YAMLEmitter.h"
-#import "YAMLEmitterStyle.h"
+#import "YAMLWriter.h"
+#import "YAMLStyle.h"
 

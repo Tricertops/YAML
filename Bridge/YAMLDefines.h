@@ -1,5 +1,5 @@
 //
-//  YAMLBridgeDefines.h
+//  YAMLDefines.h
 //  YAML
 //
 //  Created by Martin Kiss on 16.4.16.

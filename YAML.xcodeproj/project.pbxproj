@@ -15,10 +15,10 @@
 		5B10EE081CB95FA100B1B74C /* YAMLCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B10EDD11CB95BA000B1B74C /* YAMLCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B10EE0E1CB9606200B1B74C /* yaml-cpp in Headers */ = {isa = PBXBuildFile; fileRef = 5B10EE0C1CB9606000B1B74C /* yaml-cpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B10EE1F1CB9689C00B1B74C /* YAMLCore.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5B10EDFB1CB95D0500B1B74C /* YAMLCore.mm */; };
-		5B54D5A01CC22EC800DA0729 /* YAMLEmitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B54D59E1CC22EC800DA0729 /* YAMLEmitter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5B54D5A11CC22EC800DA0729 /* YAMLEmitter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5B54D59F1CC22EC800DA0729 /* YAMLEmitter.mm */; };
-		5B54D5B01CC232E900DA0729 /* YAMLEmitterStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B54D5AF1CC2311100DA0729 /* YAMLEmitterStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5B54D5B21CC2358E00DA0729 /* YAMLBridgeDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B54D5B11CC2358E00DA0729 /* YAMLBridgeDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B54D5A01CC22EC800DA0729 /* YAMLWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B54D59E1CC22EC800DA0729 /* YAMLWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B54D5A11CC22EC800DA0729 /* YAMLWriter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5B54D59F1CC22EC800DA0729 /* YAMLWriter.mm */; };
+		5B54D5B01CC232E900DA0729 /* YAMLStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B54D5AF1CC2311100DA0729 /* YAMLStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B54D5B21CC2358E00DA0729 /* YAMLDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B54D5B11CC2358E00DA0729 /* YAMLDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,10 +120,10 @@
 		5B10EDD21CB95BB400B1B74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B10EDFB1CB95D0500B1B74C /* YAMLCore.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YAMLCore.mm; sourceTree = "<group>"; };
 		5B10EE0C1CB9606000B1B74C /* yaml-cpp */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "yaml-cpp"; path = "yaml-cpp/include/yaml-cpp"; sourceTree = "<group>"; };
-		5B54D59E1CC22EC800DA0729 /* YAMLEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAMLEmitter.h; sourceTree = "<group>"; };
-		5B54D59F1CC22EC800DA0729 /* YAMLEmitter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YAMLEmitter.mm; sourceTree = "<group>"; };
-		5B54D5AF1CC2311100DA0729 /* YAMLEmitterStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YAMLEmitterStyle.h; sourceTree = "<group>"; };
-		5B54D5B11CC2358E00DA0729 /* YAMLBridgeDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAMLBridgeDefines.h; sourceTree = "<group>"; };
+		5B54D59E1CC22EC800DA0729 /* YAMLWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAMLWriter.h; sourceTree = "<group>"; };
+		5B54D59F1CC22EC800DA0729 /* YAMLWriter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YAMLWriter.mm; sourceTree = "<group>"; };
+		5B54D5AF1CC2311100DA0729 /* YAMLStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YAMLStyle.h; sourceTree = "<group>"; };
+		5B54D5B11CC2358E00DA0729 /* YAMLDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAMLDefines.h; sourceTree = "<group>"; };
 		5BF0AA741CB907910043126F /* YAML_CPP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = YAML_CPP.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,10 +160,10 @@
 			children = (
 				5B10ED9A1CB958F900B1B74C /* Info.plist */,
 				5B10ED981CB958F900B1B74C /* YAMLBridge.h */,
-				5B54D5B11CC2358E00DA0729 /* YAMLBridgeDefines.h */,
-				5B54D5AF1CC2311100DA0729 /* YAMLEmitterStyle.h */,
-				5B54D59E1CC22EC800DA0729 /* YAMLEmitter.h */,
-				5B54D59F1CC22EC800DA0729 /* YAMLEmitter.mm */,
+				5B54D5B11CC2358E00DA0729 /* YAMLDefines.h */,
+				5B54D5AF1CC2311100DA0729 /* YAMLStyle.h */,
+				5B54D59E1CC22EC800DA0729 /* YAMLWriter.h */,
+				5B54D59F1CC22EC800DA0729 /* YAMLWriter.mm */,
 				5B10EDC01CB95A8700B1B74C /* Tests */,
 			);
 			path = Bridge;
@@ -232,10 +232,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B54D5A01CC22EC800DA0729 /* YAMLEmitter.h in Headers */,
-				5B54D5B01CC232E900DA0729 /* YAMLEmitterStyle.h in Headers */,
+				5B54D5A01CC22EC800DA0729 /* YAMLWriter.h in Headers */,
+				5B54D5B01CC232E900DA0729 /* YAMLStyle.h in Headers */,
 				5B10ED991CB958F900B1B74C /* YAMLBridge.h in Headers */,
-				5B54D5B21CC2358E00DA0729 /* YAMLBridgeDefines.h in Headers */,
+				5B54D5B21CC2358E00DA0729 /* YAMLDefines.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,7 +447,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B54D5A11CC22EC800DA0729 /* YAMLEmitter.mm in Sources */,
+				5B54D5A11CC22EC800DA0729 /* YAMLWriter.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

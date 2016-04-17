@@ -1,5 +1,5 @@
 //
-//  YAMLEmitter.mm
+//  YAMLWriter.mm
 //  YAML
 //
 //  Created by Martin Kiss on 16.4.16.
@@ -7,10 +7,10 @@
 //
 
 #import <YAMLCore/YAMLCore.h>
-#import "YAMLEmitter.h"
+#import "YAMLWriter.h"
 
 
-@implementation YAMLEmitter
+@implementation YAMLWriter
 
 @end
 
