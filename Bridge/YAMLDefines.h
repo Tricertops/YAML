@@ -23,3 +23,9 @@
 
 #define YAML_ENUM(name) \
     typedef NS_ENUM(NSInteger, name)
+
+#define YAML_ERROR_TYPE \
+    NSError * _Nullable * _Nullable
+
+
+typedef BOOL (^YAMLWriterBlock)(void);

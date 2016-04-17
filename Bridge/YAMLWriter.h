@@ -11,7 +11,6 @@
 
 //TODO: Version directive?
 //TODO: Tags?
-//TODO: Errors?
 //TODO: Dates?
 
 
@@ -65,72 +64,70 @@
 
 #pragma mark - Writing Methods
 
-typedef BOOL (^YAMLWriterBlock)(void);
-
 @interface YAMLWriter (WritingMethods)
 
 
 //MARK: Writing Document
 
-- (BOOL)beginDocument;
-- (BOOL)endDocument;
-- (BOOL)writeDocument:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block;
+- (BOOL)beginDocumentWithError:(YAML_ERROR_TYPE)error;
+- (BOOL)endDocumentWithError:(YAML_ERROR_TYPE)error;
+- (BOOL)writeDocument:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block error:(YAML_ERROR_TYPE)error;
 
 
 //MARK: Writing Array (Sequence)
 
-- (BOOL)beginArray;
-- (BOOL)beginArrayWithStyle:(YAMLStyleArray)style;
-- (BOOL)beginArrayWithStyle:(YAMLStyleArray)style indentation:(NSUInteger)indentation;
-- (BOOL)endArray;
-- (BOOL)writeArray:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block;
+- (BOOL)beginArrayWithError:(YAML_ERROR_TYPE)error;
+- (BOOL)beginArrayWithStyle:(YAMLStyleArray)style error:(YAML_ERROR_TYPE)error;
+- (BOOL)beginArrayWithStyle:(YAMLStyleArray)style indentation:(NSUInteger)indentation error:(YAML_ERROR_TYPE)error;
+- (BOOL)endArrayWithError:(YAML_ERROR_TYPE)error;
+- (BOOL)writeArray:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block error:(YAML_ERROR_TYPE)error;
 
 
 //MARK: Writing Dictionary (Map)
 
-- (BOOL)beginDictionary;
-- (BOOL)beginDictionaryWithStyle:(YAMLStyleDictionary)style;
-- (BOOL)beginDictionaryWithStyle:(YAMLStyleDictionary)style indentation:(NSUInteger)indentation;
-- (BOOL)endDictionary;
-- (BOOL)writeDictionary:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block;
-- (BOOL)expectKey;
-- (BOOL)expectKeyAsLong:(BOOL)longKey    YAML_SWIFT_NAME(expectKey(long:));
-- (BOOL)expectValue;
+- (BOOL)beginDictionaryWithError:(YAML_ERROR_TYPE)error;
+- (BOOL)beginDictionaryWithStyle:(YAMLStyleDictionary)style error:(YAML_ERROR_TYPE)error;
+- (BOOL)beginDictionaryWithStyle:(YAMLStyleDictionary)style indentation:(NSUInteger)indentation error:(YAML_ERROR_TYPE)error;
+- (BOOL)endDictionaryWithError:(YAML_ERROR_TYPE)error;
+- (BOOL)writeDictionary:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block error:(YAML_ERROR_TYPE)error;
+- (BOOL)expectKeyWithError:(YAML_ERROR_TYPE)error;
+- (BOOL)expectKeyAsLong:(BOOL)longKey error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(expectKey(long:));
+- (BOOL)expectValueWithError:(YAML_ERROR_TYPE)error;
 - (BOOL)writeKey:(nonnull NSString *)key value:(nonnull YAMLWriterBlock YAML_NO_ESCAPE)block    YAML_SWIFT_NAME(write(key:value:));
 
 
 //MARK: Writing Scalars
 
-- (BOOL)writeString:(nullable NSString *)string    YAML_SWIFT_NAME(write(_:));
-- (BOOL)writeString:(nullable NSString *)string style:(YAMLStyleString)style    YAML_SWIFT_NAME(write(_:style:));
+- (BOOL)writeString:(nullable NSString *)string error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(write(_:));
+- (BOOL)writeString:(nullable NSString *)string style:(YAMLStyleString)style error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(write(_:style:));
 
-- (BOOL)writeBoolean:(BOOL)boolean    YAML_SWIFT_NAME(write(_:));
-- (BOOL)writeBoolean:(BOOL)boolean style:(YAMLStyleBoolean)style    YAML_SWIFT_NAME(write(_:style:));
+- (BOOL)writeBoolean:(BOOL)boolean error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(write(_:));
+- (BOOL)writeBoolean:(BOOL)boolean style:(YAMLStyleBoolean)style error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(write(_:style:));
 
-- (BOOL)writeInteger:(NSInteger)integer    YAML_SWIFT_NAME(write(_:));
-- (BOOL)writeInteger:(NSInteger)integer style:(YAMLStyleInteger)style    YAML_SWIFT_NAME(write(_:style:));
+- (BOOL)writeInteger:(NSInteger)integer error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(write(_:));
+- (BOOL)writeInteger:(NSInteger)integer style:(YAMLStyleInteger)style error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(write(_:style:));
 
-- (BOOL)writeNumber:(double)number    YAML_SWIFT_NAME(write(_:));
-- (BOOL)writeNumber:(double)number precision:(NSUInteger)precision    YAML_SWIFT_NAME(write(_:precision:));
+- (BOOL)writeNumber:(double)number error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(write(_:));
+- (BOOL)writeNumber:(double)number precision:(NSUInteger)precision error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(write(_:precision:));
 
-- (BOOL)writeNull;
+- (BOOL)writeNullWithError:(YAML_ERROR_TYPE)error;
 
-- (BOOL)writeData:(nullable NSData *)data    YAML_SWIFT_NAME(write(_:));
+- (BOOL)writeData:(nullable NSData *)data error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(write(_:));
 
 
 //MARK: Writing Comments & Whitespace
 
-- (BOOL)writeComment:(nonnull NSString *)comment    YAML_SWIFT_NAME(write(comment:));
-- (BOOL)writeComment:(nonnull NSString *)comment leadingSpaces:(NSUInteger)leadingSpaces    YAML_SWIFT_NAME(write(comment:leadingSpaces:));
-- (BOOL)writeComment:(nonnull NSString *)comment leadingSpaces:(NSUInteger)leadingSpaces trailingSpaces:(NSUInteger)trailingSpaces    YAML_SWIFT_NAME(write(comment:leadingSpaces:trailingSpaces:));
+- (BOOL)writeComment:(nonnull NSString *)comment error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(write(comment:));
+- (BOOL)writeComment:(nonnull NSString *)comment leadingSpaces:(NSUInteger)leadingSpaces error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(write(comment:leadingSpaces:));
+- (BOOL)writeComment:(nonnull NSString *)comment leadingSpaces:(NSUInteger)leadingSpaces trailingSpaces:(NSUInteger)trailingSpaces error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(write(comment:leadingSpaces:trailingSpaces:));
 
-- (BOOL)writeNewLine;
+- (BOOL)writeNewLineWithError:(YAML_ERROR_TYPE)error;
 
 
 //MARK: Writing Anchors & Aliases
 
-- (BOOL)writeAnchor:(nonnull NSString *)name    YAML_SWIFT_NAME(write(anchor:));
-- (BOOL)writeAlias:(nonnull NSString *)name    YAML_SWIFT_NAME(write(alias:));
+- (BOOL)writeAnchor:(nonnull NSString *)name error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(write(anchor:));
+- (BOOL)writeAlias:(nonnull NSString *)name error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(write(alias:));
 
 
 @end
