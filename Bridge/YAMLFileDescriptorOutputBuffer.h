@@ -1,9 +1,20 @@
 //
 //  YAMLFileDescriptorOutputBuffer.h
-//  YAML
+//  YAML Bridge
 //
-//  Created by Martin Kiss on 17.4.16.
-//  Copyright © 2016 Tricertops. All rights reserved.
+//  Created by Martin Kiss on 17 April 2016.
+//  https://github.com/Tricertops/YAML
+//
+//  The MIT License (MIT)
+//  Copyright © 2016 Martin Kiss
+//
+//  Inspired by http://www.josuttis.com/cppcode/fdstream.hpp
+//  Copyright © 2001 Nicolai M. Josuttis
+//
+//    Permission to copy, use, modify, sell and distribute this software
+//    is granted provided this copyright notice appears in all copies.
+//    This software is provided "as is" without express or implied
+//    warranty, and with no claim as to its suitability for any purpose.
 //
 
 

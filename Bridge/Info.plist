@@ -21,6 +21,6 @@
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2016 Tricertops. All rights reserved.</string>
+	<string>The MIT License (MIT), Copyright © 2016 Martin Kiss</string>
 </dict>
 </plist>

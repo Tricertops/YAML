@@ -1,9 +1,12 @@
 //
-//  YAMLDefines.m
-//  YAML
+//  YAMLDefines.mm
+//  YAML Bridge
 //
-//  Created by Martin Kiss on 17.4.16.
-//  Copyright © 2016 Tricertops. All rights reserved.
+//  Created by Martin Kiss on 17 April 2016.
+//  https://github.com/Tricertops/YAML
+//
+//  The MIT License (MIT)
+//  Copyright © 2016 Martin Kiss
 //
 
 #import "YAMLDefines.h"
