@@ -477,6 +477,12 @@
     *(self->_emitter) << YAML::Alias(name.UTF8String);
 }
 
+- (void)emitTag:(YAML::_Tag)tag {
+    YAML_WARNING(tag.content.length() == 0, "Empty tag content");
+    
+    *(self->_emitter) << tag;
+}
+
 
 //MARK: Convenience
 
@@ -485,6 +491,24 @@
         *error = self.error;
     }
     return self->_emitter->good();
+}
+
+- (YAML::_Tag)tagWithKind:(YAMLTagKind)kind name:(nonnull NSString *)name {
+    YAML_UNEXPECTED(name == nil);
+    
+    switch (kind) {
+        case YAMLTagKind_Verbatim: {
+            std::string cpp_name = name.UTF8String;
+            return YAML::VerbatimTag("!" + cpp_name);
+        }
+        case YAMLTagKind_BuiltIn:
+            return YAML::SecondaryTag(name.UTF8String);
+        case YAMLTagKind_UserDefined:
+            return YAML::LocalTag(name.UTF8String);
+    }
+    
+    YAML_UNEXPECTED(kind, "Unsupported kind: %td", kind);
+    return YAML::LocalTag("");
 }
 
 
@@ -689,6 +713,19 @@
 
 - (BOOL)writeAlias:(nonnull NSString *)name error:(YAML_ERROR_TYPE)error {
     [self emitAlias:name];
+    return [self checkAndReturnError:error];
+}
+
+
+//MARK: Writing Tags
+
+- (BOOL)writeTagURI:(nonnull NSString *)URI error:(YAML_ERROR_TYPE)error {
+    [self emitTag:YAML::VerbatimTag(URI.UTF8String)];
+    return [self checkAndReturnError:error];
+}
+
+- (BOOL)writeTag:(nonnull NSString *)name kind: (YAMLTagKind)kind error:(YAML_ERROR_TYPE)error {
+    [self emitTag:[self tagWithKind:kind name:name]];
     return [self checkAndReturnError:error];
 }
 

@@ -13,10 +13,6 @@
 #import "YAMLStyle.h"
 
 
-//TODO: Version directive?
-//TODO: Tags?
-//TODO: Dates?
-
 
 #pragma mark - YAML Writer Class
 
@@ -128,6 +124,18 @@
 
 - (BOOL)writeAnchor:(nonnull NSString *)name error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(write(anchor:));
 - (BOOL)writeAlias:(nonnull NSString *)name error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(write(alias:));
+
+
+//MARK: Writing Tags
+
+YAML_ENUM(YAMLTagKind) {
+    YAMLTagKind_Verbatim,
+    YAMLTagKind_BuiltIn,
+    YAMLTagKind_UserDefined,
+};
+
+- (BOOL)writeTagURI:(nonnull NSString *)URI error:(YAML_ERROR_TYPE)error     YAML_SWIFT_NAME(writeTag(URI:));
+- (BOOL)writeTag:(nonnull NSString *)name kind:(YAMLTagKind)kind error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(writeTag(_:kind:));
 
 
 @end
