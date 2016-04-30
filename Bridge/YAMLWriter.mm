@@ -741,8 +741,7 @@
     static NSCharacterSet *valid = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        // RFC 2396 sections 2.2 and 2.3
-        NSCharacterSet *invalid = [NSCharacterSet characterSetWithCharactersInString:@";/?:@&=+$,-_.!~*'()"];
+        NSCharacterSet *invalid = [NSCharacterSet characterSetWithCharactersInString:@"![]{},"];
         valid = [invalid invertedSet];
     });
     return valid;
