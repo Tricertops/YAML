@@ -134,8 +134,8 @@ YAML_ENUM(YAMLTagKind) {
     YAMLTagKind_UserDefined,
 };
 
-- (BOOL)writeTagURI:(nonnull NSString *)URI error:(YAML_ERROR_TYPE)error     YAML_SWIFT_NAME(writeTag(URI:));
-- (BOOL)writeTag:(nonnull NSString *)name kind:(YAMLTagKind)kind error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(writeTag(_:kind:));
+- (BOOL)writeTagURI:(nonnull NSString *)URI error:(YAML_ERROR_TYPE)error     YAML_SWIFT_NAME(write(tagURI:));
+- (BOOL)writeTag:(nonnull NSString *)name kind:(YAMLTagKind)kind error:(YAML_ERROR_TYPE)error    YAML_SWIFT_NAME(write(tag:kind:));
 
 
 @end

@@ -493,24 +493,6 @@
     return self->_emitter->good();
 }
 
-- (YAML::_Tag)tagWithKind:(YAMLTagKind)kind name:(nonnull NSString *)name {
-    YAML_UNEXPECTED(name == nil);
-    
-    switch (kind) {
-        case YAMLTagKind_Verbatim: {
-            std::string cpp_name = name.UTF8String;
-            return YAML::VerbatimTag("!" + cpp_name);
-        }
-        case YAMLTagKind_BuiltIn:
-            return YAML::SecondaryTag(name.UTF8String);
-        case YAMLTagKind_UserDefined:
-            return YAML::LocalTag(name.UTF8String);
-    }
-    
-    YAML_UNEXPECTED(kind, "Unsupported kind: %td", kind);
-    return YAML::LocalTag("");
-}
-
 
 //MARK: Writing Document
 
@@ -720,13 +702,56 @@
 //MARK: Writing Tags
 
 - (BOOL)writeTagURI:(nonnull NSString *)URI error:(YAML_ERROR_TYPE)error {
-    [self emitTag:YAML::VerbatimTag(URI.UTF8String)];
+    [self emitTag:[self verbatimTagWithContent:URI]];
     return [self checkAndReturnError:error];
 }
 
 - (BOOL)writeTag:(nonnull NSString *)name kind: (YAMLTagKind)kind error:(YAML_ERROR_TYPE)error {
     [self emitTag:[self tagWithKind:kind name:name]];
     return [self checkAndReturnError:error];
+}
+
+- (YAML::_Tag)verbatimTagWithContent:(nonnull NSString *)content {
+    YAML_UNEXPECTED(content == nil);
+    
+    NSString *escaped = [self escapeTagContent:content];
+    return YAML::VerbatimTag(escaped.UTF8String);
+}
+
+- (YAML::_Tag)tagWithKind:(YAMLTagKind)kind name:(nonnull NSString *)name {
+    YAML_UNEXPECTED(name == nil);
+    
+    NSString *escaped = [self escapeTagContent:name];
+    switch (kind) {
+        case YAMLTagKind_Verbatim: {
+            std::string cpp = escaped.UTF8String;
+            return YAML::VerbatimTag("!" + cpp);
+        }
+        case YAMLTagKind_BuiltIn:
+            return YAML::SecondaryTag(escaped.UTF8String);
+        case YAMLTagKind_UserDefined:
+            return YAML::LocalTag(escaped.UTF8String);
+    }
+    
+    YAML_UNEXPECTED(kind, "Unsupported kind: %td", kind);
+    return YAML::LocalTag("");
+}
+
+- (nonnull NSCharacterSet *)validCharactersInTag {
+    static NSCharacterSet *valid = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // RFC 2396 sections 2.2 and 2.3
+        NSCharacterSet *invalid = [NSCharacterSet characterSetWithCharactersInString:@";/?:@&=+$,-_.!~*'()"];
+        valid = [invalid invertedSet];
+    });
+    return valid;
+}
+
+- (nonnull NSString *)escapeTagContent:(nonnull NSString *)content {
+    YAML_UNEXPECTED(content == nil);
+    
+    return [content stringByAddingPercentEncodingWithAllowedCharacters: [self validCharactersInTag]];
 }
 
 
