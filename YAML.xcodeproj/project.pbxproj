@@ -18,23 +18,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		18278EC05DF34E80B05F54C0 /* parser.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = parser.c; path = src/parser.c; sourceTree = SOURCE_ROOT; };
+		18278EC05DF34E80B05F54C0 /* parser.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; path = parser.c; sourceTree = "<group>"; };
 		25C78641187940A78433850F /* libYAML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libYAML.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		29EB03E00A904E0EA479DE25 /* reader.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = reader.c; path = src/reader.c; sourceTree = SOURCE_ROOT; };
-		51EB0CDC256E4A479793E535 /* loader.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = loader.c; path = src/loader.c; sourceTree = SOURCE_ROOT; };
-		6C4C0112593341D5B5A19F0F /* emitter.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = emitter.c; path = src/emitter.c; sourceTree = SOURCE_ROOT; };
-		7583DB20E9964EDA92A290D5 /* dumper.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = dumper.c; path = src/dumper.c; sourceTree = SOURCE_ROOT; };
-		B640160F7C504586AD0B65F9 /* writer.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = writer.c; path = src/writer.c; sourceTree = SOURCE_ROOT; };
-		CB26AC4B59DC4F9AA9AB3E06 /* api.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = api.c; path = src/api.c; sourceTree = SOURCE_ROOT; };
-		E8DCD024161B4E0985958A4F /* scanner.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = scanner.c; path = src/scanner.c; sourceTree = SOURCE_ROOT; };
+		29EB03E00A904E0EA479DE25 /* reader.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; path = reader.c; sourceTree = "<group>"; };
+		51EB0CDC256E4A479793E535 /* loader.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; path = loader.c; sourceTree = "<group>"; };
+		5B9884331CD65A8B0008A67D /* yaml.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = yaml.h; sourceTree = "<group>"; };
+		6C4C0112593341D5B5A19F0F /* emitter.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; path = emitter.c; sourceTree = "<group>"; };
+		7583DB20E9964EDA92A290D5 /* dumper.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; path = dumper.c; sourceTree = "<group>"; };
+		B640160F7C504586AD0B65F9 /* writer.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; path = writer.c; sourceTree = "<group>"; };
+		CB26AC4B59DC4F9AA9AB3E06 /* api.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; path = api.c; sourceTree = "<group>"; };
+		E8DCD024161B4E0985958A4F /* scanner.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; path = scanner.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		05AE6B9A22B7426E8B6231D1 = {
 			isa = PBXGroup;
 			children = (
-				A770298D51964F91A4C25F8A /* Sources */,
-				F5125CD4A75B488087AE1281 /* Resources */,
+				B4AAAFE65B664336AF146E0F /* libyaml */,
 				1A659A2B32AE4FCE9C580605 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,7 +47,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8546BC337CA04C5189FBED01 /* Source Files */ = {
+		5B9884311CD65A740008A67D /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				5B9884331CD65A8B0008A67D /* yaml.h */,
+			);
+			name = Headers;
+			path = include;
+			sourceTree = "<group>";
+		};
+		8546BC337CA04C5189FBED01 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				CB26AC4B59DC4F9AA9AB3E06 /* api.c */,
@@ -59,30 +68,17 @@
 				E8DCD024161B4E0985958A4F /* scanner.c */,
 				B640160F7C504586AD0B65F9 /* writer.c */,
 			);
-			name = "Source Files";
-			sourceTree = "<group>";
-		};
-		A770298D51964F91A4C25F8A /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				B4AAAFE65B664336AF146E0F /* yaml */,
-			);
 			name = Sources;
+			path = src;
 			sourceTree = "<group>";
 		};
-		B4AAAFE65B664336AF146E0F /* yaml */ = {
+		B4AAAFE65B664336AF146E0F /* libyaml */ = {
 			isa = PBXGroup;
 			children = (
-				8546BC337CA04C5189FBED01 /* Source Files */,
+				5B9884311CD65A740008A67D /* Headers */,
+				8546BC337CA04C5189FBED01 /* Sources */,
 			);
-			name = yaml;
-			sourceTree = "<group>";
-		};
-		F5125CD4A75B488087AE1281 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Resources;
+			path = libyaml;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,7 +116,7 @@
 				en,
 			);
 			mainGroup = 05AE6B9A22B7426E8B6231D1;
-			projectDirPath = libyaml;
+			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				DBCA0AC4FB8341389D2C9816 /* YAML */,
@@ -150,34 +146,21 @@
 		6A5FD2C3A32640EBB73796D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
 					HAVE_CONFIG_H,
 					YAML_DECLARE_STATIC,
+					$inherited,
+					NDEBUG,
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
-					/Users/Martin/Development/Libraries/YAML/libyaml/include,
-					/Users/Martin/Development/Libraries/YAML/libyaml/win32,
+					libyaml/include,
+					libyaml/win32,
 				);
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CFLAGS = "    -DNDEBUG  ";
-				OTHER_LIBTOOLFLAGS = " ";
-				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = YAML;
-				SECTORDER_FLAGS = "";
-				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = (
 					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
 					"$(inherited)",
 				);
 			};
@@ -186,34 +169,20 @@
 		8CF82C9564D044E8BF3E6D41 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
 					HAVE_CONFIG_H,
 					YAML_DECLARE_STATIC,
+					$inherited,
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
-					/Users/Martin/Development/Libraries/YAML/libyaml/include,
-					/Users/Martin/Development/Libraries/YAML/libyaml/win32,
+					libyaml/include,
+					libyaml/win32,
 				);
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CFLAGS = "    ";
-				OTHER_LIBTOOLFLAGS = " ";
-				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = YAML;
-				SECTORDER_FLAGS = "";
-				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = (
 					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
 					"$(inherited)",
 				);
 			};
@@ -222,19 +191,29 @@
 		B2A1E1E9AB694A95BCA31D86 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
 		DCAD65EAB54546EFB9C5688A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
