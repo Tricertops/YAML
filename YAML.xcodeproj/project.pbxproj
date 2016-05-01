@@ -21,7 +21,7 @@
 		5B54D5B61CC3669500DA0729 /* YAMLWriter_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B54D5B51CC3669500DA0729 /* YAMLWriter_Tests.swift */; };
 		5B54D5CA1CC3858300DA0729 /* YAMLDefines.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5B54D5C91CC3858300DA0729 /* YAMLDefines.mm */; };
 		5B54D5CC1CC3904C00DA0729 /* YAMLFileDescriptorOutputBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B54D5CB1CC3904C00DA0729 /* YAMLFileDescriptorOutputBuffer.h */; };
-		5B9883EB1CD5025D0008A67D /* YAMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B9883E91CD5025D0008A67D /* YAMLNode.h */; };
+		5B9883EB1CD5025D0008A67D /* YAMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B9883E91CD5025D0008A67D /* YAMLNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B9883EC1CD5025D0008A67D /* YAMLNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5B9883EA1CD5025D0008A67D /* YAMLNode.mm */; };
 /* End PBXBuildFile section */
 

@@ -12,6 +12,7 @@
 @import Foundation;
 
 
+#import "YAMLNode.h"
 #import "YAMLWriter.h"
 #import "YAMLStyle.h"
 

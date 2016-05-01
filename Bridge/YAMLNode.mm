@@ -77,6 +77,18 @@
     return nil;
 }
 
+- (instancetype)copyWithZone:(__unused NSZone *)zone {
+    return self;
+}
+
+- (nonnull instancetype)copy {
+    return self;
+}
+
+- (BOOL)isEqual:(nonnull YAMLNode *)other {
+    return (self == other);
+}
+
 
 @end
 
@@ -124,8 +136,8 @@
 
 + (nonnull NSArray<YAMLNode *> *)documentsFromVector:(std::vector<YAML::Node>)vector {
     NSMutableArray<YAMLNode *> *documents = [NSMutableArray new];
-    for(std::vector<YAML::Node>::iterator iterator = vector.begin(); iterator != vector.end(); iterator ++) {
-        YAMLNode *node = [YAMLNode nodeFromCoreNode:*iterator];
+    for(auto core = vector.begin(); core != vector.end(); core ++) {
+        YAMLNode *node = [YAMLNode nodeFromCoreNode:*core];
         [documents addObject:node];
     }
     return documents;
@@ -156,6 +168,8 @@
 @implementation YAMLNodeString
 
 
+@synthesize string = _string;
+
 - (instancetype)initWithCoreNode:(YAML::Node)core {
     self = [super init];
     YAML_UNEXPECTED(self == nil);
@@ -166,8 +180,6 @@
     return self;
 }
 
-@synthesize string = _string;
-
 
 @end
 
@@ -177,20 +189,20 @@
 @implementation YAMLNodeArray
 
 
+@synthesize array = _array;
+
 - (instancetype)initWithCoreNode:(YAML::Node)core {
     self = [super init];
     YAML_UNEXPECTED(self == nil);
     YAML_UNEXPECTED( ! core.IsSequence());
-    return self;
-}
-
-@synthesize array = _array;
-
-- (NSArray<YAMLNode *> *)array {
-    if (self->_array == nil) {
-        //TODO: Convert children to YAMLNodes.
+    
+    NSMutableArray<YAMLNode *> *array = [NSMutableArray new];
+    for (auto subcore = core.begin(); subcore != core.end(); subcore ++) {
+        [array addObject: [YAMLNode nodeFromCoreNode:*subcore]];
     }
-    return self->_array;
+    self->_array = array;
+    
+    return self;
 }
 
 
@@ -202,20 +214,22 @@
 @implementation YAMLNodeDictionary
 
 
+@synthesize dictionary = _dictionary;
+
 - (instancetype)initWithCoreNode:(YAML::Node)core {
     self = [super init];
     YAML_UNEXPECTED(self == nil);
     YAML_UNEXPECTED( ! core.IsMap());
-    return self;
-}
-
-@synthesize dictionary = _dictionary;
-
-- (NSDictionary<YAMLNode *,YAMLNode *> *)dictionary {
-    if (self->_dictionary == nil) {
-        //TODO: Convert children to YAMLNodes.
+    
+    NSMutableDictionary<YAMLNode *,YAMLNode *> *dictionary = [NSMutableDictionary new];
+    for (auto subcore = core.begin(); subcore != core.end(); subcore ++) {
+        YAMLNode *key = [YAMLNode nodeFromCoreNode:subcore->first];
+        YAMLNode *value = [YAMLNode nodeFromCoreNode:subcore->second];
+        dictionary[key] = value;
     }
-    return self->_dictionary;
+    self->_dictionary = dictionary;
+    
+    return self;
 }
 
 

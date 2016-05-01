@@ -15,7 +15,10 @@
 
 #pragma mark - YAML Node Class
 
-@interface YAMLNode : NSObject
+@interface YAMLNode : NSObject <NSCopying>
+
+- (nonnull instancetype)copy; //!< Returns self.
+- (BOOL)isEqual:(nonnull YAMLNode *)other; //!< Compares pointer identity.
 
 @end
 
