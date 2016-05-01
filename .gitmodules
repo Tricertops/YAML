@@ -1,6 +1,0 @@
-[submodule "Core/yaml-cpp"]
-	path = Core/yaml-cpp
-	url = https://github.com/jbeder/yaml-cpp.git
-[submodule "Core/libyaml"]
-	path = Core/libyaml
-	url = https://github.com/yaml/libyaml.git
