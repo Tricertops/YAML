@@ -22,5 +22,7 @@
 	<string>1</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>The MIT License (MIT), Copyright © 2016 Martin Kiss</string>
+	<key>YAMLProjectPath</key>
+	<string>$(PROJECT_DIR)</string>
 </dict>
 </plist>

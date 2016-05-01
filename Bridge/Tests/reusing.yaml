@@ -1,0 +1,7 @@
+%YAML 1.2
+---
+- &ref ABC  # This is referenced.
+- *ref      # Here we should have identical object.
+- ABC       # Here we must NOT have identical object.
+- *ref      # Here we should have identical object.
+...

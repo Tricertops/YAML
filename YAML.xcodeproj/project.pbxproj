@@ -24,6 +24,8 @@
 		5B9883EB1CD5025D0008A67D /* YAMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B9883E91CD5025D0008A67D /* YAMLNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B9883EC1CD5025D0008A67D /* YAMLNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5B9883EA1CD5025D0008A67D /* YAMLNode.mm */; };
 		5B9883FB1CD5F6910008A67D /* www.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 5B9883FA1CD5F6910008A67D /* www.yaml */; };
+		5B9883FD1CD601250008A67D /* reusing.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 5B9883FC1CD601250008A67D /* reusing.yaml */; };
+		5B9883FF1CD601AF0008A67D /* YAMLNode_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9883FE1CD601AF0008A67D /* YAMLNode_Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +136,8 @@
 		5B9883E91CD5025D0008A67D /* YAMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAMLNode.h; sourceTree = "<group>"; };
 		5B9883EA1CD5025D0008A67D /* YAMLNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YAMLNode.mm; sourceTree = "<group>"; };
 		5B9883FA1CD5F6910008A67D /* www.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = www.yaml; sourceTree = "<group>"; };
+		5B9883FC1CD601250008A67D /* reusing.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = reusing.yaml; sourceTree = "<group>"; };
+		5B9883FE1CD601AF0008A67D /* YAMLNode_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YAMLNode_Tests.swift; sourceTree = "<group>"; };
 		5BF0AA741CB907910043126F /* YAML_CPP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = YAML_CPP.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,7 +192,9 @@
 			children = (
 				5B10EDC11CB95A8700B1B74C /* Info.plist */,
 				5B54D5B51CC3669500DA0729 /* YAMLWriter_Tests.swift */,
+				5B9883FE1CD601AF0008A67D /* YAMLNode_Tests.swift */,
 				5B9883FA1CD5F6910008A67D /* www.yaml */,
+				5B9883FC1CD601250008A67D /* reusing.yaml */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -447,6 +453,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B9883FD1CD601250008A67D /* reusing.yaml in Resources */,
 				5B9883FB1CD5F6910008A67D /* www.yaml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B9883FF1CD601AF0008A67D /* YAMLNode_Tests.swift in Sources */,
 				5B54D5B61CC3669500DA0729 /* YAMLWriter_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
