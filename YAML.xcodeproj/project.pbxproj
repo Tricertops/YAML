@@ -34,50 +34,15 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		190777F3F908493B9F7A50F2 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/parser.c */ = {isa = PBXBuildFile; fileRef = 18278EC05DF34E80B05F54C0 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/parser.c */; settings = {COMPILER_FLAGS = ""; }; };
-		22A299A6F2F64B5AA5DE3ADD /* /Users/Martin/Development/Libraries/YAML/libyaml/src/writer.c */ = {isa = PBXBuildFile; fileRef = B640160F7C504586AD0B65F9 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/writer.c */; settings = {COMPILER_FLAGS = ""; }; };
-		83C585B441E047C89B0513EF /* /Users/Martin/Development/Libraries/YAML/libyaml/src/dumper.c */ = {isa = PBXBuildFile; fileRef = 7583DB20E9964EDA92A290D5 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/dumper.c */; settings = {COMPILER_FLAGS = ""; }; };
-		884644D6C6304786AD21A8A4 /* /Users/Martin/Development/Libraries/YAML/libyaml/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 95906D29808545AA9F21C027 /* /Users/Martin/Development/Libraries/YAML/libyaml/CMakeLists.txt */; settings = {COMPILER_FLAGS = ""; }; };
-		A68548189A63440797FBB3FF /* /Users/Martin/Development/Libraries/YAML/libyaml/src/loader.c */ = {isa = PBXBuildFile; fileRef = 51EB0CDC256E4A479793E535 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/loader.c */; settings = {COMPILER_FLAGS = ""; }; };
-		B689E89ED5D3492FBB12FBA6 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/api.c */ = {isa = PBXBuildFile; fileRef = CB26AC4B59DC4F9AA9AB3E06 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/api.c */; settings = {COMPILER_FLAGS = ""; }; };
-		C14C36C01D424EA987C49777 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/emitter.c */ = {isa = PBXBuildFile; fileRef = 6C4C0112593341D5B5A19F0F /* /Users/Martin/Development/Libraries/YAML/libyaml/src/emitter.c */; settings = {COMPILER_FLAGS = ""; }; };
-		D94FA572669F4259BB0DF7B5 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/scanner.c */ = {isa = PBXBuildFile; fileRef = E8DCD024161B4E0985958A4F /* /Users/Martin/Development/Libraries/YAML/libyaml/src/scanner.c */; settings = {COMPILER_FLAGS = ""; }; };
-		DDB4DED1622E498F92EB51A2 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/reader.c */ = {isa = PBXBuildFile; fileRef = 29EB03E00A904E0EA479DE25 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/reader.c */; settings = {COMPILER_FLAGS = ""; }; };
+		190777F3F908493B9F7A50F2 /* parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 18278EC05DF34E80B05F54C0 /* parser.c */; settings = {COMPILER_FLAGS = ""; }; };
+		22A299A6F2F64B5AA5DE3ADD /* writer.c in Sources */ = {isa = PBXBuildFile; fileRef = B640160F7C504586AD0B65F9 /* writer.c */; settings = {COMPILER_FLAGS = ""; }; };
+		83C585B441E047C89B0513EF /* dumper.c in Sources */ = {isa = PBXBuildFile; fileRef = 7583DB20E9964EDA92A290D5 /* dumper.c */; settings = {COMPILER_FLAGS = ""; }; };
+		A68548189A63440797FBB3FF /* loader.c in Sources */ = {isa = PBXBuildFile; fileRef = 51EB0CDC256E4A479793E535 /* loader.c */; settings = {COMPILER_FLAGS = ""; }; };
+		B689E89ED5D3492FBB12FBA6 /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = CB26AC4B59DC4F9AA9AB3E06 /* api.c */; settings = {COMPILER_FLAGS = ""; }; };
+		C14C36C01D424EA987C49777 /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = 6C4C0112593341D5B5A19F0F /* emitter.c */; settings = {COMPILER_FLAGS = ""; }; };
+		D94FA572669F4259BB0DF7B5 /* scanner.c in Sources */ = {isa = PBXBuildFile; fileRef = E8DCD024161B4E0985958A4F /* scanner.c */; settings = {COMPILER_FLAGS = ""; }; };
+		DDB4DED1622E498F92EB51A2 /* reader.c in Sources */ = {isa = PBXBuildFile; fileRef = 29EB03E00A904E0EA479DE25 /* reader.c */; settings = {COMPILER_FLAGS = ""; }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXBuildStyle section */
-		2A35F76AF5DC4A5FADAF3528 /* MinSizeRel */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = MinSizeRel;
-		};
-		4C2E1DAE67E84DC0A0F942CB /* Release */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = Release;
-		};
-		6A5845BC2A144332B78F1269 = {
-			isa = PBXBuildStyle;
-		};
-		871FF07E76EE4ED2ABCE638C /* Debug */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = Debug;
-		};
-		B1A7A5E44D5747B9AC6B573A /* RelWithDebInfo */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = RelWithDebInfo;
-		};
-/* End PBXBuildStyle section */
 
 /* Begin PBXContainerItemProxy section */
 		2F25ADADEDF64B648C65C207 /* PBXContainerItemProxy */ = {
@@ -104,18 +69,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		18278EC05DF34E80B05F54C0 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/parser.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = parser.c; path = src/parser.c; sourceTree = SOURCE_ROOT; };
-		25C78641187940A78433850F /* yaml */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libyaml.a; refType = 0; sourceTree = BUILT_PRODUCTS_DIR; };
-		29EB03E00A904E0EA479DE25 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/reader.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = reader.c; path = src/reader.c; sourceTree = SOURCE_ROOT; };
-		42D4B1B791664B009B4466B5 /* /Users/Martin/Development/Libraries/YAML/libyaml/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		51EB0CDC256E4A479793E535 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/loader.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = loader.c; path = src/loader.c; sourceTree = SOURCE_ROOT; };
-		6C4C0112593341D5B5A19F0F /* /Users/Martin/Development/Libraries/YAML/libyaml/src/emitter.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = emitter.c; path = src/emitter.c; sourceTree = SOURCE_ROOT; };
-		7583DB20E9964EDA92A290D5 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/dumper.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = dumper.c; path = src/dumper.c; sourceTree = SOURCE_ROOT; };
-		910D86D969B84A7489FAD5B3 /* /Users/Martin/Development/Libraries/YAML/libyaml/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		95906D29808545AA9F21C027 /* /Users/Martin/Development/Libraries/YAML/libyaml/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		B640160F7C504586AD0B65F9 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/writer.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = writer.c; path = src/writer.c; sourceTree = SOURCE_ROOT; };
-		CB26AC4B59DC4F9AA9AB3E06 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/api.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = api.c; path = src/api.c; sourceTree = SOURCE_ROOT; };
-		E8DCD024161B4E0985958A4F /* /Users/Martin/Development/Libraries/YAML/libyaml/src/scanner.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = scanner.c; path = src/scanner.c; sourceTree = SOURCE_ROOT; };
+		18278EC05DF34E80B05F54C0 /* parser.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = parser.c; path = src/parser.c; sourceTree = SOURCE_ROOT; };
+		25C78641187940A78433850F /* libYAML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libYAML.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		29EB03E00A904E0EA479DE25 /* reader.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = reader.c; path = src/reader.c; sourceTree = SOURCE_ROOT; };
+		42D4B1B791664B009B4466B5 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		51EB0CDC256E4A479793E535 /* loader.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = loader.c; path = src/loader.c; sourceTree = SOURCE_ROOT; };
+		6C4C0112593341D5B5A19F0F /* emitter.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = emitter.c; path = src/emitter.c; sourceTree = SOURCE_ROOT; };
+		7583DB20E9964EDA92A290D5 /* dumper.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = dumper.c; path = src/dumper.c; sourceTree = SOURCE_ROOT; };
+		910D86D969B84A7489FAD5B3 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		95906D29808545AA9F21C027 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		B640160F7C504586AD0B65F9 /* writer.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = writer.c; path = src/writer.c; sourceTree = SOURCE_ROOT; };
+		CB26AC4B59DC4F9AA9AB3E06 /* api.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = api.c; path = src/api.c; sourceTree = SOURCE_ROOT; };
+		E8DCD024161B4E0985958A4F /* scanner.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = scanner.c; path = src/scanner.c; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -131,7 +96,7 @@
 		1A659A2B32AE4FCE9C580605 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				25C78641187940A78433850F /* yaml */,
+				25C78641187940A78433850F /* libYAML.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,14 +111,14 @@
 		8546BC337CA04C5189FBED01 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
-				CB26AC4B59DC4F9AA9AB3E06 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/api.c */,
-				7583DB20E9964EDA92A290D5 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/dumper.c */,
-				6C4C0112593341D5B5A19F0F /* /Users/Martin/Development/Libraries/YAML/libyaml/src/emitter.c */,
-				51EB0CDC256E4A479793E535 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/loader.c */,
-				18278EC05DF34E80B05F54C0 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/parser.c */,
-				29EB03E00A904E0EA479DE25 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/reader.c */,
-				E8DCD024161B4E0985958A4F /* /Users/Martin/Development/Libraries/YAML/libyaml/src/scanner.c */,
-				B640160F7C504586AD0B65F9 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/writer.c */,
+				CB26AC4B59DC4F9AA9AB3E06 /* api.c */,
+				7583DB20E9964EDA92A290D5 /* dumper.c */,
+				6C4C0112593341D5B5A19F0F /* emitter.c */,
+				51EB0CDC256E4A479793E535 /* loader.c */,
+				18278EC05DF34E80B05F54C0 /* parser.c */,
+				29EB03E00A904E0EA479DE25 /* reader.c */,
+				E8DCD024161B4E0985958A4F /* scanner.c */,
+				B640160F7C504586AD0B65F9 /* writer.c */,
 			);
 			name = "Source Files";
 			sourceTree = "<group>";
@@ -179,7 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				8546BC337CA04C5189FBED01 /* Source Files */,
-				95906D29808545AA9F21C027 /* /Users/Martin/Development/Libraries/YAML/libyaml/CMakeLists.txt */,
+				95906D29808545AA9F21C027 /* CMakeLists.txt */,
 			);
 			name = yaml;
 			sourceTree = "<group>";
@@ -188,7 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				938C3ACF1FA2485D8AD6B37A /* CMake Rules */,
-				42D4B1B791664B009B4466B5 /* /Users/Martin/Development/Libraries/YAML/libyaml/CMakeLists.txt */,
+				42D4B1B791664B009B4466B5 /* CMakeLists.txt */,
 			);
 			name = ALL_BUILD;
 			sourceTree = "<group>";
@@ -197,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				2F6E011B83E740018122DD72 /* CMake Rules */,
-				910D86D969B84A7489FAD5B3 /* /Users/Martin/Development/Libraries/YAML/libyaml/CMakeLists.txt */,
+				910D86D969B84A7489FAD5B3 /* CMakeLists.txt */,
 			);
 			name = ZERO_CHECK;
 			sourceTree = "<group>";
@@ -212,9 +177,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DBCA0AC4FB8341389D2C9816 /* yaml */ = {
+		DBCA0AC4FB8341389D2C9816 /* YAML */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2F82B950A3794733A1085DE4 /* Build configuration list for PBXNativeTarget "yaml" */;
+			buildConfigurationList = 2F82B950A3794733A1085DE4 /* Build configuration list for PBXNativeTarget "YAML" */;
 			buildPhases = (
 				E4031C99755D4E6CBDE1322F /* Sources */,
 			);
@@ -223,9 +188,9 @@
 			dependencies = (
 				BA2E30865C26405F85D05BE2 /* PBXTargetDependency */,
 			);
-			name = yaml;
+			name = YAML;
 			productName = yaml;
-			productReference = 25C78641187940A78433850F /* yaml */;
+			productReference = 25C78641187940A78433850F /* libYAML.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -235,25 +200,22 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 0730;
 			};
-			buildConfigurationList = 602CCDF7918D4AA9B7769551 /* Build configuration list for PBXProject "yaml" */;
-			buildSettings = {
-			};
-			buildStyles = (
-				871FF07E76EE4ED2ABCE638C /* Debug */,
-				4C2E1DAE67E84DC0A0F942CB /* Release */,
-				2A35F76AF5DC4A5FADAF3528 /* MinSizeRel */,
-				B1A7A5E44D5747B9AC6B573A /* RelWithDebInfo */,
-			);
+			buildConfigurationList = 602CCDF7918D4AA9B7769551 /* Build configuration list for PBXProject "YAML" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 05AE6B9A22B7426E8B6231D1;
 			projectDirPath = libyaml;
 			projectRoot = "";
 			targets = (
 				F13978A5D693484B8F6951CE /* ALL_BUILD */,
 				2BD63C8D0243408AA389F27F /* ZERO_CHECK */,
-				DBCA0AC4FB8341389D2C9816 /* yaml */,
+				DBCA0AC4FB8341389D2C9816 /* YAML */,
 			);
 		};
 /* End PBXProject section */
@@ -270,21 +232,6 @@
 			shellScript = "make -C /Users/Martin/Development/Libraries/YAML -f /Users/Martin/Development/Libraries/YAML/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
 			showEnvVarsInLog = 0;
 		};
-		63CEFBCBCB324421A3B264B9 = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# shell script goes here
-exit 0";
-			showEnvVarsInLog = 0;
-		};
 		8ED154ED3DB34EAAB6F8DF78 /* CMake Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -296,21 +243,6 @@ exit 0";
 			shellScript = "make -C /Users/Martin/Development/Libraries/YAML -f /Users/Martin/Development/Libraries/YAML/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
 			showEnvVarsInLog = 0;
 		};
-		9D287D7EFCB547E0AA8F7D4D = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# shell script goes here
-exit 0";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -318,14 +250,14 @@ exit 0";
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B689E89ED5D3492FBB12FBA6 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/api.c */,
-				83C585B441E047C89B0513EF /* /Users/Martin/Development/Libraries/YAML/libyaml/src/dumper.c */,
-				C14C36C01D424EA987C49777 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/emitter.c */,
-				A68548189A63440797FBB3FF /* /Users/Martin/Development/Libraries/YAML/libyaml/src/loader.c */,
-				190777F3F908493B9F7A50F2 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/parser.c */,
-				DDB4DED1622E498F92EB51A2 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/reader.c */,
-				D94FA572669F4259BB0DF7B5 /* /Users/Martin/Development/Libraries/YAML/libyaml/src/scanner.c */,
-				22A299A6F2F64B5AA5DE3ADD /* /Users/Martin/Development/Libraries/YAML/libyaml/src/writer.c */,
+				B689E89ED5D3492FBB12FBA6 /* api.c in Sources */,
+				83C585B441E047C89B0513EF /* dumper.c in Sources */,
+				C14C36C01D424EA987C49777 /* emitter.c in Sources */,
+				A68548189A63440797FBB3FF /* loader.c in Sources */,
+				190777F3F908493B9F7A50F2 /* parser.c in Sources */,
+				DDB4DED1622E498F92EB51A2 /* reader.c in Sources */,
+				D94FA572669F4259BB0DF7B5 /* scanner.c in Sources */,
+				22A299A6F2F64B5AA5DE3ADD /* writer.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,7 +266,7 @@ exit 0";
 /* Begin PBXTargetDependency section */
 		48BCD1F4A3A8462BAC128C9F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DBCA0AC4FB8341389D2C9816 /* yaml */;
+			target = DBCA0AC4FB8341389D2C9816 /* YAML */;
 			targetProxy = 2F25ADADEDF64B648C65C207 /* PBXContainerItemProxy */;
 		};
 		A84529693C9342BA9B2AF256 /* PBXTargetDependency */ = {
@@ -357,9 +289,12 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/Martin/Development/Libraries/YAML/libyaml/include, /Users/Martin/Development/Libraries/YAML/libyaml/win32, );
+				HEADER_SEARCH_PATHS = (
+					/Users/Martin/Development/Libraries/YAML/libyaml/include,
+					/Users/Martin/Development/Libraries/YAML/libyaml/win32,
+				);
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
 				OTHER_REZFLAGS = "";
@@ -367,7 +302,12 @@ exit 0";
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/Martin/Development/Libraries/YAML;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = MinSizeRel;
 		};
@@ -378,9 +318,12 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/Martin/Development/Libraries/YAML/libyaml/include, /Users/Martin/Development/Libraries/YAML/libyaml/win32, );
+				HEADER_SEARCH_PATHS = (
+					/Users/Martin/Development/Libraries/YAML/libyaml/include,
+					/Users/Martin/Development/Libraries/YAML/libyaml/win32,
+				);
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
 				OTHER_REZFLAGS = "";
@@ -388,7 +331,12 @@ exit 0";
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/Martin/Development/Libraries/YAML;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = Release;
 		};
@@ -399,9 +347,12 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/Martin/Development/Libraries/YAML/libyaml/include, /Users/Martin/Development/Libraries/YAML/libyaml/win32, );
+				HEADER_SEARCH_PATHS = (
+					/Users/Martin/Development/Libraries/YAML/libyaml/include,
+					/Users/Martin/Development/Libraries/YAML/libyaml/win32,
+				);
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
 				OTHER_REZFLAGS = "";
@@ -409,7 +360,12 @@ exit 0";
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/Martin/Development/Libraries/YAML;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = RelWithDebInfo;
 		};
@@ -420,9 +376,12 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/Martin/Development/Libraries/YAML/libyaml/include, /Users/Martin/Development/Libraries/YAML/libyaml/win32, );
+				HEADER_SEARCH_PATHS = (
+					/Users/Martin/Development/Libraries/YAML/libyaml/include,
+					/Users/Martin/Development/Libraries/YAML/libyaml/win32,
+				);
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
 				OTHER_REZFLAGS = "";
@@ -430,7 +389,12 @@ exit 0";
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/Martin/Development/Libraries/YAML;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = RelWithDebInfo;
 		};
@@ -443,19 +407,31 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, YAML_DECLARE_STATIC, );
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					HAVE_CONFIG_H,
+					YAML_DECLARE_STATIC,
+				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/Martin/Development/Libraries/YAML/libyaml/include, /Users/Martin/Development/Libraries/YAML/libyaml/win32, );
+				HEADER_SEARCH_PATHS = (
+					/Users/Martin/Development/Libraries/YAML/libyaml/include,
+					/Users/Martin/Development/Libraries/YAML/libyaml/win32,
+				);
 				INSTALL_PATH = "";
 				LIBRARY_STYLE = STATIC;
 				OTHER_CFLAGS = "       -DNDEBUG  ";
 				OTHER_LIBTOOLFLAGS = " ";
 				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = yaml;
+				PRODUCT_NAME = YAML;
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/Martin/Development/Libraries/YAML;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = RelWithDebInfo;
 		};
@@ -466,9 +442,12 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/Martin/Development/Libraries/YAML/libyaml/include, /Users/Martin/Development/Libraries/YAML/libyaml/win32, );
+				HEADER_SEARCH_PATHS = (
+					/Users/Martin/Development/Libraries/YAML/libyaml/include,
+					/Users/Martin/Development/Libraries/YAML/libyaml/win32,
+				);
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
 				OTHER_REZFLAGS = "";
@@ -476,7 +455,12 @@ exit 0";
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/Martin/Development/Libraries/YAML;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = MinSizeRel;
 		};
@@ -489,19 +473,31 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, YAML_DECLARE_STATIC, );
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					HAVE_CONFIG_H,
+					YAML_DECLARE_STATIC,
+				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/Martin/Development/Libraries/YAML/libyaml/include, /Users/Martin/Development/Libraries/YAML/libyaml/win32, );
+				HEADER_SEARCH_PATHS = (
+					/Users/Martin/Development/Libraries/YAML/libyaml/include,
+					/Users/Martin/Development/Libraries/YAML/libyaml/win32,
+				);
 				INSTALL_PATH = "";
 				LIBRARY_STYLE = STATIC;
 				OTHER_CFLAGS = "    -DNDEBUG  ";
 				OTHER_LIBTOOLFLAGS = " ";
 				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = yaml;
+				PRODUCT_NAME = YAML;
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/Martin/Development/Libraries/YAML;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = Release;
 		};
@@ -521,9 +517,12 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/Martin/Development/Libraries/YAML/libyaml/include, /Users/Martin/Development/Libraries/YAML/libyaml/win32, );
+				HEADER_SEARCH_PATHS = (
+					/Users/Martin/Development/Libraries/YAML/libyaml/include,
+					/Users/Martin/Development/Libraries/YAML/libyaml/win32,
+				);
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
 				OTHER_REZFLAGS = "";
@@ -531,7 +530,12 @@ exit 0";
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/Martin/Development/Libraries/YAML;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = Debug;
 		};
@@ -544,19 +548,31 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, YAML_DECLARE_STATIC, );
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					HAVE_CONFIG_H,
+					YAML_DECLARE_STATIC,
+				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/Martin/Development/Libraries/YAML/libyaml/include, /Users/Martin/Development/Libraries/YAML/libyaml/win32, );
+				HEADER_SEARCH_PATHS = (
+					/Users/Martin/Development/Libraries/YAML/libyaml/include,
+					/Users/Martin/Development/Libraries/YAML/libyaml/win32,
+				);
 				INSTALL_PATH = "";
 				LIBRARY_STYLE = STATIC;
 				OTHER_CFLAGS = "    ";
 				OTHER_LIBTOOLFLAGS = " ";
 				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = yaml;
+				PRODUCT_NAME = YAML;
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/Martin/Development/Libraries/YAML;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = Debug;
 		};
@@ -567,9 +583,12 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/Martin/Development/Libraries/YAML/libyaml/include, /Users/Martin/Development/Libraries/YAML/libyaml/win32, );
+				HEADER_SEARCH_PATHS = (
+					/Users/Martin/Development/Libraries/YAML/libyaml/include,
+					/Users/Martin/Development/Libraries/YAML/libyaml/win32,
+				);
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
 				OTHER_REZFLAGS = "";
@@ -577,7 +596,12 @@ exit 0";
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/Martin/Development/Libraries/YAML;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = Debug;
 		};
@@ -599,25 +623,38 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, YAML_DECLARE_STATIC, );
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					HAVE_CONFIG_H,
+					YAML_DECLARE_STATIC,
+				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/Martin/Development/Libraries/YAML/libyaml/include, /Users/Martin/Development/Libraries/YAML/libyaml/win32, );
+				HEADER_SEARCH_PATHS = (
+					/Users/Martin/Development/Libraries/YAML/libyaml/include,
+					/Users/Martin/Development/Libraries/YAML/libyaml/win32,
+				);
 				INSTALL_PATH = "";
 				LIBRARY_STYLE = STATIC;
 				OTHER_CFLAGS = "    -DNDEBUG  ";
 				OTHER_LIBTOOLFLAGS = " ";
 				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = yaml;
+				PRODUCT_NAME = YAML;
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/Martin/Development/Libraries/YAML;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = MinSizeRel;
 		};
 		DCAD65EAB54546EFB9C5688A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
 				SYMROOT = /Users/Martin/Development/Libraries/YAML/build;
@@ -631,9 +668,12 @@ exit 0";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/Users/Martin/Development/Libraries/YAML/libyaml/include, /Users/Martin/Development/Libraries/YAML/libyaml/win32, );
+				HEADER_SEARCH_PATHS = (
+					/Users/Martin/Development/Libraries/YAML/libyaml/include,
+					/Users/Martin/Development/Libraries/YAML/libyaml/win32,
+				);
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
 				OTHER_REZFLAGS = "";
@@ -641,7 +681,12 @@ exit 0";
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Users/Martin/Development/Libraries/YAML;
 				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
 			name = Release;
 		};
@@ -657,7 +702,7 @@ exit 0";
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2F82B950A3794733A1085DE4 /* Build configuration list for PBXNativeTarget "yaml" */ = {
+		2F82B950A3794733A1085DE4 /* Build configuration list for PBXNativeTarget "YAML" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8CF82C9564D044E8BF3E6D41 /* Debug */,
@@ -679,7 +724,7 @@ exit 0";
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		602CCDF7918D4AA9B7769551 /* Build configuration list for PBXProject "yaml" */ = {
+		602CCDF7918D4AA9B7769551 /* Build configuration list for PBXProject "YAML" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DCAD65EAB54546EFB9C5688A /* Debug */,
