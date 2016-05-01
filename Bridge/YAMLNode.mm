@@ -104,21 +104,21 @@
 }
 
 
-- (NSString *)string {
+- (nullable NSString *)string {
     return nil;
 }
 
 
-- (NSArray<YAMLNode *> *)array {
+- (nullable NSArray<YAMLNode *> *)array {
     return nil;
 }
 
 
-- (NSDictionary<YAMLNode *,YAMLNode *> *)dictionary {
+- (nullable NSDictionary<YAMLNode *,YAMLNode *> *)dictionary {
     return nil;
 }
 
-- (instancetype)copyWithZone:(__unused NSZone *)zone {
+- (nonnull instancetype)copyWithZone:(__unused NSZone *)zone {
     return self;
 }
 
@@ -148,7 +148,7 @@
 @implementation YAMLNode (Loading)
 
 
-+ (instancetype)nodeFromCoreNode:(YAML::Node)core {
++ (nonnull instancetype)nodeFromCoreNode:(YAML::Node)core {
     YAMLNodeType type = [self typeFromCoreType:core.Type()];
     switch (type) {
         case YAMLNodeType_Undefined: {
@@ -202,7 +202,7 @@
 @implementation YAMLNodeNull
 
 
-- (instancetype)initWithCoreNode:(YAML::Node)core {
+- (nonnull instancetype)initWithCoreNode:(YAML::Node)core {
     self = [super initWithCoreNode:core];
     YAML_UNEXPECTED(self == nil);
     YAML_UNEXPECTED( ! core.IsNull());
@@ -220,7 +220,7 @@
 
 @synthesize string = _string;
 
-- (instancetype)initWithCoreNode:(YAML::Node)core {
+- (nonnull instancetype)initWithCoreNode:(YAML::Node)core {
     self = [super initWithCoreNode:core];
     YAML_UNEXPECTED(self == nil);
     YAML_UNEXPECTED( ! core.IsScalar());
@@ -230,7 +230,7 @@
     return self;
 }
 
-- (NSString *)description {
+- (nonnull NSString *)description {
     return [NSString stringWithFormat:@"%@ “%@”", super.description, self.string];
 }
 
@@ -245,7 +245,7 @@
 
 @synthesize array = _array;
 
-- (instancetype)initWithCoreNode:(YAML::Node)core {
+- (nonnull instancetype)initWithCoreNode:(YAML::Node)core {
     self = [super initWithCoreNode:core];
     YAML_UNEXPECTED(self == nil);
     YAML_UNEXPECTED( ! core.IsSequence());
@@ -259,7 +259,7 @@
     return self;
 }
 
-- (NSString *)description {
+- (nonnull NSString *)description {
     NSMutableString *description = [super.description mutableCopy];
     for (YAMLNode *node in self.array)
     {
@@ -279,7 +279,7 @@
 
 @synthesize dictionary = _dictionary;
 
-- (instancetype)initWithCoreNode:(YAML::Node)core {
+- (nonnull instancetype)initWithCoreNode:(YAML::Node)core {
     self = [super initWithCoreNode:core];
     YAML_UNEXPECTED(self == nil);
     YAML_UNEXPECTED( ! core.IsMap());
@@ -295,7 +295,7 @@
     return self;
 }
 
-- (NSString *)description {
+- (nonnull NSString *)description {
     NSMutableString *description = [super.description mutableCopy];
     for (YAMLNode *key in self.dictionary)
     {
