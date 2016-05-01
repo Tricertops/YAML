@@ -13,22 +13,43 @@
 #import "YAMLNode.h"
 
 
-@interface YAMLNode ()
+#pragma mark Private Subclasses
 
-- (instancetype)initWithCoreNode:(YAML::Node)core;
+@interface YAMLNodeNull : YAMLNode
+
+- (NSString *)string YAML_UNAVAILABLE("This is always nil.");
+- (NSArray<YAMLNode *> *)array YAML_UNAVAILABLE("This is always nil.");
+- (NSDictionary<YAMLNode *,YAMLNode *> *)dictionary YAML_UNAVAILABLE("This is always nil.");
+
+@end
+
+@interface YAMLNodeString : YAMLNode
+
+- (NSArray<YAMLNode *> *)array YAML_UNAVAILABLE("This is always nil.");
+- (NSDictionary<YAMLNode *,YAMLNode *> *)dictionary YAML_UNAVAILABLE("This is always nil.");
+
+@end
+
+@interface YAMLNodeArray : YAMLNode
+
+- (NSString *)string YAML_UNAVAILABLE("This is always nil.");
+- (NSDictionary<YAMLNode *,YAMLNode *> *)dictionary YAML_UNAVAILABLE("This is always nil.");
+
+@end
+
+@interface YAMLNodeDictionary : YAMLNode
+
+- (NSString *)string YAML_UNAVAILABLE("This is always nil.");
+- (NSArray<YAMLNode *> *)array YAML_UNAVAILABLE("This is always nil.");
 
 @end
 
 
-#pragma mark Private Subclasses
-
-@interface YAMLNodeNull : YAMLNode @end
-@interface YAMLNodeString : YAMLNode @end
-@interface YAMLNodeArray : YAMLNode @end
-@interface YAMLNodeDictionary : YAMLNode @end
-
-
 #pragma mark - Base Implementation
+
+#define NEWLINE     @"\n"
+#define INDENT2     @"  "
+#define INDENT4     @"    "
 
 @implementation YAMLNode
 
@@ -87,6 +108,15 @@
 
 - (BOOL)isEqual:(nonnull YAMLNode *)other {
     return (self == other);
+}
+
+- (nonnull NSString *)description {
+    return [NSString stringWithFormat:@"%@::%p", self.class, self];
+}
+
+- (nonnull NSString*)indentedDescriptionWith:(nonnull NSString *)indent {
+    NSString *replacement = [NEWLINE stringByAppendingString: indent];
+    return [self.description stringByReplacingOccurrencesOfString:NEWLINE withString:replacement];
 }
 
 
@@ -180,6 +210,10 @@
     return self;
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@ “%@”", super.description, self.string];
+}
+
 
 @end
 
@@ -203,6 +237,15 @@
     self->_array = array;
     
     return self;
+}
+
+- (NSString *)description {
+    NSMutableString *description = [super.description mutableCopy];
+    for (YAMLNode *node in self.array)
+    {
+        [description appendFormat:NEWLINE "  – %@", [node indentedDescriptionWith:INDENT4]];
+    }
+    return description;
 }
 
 
@@ -230,6 +273,18 @@
     self->_dictionary = dictionary;
     
     return self;
+}
+
+- (NSString *)description {
+    NSMutableString *description = [super.description mutableCopy];
+    for (YAMLNode *key in self.dictionary)
+    {
+        YAMLNode *value = self.dictionary[key];
+        [description appendFormat:NEWLINE "  %@ = %@",
+         [key indentedDescriptionWith:INDENT2],
+         [value indentedDescriptionWith:INDENT2]];
+    }
+    return description;
 }
 
 
