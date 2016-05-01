@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B9884461CD662730008A67D /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9884451CD662730008A67D /* Version.swift */; };
+		5B76ADA41CD67883003EE030 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B76ADA21CD67883003EE030 /* Version.swift */; };
+		5B76ADA51CD67883003EE030 /* YAML.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B76ADA31CD67883003EE030 /* YAML.h */; };
 		5B98844D1CD6665A0008A67D /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = CB26AC4B59DC4F9AA9AB3E06 /* api.c */; };
 		5B98844E1CD6665A0008A67D /* dumper.c in Sources */ = {isa = PBXBuildFile; fileRef = 7583DB20E9964EDA92A290D5 /* dumper.c */; };
 		5B98844F1CD6665A0008A67D /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = 6C4C0112593341D5B5A19F0F /* emitter.c */; };
@@ -23,11 +24,11 @@
 		18278EC05DF34E80B05F54C0 /* parser.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; path = parser.c; sourceTree = "<group>"; };
 		29EB03E00A904E0EA479DE25 /* reader.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; path = reader.c; sourceTree = "<group>"; };
 		51EB0CDC256E4A479793E535 /* loader.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; path = loader.c; sourceTree = "<group>"; };
+		5B76ADA21CD67883003EE030 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
+		5B76ADA31CD67883003EE030 /* YAML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAML.h; sourceTree = "<group>"; };
 		5B9884331CD65A8B0008A67D /* yaml.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = yaml.h; sourceTree = "<group>"; };
 		5B9884391CD661F60008A67D /* YAML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YAML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B9884431CD6623D0008A67D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B9884451CD662730008A67D /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
-		5B9884551CD6677E0008A67D /* YAML.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YAML.h; sourceTree = "<group>"; };
 		6C4C0112593341D5B5A19F0F /* emitter.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; path = emitter.c; sourceTree = "<group>"; };
 		7583DB20E9964EDA92A290D5 /* dumper.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; path = dumper.c; sourceTree = "<group>"; };
 		B640160F7C504586AD0B65F9 /* writer.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; path = writer.c; sourceTree = "<group>"; };
@@ -50,8 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				5B9884431CD6623D0008A67D /* Info.plist */,
-				5B9884551CD6677E0008A67D /* YAML.h */,
-				5B9884451CD662730008A67D /* Version.swift */,
+				5B76ADA11CD67883003EE030 /* Sources */,
 				B4AAAFE65B664336AF146E0F /* libyaml */,
 				1A659A2B32AE4FCE9C580605 /* Products */,
 			);
@@ -63,6 +63,15 @@
 				5B9884391CD661F60008A67D /* YAML.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5B76ADA11CD67883003EE030 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				5B76ADA31CD67883003EE030 /* YAML.h */,
+				5B76ADA21CD67883003EE030 /* Version.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		5B9884311CD65A740008A67D /* Headers */ = {
@@ -107,6 +116,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B9884561CD6678F0008A67D /* yaml.h in Headers */,
+				5B76ADA51CD67883003EE030 /* YAML.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +149,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Tricertops;
 				TargetAttributes = {
 					5B9884381CD661F60008A67D = {
 						CreatedOnToolsVersion = 7.3;
@@ -146,7 +157,7 @@
 				};
 			};
 			buildConfigurationList = 602CCDF7918D4AA9B7769551 /* Build configuration list for PBXProject "YAML" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -182,8 +193,8 @@
 				5B9884501CD6665A0008A67D /* loader.c in Sources */,
 				5B9884541CD6665A0008A67D /* writer.c in Sources */,
 				5B9884531CD6665A0008A67D /* scanner.c in Sources */,
+				5B76ADA41CD67883003EE030 /* Version.swift in Sources */,
 				5B9884511CD6665A0008A67D /* parser.c in Sources */,
-				5B9884461CD662730008A67D /* Version.swift in Sources */,
 				5B9884521CD6665A0008A67D /* reader.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
