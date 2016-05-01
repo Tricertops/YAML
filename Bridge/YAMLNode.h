@@ -17,6 +17,10 @@
 
 @interface YAMLNode : NSObject <NSCopying>
 
++ (nonnull instancetype)new YAML_UNAVAILABLE("Do not construct nodes yourself.");
++ (nonnull instancetype)alloc YAML_UNAVAILABLE("Do not construct nodes yourself.");
+- (nonnull instancetype)init YAML_UNAVAILABLE("Do not construct nodes yourself.");
+
 - (nonnull instancetype)copy; //!< Returns self.
 - (BOOL)isEqual:(nonnull YAMLNode *)other; //!< Compares pointer identity.
 

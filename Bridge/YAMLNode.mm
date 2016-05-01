@@ -13,7 +13,17 @@
 #import "YAMLNode.h"
 
 
-#pragma mark Private Subclasses
+#pragma mark Internal Interface
+
+@interface YAMLNode ()
+
++ (nonnull instancetype)allocInternal NS_RETURNS_RETAINED;
+- (nonnull instancetype)initWithCoreNode:(YAML::Node)core NS_DESIGNATED_INITIALIZER;
+
+@end
+
+
+#pragma mark Internal Subclasses
 
 @interface YAMLNodeNull : YAMLNode
 
@@ -54,10 +64,20 @@
 @implementation YAMLNode
 
 
-- (instancetype)initWithCoreNode:(YAML::Node)core {
++ (nonnull instancetype)allocInternal NS_RETURNS_RETAINED {
+    return [super alloc];
+}
+
+- (nonnull instancetype)init {
+    YAML_UNEXPECTED(YAMLNode.class, "Do not construct nodes yourself.");
+    YAML::Node fake;
+    return [self initWithCoreNode:fake];
+}
+
+- (nonnull instancetype)initWithCoreNode:(YAML::Node)core {
     self = [super init];
     YAML_UNEXPECTED(self == nil);
-    YAML_UNEXPECTED(self.class != YAMLNode.class, "This class is abstract, allocate a subclass.");
+    YAML_UNEXPECTED(self.class == YAMLNode.class, "This class is abstract, allocate a subclass.");
     YAML_UNEXPECTED( ! core.IsDefined(), "Cannot handle undefined nodes.");
     
     self->_type = [self.class typeFromCoreType:core.Type()];
@@ -111,7 +131,7 @@
 }
 
 - (nonnull NSString *)description {
-    return [NSString stringWithFormat:@"%@::%p", self.class, self];
+    return [NSString stringWithFormat:@"%@::%p %@", self.class, self, self.tag];
 }
 
 - (nonnull NSString*)indentedDescriptionWith:(nonnull NSString *)indent {
@@ -135,16 +155,16 @@
             YAML_UNEXPECTED(core, "Cannot handle undefined nodes.");
         }
         case YAMLNodeType_Null: {
-            return [[YAMLNodeNull alloc] initWithCoreNode:core];
+            return [[YAMLNodeNull allocInternal] initWithCoreNode:core];
         }
         case YAMLNodeType_String: {
-            return [[YAMLNodeString alloc] initWithCoreNode:core];
+            return [[YAMLNodeString allocInternal] initWithCoreNode:core];
         }
         case YAMLNodeType_Array: {
-            return [[YAMLNodeArray alloc] initWithCoreNode:core];
+            return [[YAMLNodeArray allocInternal] initWithCoreNode:core];
         }
         case YAMLNodeType_Dictionary: {
-            return [[YAMLNodeDictionary alloc] initWithCoreNode:core];
+            return [[YAMLNodeDictionary allocInternal] initWithCoreNode:core];
         }
     }
     YAML_UNEXPECTED(core, "Unexpected node type: %i", core.Type());
@@ -183,7 +203,7 @@
 
 
 - (instancetype)initWithCoreNode:(YAML::Node)core {
-    self = [super init];
+    self = [super initWithCoreNode:core];
     YAML_UNEXPECTED(self == nil);
     YAML_UNEXPECTED( ! core.IsNull());
     return self;
@@ -201,7 +221,7 @@
 @synthesize string = _string;
 
 - (instancetype)initWithCoreNode:(YAML::Node)core {
-    self = [super init];
+    self = [super initWithCoreNode:core];
     YAML_UNEXPECTED(self == nil);
     YAML_UNEXPECTED( ! core.IsScalar());
     
@@ -226,7 +246,7 @@
 @synthesize array = _array;
 
 - (instancetype)initWithCoreNode:(YAML::Node)core {
-    self = [super init];
+    self = [super initWithCoreNode:core];
     YAML_UNEXPECTED(self == nil);
     YAML_UNEXPECTED( ! core.IsSequence());
     
@@ -260,7 +280,7 @@
 @synthesize dictionary = _dictionary;
 
 - (instancetype)initWithCoreNode:(YAML::Node)core {
-    self = [super init];
+    self = [super initWithCoreNode:core];
     YAML_UNEXPECTED(self == nil);
     YAML_UNEXPECTED( ! core.IsMap());
     
