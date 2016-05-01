@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B76ADA41CD67883003EE030 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B76ADA21CD67883003EE030 /* Version.swift */; };
 		5B76ADA51CD67883003EE030 /* YAML.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B76ADA31CD67883003EE030 /* YAML.h */; };
+		5B76ADA91CD6791E003EE030 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B76ADA81CD6791E003EE030 /* Model.swift */; };
 		5B98844D1CD6665A0008A67D /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = CB26AC4B59DC4F9AA9AB3E06 /* api.c */; };
 		5B98844E1CD6665A0008A67D /* dumper.c in Sources */ = {isa = PBXBuildFile; fileRef = 7583DB20E9964EDA92A290D5 /* dumper.c */; };
 		5B98844F1CD6665A0008A67D /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = 6C4C0112593341D5B5A19F0F /* emitter.c */; };
@@ -26,6 +27,7 @@
 		51EB0CDC256E4A479793E535 /* loader.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; path = loader.c; sourceTree = "<group>"; };
 		5B76ADA21CD67883003EE030 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		5B76ADA31CD67883003EE030 /* YAML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAML.h; sourceTree = "<group>"; };
+		5B76ADA81CD6791E003EE030 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		5B9884331CD65A8B0008A67D /* yaml.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = yaml.h; sourceTree = "<group>"; };
 		5B9884391CD661F60008A67D /* YAML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YAML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B9884431CD6623D0008A67D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			children = (
 				5B76ADA31CD67883003EE030 /* YAML.h */,
 				5B76ADA21CD67883003EE030 /* Version.swift */,
+				5B76ADA81CD6791E003EE030 /* Model.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B98844F1CD6665A0008A67D /* emitter.c in Sources */,
+				5B76ADA91CD6791E003EE030 /* Model.swift in Sources */,
 				5B98844D1CD6665A0008A67D /* api.c in Sources */,
 				5B98844E1CD6665A0008A67D /* dumper.c in Sources */,
 				5B9884501CD6665A0008A67D /* loader.c in Sources */,
