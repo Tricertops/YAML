@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+- t             # !!bool    WRONG
+- true          # !!bool    WRONG
+- ! true        # !!str     WRONG
+- !custom t     # !custom
+- !!custom t    # tag:yaml.org,2002:custom
+- !<!custom> t  # !custom
+...

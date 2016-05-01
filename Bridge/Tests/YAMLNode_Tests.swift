@@ -40,5 +40,10 @@ class YAMLNode_Tests: XCTestCase {
         XCTAssert(docs.count == 1)
     }
     
+    func test_tagResolution() {
+        let docs = YAMLNode.documentsFromFileURL(self.URLForFile("tags.yaml"))
+        XCTAssert(docs.count == 1)
+    }
+    
 }
 
