@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B9884461CD662730008A67D /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9884451CD662730008A67D /* File.swift */; };
+		5B9884461CD662730008A67D /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9884451CD662730008A67D /* Version.swift */; };
 		5B98844D1CD6665A0008A67D /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = CB26AC4B59DC4F9AA9AB3E06 /* api.c */; };
 		5B98844E1CD6665A0008A67D /* dumper.c in Sources */ = {isa = PBXBuildFile; fileRef = 7583DB20E9964EDA92A290D5 /* dumper.c */; };
 		5B98844F1CD6665A0008A67D /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = 6C4C0112593341D5B5A19F0F /* emitter.c */; };
@@ -26,7 +26,7 @@
 		5B9884331CD65A8B0008A67D /* yaml.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = yaml.h; sourceTree = "<group>"; };
 		5B9884391CD661F60008A67D /* YAML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YAML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B9884431CD6623D0008A67D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B9884451CD662730008A67D /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		5B9884451CD662730008A67D /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		5B9884551CD6677E0008A67D /* YAML.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YAML.h; sourceTree = "<group>"; };
 		6C4C0112593341D5B5A19F0F /* emitter.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; path = emitter.c; sourceTree = "<group>"; };
 		7583DB20E9964EDA92A290D5 /* dumper.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; path = dumper.c; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 			children = (
 				5B9884431CD6623D0008A67D /* Info.plist */,
 				5B9884551CD6677E0008A67D /* YAML.h */,
-				5B9884451CD662730008A67D /* File.swift */,
+				5B9884451CD662730008A67D /* Version.swift */,
 				B4AAAFE65B664336AF146E0F /* libyaml */,
 				1A659A2B32AE4FCE9C580605 /* Products */,
 			);
@@ -183,7 +183,7 @@
 				5B9884541CD6665A0008A67D /* writer.c in Sources */,
 				5B9884531CD6665A0008A67D /* scanner.c in Sources */,
 				5B9884511CD6665A0008A67D /* parser.c in Sources */,
-				5B9884461CD662730008A67D /* File.swift in Sources */,
+				5B9884461CD662730008A67D /* Version.swift in Sources */,
 				5B9884521CD6665A0008A67D /* reader.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,6 +195,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -212,6 +213,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -357,6 +359,7 @@
 				5B9884401CD661F60008A67D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		602CCDF7918D4AA9B7769551 /* Build configuration list for PBXProject "YAML" */ = {
 			isa = XCConfigurationList;
