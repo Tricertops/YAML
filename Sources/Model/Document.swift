@@ -10,7 +10,7 @@
 //
 
 
-class Document: Markable, Emittable {
+class Document: Parsed, Emittable {
     
     struct Version {
         var major: Int = 1
@@ -23,8 +23,6 @@ class Document: Markable, Emittable {
     var tags: [Tag.Directive] = []
     
     var explicitStart: Bool = true
-    let startToken: Markable? = nil
-    let endToken: Markable? = nil
     
     var root: Node? = nil
     

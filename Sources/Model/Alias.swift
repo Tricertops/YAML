@@ -11,7 +11,7 @@
 
 
 
-class Alias: Node, Markable {
+class Alias: Node {
     var target: Anchorable? = nil
 }
 

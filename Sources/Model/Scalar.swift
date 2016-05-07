@@ -11,7 +11,7 @@
 
 
 
-class Scalar: Node, Taggable, Anchorable, Markable, Emittable {
+class Scalar: Node, Taggable, Anchorable, Emittable {
     
     var content: String = ""
     

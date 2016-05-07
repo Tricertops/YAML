@@ -18,6 +18,7 @@
 		5B35DDD91CDDE4DB001B30B0 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35DDD01CDDE4DB001B30B0 /* Sequence.swift */; };
 		5B35DDDA1CDDE4DB001B30B0 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35DDD11CDDE4DB001B30B0 /* Stream.swift */; };
 		5B35DDDB1CDDE4DB001B30B0 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35DDD21CDDE4DB001B30B0 /* Tag.swift */; };
+		5B35DDDD1CDE2AED001B30B0 /* Parser+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35DDDC1CDE2AED001B30B0 /* Parser+Internal.swift */; };
 		5B76ADA41CD67883003EE030 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B76ADA21CD67883003EE030 /* Version.swift */; };
 		5B76ADA51CD67883003EE030 /* YAML.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B76ADA31CD67883003EE030 /* YAML.h */; };
 		5B98844D1CD6665A0008A67D /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = CB26AC4B59DC4F9AA9AB3E06 /* api.c */; };
@@ -46,6 +47,7 @@
 		5B35DDD01CDDE4DB001B30B0 /* Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		5B35DDD11CDDE4DB001B30B0 /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
 		5B35DDD21CDDE4DB001B30B0 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		5B35DDDC1CDE2AED001B30B0 /* Parser+Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parser+Internal.swift"; sourceTree = "<group>"; };
 		5B76ADA21CD67883003EE030 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		5B76ADA31CD67883003EE030 /* YAML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAML.h; sourceTree = "<group>"; };
 		5B9884331CD65A8B0008A67D /* yaml.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = yaml.h; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				5B76ADA31CD67883003EE030 /* YAML.h */,
 				5B76ADA21CD67883003EE030 /* Version.swift */,
 				5B35DDB51CDDE086001B30B0 /* Parser.swift */,
+				5B35DDDC1CDE2AED001B30B0 /* Parser+Internal.swift */,
 				5B35DDB71CDDE178001B30B0 /* Emitter.swift */,
 				5B35DDC91CDDE4DB001B30B0 /* Model */,
 			);
@@ -237,6 +240,7 @@
 				5B98844E1CD6665A0008A67D /* dumper.c in Sources */,
 				5B9884501CD6665A0008A67D /* loader.c in Sources */,
 				5B35DDD91CDDE4DB001B30B0 /* Sequence.swift in Sources */,
+				5B35DDDD1CDE2AED001B30B0 /* Parser+Internal.swift in Sources */,
 				5B9884541CD6665A0008A67D /* writer.c in Sources */,
 				5B35DDD41CDDE4DB001B30B0 /* Anchor.swift in Sources */,
 				5B9884531CD6665A0008A67D /* scanner.c in Sources */,

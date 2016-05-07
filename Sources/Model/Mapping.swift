@@ -10,7 +10,7 @@
 //
 
 
-class Mapping: Node, Taggable, Anchorable, Markable, Emittable {
+class Mapping: Node, Taggable, Anchorable, Emittable {
     
     var pairs: [(Node, Node)] = []
     
@@ -20,9 +20,6 @@ class Mapping: Node, Taggable, Anchorable, Markable, Emittable {
         static let Auto: Style? = nil
     }
     var style: Style? = .Auto
-    
-    let startToken: Markable? = nil
-    let endToken: Markable? = nil
     
 }
 

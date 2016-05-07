@@ -10,7 +10,7 @@
 //
 
 
-class Stream: Markable, Emittable {
+public class Stream: Parsed, Emittable {
     
     enum Encoding {
         case UTF8
@@ -22,8 +22,6 @@ class Stream: Markable, Emittable {
     var documents: [Document] = []
     
     var explicitEnd: Bool = false
-    let startToken: Markable? = nil
-    let endToken: Markable? = nil
     
 }
 

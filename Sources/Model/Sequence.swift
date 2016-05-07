@@ -10,7 +10,7 @@
 //
 
 
-class Sequence: Node, Taggable, Anchorable, Markable, Emittable {
+class Sequence: Node, Taggable, Anchorable, Emittable {
     
     var items: [Node] = []
     
@@ -20,9 +20,6 @@ class Sequence: Node, Taggable, Anchorable, Markable, Emittable {
         static let Auto: Style? = nil
     }
     var style: Style? = .Auto
-    
-    let startToken: Markable? = nil
-    let endToken: Markable? = nil
     
 }
 

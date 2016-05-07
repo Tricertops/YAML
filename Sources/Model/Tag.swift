@@ -7,7 +7,7 @@
 //
 
 
-class Tag: Markable {
+class Tag: Parsed {
     var handle: String = ""
     var suffix: String = ""
 }

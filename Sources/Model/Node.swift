@@ -10,7 +10,7 @@
 //
 
 
-protocol Node {
+protocol Node: Parsed {
     
 }
 
