@@ -1,0 +1,12 @@
+%YAML 1.2
+---
+scalar: Example
+tagged: !custom Example
+anchored: &anchor Example
+alias: *anchor
+sequence:
+    - scalar
+    - scalar
+mapping:
+    nested: scalar
+...

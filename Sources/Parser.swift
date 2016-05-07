@@ -56,8 +56,6 @@ public class Parser {
         /// Index of character within the line.
         public let column: UInt
         
-        //TODO: No public init()
-        
         /// Representation of make range in the source string.
         public struct Range {
             /// Mark of the range start.
@@ -73,8 +71,6 @@ public class Parser {
             public var length: UInt {
                 return max(0, self.end.location - self.start.location)
             }
-            
-            //TODO: No public init()
         }
     }
     

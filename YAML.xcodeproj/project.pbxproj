@@ -19,6 +19,9 @@
 		5B35DDDA1CDDE4DB001B30B0 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35DDD11CDDE4DB001B30B0 /* Stream.swift */; };
 		5B35DDDB1CDDE4DB001B30B0 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35DDD21CDDE4DB001B30B0 /* Tag.swift */; };
 		5B35DDDD1CDE2AED001B30B0 /* Parser+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35DDDC1CDE2AED001B30B0 /* Parser+Internal.swift */; };
+		5B35DDE71CDE3879001B30B0 /* YAML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9884391CD661F60008A67D /* YAML.framework */; };
+		5B35DDF01CDE3932001B30B0 /* Parser_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35DDEF1CDE38AA001B30B0 /* Parser_Tests.swift */; };
+		5B35DDF31CDE3C52001B30B0 /* YAML_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35DDF21CDE3C52001B30B0 /* YAML_Tests.swift */; };
 		5B76ADA41CD67883003EE030 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B76ADA21CD67883003EE030 /* Version.swift */; };
 		5B76ADA51CD67883003EE030 /* YAML.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B76ADA31CD67883003EE030 /* YAML.h */; };
 		5B98844D1CD6665A0008A67D /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = CB26AC4B59DC4F9AA9AB3E06 /* api.c */; };
@@ -31,6 +34,16 @@
 		5B9884541CD6665A0008A67D /* writer.c in Sources */ = {isa = PBXBuildFile; fileRef = B640160F7C504586AD0B65F9 /* writer.c */; };
 		5B9884561CD6678F0008A67D /* yaml.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B9884331CD65A8B0008A67D /* yaml.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5B35DDE81CDE3879001B30B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5078C8AEAD0A42A4AA50A5EB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B9884381CD661F60008A67D;
+			remoteInfo = macOS;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		18278EC05DF34E80B05F54C0 /* parser.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; path = parser.c; sourceTree = "<group>"; };
@@ -48,6 +61,11 @@
 		5B35DDD11CDDE4DB001B30B0 /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
 		5B35DDD21CDDE4DB001B30B0 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		5B35DDDC1CDE2AED001B30B0 /* Parser+Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parser+Internal.swift"; sourceTree = "<group>"; };
+		5B35DDE21CDE3879001B30B0 /* YAMLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YAMLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B35DDEE1CDE38AA001B30B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B35DDEF1CDE38AA001B30B0 /* Parser_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser_Tests.swift; sourceTree = "<group>"; };
+		5B35DDF11CDE3B24001B30B0 /* sample.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = sample.yaml; sourceTree = "<group>"; };
+		5B35DDF21CDE3C52001B30B0 /* YAML_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YAML_Tests.swift; sourceTree = "<group>"; };
 		5B76ADA21CD67883003EE030 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		5B76ADA31CD67883003EE030 /* YAML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAML.h; sourceTree = "<group>"; };
 		5B9884331CD65A8B0008A67D /* yaml.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = yaml.h; sourceTree = "<group>"; };
@@ -61,6 +79,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5B35DDDF1CDE3879001B30B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B35DDE71CDE3879001B30B0 /* YAML.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5B9884351CD661F60008A67D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -77,6 +103,7 @@
 				5B9884431CD6623D0008A67D /* Info.plist */,
 				5B76ADA11CD67883003EE030 /* Sources */,
 				B4AAAFE65B664336AF146E0F /* libyaml */,
+				5B35DDED1CDE38AA001B30B0 /* Tests */,
 				1A659A2B32AE4FCE9C580605 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				5B9884391CD661F60008A67D /* YAML.framework */,
+				5B35DDE21CDE3879001B30B0 /* YAMLTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,6 +131,17 @@
 				5B35DDCA1CDDE4DB001B30B0 /* Alias.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5B35DDED1CDE38AA001B30B0 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				5B35DDEE1CDE38AA001B30B0 /* Info.plist */,
+				5B35DDF21CDE3C52001B30B0 /* YAML_Tests.swift */,
+				5B35DDEF1CDE38AA001B30B0 /* Parser_Tests.swift */,
+				5B35DDF11CDE3B24001B30B0 /* sample.yaml */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		5B76ADA11CD67883003EE030 /* Sources */ = {
@@ -167,6 +206,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		5B35DDE11CDE3879001B30B0 /* macOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B35DDEA1CDE3879001B30B0 /* Build configuration list for PBXNativeTarget "macOS Tests" */;
+			buildPhases = (
+				5B35DDDE1CDE3879001B30B0 /* Sources */,
+				5B35DDDF1CDE3879001B30B0 /* Frameworks */,
+				5B35DDE01CDE3879001B30B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B35DDE91CDE3879001B30B0 /* PBXTargetDependency */,
+			);
+			name = "macOS Tests";
+			productName = "macOS Tests";
+			productReference = 5B35DDE21CDE3879001B30B0 /* YAMLTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		5B9884381CD661F60008A67D /* macOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B98843E1CD661F60008A67D /* Build configuration list for PBXNativeTarget "macOS" */;
@@ -192,9 +249,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Tricertops;
 				TargetAttributes = {
+					5B35DDE11CDE3879001B30B0 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					5B9884381CD661F60008A67D = {
 						CreatedOnToolsVersion = 7.3;
 					};
@@ -212,11 +273,19 @@
 			projectRoot = "";
 			targets = (
 				5B9884381CD661F60008A67D /* macOS */,
+				5B35DDE11CDE3879001B30B0 /* macOS Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5B35DDE01CDE3879001B30B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5B9884371CD661F60008A67D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -227,6 +296,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5B35DDDE1CDE3879001B30B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B35DDF31CDE3C52001B30B0 /* YAML_Tests.swift in Sources */,
+				5B35DDF01CDE3932001B30B0 /* Parser_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5B9884341CD661F60008A67D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -257,7 +335,35 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5B35DDE91CDE3879001B30B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B9884381CD661F60008A67D /* macOS */;
+			targetProxy = 5B35DDE81CDE3879001B30B0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		5B35DDEB1CDE3879001B30B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Tricertops.YAML.macOS.Tests;
+				PRODUCT_NAME = YAMLTests;
+			};
+			name = Debug;
+		};
+		5B35DDEC1CDE3879001B30B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Tricertops.YAML.macOS.Tests;
+				PRODUCT_NAME = YAMLTests;
+			};
+			name = Release;
+		};
 		5B98843F1CD661F60008A67D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -419,6 +525,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5B35DDEA1CDE3879001B30B0 /* Build configuration list for PBXNativeTarget "macOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B35DDEB1CDE3879001B30B0 /* Debug */,
+				5B35DDEC1CDE3879001B30B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5B98843E1CD661F60008A67D /* Build configuration list for PBXNativeTarget "macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
