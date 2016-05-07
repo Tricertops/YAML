@@ -42,9 +42,14 @@ extension Parser.Mark.Range {
 
 extension Parser {
     
-    func internal_parse() {
-        //TODO: Construct libyaml parser.
-        //TODO: Build YAML model from events.
+    struct Internal {
+        typealias Result = (stream: Stream?, error: ErrorType?, lookup: Lookup)
+        
+        static func parse(string: String) -> Result {
+            //TODO: Construct libyaml parser.
+            //TODO: Build YAML model from events.
+            return (nil, nil, [:])
+        }
     }
     
 }

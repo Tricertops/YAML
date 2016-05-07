@@ -19,18 +19,18 @@ public class Parser {
     /// - TODO: Allow lazy parsing?
     public init(string: String) {
         self.string = string
-        self.internal_parse()
+        (self.stream, self.error, self.lookup) = Internal.parse(string)
     }
     
     /// The source string passed to `init(string:)`
     public let string: String
     
     /// Stream object parsed from the string, or `nil`, if the parsing failed.
-    public internal(set) var stream: Stream? = nil
+    public let stream: Stream?
     
     /// Error that occured during parsing.
     /// - Note: Even if error occured, the `.stream` could be valid object.
-    public internal(set) var error: ErrorType? = nil
+    public let error: ErrorType?
     
     
     //MARK: Parser: Reverse Lookup
@@ -74,8 +74,10 @@ public class Parser {
         }
     }
     
+    typealias Lookup = [ObjectIdentifier: Mark.Range]
+    
     /// Lookup table for Parsed objects.
-    internal var lookup: [ObjectIdentifier: Mark.Range] = [:]
+    internal let lookup: Lookup
     
 }
 
