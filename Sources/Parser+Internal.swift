@@ -9,9 +9,9 @@
 
 //MARK: Parser: Mark
 
-extension Parser.Mark {
+private extension Parser.Mark {
     
-    func indexInString(string: String) -> String.UTF8Index {
+    private func indexInString(string: String) -> String.UTF8Index {
         let start = string.utf8.startIndex
         let end = string.utf8.endIndex
         return start.advancedBy(Int(self.location), limit: end)
@@ -20,15 +20,15 @@ extension Parser.Mark {
 }
 
 
-extension Parser.Mark.Range {
+internal extension Parser.Mark.Range {
     
-    func rangeInString(string: String) -> Swift.Range<String.UTF8Index> {
+    private func rangeInString(string: String) -> Swift.Range<String.UTF8Index> {
         let start = self.start.indexInString(string)
         let end = self.end.indexInString(string)
         return start ..< end
     }
     
-    func substringFromString(string: String) -> String {
+    internal func substringFromString(string: String) -> String {
         let range = self.rangeInString(string)
         return String(string.utf8[range])
     }
@@ -36,9 +36,7 @@ extension Parser.Mark.Range {
 }
 
 
-
 //MARK: Parser: Parsing
-
 
 extension Parser {
     

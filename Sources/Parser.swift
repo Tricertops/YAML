@@ -10,6 +10,7 @@
 //
 
 
+
 //MARK: Parser: Base
 
 /// Object that can read YAML files, builds their model structure, and allows reverse lookup of their source string.
@@ -61,7 +62,7 @@ public class Parser {
             /// Mark of the range start.
             public let start: Mark
             /// Mark of the range end.
-            /// - Invariant: `end.position >= begin.position`
+            /// - Invariant: `begin.position <= end.position`
             public let end: Mark
             /// Index of first character in source string.
             public var location: UInt {
@@ -71,13 +72,22 @@ public class Parser {
             public var length: UInt {
                 return max(0, self.end.location - self.start.location)
             }
+            /// Internal initializer that validates endpoints.
+            internal init(start: Parser.Mark, end: Parser.Mark) {
+                assert(start.location <= end.location)
+                self.start = start
+                self.end = end
+            }
         }
     }
     
-    typealias Lookup = [ObjectIdentifier: Mark.Range]
+    //MARK: Internal Properties
+    
+    /// Lookup table type for Parsed objects.
+    internal typealias Lookup = [ObjectIdentifier: Mark.Range]
     
     /// Lookup table for Parsed objects.
-    internal let lookup: Lookup
+    private let lookup: Lookup
     
 }
 
