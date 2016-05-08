@@ -11,7 +11,7 @@
 
 
 
-//MARK: Parser: Base
+//MARK: Parser: Basic
 
 /// Object that can read YAML files, builds their model structure, and allows reverse lookup of their source string.
 public class Parser {
@@ -20,7 +20,7 @@ public class Parser {
     /// - TODO: Allow lazy parsing?
     public init(string: String) {
         self.string = string
-        (self.stream, self.error, self.lookup) = Internal.parse(string)
+        (self.stream, self.error, self.lookup) = Parser.parse(string)
     }
     
     /// The source string passed to `init(string:)`
@@ -29,10 +29,43 @@ public class Parser {
     /// Stream object parsed from the string, or `nil`, if the parsing failed.
     public let stream: Stream?
     
+    
+    //MARK: Parser: Errors
+    
     /// Error that occured during parsing.
     /// - Note: Even if error occured, the `.stream` could be valid object.
     public let error: ErrorType?
     
+    /// Error states of the Parser.
+    public struct Error: ErrorType {
+        
+        /// Type of error. Some types are mediated from the underlaying C library.
+        public enum Type: String {
+            /// No better information is known.
+            case Unspecified
+            /// Mediated from C library: Cannot allocate or reallocate a block of memory.
+            case Allocation
+            /// Mediated from C library: Cannot read or decode the input string.
+            case Decoding
+            /// Mediated from C library: Cannot scan the input string.
+            case Scanning
+            /// Mediated from C library: Cannot parse the input string.
+            case Parsing
+        }
+        
+        /// Type of error.
+        let type: Type
+        /// Message that describes the error.
+        let message: String
+        /// Problematic value
+        let value: Int?
+        /// Position in the source string.
+        let mark: Mark
+        /// Message about error context.
+        let contextMessage: String
+        /// Context position in the source string.
+        let contextMark: Mark
+    }
     
     //MARK: Parser: Reverse Lookup
     
@@ -81,7 +114,7 @@ public class Parser {
         }
     }
     
-    //MARK: Internal Properties
+    //MARK: Parser: Internal
     
     /// Lookup table type for Parsed objects.
     internal typealias Lookup = [ObjectIdentifier: Mark.Range]
@@ -91,6 +124,8 @@ public class Parser {
     
 }
 
+
+//MARK: Parser: Protocol
 
 /// Object that was created by Parser and can be mapped back to source string.
 /// - SeeAlso: `Parser.rangeOf(_:)`, `Parser.stringOf(_:)`
