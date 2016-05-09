@@ -95,7 +95,8 @@ extension Parser {
             try c_parser.checkError()
             
             currentEvent = Event.from(c_event: c_currentEvent)
-            print("Event: \(currentEvent.debugDescription)")
+            let description = currentEvent == nil ? "nil" : currentEvent!.debugDescription
+            print("Event: \(description)")
         }
         
     }
@@ -183,6 +184,36 @@ extension Parser {
             default:
                 return nil
             }
+        }
+    }
+}
+
+extension Parser.Event: CustomDebugStringConvertible {
+    
+    var debugDescription: String {
+        switch self {
+        case StreamStart: return "Stream:"
+        case StreamEnd: return ":Stream"
+        case DocumentStart(let tags): return "Document (Tags: \(tags)):"
+        case DocumentEnd: return ":Document"
+        case Alias(let anchor): return "Alias: *\(anchor)"
+        case Scalar(let anchor, let tag, let content, _):
+            return "Scalar"
+                + (anchor == nil || anchor!.isEmpty ? "" : " &" + anchor!)
+                + (tag == nil || tag!.handle.isEmpty ? "" : " !" + tag!.handle)
+                + ": " + content
+        case SequenceStart(let anchor, let tag, _):
+            return "Sequence"
+                + (anchor == nil || anchor!.isEmpty ? "" : " &" + anchor!)
+                + (tag == nil || tag!.handle.isEmpty ? "" : " !" + tag!.handle)
+                + ":"
+        case SequenceEnd: return ":Sequence"
+        case MappingStart(let anchor, let tag, _):
+            return "Mapping"
+                + (anchor == nil || anchor!.isEmpty ? "" : " &" + anchor!)
+                + (tag == nil || tag!.handle.isEmpty ? "" : " !" + tag!.handle)
+                + ":"
+        case MappingEnd: return ":Mapping"
         }
     }
     
