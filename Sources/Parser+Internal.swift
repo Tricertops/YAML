@@ -71,16 +71,16 @@ extension Parser {
         var result: Result = (nil, nil, [:])
         
         var c_parser = yaml_parser_t()
-        var c_currentEvent = yaml_event_t()
+        var currentEvent: Event? = nil
         
         var isFinished: Bool {
-            return (c_currentEvent.type == YAML_NO_EVENT)
+            return (currentEvent == nil)
         }
         
         mutating func setup(string: String) throws {
             yaml_parser_initialize(&c_parser)
             try c_parser.checkError()
-            yaml_parser_set_input_string(&c_parser, string, string.cLength)
+            yaml_parser_set_input_string(&c_parser, string, string.c_length)
         }
         
         mutating func cleanup() {
@@ -90,69 +90,101 @@ extension Parser {
         }
         
         mutating func processNextEvent() throws {
-            c_currentEvent = yaml_event_t()
+            var c_currentEvent = yaml_event_t()
             yaml_parser_parse(&c_parser, &c_currentEvent)
             try c_parser.checkError()
             
-            //TODO: Process event
-            
-            switch c_currentEvent.type {
+            currentEvent = Event.from(c_event: c_currentEvent)
+            print("Event: \(currentEvent.debugDescription)")
+        }
+        
+    }
+    
+}
+
+
+//MARK: Parser: Event
+
+extension Parser {
+    
+    enum Event {
+        case StreamStart(encoding: Stream.Encoding)
+        case StreamEnd
+        case DocumentStart(tags: [Tag.Directive])
+        case DocumentEnd
+        case Alias(anchor: String)
+        case Scalar(anchor: String?, tag: Tag?, content: String, style: YAML.Scalar.Style)
+        case SequenceStart(anchor: String?, tag: Tag?, style: Sequence.Style)
+        case SequenceEnd
+        case MappingStart(anchor: String?, tag: Tag?, style: Mapping.Style)
+        case MappingEnd
+        
+        static func from(c_event c_event: yaml_event_t) -> Event? {
+            switch c_event.type {
                 
-            case YAML_NO_EVENT:
-                log("No Event")
+            case YAML_NO_EVENT: return nil
                 
             case YAML_STREAM_START_EVENT:
-                log("Stream Start")
-                indentationLevel += 1
+                let c_stream = c_event.data.stream_start
+                let encoding = Stream.Encoding.from(c_encoding: c_stream.encoding)
+                return .StreamStart(encoding: encoding)
                 
             case YAML_STREAM_END_EVENT:
-                indentationLevel -= 1
-                log("Stream End")
+                return .StreamEnd
                 
             case YAML_DOCUMENT_START_EVENT:
-                log("Document Start")
-                indentationLevel += 1
+                let c_document = c_event.data.document_start
+                var directives: [Tag.Directive] = []
+                c_document.tag_directives.start.enumerateToLast(c_document.tag_directives.end) {
+                    c_directive in
+                    directives.append(Tag.Directive(
+                        handle: String(c_directive.handle),
+                        prefix: String.from(c_directive.prefix)))
+                }
+                return .DocumentStart(tags: directives)
                 
             case YAML_DOCUMENT_END_EVENT:
-                indentationLevel -= 1
-                log("Document End")
+                return .DocumentEnd
                 
             case YAML_ALIAS_EVENT:
-                log("Alias")
+                let c_alias = c_event.data.alias
+                return .Alias(anchor: String.from(c_alias.anchor))
                 
             case YAML_SCALAR_EVENT:
-                log("Scalar")
+                let c_scalar = c_event.data.scalar
+                let anchor = String.from(c_scalar.anchor)
+                let tag = Tag()
+                tag.handle = String.from(c_scalar.tag)
+                let content = String.from(c_scalar.value)
+                let style = YAML.Scalar.Style.Plain
+                return .Scalar(anchor: anchor, tag: tag, content: content, style: style)
                 
             case YAML_SEQUENCE_START_EVENT:
-                log("Sequence Start")
-                indentationLevel += 1
+                let c_sequence = c_event.data.sequence_start
+                let anchor = String.from(c_sequence.anchor)
+                let tag = Tag()
+                tag.handle = String.from(c_sequence.tag)
+                let style = Sequence.Style.Block
+                return .SequenceStart(anchor: anchor, tag: tag, style: style)
                 
             case YAML_SEQUENCE_END_EVENT:
-                indentationLevel -= 1
-                log("Sequence End")
+                return .SequenceEnd
                 
             case YAML_MAPPING_START_EVENT:
-                indentationLevel += 1
-                log("Mapping Start")
+                let c_mapping = c_event.data.sequence_start
+                let anchor = String.from(c_mapping.anchor)
+                let tag = Tag()
+                tag.handle = String.from(c_mapping.tag)
+                let style = Mapping.Style.Block
+                return .MappingStart(anchor: anchor, tag: tag, style: style)
                 
             case YAML_MAPPING_END_EVENT:
-                indentationLevel -= 1
-                log("Mapping End")
+                return .MappingEnd
                 
             default:
-                log("Unknown")
+                return nil
             }
         }
-        
-        var indentationLevel: Int = 0
-        
-        func log(string: String) {
-            for _ in 0 ..< indentationLevel {
-                print("  ", terminator: "")
-            }
-            print(string)
-        }
-        
     }
     
 }
@@ -199,8 +231,30 @@ extension Parser.Error {
 
 extension String {
     
-    var cLength: Int {
+    var c_length: Int {
         return Int(strlen(self))
+    }
+    
+    static func from(yaml_string: UnsafePointer<yaml_char_t>) -> String {
+        let converted = UnsafePointer<CChar>(yaml_string)
+        return String.fromCString(converted) ?? ""
+    }
+    
+    static func from(yaml_string: UnsafeMutablePointer<yaml_char_t>) -> String {
+        let converted = UnsafePointer<CChar>(yaml_string)
+        return String.fromCString(converted) ?? ""
+    }
+    
+}
+
+extension UnsafeMutablePointer {
+    
+    func enumerateToLast(last: UnsafeMutablePointer<Memory>, @noescape block: Memory -> ()) {
+        var enumerated = self
+        while enumerated != nil {
+            block(enumerated.memory)
+            enumerated = (enumerated == last ? nil : enumerated.successor())
+        }
     }
     
 }

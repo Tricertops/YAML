@@ -22,6 +22,7 @@
 		5B35DDE71CDE3879001B30B0 /* YAML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9884391CD661F60008A67D /* YAML.framework */; };
 		5B35DDF01CDE3932001B30B0 /* Parser_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35DDEF1CDE38AA001B30B0 /* Parser_Tests.swift */; };
 		5B35DDF31CDE3C52001B30B0 /* YAML_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35DDF21CDE3C52001B30B0 /* YAML_Tests.swift */; };
+		5B35DDF51CE05EA4001B30B0 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35DDF41CE05EA4001B30B0 /* Log.swift */; };
 		5B76ADA41CD67883003EE030 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B76ADA21CD67883003EE030 /* Version.swift */; };
 		5B76ADA51CD67883003EE030 /* YAML.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B76ADA31CD67883003EE030 /* YAML.h */; };
 		5B98844D1CD6665A0008A67D /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = CB26AC4B59DC4F9AA9AB3E06 /* api.c */; };
@@ -66,6 +67,7 @@
 		5B35DDEF1CDE38AA001B30B0 /* Parser_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser_Tests.swift; sourceTree = "<group>"; };
 		5B35DDF11CDE3B24001B30B0 /* sample.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = sample.yaml; sourceTree = "<group>"; };
 		5B35DDF21CDE3C52001B30B0 /* YAML_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YAML_Tests.swift; sourceTree = "<group>"; };
+		5B35DDF41CE05EA4001B30B0 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		5B76ADA21CD67883003EE030 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		5B76ADA31CD67883003EE030 /* YAML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAML.h; sourceTree = "<group>"; };
 		5B9884331CD65A8B0008A67D /* yaml.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = yaml.h; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			children = (
 				5B76ADA31CD67883003EE030 /* YAML.h */,
 				5B76ADA21CD67883003EE030 /* Version.swift */,
+				5B35DDF41CE05EA4001B30B0 /* Log.swift */,
 				5B35DDB51CDDE086001B30B0 /* Parser.swift */,
 				5B35DDDC1CDE2AED001B30B0 /* Parser+Internal.swift */,
 				5B35DDB71CDDE178001B30B0 /* Emitter.swift */,
@@ -311,6 +314,7 @@
 			files = (
 				5B35DDD71CDDE4DB001B30B0 /* Node.swift in Sources */,
 				5B98844F1CD6665A0008A67D /* emitter.c in Sources */,
+				5B35DDF51CE05EA4001B30B0 /* Log.swift in Sources */,
 				5B35DDB61CDDE086001B30B0 /* Parser.swift in Sources */,
 				5B35DDB81CDDE178001B30B0 /* Emitter.swift in Sources */,
 				5B35DDD81CDDE4DB001B30B0 /* Scalar.swift in Sources */,

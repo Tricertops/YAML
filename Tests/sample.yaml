@@ -4,6 +4,7 @@ scalar: Example
 tagged: !custom Example
 anchored: &anchor Example
 alias: *anchor
+empty:
 sequence:
     - scalar
     - scalar
