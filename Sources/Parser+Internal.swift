@@ -108,7 +108,7 @@ extension Parser {
 extension Parser {
     
     enum Event {
-        case StreamStart(encoding: Stream.Encoding)
+        case StreamStart
         case StreamEnd
         case DocumentStart(tags: [Tag.Directive])
         case DocumentEnd
@@ -122,12 +122,11 @@ extension Parser {
         static func from(c_event c_event: yaml_event_t) -> Event? {
             switch c_event.type {
                 
-            case YAML_NO_EVENT: return nil
+            case YAML_NO_EVENT:
+                return nil
                 
             case YAML_STREAM_START_EVENT:
-                let c_stream = c_event.data.stream_start
-                let encoding = Stream.Encoding.from(c_encoding: c_stream.encoding)
-                return .StreamStart(encoding: encoding)
+                return .StreamStart
                 
             case YAML_STREAM_END_EVENT:
                 return .StreamEnd
