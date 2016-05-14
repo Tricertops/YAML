@@ -91,7 +91,28 @@ class Parser_Tests: XCTestCase {
             XCTAssertEqual(sequence2.style, .Flow)
             XCTAssertTrue(sequence2.items[1] === sequence2.items[3])
         }
+    }
+    
+    func test_mapping() {
+        let string = self.file("mapping")
+        let parser = Parser(string: string)
+        XCTAssertEqual(parser.string, string)
+        XCTAssertNil(parser.error)
         
+        XCTAssertNotNil(parser.stream)
+        guard let stream = parser.stream else { return }
+        
+        XCTAssertFalse(stream.hasVersion)
+        XCTAssertTrue(stream.tags.isEmpty)
+        XCTAssertFalse(stream.hasStartMark)
+        XCTAssertEqual(stream.documents.count, 1)
+        XCTAssertFalse(stream.hasEndMark)
+        
+        let document = stream.documents[0]
+        XCTAssertTrue(document is Node.Mapping)
+        guard let mapping = document as? Node.Mapping else { return }
+        XCTAssertEqual(mapping.pairs.count, 6)
+        XCTAssertEqual(mapping.style, .Block)
     }
     
 }

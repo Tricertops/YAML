@@ -151,6 +151,7 @@ extension Parser {
             else if let mapping = stack.last as? Node.Mapping {
                 if let key = mappingKey {
                     mapping.pairs.append((key, node))
+                    mappingKey = nil
                 }
                 else {
                     mappingKey = node

@@ -59,6 +59,7 @@
 		5B2214281CE73F1100B2DD40 /* stream_multiple.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = stream_multiple.yaml; sourceTree = "<group>"; };
 		5B2214291CE73F1100B2DD40 /* stream_simple.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = stream_simple.yaml; sourceTree = "<group>"; };
 		5B22142B1CE7800F00B2DD40 /* sequence.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sequence.yaml; sourceTree = "<group>"; };
+		5B22142D1CE7854A00B2DD40 /* mapping.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = mapping.yaml; sourceTree = "<group>"; };
 		5B35DDD11CDDE4DB001B30B0 /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
 		5B35DDD21CDDE4DB001B30B0 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		5B35DDE21CDE3879001B30B0 /* YAMLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YAMLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +157,7 @@
 				5B2214291CE73F1100B2DD40 /* stream_simple.yaml */,
 				5B2214281CE73F1100B2DD40 /* stream_multiple.yaml */,
 				5B22142B1CE7800F00B2DD40 /* sequence.yaml */,
+				5B22142D1CE7854A00B2DD40 /* mapping.yaml */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
