@@ -28,7 +28,6 @@ class Parser_Tests: XCTestCase {
         XCTAssertTrue(stream.tags.isEmpty)
         XCTAssertFalse(stream.hasStartMark)
         XCTAssertEqual(stream.documents.count, 1)
-        XCTAssertFalse(stream.hasSeparators)
         XCTAssertFalse(stream.hasEndMark)
         
         let document = stream.documents[0]

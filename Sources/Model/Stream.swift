@@ -19,17 +19,18 @@ public class Stream {
     /// List of tag directives preceding the documents.
     public var tags: [Tag.Directive] = []
     
-    /// Whether the stream has explicit `---` mark at the beginning.
-    public var hasStartMark: Bool = false
+    /// Whether the stream *wants* explicit `---` mark at the beginning.
+    /// - Note: In some cases the mark is required.
+    /// - SeeAlso: `.hasStartMark`
+    public var prefersStartMark: Bool = false
+    
+    /// Whether the stream *has* explicit `---` mark at the beginning.
+    public var hasStartMark: Bool {
+        return hasVersion || !tags.isEmpty || prefersStartMark
+    }
     
     /// Documents contained in the stream.
     public var documents: [Node] = []
-    
-    /// Whether the documents are delimited by `---` marks.
-    /// - Note: This property is determined from other properties.
-    public var hasSeparators: Bool {
-        return hasVersion || !tags.isEmpty || documents.count > 0
-    }
     
     /// Whether the stream has explicit `...` mark at the end.
     public var hasEndMark: Bool = false
