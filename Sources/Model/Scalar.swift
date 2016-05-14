@@ -11,13 +11,13 @@
 
 
 
-class Scalar: Taggable, Anchorable {
+public class Scalar: Taggable, Anchorable {
     
     var tag: Tag?
     
     var anchor: String?
     
-    var content: String = ""
+    public var content: String = ""
     
     var style: Style? = .Auto
     

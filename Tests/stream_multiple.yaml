@@ -1,0 +1,9 @@
+%YAML 1.1
+# Stream with 3 documents.
+---
+Hello, YAML 1!
+---
+Hello, YAML 2!
+---
+Hello, YAML 3!
+...

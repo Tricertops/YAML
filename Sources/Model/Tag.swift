@@ -12,13 +12,13 @@
 
 
 //TODO: Enum to handle .Verbatim .BuiltIn .UserDefined and maybe .Implicit?
-struct Tag {
-    var handle: String = ""
-    var prefix: String = ""
+public struct Tag {
+    public var handle: String = ""
+    public var prefix: String = ""
     
-    struct Directive {
-        var handle: String = ""
-        var prefix: String = ""
+    public struct Directive {
+        public var handle: String = ""
+        public var prefix: String = ""
     }
 }
 

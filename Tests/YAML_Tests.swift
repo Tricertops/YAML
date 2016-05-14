@@ -21,7 +21,7 @@ extension XCTestCase {
     }
     
     func URLForFile(name: String) -> NSURL {
-        return self.testsURL.URLByAppendingPathComponent(name, isDirectory: false)
+        return self.testsURL.URLByAppendingPathComponent(name + ".yaml", isDirectory: false)
     }
     
     func file(name: String) -> String {

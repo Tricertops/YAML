@@ -15,12 +15,27 @@ import YAML
 
 class Parser_Tests: XCTestCase {
     
-    func test_init() {
-        let string = self.file("sample.yaml")
+    func test_stream_simple() {
+        let string = self.file("stream_simple")
         let parser = Parser(string: string)
         XCTAssertEqual(parser.string, string)
-        XCTAssertNil(parser.stream, "We are not doing any parsing , yet.")
         XCTAssertNil(parser.error)
+        
+        XCTAssertNotNil(parser.stream)
+        guard let stream = parser.stream else { return }
+        
+        XCTAssertFalse(stream.hasVersion)
+        XCTAssertTrue(stream.tags.isEmpty)
+        XCTAssertFalse(stream.hasStartMark)
+        XCTAssertEqual(stream.documents.count, 1)
+        XCTAssertFalse(stream.hasSeparators)
+        XCTAssertFalse(stream.hasEndMark)
+        
+        let document = stream.documents[0]
+        XCTAssertTrue(document is Scalar)
+        guard let scalar = document as? Scalar else { return }
+        
+        XCTAssertEqual(scalar.content, "Hello, YAML!")
     }
     
 }

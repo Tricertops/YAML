@@ -65,6 +65,8 @@
 		5B2214221CE72FCA00B2DD40 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5B2214241CE736FD00B2DD40 /* Parser+Mark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parser+Mark.swift"; sourceTree = "<group>"; };
 		5B2214261CE7373400B2DD40 /* Parser+Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Parser+Error.swift"; sourceTree = "<group>"; };
+		5B2214281CE73F1100B2DD40 /* stream_multiple.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = stream_multiple.yaml; sourceTree = "<group>"; };
+		5B2214291CE73F1100B2DD40 /* stream_simple.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = stream_simple.yaml; sourceTree = "<group>"; };
 		5B35DDCA1CDDE4DB001B30B0 /* Alias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alias.swift; sourceTree = "<group>"; };
 		5B35DDCB1CDDE4DB001B30B0 /* Anchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
 		5B35DDCD1CDDE4DB001B30B0 /* Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapping.swift; sourceTree = "<group>"; };
@@ -172,6 +174,8 @@
 				5B35DDEE1CDE38AA001B30B0 /* Info.plist */,
 				5B35DDF21CDE3C52001B30B0 /* YAML_Tests.swift */,
 				5B35DDEF1CDE38AA001B30B0 /* Parser_Tests.swift */,
+				5B2214291CE73F1100B2DD40 /* stream_simple.yaml */,
+				5B2214281CE73F1100B2DD40 /* stream_multiple.yaml */,
 				5B35DDF11CDE3B24001B30B0 /* sample.yaml */,
 			);
 			path = Tests;
