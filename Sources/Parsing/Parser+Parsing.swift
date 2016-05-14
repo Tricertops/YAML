@@ -64,19 +64,26 @@ extension Parser {
             parser = yaml_parser_t() // Clear.
         }
         
-        mutating func loadNextEvent() throws -> Event? {
+        mutating func loadNext() throws -> (event: Event?, range: Mark.Range?) {
             var yaml_event = yaml_event_t()
             yaml_parser_parse(&parser, &yaml_event)
             let event = Event.from(yaml_event)
             hasNextEvent = (event != nil)
             try parser.checkError()
-            return event
+            
+            if let event = event {
+                let startMark = Mark(yaml_event.start_mark)
+                let endMark = Mark(yaml_event.end_mark)
+                return (event, startMark...endMark)
+            }
+            return (nil, nil)
         }
         
         mutating func processNextEvent() throws {
-            guard let event = try loadNextEvent() else {
-                return
-            }
+            let next = try loadNext()
+            guard let event = next.event else { return }
+            guard let range = next.range else { return }
+            
             switch event {
                 
             case .StreamStart:
@@ -111,6 +118,7 @@ extension Parser {
                 scalar.content = content
                 scalar.style = style
                 addNode(scalar)
+                addRange(range, node: scalar)
                 
             case .SequenceStart(let anchor, let tag, let style):
                 let sequence = Node.Sequence()
@@ -118,11 +126,13 @@ extension Parser {
                 sequence.tag = tag
                 sequence.style = style
                 addNode(sequence)
+                addRange(range, node: sequence)
                 stack.append(sequence)
                 
             case .SequenceEnd:
                 let last = self.stack.popLast()
-                assert(last is Node.Sequence, "Expected Sequence node.")
+                guard let sequence = last as? Node.Sequence else { fatalError("Expected Sequence node.") }
+                addRange(range, node: sequence)
                 
             case .MappingStart(let anchor, let tag, let style):
                 let mapping = Node.Mapping()
@@ -130,13 +140,14 @@ extension Parser {
                 mapping.tag = tag
                 mapping.style = style
                 addNode(mapping)
+                addRange(range, node: mapping)
                 stack.append(mapping)
                 
             case .MappingEnd:
                 let last = self.stack.popLast()
-                assert(last is Node.Mapping, "Expected Mapping node.")
+                guard let mapping = last as? Node.Mapping else { fatalError("Expected Mapping node.") }
+                addRange(range, node: mapping)
             }
-            
         }
         
         mutating func addNode(node: Node) {
@@ -164,6 +175,11 @@ extension Parser {
             if let anchor = node.anchor {
                 self.anchors[anchor] = node
             }
+        }
+        
+        mutating func addRange(range: Mark.Range, node: Node) {
+            let key = ObjectIdentifier(node)
+            lookup[key] = Mark.Range.union(lookup[key], range)
         }
         
     }

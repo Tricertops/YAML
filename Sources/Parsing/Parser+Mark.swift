@@ -28,6 +28,17 @@ extension Parser.Mark {
 }
 
 
+extension Parser.Mark: Comparable { }
+
+public func == (left: Parser.Mark, right: Parser.Mark) -> Bool {
+    return left.location == right.location
+}
+
+public func < (left: Parser.Mark, right: Parser.Mark) -> Bool {
+    return left.location < right.location
+}
+
+
 extension Parser.Mark.Range {
     
     func rangeInString(string: String) -> Swift.Range<String.UTF8Index> {
@@ -41,5 +52,27 @@ extension Parser.Mark.Range {
         return String(string.utf8[range])
     }
     
+    static func union(ranges: Parser.Mark.Range? ...) -> Parser.Mark.Range {
+        var start: Parser.Mark?
+        var end: Parser.Mark?
+        
+        for optionalRange in ranges {
+            guard let range = optionalRange else { continue }
+            if start == nil { start = range.start }
+            if end == nil { end = range.end }
+            
+            start = min(start!, range.start)
+            end = max(end!, range.end)
+        }
+        assert(start != nil, "Misuse of range union.")
+        assert(start != nil, "Misuse of range union.")
+        return Parser.Mark.Range(start: start!, end: end!)
+    }
+    
+}
+
+
+func ... (start: Parser.Mark, end: Parser.Mark) -> Parser.Mark.Range {
+    return Parser.Mark.Range(start: start, end: end)
 }
 

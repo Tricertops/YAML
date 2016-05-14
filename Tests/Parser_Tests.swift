@@ -21,8 +21,7 @@ class Parser_Tests: XCTestCase {
         XCTAssertEqual(parser.string, string)
         XCTAssertNil(parser.error)
         
-        XCTAssertNotNil(parser.stream)
-        guard let stream = parser.stream else { return }
+        guard let stream = parser.stream else { XCTFail(); return }
         
         XCTAssertFalse(stream.hasVersion)
         XCTAssertTrue(stream.tags.isEmpty)
@@ -41,8 +40,7 @@ class Parser_Tests: XCTestCase {
         XCTAssertEqual(parser.string, string)
         XCTAssertNil(parser.error)
         
-        XCTAssertNotNil(parser.stream)
-        guard let stream = parser.stream else { return }
+        guard let stream = parser.stream else { XCTFail(); return }
         
         XCTAssertTrue(stream.hasVersion)
         XCTAssertTrue(stream.tags.isEmpty)
@@ -63,8 +61,7 @@ class Parser_Tests: XCTestCase {
         XCTAssertEqual(parser.string, string)
         XCTAssertNil(parser.error)
         
-        XCTAssertNotNil(parser.stream)
-        guard let stream = parser.stream else { return }
+        guard let stream = parser.stream else { XCTFail(); return }
         
         XCTAssertFalse(stream.hasVersion)
         XCTAssertTrue(stream.tags.isEmpty)
@@ -92,8 +89,7 @@ class Parser_Tests: XCTestCase {
         XCTAssertEqual(parser.string, string)
         XCTAssertNil(parser.error)
         
-        XCTAssertNotNil(parser.stream)
-        guard let stream = parser.stream else { return }
+        guard let stream = parser.stream else { XCTFail(); return }
         
         XCTAssertFalse(stream.hasVersion)
         XCTAssertTrue(stream.tags.isEmpty)
@@ -112,8 +108,7 @@ class Parser_Tests: XCTestCase {
         XCTAssertEqual(parser.string, string)
         XCTAssertNil(parser.error)
         
-        XCTAssertNotNil(parser.stream)
-        guard let stream = parser.stream else { return }
+        guard let stream = parser.stream else { XCTFail(); return }
         
         XCTAssertFalse(stream.hasVersion)
         XCTAssertTrue(stream.tags.isEmpty)
@@ -142,6 +137,37 @@ class Parser_Tests: XCTestCase {
         guard let literal = mapping["literal"] as? Node.Scalar else { XCTFail(); return }
         XCTAssertEqual(literal.style, .Literal)
         XCTAssertTrue(literal.content.containsString("\n"))
+    }
+    
+    func test_marks() {
+        let string = self.file("marks")
+        let parser = Parser(string: string)
+        XCTAssertEqual(parser.string, string)
+        XCTAssertNil(parser.error)
+        
+        guard let stream = parser.stream else { XCTFail(); return }
+        guard let mapping = stream.documents[0] as? Node.Mapping else { XCTFail(); return }
+        
+        guard let rangeMapping = parser.rangeOf(mapping) else { XCTFail(); return }
+        XCTAssertEqual(rangeMapping.start.location, 29)
+        XCTAssertEqual(rangeMapping.end.location, 62)
+        
+        guard let rangeKey1 = parser.rangeOf(mapping[0].key) else { XCTFail(); return }
+        XCTAssertEqual(rangeKey1.start.location, 29)
+        XCTAssertEqual(rangeKey1.end.location, 32)
+        
+        guard let rangeValue1 = parser.rangeOf(mapping[0].value) else { XCTFail(); return }
+        XCTAssertEqual(rangeValue1.start.location, 34)
+        XCTAssertEqual(rangeValue1.end.location, 39)
+        
+        guard let rangeKey2 = parser.rangeOf(mapping[1].key) else { XCTFail(); return }
+        XCTAssertEqual(rangeKey2.start.location, 40)
+        XCTAssertEqual(rangeKey2.end.location, 48)
+        
+        guard let rangeValue2 = parser.rangeOf(mapping[1].value) else { XCTFail(); return }
+        XCTAssertEqual(rangeValue2.start.location, 52)
+        XCTAssertEqual(rangeValue2.end.location, 62)
+        
     }
     
 }
