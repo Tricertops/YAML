@@ -14,7 +14,7 @@
 //TODO: Enum to handle .Verbatim .BuiltIn .UserDefined and maybe .Implicit?
 struct Tag {
     var handle: String = ""
-    var suffix: String = ""
+    var prefix: String = ""
     
     struct Directive {
         var handle: String = ""

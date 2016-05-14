@@ -40,7 +40,7 @@ public class Parser {
     public struct Error: ErrorType {
         
         /// Type of error. Some types are mediated from the underlaying C library.
-        public enum Type: String {
+        public enum Kind: String {
             /// No better information is known.
             case Unspecified
             /// Mediated from C library: Cannot allocate or reallocate a block of memory.
@@ -54,7 +54,7 @@ public class Parser {
         }
         
         /// Type of error.
-        let type: Type
+        let kind: Kind
         /// Message that describes the error.
         let message: String
         /// Problematic value
