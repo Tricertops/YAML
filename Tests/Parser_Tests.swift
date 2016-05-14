@@ -37,5 +37,28 @@ class Parser_Tests: XCTestCase {
         XCTAssertEqual(scalar.content, "Hello, YAML!")
     }
     
+    func test_stream_multiple() {
+        let string = self.file("stream_multiple")
+        let parser = Parser(string: string)
+        XCTAssertEqual(parser.string, string)
+        XCTAssertNil(parser.error)
+        
+        XCTAssertNotNil(parser.stream)
+        guard let stream = parser.stream else { return }
+        
+        XCTAssertTrue(stream.hasVersion)
+        XCTAssertTrue(stream.tags.isEmpty)
+        XCTAssertTrue(stream.hasStartMark)
+        XCTAssertEqual(stream.documents.count, 3)
+        XCTAssertTrue(stream.hasEndMark)
+        
+        for document in stream.documents {
+            XCTAssertTrue(document is Node.Scalar)
+            guard let scalar = document as? Node.Scalar else { return }
+            
+            XCTAssertEqual(scalar.content, "Hello, YAML!")
+        }
+    }
+    
 }
 
