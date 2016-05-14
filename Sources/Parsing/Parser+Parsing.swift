@@ -146,11 +146,11 @@ extension Parser {
                 stream.documents.append(node)
             }
             else if let sequence = stack.last as? Node.Sequence {
-                sequence.items.append(node)
+                sequence.append(node)
             }
             else if let mapping = stack.last as? Node.Mapping {
                 if let key = mappingKey {
-                    mapping.pairs.append((key, node))
+                    mapping.append(key: key, value: node)
                     mappingKey = nil
                 }
                 else {
