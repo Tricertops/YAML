@@ -41,7 +41,7 @@ extension Node {
         
         /// Possible Scalar styles.
         public enum Style {
-            case Plain /// No quotes,  inline, does NOT preserve newlines.
+            case Plain /// No quotes,  inline, does NOT allow or preserve newlines.
             case SingleQuoted /// Enclosed in single quotes, inline, preserves newlines.
             case DoubleQuoted /// Enclosed in double quotes, inline, preserves newlines.
             case Folded /// No quotes,  multiline, does NOT preserve newlines.

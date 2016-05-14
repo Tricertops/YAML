@@ -30,9 +30,7 @@ class Parser_Tests: XCTestCase {
         XCTAssertEqual(stream.documents.count, 1)
         XCTAssertFalse(stream.hasEndMark)
         
-        let document = stream.documents[0]
-        XCTAssertTrue(document is Node.Scalar)
-        guard let scalar = document as? Node.Scalar else { return }
+        guard let scalar = stream.documents[0] as? Node.Scalar else { XCTFail(); return }
         
         XCTAssertEqual(scalar.content, "Hello, YAML!")
     }
@@ -53,8 +51,7 @@ class Parser_Tests: XCTestCase {
         XCTAssertTrue(stream.hasEndMark)
         
         for document in stream.documents {
-            XCTAssertTrue(document is Node.Scalar)
-            guard let scalar = document as? Node.Scalar else { return }
+            guard let scalar = document as? Node.Scalar else { XCTFail(); return }
             
             XCTAssertEqual(scalar.content, "Hello, YAML!")
         }
@@ -76,17 +73,13 @@ class Parser_Tests: XCTestCase {
         XCTAssertFalse(stream.hasEndMark)
         
         do {
-            let document1 = stream.documents[0]
-            XCTAssertTrue(document1 is Node.Sequence)
-            guard let sequence1 = document1 as? Node.Sequence else { return }
+            guard let sequence1 = stream.documents[0] as? Node.Sequence else { XCTFail(); return }
             XCTAssertEqual(sequence1.count, 4)
             XCTAssertEqual(sequence1.style, .Block)
             XCTAssertTrue(sequence1[1] === sequence1[3])
         }
         do {
-            let document2 = stream.documents[1]
-            XCTAssertTrue(document2 is Node.Sequence)
-            guard let sequence2 = document2 as? Node.Sequence else { return }
+            guard let sequence2 = stream.documents[1] as? Node.Sequence else { XCTFail(); return }
             XCTAssertEqual(sequence2.count, 4)
             XCTAssertEqual(sequence2.style, .Flow)
             XCTAssertTrue(sequence2[1] === sequence2[3])
@@ -108,11 +101,47 @@ class Parser_Tests: XCTestCase {
         XCTAssertEqual(stream.documents.count, 1)
         XCTAssertFalse(stream.hasEndMark)
         
-        let document = stream.documents[0]
-        XCTAssertTrue(document is Node.Mapping)
-        guard let mapping = document as? Node.Mapping else { return }
+        guard let mapping = stream.documents[0] as? Node.Mapping else { XCTFail(); return }
         XCTAssertEqual(mapping.count, 6)
         XCTAssertEqual(mapping.style, .Block)
+    }
+    
+    func test_scalar() {
+        let string = self.file("scalar")
+        let parser = Parser(string: string)
+        XCTAssertEqual(parser.string, string)
+        XCTAssertNil(parser.error)
+        
+        XCTAssertNotNil(parser.stream)
+        guard let stream = parser.stream else { return }
+        
+        XCTAssertFalse(stream.hasVersion)
+        XCTAssertTrue(stream.tags.isEmpty)
+        XCTAssertFalse(stream.hasStartMark)
+        XCTAssertEqual(stream.documents.count, 1)
+        XCTAssertFalse(stream.hasEndMark)
+        
+        guard let mapping = stream.documents[0] as? Node.Mapping else { XCTFail(); return }
+        
+        guard let plain = mapping["plain"] as? Node.Scalar else { XCTFail(); return }
+        XCTAssertEqual(plain.style, .Plain)
+        
+        guard let singleQuoted = mapping["single quoted"] as? Node.Scalar else { XCTFail(); return }
+        XCTAssertEqual(singleQuoted.style, .SingleQuoted)
+        XCTAssertFalse(singleQuoted.content.containsString("\u{27}")) // APOSTROPHE
+        
+        guard let doubleQuoted = mapping["double quoted"] as? Node.Scalar else { XCTFail(); return }
+        XCTAssertEqual(doubleQuoted.style, .DoubleQuoted)
+        XCTAssertFalse(doubleQuoted.content.containsString("\u{22}")) // QUOTATION MARK
+        
+        guard let folded = mapping["folded"] as? Node.Scalar else { XCTFail(); return }
+        XCTAssertEqual(folded.style, .Folded)
+        let prelast = folded.content.endIndex.predecessor() // Ends with newline.
+        XCTAssertFalse(folded.content.substringToIndex(prelast).containsString("\n"))
+        
+        guard let literal = mapping["literal"] as? Node.Scalar else { XCTFail(); return }
+        XCTAssertEqual(literal.style, .Literal)
+        XCTAssertTrue(literal.content.containsString("\n"))
     }
     
 }

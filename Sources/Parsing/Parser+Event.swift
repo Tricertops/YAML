@@ -74,7 +74,7 @@ extension Parser.Event {
                 anchor: String(scalar.anchor),
                 tag: Tag(handle: String(scalar.tag), prefix: ""),
                 content: String(scalar.value),
-                style: .Plain)
+                style: .from(scalar.style))
             
         case YAML_SEQUENCE_START_EVENT:
             let sequence = event.data.sequence_start
@@ -102,6 +102,21 @@ extension Parser.Event {
             return nil
         }
     }
+}
+
+
+extension Node.Scalar.Style {
+    
+    static func from(style: yaml_scalar_style_t) -> Node.Scalar.Style {
+        switch style {
+        case YAML_SINGLE_QUOTED_SCALAR_STYLE: return .SingleQuoted
+        case YAML_DOUBLE_QUOTED_SCALAR_STYLE: return .DoubleQuoted
+        case YAML_FOLDED_SCALAR_STYLE: return .Folded
+        case YAML_LITERAL_SCALAR_STYLE: return .Literal
+        default: return .Plain // ANY, PLAIN
+        }
+    }
+    
 }
 
 
