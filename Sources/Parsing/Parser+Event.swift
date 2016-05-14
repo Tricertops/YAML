@@ -16,8 +16,8 @@ extension Parser {
     enum Event {
         case StreamStart
         case StreamEnd
-        case DocumentStart(tags: [Tag.Directive])
-        case DocumentEnd
+        case DocumentStart(hasVersion: Bool, tags: [Tag.Directive], isImplicit: Bool)
+        case DocumentEnd(isImplicit: Bool)
         case Alias(anchor: String)
         case Scalar(anchor: String?, tag: Tag?, content: String, style: YAML.Scalar.Style)
         case SequenceStart(anchor: String?, tag: Tag?, style: Sequence.Style)
@@ -47,17 +47,20 @@ extension Parser.Event {
             
         case YAML_DOCUMENT_START_EVENT:
             let document = event.data.document_start
-            //TODO: .version_directive
+            let version = document.version_directive
+            
             let rawDirectives = Array(start: document.tag_directives.start, end: document.tag_directives.end)
             let directives = rawDirectives.map {
                 Tag.Directive(handle: String($0.handle), prefix: String($0.prefix))
             }
-            //TODO: .implicit
-            return .DocumentStart(tags: directives)
+            return .DocumentStart(
+                hasVersion: (version != nil),
+                tags: directives,
+                isImplicit: (document.implicit != 0))
             
         case YAML_DOCUMENT_END_EVENT:
-            //TODO: .implicit
-            return .DocumentEnd
+            let document = event.data.document_end
+            return .DocumentEnd(isImplicit: (document.implicit != 0))
             
         case YAML_ALIAS_EVENT:
             let alias = event.data.alias
@@ -108,8 +111,15 @@ extension Parser.Event: CustomDebugStringConvertible {
         switch self {
         case StreamStart: return "Stream:"
         case StreamEnd: return ":Stream"
-        case DocumentStart(let tags): return "Document (Tags: \(tags)):"
-        case DocumentEnd: return ":Document"
+        case DocumentStart(let hasVersion, let tags, let isImplicit):
+            return "Document"
+                + (isImplicit ? "" : "---")
+                + (hasVersion ? " 1.1" : "")
+                + (tags.isEmpty ? "" : " \(tags)")
+                + ":"
+        case DocumentEnd(let isImplicit):
+            return ":Document"
+                + (isImplicit ? "" : " ...")
         case Alias(let anchor): return "Alias: *\(anchor)"
         case Scalar(let anchor, let tag, let content, _):
             return "Scalar"

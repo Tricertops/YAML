@@ -14,22 +14,31 @@
 public class Stream {
     
     /// Whether the stream has explicit `%YAML 1.1` at the beginning.
-    var explicitVersion: Bool = false
+    public var hasVersion: Bool = false
     
     /// List of tag directives preceding the documents.
-    var tags: [Tag.Directive] = []
+    public var tags: [Tag.Directive] = []
+    
+    /// Whether the stream has explicit `---` mark at the beginning.
+    public var hasStartMark: Bool = false
     
     /// Documents contained in the stream.
-    var documents: [Document] = []
+    public var documents: [Document] = []
+    
+    /// Whether the documents are delimited by `---` marks.
+    /// - Note: This property is determined from other properties.
+    public var hasSeparators: Bool {
+        return hasVersion || !tags.isEmpty || documents.count > 0
+    }
     
     /// Whether the stream has explicit `...` mark at the end.
-    var explicitEnd: Bool = false
+    public var hasEndMark: Bool = false
     
 }
 
 
 /// Object that can be placed in a stream.
-protocol Document { }
+public protocol Document { }
 
 extension Scalar: Document { }
 extension Sequence: Document { }
