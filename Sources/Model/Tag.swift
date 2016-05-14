@@ -1,19 +1,21 @@
 //
 //  Tag.swift
-//  YAML
+//  YAML.framework
 //
-//  Created by Martin Kiss on 7.5.16.
-//  Copyright © 2016 Tricertops. All rights reserved.
+//  Created by Martin Kiss on 7 May 2016.
+//  https://github.com/Tricertops/YAML
+//
+//  The MIT License (MIT)
+//  Copyright © 2016 Martin Kiss
 //
 
 
-class Tag: Parsed {
+
+//TODO: Enum to handle .Verbatim .BuiltIn .UserDefined and maybe .Implicit?
+struct Tag {
     var handle: String = ""
     var suffix: String = ""
-}
-
-
-extension Tag {
+    
     struct Directive {
         var handle: String = ""
         var prefix: String = ""
@@ -23,19 +25,6 @@ extension Tag {
 
 protocol Taggable {
     var tag: Tag? { get set }
-    var isTagExplicit: Bool { get set }
-}
-
-
-extension Taggable {
-    var tag: Tag? {
-        get { return nil }
-        set { }
-    }
-    var isTagExplicit: Bool {
-        get { return false }
-        set { }
-    }
 }
 
 

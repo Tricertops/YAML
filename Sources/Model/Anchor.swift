@@ -10,15 +10,8 @@
 //
 
 
-protocol Anchorable: AnyObject {
+
+protocol Anchorable {
     var anchor: String? { get set }
-}
-
-
-extension Anchorable {
-    var anchor: String? {
-        get { return nil }
-        set { }
-    }
 }
 

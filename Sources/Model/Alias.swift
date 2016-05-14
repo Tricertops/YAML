@@ -11,7 +11,9 @@
 
 
 
-class Alias: Node {
-    var target: Anchorable? = nil
+class Alias {
+    
+    var target: Anchorable?
+    
 }
 

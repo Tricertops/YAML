@@ -10,16 +10,28 @@
 //
 
 
-class Mapping: Node, Taggable, Anchorable, Emittable {
+
+class Mapping: Taggable, Anchorable {
     
-    var pairs: [(Node, Node)] = []
+    var tag: Tag?
+    
+    var anchor: String?
+    
+    var pairs: [(Nestable, Nestable)] = []
+    
+    var style: Style? = .Auto
+    
+}
+
+
+extension Mapping {
     
     enum Style {
         case Block
         case Flow
+        
         static let Auto: Style? = nil
     }
-    var style: Style? = .Auto
     
 }
 

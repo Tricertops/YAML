@@ -70,12 +70,12 @@ public class Parser {
     //MARK: Parser: Reverse Lookup
     
     /// Returns range of given parsed object in the source string or `nil` when the object didn’t come from this `Parser`.
-    public func rangeOf(object: Parsed) -> Mark.Range? {
+    public func rangeOf(object: Parsable) -> Mark.Range? {
         return self.lookup[ObjectIdentifier(object)]
     }
     
     /// Returns source string of given parsed object in or `nil` when the object didn’t come from this `Parser`.
-    public func stringOf(object: Parsed) -> String? {
+    public func stringOf(object: Parsable) -> String? {
         return self.rangeOf(object)?.substringFromString(self.string)
     }
     
@@ -116,18 +116,11 @@ public class Parser {
     
     //MARK: Parser: Internal
     
-    /// Lookup table type for Parsed objects.
+    /// Lookup table type for Parsable objects.
     internal typealias Lookup = [ObjectIdentifier: Mark.Range]
     
-    /// Lookup table for Parsed objects.
+    /// Lookup table for Parsable objects.
     private let lookup: Lookup
     
 }
-
-
-//MARK: Parser: Protocol
-
-/// Object that was created by Parser and can be mapped back to source string.
-/// - SeeAlso: `Parser.rangeOf(_:)`, `Parser.stringOf(_:)`
-public protocol Parsed: AnyObject { }
 

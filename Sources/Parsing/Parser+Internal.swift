@@ -1,9 +1,12 @@
 //
 //  Parser+Internal.swift
-//  YAML
+//  YAML.framework
 //
-//  Created by Martin Kiss on 7.5.16.
-//  Copyright © 2016 Tricertops. All rights reserved.
+//  Created by Martin Kiss on 7 May 2016.
+//  https://github.com/Tricertops/YAML
+//
+//  The MIT License (MIT)
+//  Copyright © 2016 Martin Kiss
 //
 
 
@@ -153,7 +156,7 @@ extension Parser {
             case YAML_SCALAR_EVENT:
                 let c_scalar = c_event.data.scalar
                 let anchor = String.from(c_scalar.anchor)
-                let tag = Tag()
+                var tag = Tag()
                 tag.handle = String.from(c_scalar.tag)
                 let content = String.from(c_scalar.value)
                 let style = YAML.Scalar.Style.Plain
@@ -162,7 +165,7 @@ extension Parser {
             case YAML_SEQUENCE_START_EVENT:
                 let c_sequence = c_event.data.sequence_start
                 let anchor = String.from(c_sequence.anchor)
-                let tag = Tag()
+                var tag = Tag()
                 tag.handle = String.from(c_sequence.tag)
                 let style = Sequence.Style.Block
                 return .SequenceStart(anchor: anchor, tag: tag, style: style)
@@ -173,7 +176,7 @@ extension Parser {
             case YAML_MAPPING_START_EVENT:
                 let c_mapping = c_event.data.sequence_start
                 let anchor = String.from(c_mapping.anchor)
-                let tag = Tag()
+                var tag = Tag()
                 tag.handle = String.from(c_mapping.tag)
                 let style = Mapping.Style.Block
                 return .MappingStart(anchor: anchor, tag: tag, style: style)

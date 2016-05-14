@@ -10,9 +10,7 @@
 //
 
 
-protocol Emittable: AnyObject {
-    
-}
+
 
 
 class Emitter {

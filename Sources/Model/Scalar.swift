@@ -11,9 +11,20 @@
 
 
 
-class Scalar: Node, Taggable, Anchorable, Emittable {
+class Scalar: Taggable, Anchorable {
+    
+    var tag: Tag?
+    
+    var anchor: String?
     
     var content: String = ""
+    
+    var style: Style? = .Auto
+    
+}
+
+
+extension Scalar {
     
     enum Style {
         case Plain
@@ -21,9 +32,9 @@ class Scalar: Node, Taggable, Anchorable, Emittable {
         case DoubleQuoted
         case Literal
         case Folded
+        
         static let Auto: Style? = nil
     }
-    var style: Style? = .Auto
     
 }
 

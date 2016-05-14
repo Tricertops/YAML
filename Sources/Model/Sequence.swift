@@ -10,16 +10,28 @@
 //
 
 
-class Sequence: Node, Taggable, Anchorable, Emittable {
+
+class Sequence: Taggable, Anchorable {
     
-    var items: [Node] = []
+    var tag: Tag?
+    
+    var anchor: String?
+    
+    var items: [Nestable] = []
+    
+    var style: Style? = .Auto
+    
+}
+
+
+extension Sequence {
     
     enum Style {
         case Block
         case Flow
+        
         static let Auto: Style? = nil
     }
-    var style: Style? = .Auto
     
 }
 
