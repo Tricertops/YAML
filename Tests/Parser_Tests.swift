@@ -32,8 +32,8 @@ class Parser_Tests: XCTestCase {
         XCTAssertFalse(stream.hasEndMark)
         
         let document = stream.documents[0]
-        XCTAssertTrue(document is Scalar)
-        guard let scalar = document as? Scalar else { return }
+        XCTAssertTrue(document is Node.Scalar)
+        guard let scalar = document as? Node.Scalar else { return }
         
         XCTAssertEqual(scalar.content, "Hello, YAML!")
     }

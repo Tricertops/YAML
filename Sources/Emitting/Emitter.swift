@@ -11,6 +11,10 @@
 
 
 
+protocol Emittable { }
+
+extension Stream: Emittable { }
+extension Node: Emittable { }
 
 
 class Emitter {
@@ -30,9 +34,9 @@ class Emitter {
     var lineBreaks: LineBreaks = .Unix
     
     struct Style {
-        var scalar: Scalar.Style? = nil
-        var sequence: Sequence.Style? = nil
-        var mapping: Mapping.Style? = nil
+        var scalar: Node.Scalar.Style? = nil
+        var sequence: Node.Sequence.Style? = nil
+        var mapping: Node.Mapping.Style? = nil
         
         static let None = Style()
         static let Default = Style(scalar: .Plain, sequence: .Block, mapping: .Block)

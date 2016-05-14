@@ -23,7 +23,7 @@ public class Stream {
     public var hasStartMark: Bool = false
     
     /// Documents contained in the stream.
-    public var documents: [Document] = []
+    public var documents: [Node] = []
     
     /// Whether the documents are delimited by `---` marks.
     /// - Note: This property is determined from other properties.
@@ -35,12 +35,4 @@ public class Stream {
     public var hasEndMark: Bool = false
     
 }
-
-
-/// Object that can be placed in a stream.
-public protocol Document { }
-
-extension Scalar: Document { }
-extension Sequence: Document { }
-extension Mapping: Document { }
 

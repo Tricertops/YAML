@@ -70,12 +70,12 @@ public class Parser {
     //MARK: Parser: Reverse Lookup
     
     /// Returns range of given parsed object in the source string or `nil` when the object didn’t come from this `Parser`.
-    public func rangeOf(object: Parsable) -> Mark.Range? {
+    public func rangeOf(object: Node) -> Mark.Range? {
         return self.lookup[ObjectIdentifier(object)]
     }
     
     /// Returns source string of given parsed object in or `nil` when the object didn’t come from this `Parser`.
-    public func stringOf(object: Parsable) -> String? {
+    public func stringOf(object: Node) -> String? {
         return self.rangeOf(object)?.substringFromString(self.string)
     }
     

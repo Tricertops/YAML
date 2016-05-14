@@ -22,9 +22,3 @@ public struct Tag {
     }
 }
 
-
-protocol Taggable {
-    var tag: Tag? { get set }
-}
-
-

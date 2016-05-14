@@ -19,10 +19,10 @@ extension Parser {
         case DocumentStart(hasVersion: Bool, tags: [Tag.Directive], isImplicit: Bool)
         case DocumentEnd(isImplicit: Bool)
         case Alias(anchor: String)
-        case Scalar(anchor: String?, tag: Tag?, content: String, style: YAML.Scalar.Style)
-        case SequenceStart(anchor: String?, tag: Tag?, style: Sequence.Style)
+        case Scalar(anchor: String?, tag: Tag?, content: String, style: Node.Scalar.Style)
+        case SequenceStart(anchor: String?, tag: Tag?, style: Node.Sequence.Style)
         case SequenceEnd
-        case MappingStart(anchor: String?, tag: Tag?, style: Mapping.Style)
+        case MappingStart(anchor: String?, tag: Tag?, style: Node.Mapping.Style)
         case MappingEnd
         
     }
@@ -74,7 +74,7 @@ extension Parser.Event {
                 anchor: String(scalar.anchor),
                 tag: Tag(handle: String(scalar.tag), prefix: ""),
                 content: String(scalar.value),
-                style: YAML.Scalar.Style.Plain)
+                style: .Plain)
             
         case YAML_SEQUENCE_START_EVENT:
             let sequence = event.data.sequence_start
@@ -82,7 +82,7 @@ extension Parser.Event {
             return .SequenceStart(
                 anchor: String(sequence.anchor),
                 tag: Tag(handle: String(sequence.tag), prefix: ""),
-                style: Sequence.Style.Block)
+                style: .Block)
             
         case YAML_SEQUENCE_END_EVENT:
             return .SequenceEnd
@@ -93,7 +93,7 @@ extension Parser.Event {
             return .MappingStart(
                 anchor: String(mapping.anchor),
                 tag: Tag(handle: String(mapping.tag), prefix: ""),
-                style: Mapping.Style.Block)
+                style: .Block)
             
         case YAML_MAPPING_END_EVENT:
             return .MappingEnd
