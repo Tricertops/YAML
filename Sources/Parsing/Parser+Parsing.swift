@@ -98,6 +98,7 @@ extension Parser {
                 
             case .DocumentEnd(let isImplicit):
                 stream?.hasEndMark = !isImplicit
+                anchors = [:] // Reset anchors.
                 
             case .Alias(let anchor):
                 guard let node = self.anchors[anchor] else { fatalError("No node for anchor “\(anchor)”") }

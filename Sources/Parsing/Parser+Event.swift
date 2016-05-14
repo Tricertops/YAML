@@ -82,18 +82,18 @@ extension Parser.Event {
             return .SequenceStart(
                 anchor: String(sequence.anchor),
                 tag: Tag(handle: String(sequence.tag), prefix: ""),
-                style: .Block)
+                style: .from(sequence.style))
             
         case YAML_SEQUENCE_END_EVENT:
             return .SequenceEnd
             
         case YAML_MAPPING_START_EVENT:
-            let mapping = event.data.sequence_start
+            let mapping = event.data.mapping_start
             //TODO: .implicit
             return .MappingStart(
                 anchor: String(mapping.anchor),
                 tag: Tag(handle: String(mapping.tag), prefix: ""),
-                style: .Block)
+                style: .from(mapping.style))
             
         case YAML_MAPPING_END_EVENT:
             return .MappingEnd
@@ -105,39 +105,24 @@ extension Parser.Event {
 }
 
 
-extension Parser.Event: CustomDebugStringConvertible {
+extension Node.Sequence.Style {
     
-    var debugDescription: String {
-        switch self {
-        case StreamStart: return "Stream:"
-        case StreamEnd: return ":Stream"
-        case DocumentStart(let hasVersion, let tags, let isImplicit):
-            return "Document"
-                + (isImplicit ? "" : "---")
-                + (hasVersion ? " 1.1" : "")
-                + (tags.isEmpty ? "" : " \(tags)")
-                + ":"
-        case DocumentEnd(let isImplicit):
-            return ":Document"
-                + (isImplicit ? "" : " ...")
-        case Alias(let anchor): return "Alias: *\(anchor)"
-        case Scalar(let anchor, let tag, let content, _):
-            return "Scalar"
-                + (anchor == nil || anchor!.isEmpty ? "" : " &" + anchor!)
-                + (tag == nil || tag!.handle.isEmpty ? "" : " !" + tag!.handle)
-                + ": " + content
-        case SequenceStart(let anchor, let tag, _):
-            return "Sequence"
-                + (anchor == nil || anchor!.isEmpty ? "" : " &" + anchor!)
-                + (tag == nil || tag!.handle.isEmpty ? "" : " !" + tag!.handle)
-                + ":"
-        case SequenceEnd: return ":Sequence"
-        case MappingStart(let anchor, let tag, _):
-            return "Mapping"
-                + (anchor == nil || anchor!.isEmpty ? "" : " &" + anchor!)
-                + (tag == nil || tag!.handle.isEmpty ? "" : " !" + tag!.handle)
-                + ":"
-        case MappingEnd: return ":Mapping"
+    static func from(style: yaml_sequence_style_t) -> Node.Sequence.Style {
+        switch style {
+        case YAML_FLOW_SEQUENCE_STYLE: return .Flow
+        default: return .Block // ANY, BLOCK
+        }
+    }
+    
+}
+
+
+extension Node.Mapping.Style {
+    
+    static func from(style: yaml_mapping_style_t) -> Node.Mapping.Style {
+        switch style {
+        case YAML_FLOW_MAPPING_STYLE: return .Flow
+        default: return .Block // ANY, BLOCK
         }
     }
     

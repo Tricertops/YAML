@@ -60,5 +60,39 @@ class Parser_Tests: XCTestCase {
         }
     }
     
+    func test_sequence() {
+        let string = self.file("sequence")
+        let parser = Parser(string: string)
+        XCTAssertEqual(parser.string, string)
+        XCTAssertNil(parser.error)
+        
+        XCTAssertNotNil(parser.stream)
+        guard let stream = parser.stream else { return }
+        
+        XCTAssertFalse(stream.hasVersion)
+        XCTAssertTrue(stream.tags.isEmpty)
+        XCTAssertFalse(stream.hasStartMark)
+        XCTAssertEqual(stream.documents.count, 3)
+        XCTAssertFalse(stream.hasEndMark)
+        
+        do {
+            let document1 = stream.documents[0]
+            XCTAssertTrue(document1 is Node.Sequence)
+            guard let sequence1 = document1 as? Node.Sequence else { return }
+            XCTAssertEqual(sequence1.items.count, 4)
+            XCTAssertEqual(sequence1.style, .Block)
+            XCTAssertTrue(sequence1.items[1] === sequence1.items[3])
+        }
+        do {
+            let document2 = stream.documents[1]
+            XCTAssertTrue(document2 is Node.Sequence)
+            guard let sequence2 = document2 as? Node.Sequence else { return }
+            XCTAssertEqual(sequence2.items.count, 4)
+            XCTAssertEqual(sequence2.style, .Flow)
+            XCTAssertTrue(sequence2.items[1] === sequence2.items[3])
+        }
+        
+    }
+    
 }
 

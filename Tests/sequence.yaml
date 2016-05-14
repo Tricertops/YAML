@@ -1,0 +1,15 @@
+# Block style.
+- Apple
+- &001 Banana
+- Citrus
+- *001
+
+---
+# Flow style.
+[ Apple, &001 Banana, Citrus, *001 ]
+
+---
+# Nested.
+- &001 [ Apple, banana, Citrus ]
+- [ Alpha, Bravo, Charlie ]
+- [ *001, *001, *001 ]
