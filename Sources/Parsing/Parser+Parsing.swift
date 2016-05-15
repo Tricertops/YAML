@@ -121,17 +121,17 @@ extension Parser {
             case .Scalar(let anchor, let tag, let content, let style):
                 let scalar = Node.Scalar()
                 scalar.anchor = anchor
-                scalar.tag = tag
                 scalar.content = content
                 scalar.style = style
+                scalar.tag = Tag.resolve(tag, node: scalar)
                 addNode(scalar)
                 addRange(range, node: scalar)
                 
             case .SequenceStart(let anchor, let tag, let style):
                 let sequence = Node.Sequence()
                 sequence.anchor = anchor
-                sequence.tag = tag
                 sequence.style = style
+                sequence.tag = Tag.resolve(tag, node: sequence)
                 addNode(sequence)
                 addRange(range, node: sequence)
                 stack.append(sequence)
@@ -144,8 +144,8 @@ extension Parser {
             case .MappingStart(let anchor, let tag, let style):
                 let mapping = Node.Mapping()
                 mapping.anchor = anchor
-                mapping.tag = tag
                 mapping.style = style
+                mapping.tag = Tag.resolve(tag, node: mapping)
                 addNode(mapping)
                 addRange(range, node: mapping)
                 stack.append(mapping)

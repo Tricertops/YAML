@@ -19,10 +19,10 @@ extension Parser {
         case DocumentStart(hasVersion: Bool, tags: [Tag.Directive], isImplicit: Bool)
         case DocumentEnd(isImplicit: Bool)
         case Alias(anchor: String)
-        case Scalar(anchor: String, tag: Tag, content: String, style: Node.Scalar.Style)
-        case SequenceStart(anchor: String, tag: Tag, style: Node.Sequence.Style)
+        case Scalar(anchor: String, tag: String, content: String, style: Node.Scalar.Style)
+        case SequenceStart(anchor: String, tag: String, style: Node.Sequence.Style)
         case SequenceEnd
-        case MappingStart(anchor: String, tag: Tag, style: Node.Mapping.Style)
+        case MappingStart(anchor: String, tag: String, style: Node.Mapping.Style)
         case MappingEnd
         
     }
@@ -72,7 +72,7 @@ extension Parser.Event {
             //TODO: .quoted_implicit
             return .Scalar(
                 anchor: String(scalar.anchor),
-                tag: .from(String(scalar.tag)),
+                tag: String(scalar.tag),
                 content: String(scalar.value),
                 style: .from(scalar.style))
             
@@ -81,7 +81,7 @@ extension Parser.Event {
             //TODO: .implicit
             return .SequenceStart(
                 anchor: String(sequence.anchor),
-                tag: .from(String(sequence.tag)),
+                tag: String(sequence.tag),
                 style: .from(sequence.style))
             
         case YAML_SEQUENCE_END_EVENT:
@@ -92,7 +92,7 @@ extension Parser.Event {
             //TODO: .implicit
             return .MappingStart(
                 anchor: String(mapping.anchor),
-                tag: .from(String(mapping.tag)),
+                tag: String(mapping.tag),
                 style: .from(mapping.style))
             
         case YAML_MAPPING_END_EVENT:
@@ -139,31 +139,6 @@ extension Node.Mapping.Style {
         case YAML_FLOW_MAPPING_STYLE: return .Flow
         default: return .Block // ANY, BLOCK
         }
-    }
-    
-}
-
-
-extension Tag {
-    
-    static func from(content: String) -> Tag {
-        if content.isEmpty {
-            return .None
-        }
-        if content == "!" {
-            return .Explicit //TODO: Resolve to .Standard !!seq !!map or !!str
-        }
-        if content.hasPrefix("!!") {
-            return .Standard(content.substring(from: 2))
-        }
-        if content.hasPrefix("!") {
-            return .Custom(content.substring(from: 1))
-        }
-        let standardPrefix = "tag:yaml.org,2002:"
-        if content.hasPrefix(standardPrefix) {
-            return .Standard(content.substring(from: standardPrefix.characters.count))
-        }
-        return .URI(content)
     }
     
 }

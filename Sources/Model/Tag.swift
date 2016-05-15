@@ -12,7 +12,7 @@
 
 
 /// Tags allow type annotations in YAML content. 
-public enum Tag {
+public enum Tag: Equatable {
     
     /// No tag is provided. This is the default.
     case None  // ""
@@ -36,6 +36,7 @@ public enum Tag {
     /// Standard YAML-defined tag, for example String, Integer, Boolean. Will be prefixed with “!!”.
     /// - Note: Full name of this tag is prefixed with “tag:yaml.org,2002:”.
     case Standard(String)  // !!name
+    static let standardPrefix = "tag:yaml.org,2002:"
     
     /// Tag with fully resolved name that is not resolved further. Will be enclosed in “<>” and prefixed with “!”.
     case URI(String)  // !<content>
@@ -57,5 +58,75 @@ extension Tag {
         public var URI: String = ""
         
     }
+}
+
+
+public func == (left: Tag, right: Tag) -> Bool {
+    switch (left, right) {
+        
+    case (.None
+        , .None)
+        : return true
+        
+    case (.Explicit
+        , .Explicit)
+        : return true
+        
+    case (.Custom(let left)
+        , .Custom(let right))
+        where left == right
+        : return true
+        
+    case (.Standard(let left)
+        , .Standard(let right))
+        where left == right
+        : return true
+        
+    case (.URI(let left)
+        , .URI(let right))
+        where left == right
+        : return true
+        
+    case (.HandledCustom(let leftHandler , let leftName)
+        , .HandledCustom(let rightHandler, let rightName))
+        where leftHandler == rightHandler
+            && leftName == rightName
+        : return true
+        
+    default:
+        return false
+    }
+}
+
+
+extension Tag {
+    
+    static func resolve(tag: String, node: Node) -> Tag {
+        if tag.isEmpty {
+            if node is Node.Sequence { return .Standard("seq") }
+            if node is Node.Mapping  { return .Standard("map") }
+            return .None
+        }
+        if tag == "!" {
+            if node is Node.Scalar { return .Standard("str") }
+            if node is Node.Sequence { return .Standard("seq") }
+            if node is Node.Mapping { return .Standard("map") }
+            return .Explicit // Should not reach this.
+        }
+        if tag.hasPrefix("!!") {
+            let name = tag.substring(from: 2)
+            return .Standard(name)
+        }
+        if tag.hasPrefix("!") {
+            let name = tag.substring(from: 1)
+            return .Custom(name)
+        }
+        if tag.hasPrefix(Tag.standardPrefix) {
+            let name = tag.substring(from: Tag.standardPrefix.characters.count)
+            return .Standard(name)
+        }
+        return .URI(tag)
+    }
+    
 }
 
