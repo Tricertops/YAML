@@ -15,22 +15,8 @@ extension String {
     
     /// Creates String from mutable libyaml char array.
     init(_ string: UnsafeMutablePointer<yaml_char_t>) {
-        let converted = UnsafePointer<CChar>(string)
-        self.init(String.fromCString(converted) ?? "")
-    }
-    
-}
-
-
-extension UnsafeMutablePointer {
-    
-    /// Enumerates libyaml array of arbitrary type.
-    func enumerateToLast(last: UnsafeMutablePointer<Memory>, @noescape block: Memory -> ()) {
-        var enumerated = self
-        while enumerated != nil {
-            block(enumerated.memory)
-            enumerated = (enumerated == last ? nil : enumerated.successor())
-        }
+        let casted = UnsafePointer<CChar>(string)
+        self.init(String.fromCString(casted) ?? "")
     }
     
 }
@@ -41,8 +27,11 @@ extension Array {
     /// Creates array from libyaml array of arbitrary type.
     init(start: UnsafeMutablePointer<Element>, end: UnsafeMutablePointer<Element>) {
         self.init()
-        start.enumerateToLast(end) { element in
-            self.append(element)
+        
+        var current = start
+        while current < end {
+            self.append(current.memory)
+            current = current.successor()
         }
     }
     
