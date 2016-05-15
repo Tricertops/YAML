@@ -13,11 +13,6 @@
 
 extension String {
     
-    /// Returns length using `strlen()` C function.
-    var c_length: Int {
-        return Int(strlen(self))
-    }
-    
     /// Creates String from mutable libyaml char array.
     init(_ string: UnsafeMutablePointer<yaml_char_t>) {
         let converted = UnsafePointer<CChar>(string)

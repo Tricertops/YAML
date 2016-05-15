@@ -36,8 +36,9 @@ extension Parser {
 
 extension Parser {
     
-    struct Internal {
+    class Internal {
         
+        var buffer: ContiguousArray<UTF8.CodeUnit> = []
         var stream: Stream?
         var lookup: Lookup = [:]
         
@@ -48,13 +49,19 @@ extension Parser {
         var stack: [Node] = []
         var mappingKey: Node?
         
-        mutating func setup(string: String) throws {
+        func setup(string: String) throws {
             yaml_parser_initialize(&parser)
             try parser.checkError()
-            yaml_parser_set_input_string(&parser, string, string.c_length)
+            
+            self.buffer = string.nulTerminatedUTF8
+            self.buffer.withUnsafeBufferPointer {
+                buffer in
+                let length = buffer.count - 1 // Ignore termination \0.
+                yaml_parser_set_input_string(&parser, buffer.baseAddress, length)
+            }
         }
         
-        mutating func cleanup() {
+        func cleanup() {
             if Parser.Error(parser) != nil {
                 stream = nil
                 lookup = [:]
@@ -64,7 +71,7 @@ extension Parser {
             parser = yaml_parser_t() // Clear.
         }
         
-        mutating func loadNext() throws -> (event: Event?, range: Mark.Range?) {
+        func loadNext() throws -> (event: Event?, range: Mark.Range?) {
             var yaml_event = yaml_event_t()
             yaml_parser_parse(&parser, &yaml_event)
             let event = Event.from(yaml_event)
@@ -79,7 +86,7 @@ extension Parser {
             return (nil, nil)
         }
         
-        mutating func processNextEvent() throws {
+        func processNextEvent() throws {
             let next = try loadNext()
             guard let event = next.event else { return }
             guard let range = next.range else { return }
@@ -150,7 +157,7 @@ extension Parser {
             }
         }
         
-        mutating func addNode(node: Node) {
+        func addNode(node: Node) {
             guard let stream = self.stream else { fatalError("No Stream.") }
             
             if stack.isEmpty {
@@ -177,7 +184,7 @@ extension Parser {
             }
         }
         
-        mutating func addRange(range: Mark.Range, node: Node) {
+        func addRange(range: Mark.Range, node: Node) {
             let key = ObjectIdentifier(node)
             lookup[key] = Mark.Range.union(lookup[key], range)
         }
