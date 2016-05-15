@@ -1,12 +1,16 @@
 //
 //  YAML_Tests.swift
-//  YAML
+//  YAML.framework
 //
-//  Created by Martin Kiss on 7.5.16.
-//  Copyright © 2016 Tricertops. All rights reserved.
+//  Created by Martin Kiss on 7 May 2016.
+//  https://github.com/Tricertops/YAML
+//
+//  The MIT License (MIT)
+//  Copyright © 2016 Martin Kiss
 //
 
 import XCTest
+
 
 
 extension XCTestCase {

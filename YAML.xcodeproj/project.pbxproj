@@ -62,6 +62,7 @@
 		5B22142D1CE7854A00B2DD40 /* mapping.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = mapping.yaml; sourceTree = "<group>"; };
 		5B22142E1CE7902F00B2DD40 /* scalar.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = scalar.yaml; sourceTree = "<group>"; };
 		5B22142F1CE79DB900B2DD40 /* marks.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = marks.yaml; sourceTree = "<group>"; };
+		5B2214301CE7A2F600B2DD40 /* tags.yaml */ = {isa = PBXFileReference; lastKnownFileType = text; path = tags.yaml; sourceTree = "<group>"; };
 		5B35DDD11CDDE4DB001B30B0 /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
 		5B35DDD21CDDE4DB001B30B0 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		5B35DDE21CDE3879001B30B0 /* YAMLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YAMLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +163,7 @@
 				5B22142D1CE7854A00B2DD40 /* mapping.yaml */,
 				5B22142E1CE7902F00B2DD40 /* scalar.yaml */,
 				5B22142F1CE79DB900B2DD40 /* marks.yaml */,
+				5B2214301CE7A2F600B2DD40 /* tags.yaml */,
 			);
 			path = Tests;
 			sourceTree = "<group>";

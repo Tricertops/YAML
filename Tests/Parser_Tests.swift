@@ -167,6 +167,26 @@ class Parser_Tests: XCTestCase {
         guard let rangeValue2 = parser.rangeOf(mapping[1].value) else { XCTFail(); return }
         XCTAssertEqual(rangeValue2.start.location, 52)
         XCTAssertEqual(rangeValue2.end.location, 62)
+    }
+    
+    func test_tags() {
+        let string = self.file("tags")
+        let parser = Parser(string: string)
+        XCTAssertEqual(parser.string, string)
+        XCTAssertNil(parser.error)
+        
+        guard let stream = parser.stream else { XCTFail(); return }
+        XCTAssertEqual(stream.documents.count, 1)
+        XCTAssertEqual(stream.tags.count, 2)
+        let handle = "tag:tricertops.com,2016"
+        XCTAssertEqual(stream.tags[0].prefix, "!")
+        XCTAssertEqual(stream.tags[0].handle, handle)
+        XCTAssertEqual(stream.tags[1].prefix, "!prefix")
+        XCTAssertEqual(stream.tags[1].handle, handle)
+        
+        guard let mapping = stream.documents[0] as? Node.Mapping else { XCTFail(); return }
+        XCTAssertEqual(mapping.count, 6)
+        
         
     }
     

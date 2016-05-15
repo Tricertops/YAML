@@ -10,7 +10,19 @@
 //
 
 
+func log(debug message: String) {
+    #if debug
+        print("YAML Debug: " + message)
+    #endif
+}
+
+
+func log(notice message: String) {
+    print("YAML: " + message)
+}
+
+
 func log(warning message: String) {
-    print("YAML Warning: \(message)")
+    print("YAML Warning: " + message)
 }
 
