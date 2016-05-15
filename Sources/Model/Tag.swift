@@ -35,11 +35,42 @@ public enum Tag: Equatable {
     
     /// Standard YAML-defined tag, for example String, Integer, Boolean. Will be prefixed with “!!”.
     /// - Note: Full name of this tag is prefixed with “tag:yaml.org,2002:”.
-    case Standard(String)  // !!name
-    static let standardPrefix = "tag:yaml.org,2002:"
+    case Standard(Tag.Standardized)  // !!name
     
     /// Tag with fully resolved name that is not resolved further. Will be enclosed in “<>” and prefixed with “!”.
     case URI(String)  // !<content>
+    
+}
+
+
+extension Tag {
+    
+    /// List of language-independent YAML tags defined under the domain yaml.org.
+    public enum Standardized: String {
+        /// Core Tags
+        case str /// A sequence of zero or more Unicode characters.
+        case seq /// Sequence of arbitrary values.
+        case map /// Unordered set of key-value pairs with NO duplicates.
+        
+        /// Extended Tags
+        case bool /// Mathematical Booleans.
+        case binary /// A sequence of zero or more octets (8 bit values). Typically in Base64 encoding.
+        case float /// Floating-point approximation to real numbers.
+        case int /// Mathematical integers.
+        case null /// Devoid of value.
+        
+        /// Advanced Tags
+        case omap /// Ordered sequence of key-value pairs with NO duplicates.
+        case pairs /// Ordered sequence of key-value pairs allowing duplicates.
+        case set /// Unordered set with NO duplicates.
+        case merge /// Specify one or more mappings to be merged with the current one.
+        case timestamp /// A point in time.
+        case value /// Specify the default value of a mapping.
+        case yaml /// Keys for encoding YAML in YAML.
+        
+        /// Prefix used by resolved standard tags.
+        static let prefix = "tag:yaml.org,2002:"
+    }
     
 }
 
@@ -103,27 +134,32 @@ extension Tag {
     
     static func resolve(tag: String, node: Node) -> Tag {
         if tag.isEmpty {
-            if node is Node.Sequence { return .Standard("seq") }
-            if node is Node.Mapping  { return .Standard("map") }
+            if node is Node.Sequence { return .Standard(.seq) }
+            if node is Node.Mapping  { return .Standard(.map) }
             return .None
         }
         if tag == "!" {
-            if node is Node.Scalar { return .Standard("str") }
-            if node is Node.Sequence { return .Standard("seq") }
-            if node is Node.Mapping { return .Standard("map") }
+            if node is Node.Scalar { return .Standard(.str) }
+            if node is Node.Sequence { return .Standard(.seq) }
+            if node is Node.Mapping { return .Standard(.map) }
             return .Explicit // Should not reach this.
         }
+        let prefix = Tag.Standardized.prefix
         if tag.hasPrefix("!!") {
             let name = tag.substring(from: 2)
-            return .Standard(name)
+            guard let standardized = Standardized(rawValue: name)
+                else { return .URI(prefix + name) }
+            return .Standard(standardized)
         }
         if tag.hasPrefix("!") {
             let name = tag.substring(from: 1)
             return .Custom(name)
         }
-        if tag.hasPrefix(Tag.standardPrefix) {
-            let name = tag.substring(from: Tag.standardPrefix.characters.count)
-            return .Standard(name)
+        if tag.hasPrefix(prefix) {
+            let name = tag.substring(from: prefix.characters.count)
+            guard let standardized = Standardized(rawValue: name)
+                else { return .URI(prefix + name) }
+            return .Standard(standardized)
         }
         return .URI(tag)
     }

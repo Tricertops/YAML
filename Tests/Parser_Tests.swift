@@ -185,14 +185,15 @@ class Parser_Tests: XCTestCase {
         
         guard let sequence = stream.documents[0] as? Node.Sequence else { XCTFail(); return }
         XCTAssertEqual(sequence.count, 7)
+        XCTAssertEqual(sequence.tag, Tag.Standard(.seq))
         
         XCTAssertTrue(sequence[0].tag == Tag.None)
-        XCTAssertTrue(sequence[1].tag == Tag.Standard("str"))
+        XCTAssertTrue(sequence[1].tag == Tag.Standard(.str))
         XCTAssertTrue(sequence[2].tag == Tag.Custom("message"))
         XCTAssertTrue(sequence[3].tag == Tag.URI(URI + "message"))
         
-        XCTAssertTrue(sequence[4].tag == Tag.Standard("str"), "Explicit should be resolved.")
-        XCTAssertTrue(sequence[5].tag == Tag.Custom("message"), "Local verbatim should be resolved.")
+        XCTAssertTrue(sequence[4].tag == Tag.Standard(.str), "Explicit should be resolved.")
+        XCTAssertTrue(sequence[5].tag == Tag.Custom("message"), "Local verbatim tag should be resolved.")
         XCTAssertTrue(sequence[6].tag == Tag.URI(URI + "message"), "Named handle should be resolved.")
     }
     
