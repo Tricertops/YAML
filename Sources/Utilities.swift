@@ -19,6 +19,26 @@ extension String {
         self.init(String.fromCString(casted) ?? "")
     }
     
+    /// Substring from an index as Int.
+    func substring(from index: Int) -> String {
+        return self.substring(from: self.startIndex.advancedBy(index))
+    }
+    
+    /// Substring from a native String.Index.
+    func substring(from index: Index) -> String {
+        return String(self[index ..< self.endIndex])
+    }
+    
+    /// Substring to an index as Int.
+    func substring(to index: Int) -> String {
+        return self.substring(to: self.startIndex.advancedBy(index))
+    }
+    
+    /// Substring to a native String.Index.
+    func substring(to index: Index) -> String {
+        return String(self[self.startIndex ..< index])
+    }
+    
 }
 
 

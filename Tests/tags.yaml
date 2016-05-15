@@ -1,10 +1,11 @@
 %TAG !handle! tag:tricertops.com,2016:
-# Comments show the parsed tag.
 ---
-- Implicit  # "": Empty.
-- !!str Explicit  # "tag:yaml.org,2002:str": Built-in.
-- !message Custom  # "!message": Subject to "%TAG ! …" resolution.
-- !<!message> Verbatim  # "!message": Literal.
-- !handle!message Custom Prefixed  # "tag:tricertops.com,2016:message": Resolved using %TAG.
-- !<tag:tricertops.com,2016:message> Full # "tag:tricertops.com,2016:message": Literal.
+- None
+- !!str  Standard
+- !message  Custom
+- !<tag:tricertops.com,2016:message>  URI
+
+- !  Explicit  # Parsed as Standard.
+- !<!message>  Verbatim  # Parsed as Custom.
+- !handle!message  HandledCustom  # Parsed as URI.
 ...

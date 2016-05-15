@@ -179,7 +179,7 @@ class Parser_Tests: XCTestCase {
         XCTAssertEqual(stream.documents.count, 1)
         XCTAssertEqual(stream.tags.count, 1)
         XCTAssertEqual(stream.tags[0].handle, "!handle!")
-        XCTAssertEqual(stream.tags[0].prefix, "tag:tricertops.com,2016:")
+        XCTAssertEqual(stream.tags[0].URI, "tag:tricertops.com,2016:")
         
         guard let sequence = stream.documents[0] as? Node.Sequence else { XCTFail(); return }
         XCTAssertEqual(sequence.count, 6)

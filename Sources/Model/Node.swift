@@ -20,10 +20,10 @@
 public class Node {
     
     /// Optional type information of this Node.
-    public var tag: Tag?
+    public var tag: Tag = .None
     
     /// Optional string identifying this Node in cross-references.
-    public var anchor: String?
+    public var anchor: String = ""
     
 }
 
@@ -112,6 +112,7 @@ extension Node {
         public typealias Pair = (key: Node, value: Node)
         
         /// Array of all contained pairs. Key and value may be any other Node subtype. Keys may be duplicated.
+        /// - Note: This is stored as ordered collection, but the order should not be significant to data modeling, only for presentation.
         public var pairs: [Pair] = []
         
         /// Style detected by Parser or intended to Emitter.

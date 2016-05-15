@@ -19,10 +19,10 @@ extension Parser {
         case DocumentStart(hasVersion: Bool, tags: [Tag.Directive], isImplicit: Bool)
         case DocumentEnd(isImplicit: Bool)
         case Alias(anchor: String)
-        case Scalar(anchor: String?, tag: Tag?, content: String, style: Node.Scalar.Style)
-        case SequenceStart(anchor: String?, tag: Tag?, style: Node.Sequence.Style)
+        case Scalar(anchor: String, tag: Tag, content: String, style: Node.Scalar.Style)
+        case SequenceStart(anchor: String, tag: Tag, style: Node.Sequence.Style)
         case SequenceEnd
-        case MappingStart(anchor: String?, tag: Tag?, style: Node.Mapping.Style)
+        case MappingStart(anchor: String, tag: Tag, style: Node.Mapping.Style)
         case MappingEnd
         
     }
@@ -51,7 +51,7 @@ extension Parser.Event {
             
             let rawDirectives = Array(start: document.tag_directives.start, end: document.tag_directives.end)
             let directives = rawDirectives.map {
-                Tag.Directive(handle: String($0.handle), prefix: String($0.prefix))
+                Tag.Directive(handle: String($0.handle), URI: String($0.prefix))
             }
             return .DocumentStart(
                 hasVersion: (version != nil),
@@ -72,7 +72,7 @@ extension Parser.Event {
             //TODO: .quoted_implicit
             return .Scalar(
                 anchor: String(scalar.anchor),
-                tag: Tag(handle: String(scalar.tag), prefix: ""),
+                tag: .from(String(scalar.tag)),
                 content: String(scalar.value),
                 style: .from(scalar.style))
             
@@ -81,7 +81,7 @@ extension Parser.Event {
             //TODO: .implicit
             return .SequenceStart(
                 anchor: String(sequence.anchor),
-                tag: Tag(handle: String(sequence.tag), prefix: ""),
+                tag: .from(String(sequence.tag)),
                 style: .from(sequence.style))
             
         case YAML_SEQUENCE_END_EVENT:
@@ -92,7 +92,7 @@ extension Parser.Event {
             //TODO: .implicit
             return .MappingStart(
                 anchor: String(mapping.anchor),
-                tag: Tag(handle: String(mapping.tag), prefix: ""),
+                tag: .from(String(mapping.tag)),
                 style: .from(mapping.style))
             
         case YAML_MAPPING_END_EVENT:
@@ -139,6 +139,31 @@ extension Node.Mapping.Style {
         case YAML_FLOW_MAPPING_STYLE: return .Flow
         default: return .Block // ANY, BLOCK
         }
+    }
+    
+}
+
+
+extension Tag {
+    
+    static func from(content: String) -> Tag {
+        if content.isEmpty {
+            return .None
+        }
+        if content == "!" {
+            return .Explicit //TODO: Resolve to .Standard !!seq !!map or !!str
+        }
+        if content.hasPrefix("!!") {
+            return .Standard(content.substring(from: 2))
+        }
+        if content.hasPrefix("!") {
+            return .Custom(content.substring(from: 1))
+        }
+        let standardPrefix = "tag:yaml.org,2002:"
+        if content.hasPrefix(standardPrefix) {
+            return .Standard(content.substring(from: standardPrefix.characters.count))
+        }
+        return .URI(content)
     }
     
 }

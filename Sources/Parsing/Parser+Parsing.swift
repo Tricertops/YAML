@@ -179,8 +179,8 @@ extension Parser {
                 fatalError("Unexpected node in stack: \(stack.last)")
             }
             
-            if let anchor = node.anchor {
-                self.anchors[anchor] = node
+            if !node.anchor.isEmpty {
+                self.anchors[node.anchor] = node
             }
         }
         
