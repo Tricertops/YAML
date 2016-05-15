@@ -1,10 +1,10 @@
 %TAG ! tag:tricertops.com,2016
-%TAG !prefix! tag:tricertops.com,2016
+%TAG !handle! tag:tricertops.com,2016
 ---
 - Implicit
 - !!str Explicit
 - !message Custom
 - !<!message> Verbatim
-- !prefix!message Custom Prefixed
+- !handle!message Custom Prefixed
 - !<tag:tricertops.com,2016:message> Full
 ...

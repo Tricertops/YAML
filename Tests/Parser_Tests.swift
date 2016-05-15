@@ -178,14 +178,14 @@ class Parser_Tests: XCTestCase {
         guard let stream = parser.stream else { XCTFail(); return }
         XCTAssertEqual(stream.documents.count, 1)
         XCTAssertEqual(stream.tags.count, 2)
-        let handle = "tag:tricertops.com,2016"
-        XCTAssertEqual(stream.tags[0].prefix, "!")
-        XCTAssertEqual(stream.tags[0].handle, handle)
-        XCTAssertEqual(stream.tags[1].prefix, "!prefix")
-        XCTAssertEqual(stream.tags[1].handle, handle)
+        let prefix = "tag:tricertops.com,2016"
+        XCTAssertEqual(stream.tags[0].handle, "!")
+        XCTAssertEqual(stream.tags[0].prefix, prefix)
+        XCTAssertEqual(stream.tags[1].handle, "!handle!")
+        XCTAssertEqual(stream.tags[1].prefix, prefix)
         
-        guard let mapping = stream.documents[0] as? Node.Mapping else { XCTFail(); return }
-        XCTAssertEqual(mapping.count, 6)
+        guard let sequence = stream.documents[0] as? Node.Sequence else { XCTFail(); return }
+        XCTAssertEqual(sequence.count, 6)
         
         
     }
