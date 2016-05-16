@@ -16,19 +16,7 @@ extension Parser {
     typealias Result = (stream: Stream?, error: ErrorType?, lookup: Lookup)
     
     static func parse(string: String) -> Result {
-        var internal_parser = Internal()
-        do {
-            try internal_parser.setup(string)
-            defer { internal_parser.cleanup() }
-            
-            while internal_parser.hasNextEvent {
-                try internal_parser.processNextEvent()
-            }
-        }
-        catch {
-            return (nil, error, [:])
-        }
-        return (internal_parser.stream, nil, internal_parser.lookup)
+        return Internal().parse(string: string)
     }
     
 }
@@ -36,29 +24,43 @@ extension Parser {
 
 extension Parser {
     
-    class Internal {
+    private class Internal {
         
-        var buffer: ContiguousArray<UTF8.CodeUnit> = []
         var stream: Stream?
         var lookup: Lookup = [:]
         
         var parser = yaml_parser_t()
         var hasNextEvent: Bool = true
-        
         var anchors: [String: Node] = [:]
         var stack: [Node] = []
         var mappingKey: Node?
         
-        func setup(string: String) throws {
+        func parse(string string: String) -> Result {
+            do {
+                try string.nulTerminatedUTF8.withUnsafeBufferPointer {
+                    buffer in
+                    // We do the parsing within this block, because the pointer is valid only here.
+                    
+                    try self.setup(buffer)
+                    defer { self.cleanup() }
+                    
+                    while self.hasNextEvent {
+                        try self.processNextEvent()
+                    }
+                }
+            }
+            catch {
+                return (nil, error, [:])
+            }
+            return (self.stream, nil, self.lookup)
+        }
+        
+        func setup(buffer: UnsafeBufferPointer<UTF8.CodeUnit>) throws {
             yaml_parser_initialize(&parser)
             try parser.checkError()
             
-            self.buffer = string.nulTerminatedUTF8
-            self.buffer.withUnsafeBufferPointer {
-                buffer in
-                let length = buffer.count - 1 // Ignore termination \0.
-                yaml_parser_set_input_string(&parser, buffer.baseAddress, length)
-            }
+            let length = buffer.count - 1 // Ignore termination \0.
+            yaml_parser_set_input_string(&parser, buffer.baseAddress, length)
         }
         
         func cleanup() {
