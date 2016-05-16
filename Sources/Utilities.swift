@@ -21,7 +21,7 @@ extension String {
     
     /// Substring from an index as Int.
     func substring(from index: Int) -> String {
-        return self.substring(from: self.startIndex.advancedBy(index))
+        return self.substring(from: self.startIndex + index)
     }
     
     /// Substring from a native String.Index.
@@ -31,7 +31,7 @@ extension String {
     
     /// Substring to an index as Int.
     func substring(to index: Int) -> String {
-        return self.substring(to: self.startIndex.advancedBy(index))
+        return self.substring(to: self.startIndex + index)
     }
     
     /// Substring to a native String.Index.
@@ -51,9 +51,34 @@ extension Array {
         var current = start
         while current < end {
             self.append(current.memory)
-            current = current.successor()
+            current += 1
         }
     }
     
+}
+
+
+func +
+    <IndexType: ForwardIndexType>
+    (index: IndexType,
+     increment: IndexType.Distance)
+    -> IndexType {
+        return index.advancedBy(increment)
+}
+
+func -
+    <IndexType: BidirectionalIndexType>
+    (index: IndexType,
+     decrement: IndexType.Distance)
+    -> IndexType {
+        return index.advancedBy(decrement)
+}
+
+func -
+    <IndexType: ForwardIndexType>
+    (larger: IndexType,
+     smaller: IndexType)
+    -> IndexType.Distance {
+        return smaller.distanceTo(larger)
 }
 
