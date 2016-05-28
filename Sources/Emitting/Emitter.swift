@@ -11,42 +11,78 @@
 
 
 
-protocol Emittable { }
+//MARK: Emitter: Basics
 
-extension Stream: Emittable { }
-extension Node: Emittable { }
-
-
-class Emitter {
+/// Object that can write YAML streams into string representation.
+public class Emitter {
     
-    init() { }
+    /// Creates default Emitter. Default values are defined by underlaying C library.
+    public init() { }
     
-    var isCanonical: Bool = false
-    var indentation: Int = 2
-    var lineWidth: Int = 80
-    var allowsUnicode: Bool = true
-    
-    enum LineBreaks: String {
-        case Unix = "\n"
-        case Windows = "\r\n"
-        case ClassicMacOS = "\r"
+    /// Produces a YAML string from given Stream object.
+    public func emit(stream: Stream) throws -> String {
+        return try self.internal_emit(stream)
     }
-    var lineBreaks: LineBreaks = .Unix
     
-    struct Style {
-        var scalar: Node.Scalar.Style? = nil
-        var sequence: Node.Sequence.Style? = nil
-        var mapping: Node.Mapping.Style? = nil
+    /// Produces a YAML string from a given Node.
+    public func emit(node: Node) throws -> String {
+        return try self.emit(Stream(documents: [node]))
+    }
+    
+    
+    //MARK: Emitter: Print Style
+    
+    /// Set if the output should be in the "canonical" format as in the YAML specification.
+    public var isCanonical: Bool = false
+    
+    /// Set the intendation increment in range 2...9
+    public var indentation: Int = 2
+    
+    /// Set the preferred line width. Set `nil` for unlimited.
+    public var lineWidth: Int? = 80
+    
+    /// Set if unescaped non-ASCII characters are allowed.
+    public var allowsUnicode: Bool = true
+    
+    /// Set the preferred line break string.
+    public var lineBreaks: LineBreaks = .Unix
+    
+    /// Possible LineBreaks.
+    public enum LineBreaks: String {
+        case LF = "\n" ///  Line Feed (U+000A)
+        case CR = "\r" /// Carriage Return (U+000D)
+        case CRLF = "\r\n" ///  Carriage Return + Line Feed
         
-        static let None = Style()
-        static let Default = Style(scalar: .Plain, sequence: .Block, mapping: .Block)
-        static let JSON = Style(scalar: .DoubleQuoted, sequence: .Flow, mapping: .Flow)
+        public static let Unix: LineBreaks = .LF
+        public static let Windows: LineBreaks = .CRLF
     }
-    var automaticStyle = Style.Default
-    var forcedStyle = Style.None
     
-    func emit(object: Emittable) throws -> String { return "" }
-    func emit(object: Emittable, file: String) throws -> Bool { return true }
+    
+    //MARK: Emitter: Node Style
+    
+    /// Node styles used when the Node doesn’t specify one.
+    public var defultStyle: Style = .YAML
+    
+    /// Node styles used instead of the styles specified by Nodes.
+    /// - Warning: Use with caution. Changing style of Scalar node could change its meaning.
+    public var forcedStyle: Style = .None
+    
+    /// Collection of optional Node styles.
+    public struct Style {
+        /// Style used for Scalar nodes.
+        public var scalar: Node.Scalar.Style? = nil
+        /// Style used for Sequence nodes.
+        public var sequence: Node.Sequence.Style? = nil
+        /// Style used for Mapping nodes.
+        public var mapping: Node.Mapping.Style? = nil
+        
+        /// Style collection with no defined styles.
+        public static let None = Style()
+        /// Style collection with default YAML styles: plain scalars, block sequences and mappings.
+        public static let YAML = Style(scalar: .Plain, sequence: .Block, mapping: .Block)
+        /// Style collection with JSON styles: double-quoted scalars, flow sequences nad mappings.
+        public static let JSON = Style(scalar: .DoubleQuoted, sequence: .Flow, mapping: .Flow)
+    }
     
 }
 
