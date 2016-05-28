@@ -19,11 +19,6 @@ extension Parser {
         return Internal().parse(string: string)
     }
     
-}
-
-
-extension Parser {
-    
     private class Internal {
         
         var stream: Stream?
@@ -76,6 +71,9 @@ extension Parser {
         func loadNext() throws -> (event: Event?, range: Mark.Range?) {
             var yaml_event = yaml_event_t()
             yaml_parser_parse(&parser, &yaml_event)
+            defer {
+                yaml_event_delete(&yaml_event)
+            }
             let event = Event.from(yaml_event)
             hasNextEvent = (event != nil)
             try parser.checkError()
