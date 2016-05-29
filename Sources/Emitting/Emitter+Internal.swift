@@ -125,10 +125,7 @@ extension Emitter {
                     anchor: scalar.anchor,
                     tag: scalar.tag.stringForEmit,
                     content: scalar.content,
-                    style: resolveStyle(
-                        provided: scalar.style,
-                        forced: emitter.forcedStyle.scalar,
-                        fallback: emitter.defultStyle.scalar ?? Style.YAML.scalar!))
+                    style: scalar.style ?? emitter.style.scalar)
             ]
         }
         
@@ -138,10 +135,7 @@ extension Emitter {
             events.append(.SequenceStart(
                 anchor: sequence.anchor,
                 tag: sequence.tag.stringForEmit,
-                style: resolveStyle(
-                    provided: sequence.style,
-                    forced: emitter.forcedStyle.sequence,
-                    fallback: emitter.defultStyle.sequence ?? Style.YAML.sequence!)))
+                style: sequence.style ?? emitter.style.sequence))
             
             for node in sequence.items {
                 events += eventsForNode(node)
@@ -157,10 +151,7 @@ extension Emitter {
             events.append(.MappingStart(
                 anchor: mapping.anchor,
                 tag: mapping.tag.stringForEmit,
-                style: resolveStyle(
-                    provided: mapping.style,
-                    forced: emitter.forcedStyle.mapping,
-                    fallback: emitter.defultStyle.mapping ?? Style.YAML.mapping!)))
+                style: mapping.style ?? emitter.style.mapping))
             
             for pair in mapping.pairs {
                 events += eventsForNode(pair.key)
@@ -169,12 +160,6 @@ extension Emitter {
             
             events.append(.MappingEnd)
             return events
-        }
-        
-        func resolveStyle<Style>(provided provided: Style?, forced: Style?, fallback: Style) -> Style {
-            if let forced = forced { return forced }
-            if let provided = provided { return provided }
-            return fallback
         }
         
     }

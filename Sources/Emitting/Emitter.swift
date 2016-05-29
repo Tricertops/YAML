@@ -61,23 +61,17 @@ public class Emitter {
     //MARK: Emitter: Node Style
     
     /// Node styles used when the Node doesn’t specify one.
-    public var defultStyle: Style = .YAML
-    
-    /// Node styles used instead of the styles specified by Nodes.
-    /// - Warning: Use with caution. Changing style of Scalar node could change its meaning.
-    public var forcedStyle: Style = .None
+    public var style: Style = .YAML
     
     /// Collection of optional Node styles.
     public struct Style {
         /// Style used for Scalar nodes.
-        public var scalar: Node.Scalar.Style? = nil
+        public var scalar: Node.Scalar.Style
         /// Style used for Sequence nodes.
-        public var sequence: Node.Sequence.Style? = nil
+        public var sequence: Node.Sequence.Style
         /// Style used for Mapping nodes.
-        public var mapping: Node.Mapping.Style? = nil
+        public var mapping: Node.Mapping.Style
         
-        /// Style collection with no defined styles.
-        public static let None = Style()
         /// Style collection with default YAML styles: plain scalars, block sequences and mappings.
         public static let YAML = Style(scalar: .Plain, sequence: .Block, mapping: .Block)
         /// Style collection with JSON styles: double-quoted scalars, flow sequences nad mappings.
