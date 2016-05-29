@@ -197,5 +197,15 @@ class Parser_Tests: XCTestCase {
         XCTAssertTrue(sequence[6].tag == Tag.URI(URI + "message"), "Named handle should be resolved.")
     }
     
+    func test_alias() {
+        let string = self.file("alias")
+        let parser = Parser(string: string)
+        XCTAssertEqual(parser.string, string)
+        XCTAssertNil(parser.error)
+        
+        guard let stream = parser.stream else { XCTFail(); return }
+        XCTAssertEqual(stream.documents.count, 3)
+    }
+    
 }
 
