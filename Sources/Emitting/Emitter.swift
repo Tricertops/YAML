@@ -78,5 +78,28 @@ public class Emitter {
         public static let JSON = Style(scalar: .DoubleQuoted, sequence: .Flow, mapping: .Flow)
     }
     
+    //MARK: Emitter: Error
+    
+    /// Errors thrown by the Emitter
+    public struct Error: ErrorType {
+        
+        /// Type of error. Some types are mediated from the underlaying C library.
+        public enum Kind: String {
+            /// No better information is known.
+            case Unspecified
+            /// Mediated from C library: Cannot allocate or reallocate a block of memory.
+            case Allocation
+            /// Mediated from C library: Cannot write to the output string.
+            case Writing
+            /// Mediated from C library: Cannot emit a YAML stream.
+            case Emitting
+        }
+        
+        /// Type of error.
+        let kind: Kind
+        /// Message that describes the error.
+        let message: String
+    }
+    
 }
 

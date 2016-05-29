@@ -11,11 +11,11 @@
 
 
 
-extension Event {
+extension yaml_event_t {
     
-    var c_event: yaml_event_t {
+    static func from(e: Event) -> yaml_event_t {
         var event = yaml_event_t()
-        switch self {
+        switch e {
             
         case .StreamStart:
             yaml_stream_start_event_initialize(&event, YAML_UTF8_ENCODING)
@@ -39,32 +39,30 @@ extension Event {
         case .DocumentEnd(let isImplicit):
             yaml_document_end_event_initialize(&event, Int32(isImplicit))
             
-        case Alias(let anchor):
+        case .Alias(let anchor):
             anchor.withMutableCString { pointer in
                 yaml_alias_event_initialize(&event, pointer)
             }
             
         case .Scalar(let scalar):
             let isTagImplicit = true //TODO: Test
-            let style = scalar.style.c_style
             
             scalar.anchor.withMutableCString { anchor in
                 scalar.tag.withMutableCString { tag in
                     scalar.content.withMutableCString { content in
                     yaml_scalar_event_initialize(&event, anchor, tag,
                         content, Int32(scalar.content.utf8.count),
-                        Int32(isTagImplicit), Int32(isTagImplicit), style)
+                        Int32(isTagImplicit), Int32(isTagImplicit), .from(scalar.style))
                     }
                 }
             }
             
         case .SequenceStart(let sequence):
             let isTagImplicit = true //TODO: Test
-            let style = sequence.style.c_style
             
             sequence.anchor.withMutableCString { anchor in
                 sequence.tag.withMutableCString { tag in
-                    yaml_sequence_start_event_initialize(&event, anchor, tag, Int32(isTagImplicit), style)
+                    yaml_sequence_start_event_initialize(&event, anchor, tag, Int32(isTagImplicit), .from(sequence.style))
                 }
             }
             
@@ -73,11 +71,10 @@ extension Event {
             
         case .MappingStart(let mapping):
             let isTagImplicit = true //TODO: Test
-            let style = mapping.style.c_style
             
             mapping.anchor.withMutableCString { anchor in
                 mapping.tag.withMutableCString { tag in
-                    yaml_mapping_start_event_initialize(&event, anchor, tag, Int32(isTagImplicit), style)
+                    yaml_mapping_start_event_initialize(&event, anchor, tag, Int32(isTagImplicit), .from(mapping.style))
                 }
             }
             
@@ -91,10 +88,10 @@ extension Event {
 }
 
 
-extension Node.Scalar.Style {
+extension yaml_scalar_style_t {
     
-    var c_style: yaml_scalar_style_t {
-        switch self {
+    static func from(style: Node.Scalar.Style) -> yaml_scalar_style_t {
+        switch style {
         case .Plain: return YAML_PLAIN_SCALAR_STYLE
         case .SingleQuoted: return YAML_SINGLE_QUOTED_SCALAR_STYLE
         case .DoubleQuoted: return YAML_DOUBLE_QUOTED_SCALAR_STYLE
@@ -106,10 +103,10 @@ extension Node.Scalar.Style {
 }
 
 
-extension Node.Sequence.Style {
+extension yaml_sequence_style_t {
     
-    var c_style: yaml_sequence_style_t {
-        switch self {
+    static func from(style: Node.Sequence.Style) -> yaml_sequence_style_t {
+        switch style {
         case .Block: return YAML_BLOCK_SEQUENCE_STYLE
         case .Flow: return YAML_FLOW_SEQUENCE_STYLE
         }
@@ -118,10 +115,10 @@ extension Node.Sequence.Style {
 }
 
 
-extension Node.Mapping.Style {
+extension yaml_mapping_style_t {
     
-    var c_style: yaml_mapping_style_t {
-        switch self {
+    static func from(style: Node.Mapping.Style) -> yaml_mapping_style_t {
+        switch style {
         case .Block: return YAML_BLOCK_MAPPING_STYLE
         case .Flow: return YAML_FLOW_MAPPING_STYLE
         }

@@ -14,18 +14,18 @@
 extension Emitter {
     
     func internal_emit(stream: Stream) throws -> String {
-        return try Internal(emitter: self).emit(stream)
+        return try Internal(settings: self).emit(stream)
     }
     
     private class Internal {
         
-        var emitter: Emitter
+        var settings: Emitter
         
-        init(emitter: Emitter) {
-            self.emitter = emitter
+        init(settings: Emitter) {
+            self.settings = settings
         }
         
-        var c_emitter = yaml_emitter_t()
+        var emitter = yaml_emitter_t()
         var output: String = ""
         
         func emit(stream: Stream) throws -> String {
@@ -33,31 +33,32 @@ extension Emitter {
             defer {
                 cleanup()
             }
-            //TODO: Emit Stream and Nodes.
+            try self.checkError()
             
-            var event = yaml_event_t()
-            yaml_stream_start_event_initialize(&event, YAML_UTF8_ENCODING)
-            yaml_emitter_emit(&c_emitter, &event)
-            yaml_stream_end_event_initialize(&event)
-            yaml_emitter_emit(&c_emitter, &event)
+            for event in eventsForStream(stream) {
+                var rawEvent: yaml_event_t = .from(event)
+                yaml_emitter_emit(&emitter, &rawEvent)
+                
+                try self.checkError()
+            }
             
             return output
         }
         
         func setup() {
-            yaml_emitter_initialize(&c_emitter)
+            yaml_emitter_initialize(&emitter)
             
-            yaml_emitter_set_encoding(&c_emitter, YAML_UTF8_ENCODING)
-            yaml_emitter_set_canonical(&c_emitter, Int32(emitter.isCanonical))
-            yaml_emitter_set_indent(&c_emitter, Int32(emitter.indentation))
-            yaml_emitter_set_width(&c_emitter, Int32(emitter.lineWidth ?? -1))
-            yaml_emitter_set_unicode(&c_emitter, Int32(emitter.allowsUnicode))
-            yaml_emitter_set_break(&c_emitter, emitter.lineBreaks.c_lineBreak)
+            yaml_emitter_set_encoding(&emitter, YAML_UTF8_ENCODING)
+            yaml_emitter_set_canonical(&emitter, Int32(settings.isCanonical))
+            yaml_emitter_set_indent(&emitter, Int32(settings.indentation))
+            yaml_emitter_set_width(&emitter, Int32(settings.lineWidth ?? -1))
+            yaml_emitter_set_unicode(&emitter, Int32(settings.allowsUnicode))
+            yaml_emitter_set_break(&emitter, .from(settings.lineBreaks))
             
             let boxed: UnsafeMutablePointer<Internal> = nil
             boxed.memory = self
             
-            yaml_emitter_set_output(&c_emitter, {
+            yaml_emitter_set_output(&emitter, {
                 (boxed, bytes, count) -> Int32 in
                 let `self` = UnsafePointer<Internal>(boxed).memory
                 
@@ -81,10 +82,15 @@ extension Emitter {
         }
         
         func cleanup() {
-            yaml_emitter_delete(&c_emitter)
-            c_emitter = yaml_emitter_t() // Clear.
+            yaml_emitter_delete(&emitter)
+            emitter = yaml_emitter_t() // Clear.
         }
         
+        func checkError() throws {
+            if let error = Emitter.Error(emitter) {
+                throw error
+            }
+        }
         
         func eventsForStream(stream: Stream) -> [Event] {
             var events: [Event] = []
@@ -125,7 +131,7 @@ extension Emitter {
                     anchor: scalar.anchor,
                     tag: scalar.tag.stringForEmit,
                     content: scalar.content,
-                    style: scalar.style ?? emitter.style.scalar)
+                    style: scalar.style ?? settings.style.scalar)
             ]
         }
         
@@ -135,7 +141,7 @@ extension Emitter {
             events.append(.SequenceStart(
                 anchor: sequence.anchor,
                 tag: sequence.tag.stringForEmit,
-                style: sequence.style ?? emitter.style.sequence))
+                style: sequence.style ?? settings.style.sequence))
             
             for node in sequence.items {
                 events += eventsForNode(node)
@@ -151,7 +157,7 @@ extension Emitter {
             events.append(.MappingStart(
                 anchor: mapping.anchor,
                 tag: mapping.tag.stringForEmit,
-                style: mapping.style ?? emitter.style.mapping))
+                style: mapping.style ?? settings.style.mapping))
             
             for pair in mapping.pairs {
                 events += eventsForNode(pair.key)
@@ -167,10 +173,10 @@ extension Emitter {
 }
 
 
-extension Emitter.LineBreaks {
+extension yaml_break_t {
     
-    var c_lineBreak: yaml_break_t {
-        switch self {
+    static func from(lineBreaks: Emitter.LineBreaks) -> yaml_break_t {
+        switch lineBreaks {
         case .LF: return YAML_LN_BREAK
         case .CR: return YAML_CR_BREAK
         case .CRLF: return YAML_CRLN_BREAK
@@ -190,6 +196,44 @@ extension Tag {
         case .HandledCustom(let tag): return "!" + tag.handle + "!" + tag.name
         case .Standard(let name): return "!!" + name.rawValue
         case .URI(let content): return "!<" + content + ">"
+        }
+    }
+    
+}
+
+
+extension Emitter.Error {
+    
+    init?(_ emitter: yaml_emitter_t) {
+        guard let kind: Emitter.Error.Kind = .from(emitter.error) else {
+            return nil
+        }
+        self.kind = kind
+        self.message = String.fromCString(emitter.problem) ?? ""
+    }
+    
+}
+
+
+extension Emitter.Error.Kind {
+    
+    static func from(yaml_error: yaml_error_type_t) -> Emitter.Error.Kind? {
+        switch yaml_error {
+            
+        case YAML_NO_ERROR:
+            return nil
+            
+        case YAML_MEMORY_ERROR:
+            return .Allocation
+            
+        case YAML_WRITER_ERROR:
+            return .Writing
+            
+        case YAML_EMITTER_ERROR:
+            return .Emitting
+            
+        default:
+            return .Unspecified
         }
     }
     
