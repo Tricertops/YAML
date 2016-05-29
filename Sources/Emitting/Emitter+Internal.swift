@@ -41,10 +41,10 @@ extension Emitter {
             yaml_emitter_initialize(&c_emitter)
             
             yaml_emitter_set_encoding(&c_emitter, YAML_UTF8_ENCODING)
-            yaml_emitter_set_canonical(&c_emitter, emitter.isCanonical ? 1 : 0)
+            yaml_emitter_set_canonical(&c_emitter, Int32(emitter.isCanonical))
             yaml_emitter_set_indent(&c_emitter, Int32(emitter.indentation))
             yaml_emitter_set_width(&c_emitter, Int32(emitter.lineWidth ?? -1))
-            yaml_emitter_set_unicode(&c_emitter, emitter.allowsUnicode ? 1 : 0)
+            yaml_emitter_set_unicode(&c_emitter, Int32(emitter.allowsUnicode))
             yaml_emitter_set_break(&c_emitter, emitter.lineBreaks.c_lineBreak)
             
             let boxed: UnsafeMutablePointer<Internal> = nil

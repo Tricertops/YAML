@@ -11,28 +11,9 @@
 
 
 
-extension Parser {
+extension Event {
     
-    enum Event {
-        case StreamStart
-        case StreamEnd
-        case DocumentStart(hasVersion: Bool, tags: [Tag.Directive], isImplicit: Bool)
-        case DocumentEnd(isImplicit: Bool)
-        case Alias(anchor: String)
-        case Scalar(anchor: String, tag: String, content: String, style: Node.Scalar.Style)
-        case SequenceStart(anchor: String, tag: String, style: Node.Sequence.Style)
-        case SequenceEnd
-        case MappingStart(anchor: String, tag: String, style: Node.Mapping.Style)
-        case MappingEnd
-        
-    }
-    
-}
-
-
-extension Parser.Event {
-    
-    static func from(event: yaml_event_t) -> Parser.Event? {
+    static func from(event: yaml_event_t) -> Event? {
         switch event.type {
             
         case YAML_NO_EVENT:

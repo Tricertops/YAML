@@ -39,6 +39,14 @@ extension String {
         return String(self[self.startIndex ..< index])
     }
     
+    /// Invoke block on the contents of this string, represented as a nul-terminated array of char, ensuring the array's lifetime until return.
+    func withMutableCString<Result>(@noescape block: (UnsafeMutablePointer<UInt8>) throws -> Result) rethrows -> Result {
+        var array = self.nulTerminatedUTF8
+        return try array.withUnsafeMutableBufferPointer { buffer in
+            return try block(buffer.baseAddress)
+        }
+    }
+    
 }
 
 
@@ -80,5 +88,14 @@ func -
      smaller: IndexType)
     -> IndexType.Distance {
         return smaller.distanceTo(larger)
+}
+
+
+extension Int32 {
+    
+    init(_ bool: Bool) {
+        self.init(bool ? 1 : 0)
+    }
+    
 }
 

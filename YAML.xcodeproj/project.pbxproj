@@ -25,6 +25,8 @@
 		5B76ADA51CD67883003EE030 /* YAML.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B76ADA31CD67883003EE030 /* YAML.h */; };
 		5B89BA011CF991BD00E820CF /* Emitter+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89BA001CF991BD00E820CF /* Emitter+Internal.swift */; };
 		5B89BA031CFAD53600E820CF /* alias.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 5B89BA021CFAD53600E820CF /* alias.yaml */; };
+		5B89BA051CFADCC000E820CF /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89BA041CFADCC000E820CF /* Event.swift */; };
+		5B89BA071CFADD3100E820CF /* Emitter+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89BA061CFADD3100E820CF /* Emitter+Event.swift */; };
 		5B98844D1CD6665A0008A67D /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = CB26AC4B59DC4F9AA9AB3E06 /* api.c */; };
 		5B98844E1CD6665A0008A67D /* dumper.c in Sources */ = {isa = PBXBuildFile; fileRef = 7583DB20E9964EDA92A290D5 /* dumper.c */; };
 		5B98844F1CD6665A0008A67D /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = 6C4C0112593341D5B5A19F0F /* emitter.c */; };
@@ -76,6 +78,8 @@
 		5B76ADA31CD67883003EE030 /* YAML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAML.h; sourceTree = "<group>"; };
 		5B89BA001CF991BD00E820CF /* Emitter+Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Emitter+Internal.swift"; sourceTree = "<group>"; };
 		5B89BA021CFAD53600E820CF /* alias.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = alias.yaml; sourceTree = "<group>"; };
+		5B89BA041CFADCC000E820CF /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		5B89BA061CFADD3100E820CF /* Emitter+Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Emitter+Event.swift"; sourceTree = "<group>"; };
 		5B9884331CD65A8B0008A67D /* yaml.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = yaml.h; sourceTree = "<group>"; };
 		5B9884391CD661F60008A67D /* YAML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YAML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B9884431CD6623D0008A67D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 			children = (
 				5B22141C1CE72AC000B2DD40 /* Emitter.swift */,
 				5B89BA001CF991BD00E820CF /* Emitter+Internal.swift */,
+				5B89BA061CFADD3100E820CF /* Emitter+Event.swift */,
 			);
 			path = Emitting;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 				5B76ADA21CD67883003EE030 /* Version.swift */,
 				5B35DDF41CE05EA4001B30B0 /* Log.swift */,
 				5B2214221CE72FCA00B2DD40 /* Utilities.swift */,
+				5B89BA041CFADCC000E820CF /* Event.swift */,
 				5B2214141CE729F200B2DD40 /* Parsing */,
 				5B22141B1CE72AC000B2DD40 /* Emitting */,
 				5B35DDC91CDDE4DB001B30B0 /* Model */,
@@ -353,12 +359,14 @@
 				5B9884541CD6665A0008A67D /* writer.c in Sources */,
 				5B9884531CD6665A0008A67D /* scanner.c in Sources */,
 				5B76ADA41CD67883003EE030 /* Version.swift in Sources */,
+				5B89BA051CFADCC000E820CF /* Event.swift in Sources */,
 				5B2214211CE72F5000B2DD40 /* Parser+Event.swift in Sources */,
 				5B9884511CD6665A0008A67D /* parser.c in Sources */,
 				5B2214251CE736FD00B2DD40 /* Parser+Mark.swift in Sources */,
 				5B9884521CD6665A0008A67D /* reader.c in Sources */,
 				5B2214181CE729F200B2DD40 /* Parser.swift in Sources */,
 				5B2214171CE729F200B2DD40 /* Parser+Parsing.swift in Sources */,
+				5B89BA071CFADD3100E820CF /* Emitter+Event.swift in Sources */,
 				5B35DDDB1CDDE4DB001B30B0 /* Tag.swift in Sources */,
 				5B2214231CE72FCA00B2DD40 /* Utilities.swift in Sources */,
 				5B35DDDA1CDDE4DB001B30B0 /* Stream.swift in Sources */,
