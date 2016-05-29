@@ -11,21 +11,10 @@
 
 
 
-extension yaml_parser_t {
-    
-    func checkError() throws {
-        if let error = Parser.Error(self) {
-            throw error
-        }
-    }
-    
-}
-
-
 extension Parser.Error {
     
     init?(_ parser: yaml_parser_t) {
-        guard let kind = Parser.Error.Kind.from(parser.error) else {
+        guard let kind: Parser.Error.Kind = .from(parser.error) else {
             return nil
         }
         self.kind = kind

@@ -19,10 +19,10 @@ extension Parser.Mark {
         return start.advancedBy(Int(self.location), limit: end)
     }
     
-    init(_ c_mark: yaml_mark_t) {
-        self.location = UInt(c_mark.index)
-        self.line = UInt(c_mark.line)
-        self.column = UInt(c_mark.column)
+    init(_ mark: yaml_mark_t) {
+        self.location = UInt(mark.index)
+        self.line = UInt(mark.line)
+        self.column = UInt(mark.column)
     }
     
 }

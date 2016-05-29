@@ -52,7 +52,7 @@ extension Parser {
         
         func setup(buffer: UnsafeBufferPointer<UTF8.CodeUnit>) throws {
             yaml_parser_initialize(&parser)
-            try parser.checkError()
+            try self.checkError()
             
             let length = buffer.count - 1 // Ignore termination \0.
             yaml_parser_set_input_string(&parser, buffer.baseAddress, length)
@@ -68,6 +68,12 @@ extension Parser {
             parser = yaml_parser_t() // Clear.
         }
         
+        func checkError() throws {
+            if let error = Parser.Error(parser) {
+                throw error
+            }
+        }
+        
         func loadNext() throws -> (event: Event?, range: Mark.Range?) {
             var yaml_event = yaml_event_t()
             yaml_parser_parse(&parser, &yaml_event)
@@ -76,7 +82,7 @@ extension Parser {
             }
             let event = Event.from(yaml_event)
             hasNextEvent = (event != nil)
-            try parser.checkError()
+            try self.checkError()
             
             if let event = event {
                 let startMark = Mark(yaml_event.start_mark)
