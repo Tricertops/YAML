@@ -50,9 +50,10 @@ extension yaml_event_t {
             scalar.anchor.withMutableCString { anchor in
                 scalar.tag.withMutableCString { tag in
                     scalar.content.withMutableCString { content in
-                    yaml_scalar_event_initialize(&event, anchor, tag,
-                        content, Int32(scalar.content.utf8.count),
-                        Int32(isTagImplicit), Int32(isTagImplicit), .from(scalar.style))
+                        let optionalAnchor = (scalar.anchor.isEmpty ? nil : anchor)
+                        yaml_scalar_event_initialize(&event, optionalAnchor, tag,
+                            content, Int32(scalar.content.utf8.count),
+                            Int32(isTagImplicit), Int32(isTagImplicit), .from(scalar.style))
                     }
                 }
             }
