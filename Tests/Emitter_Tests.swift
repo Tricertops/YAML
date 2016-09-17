@@ -16,7 +16,7 @@ import YAML
 class Emitter_Tests: XCTestCase {
 
     func test_empty_stream() {
-        let stream = Stream()
+        let stream = YAML.Stream()
         stream.hasVersion = true
         stream.prefersStartMark = true
         stream.hasEndMark = true

@@ -20,7 +20,7 @@
 public class Node {
     
     /// Optional type information of this Node.
-    public var tag: Tag = .None
+    public var tag: Tag = .none
     
     /// Optional string identifying this Node in cross-references.
     public var anchor: String = ""
@@ -41,11 +41,11 @@ extension Node {
         
         /// Possible Scalar styles.
         public enum Style {
-            case Plain /// No quotes,  inline, does NOT allow or preserve newlines.
-            case SingleQuoted /// Enclosed in single quotes, inline, preserves newlines.
-            case DoubleQuoted /// Enclosed in double quotes, inline, preserves newlines.
-            case Folded /// No quotes,  multiline, does NOT preserve newlines.
-            case Literal /// No quotes, multiline, preserves newlines.
+            case plain /// No quotes,  inline, does NOT allow or preserve newlines.
+            case singleQuoted /// Enclosed in single quotes, inline, preserves newlines.
+            case doubleQuoted /// Enclosed in double quotes, inline, preserves newlines.
+            case folded /// No quotes,  multiline, does NOT preserve newlines.
+            case literal /// No quotes, multiline, preserves newlines.
             
             /// Default unspecified style. Can be specified in Emitter.
             public static let Auto: Style? = nil
@@ -77,8 +77,8 @@ extension Node {
         
         /// Possible Sequence styles.
         public enum Style {
-            case Block /// Standard YAML style with leading hyphens.
-            case Flow /// JSON style, enclosed in square braces.
+            case block /// Standard YAML style with leading hyphens.
+            case flow /// JSON style, enclosed in square braces.
             
             /// Default unspecified style. Can be specified in Emitter.
             public static let Auto: Style? = nil
@@ -116,7 +116,7 @@ extension Node.Sequence {
     }
     
     /// Shorthand for appending items.
-    public func append(node: Node) {
+    public func append(_ node: Node) {
         items.append(node)
     }
     
@@ -140,8 +140,8 @@ extension Node {
         
         /// Possible Mapping styles.
         public enum Style {
-            case Block /// Standard YAML style.
-            case Flow /// JSON style, enclosed in curly braces.
+            case block /// Standard YAML style.
+            case flow /// JSON style, enclosed in curly braces.
             
             /// Default unspecified style. Can be specified in Emitter.
             public static let Auto: Style? = nil
@@ -179,7 +179,7 @@ extension Node.Mapping {
     }
     
     /// Shorthand for appending pairs.
-    public func append(key key: Node, value: Node) {
+    public func append(key: Node, value: Node) {
         pairs.append((key, value))
     }
     

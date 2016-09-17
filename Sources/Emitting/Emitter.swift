@@ -20,12 +20,12 @@ public class Emitter {
     public init() { }
     
     /// Produces a YAML string from given Stream object.
-    public func emit(stream: Stream) throws -> String {
+    public func emit(_ stream: Stream) throws -> String {
         return try self.internal_emit(stream)
     }
     
     /// Produces a YAML string from a given Node.
-    public func emit(node: Node) throws -> String {
+    public func emit(_ node: Node) throws -> String {
         return try self.emit(Stream(documents: [node]))
     }
     
@@ -73,15 +73,15 @@ public class Emitter {
         public var mapping: Node.Mapping.Style
         
         /// Style collection with default YAML styles: plain scalars, block sequences and mappings.
-        public static let YAML = Style(scalar: .Plain, sequence: .Block, mapping: .Block)
+        public static let YAML = Style(scalar: .plain, sequence: .block, mapping: .block)
         /// Style collection with JSON styles: double-quoted scalars, flow sequences nad mappings.
-        public static let JSON = Style(scalar: .DoubleQuoted, sequence: .Flow, mapping: .Flow)
+        public static let JSON = Style(scalar: .doubleQuoted, sequence: .flow, mapping: .flow)
     }
     
     //MARK: Emitter: Error
     
     /// Errors thrown by the Emitter
-    public struct Error: ErrorType {
+    public struct Error: Swift.Error {
         
         /// Type of error. Some types are mediated from the underlaying C library.
         public enum Kind: String {

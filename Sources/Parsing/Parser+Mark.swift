@@ -13,10 +13,10 @@
 
 extension Parser.Mark {
     
-    func indexInString(string: String) -> String.UTF8Index {
+    func indexInString(_ string: String) -> String.UTF8Index {
         let start = string.utf8.startIndex
         let end = string.utf8.endIndex
-        return start.advancedBy(Int(self.location), limit: end)
+        return string.utf8.index(start, offsetBy: Int(self.location), limitedBy: end)!
     }
     
     init(_ mark: yaml_mark_t) {
@@ -41,18 +41,18 @@ public func < (left: Parser.Mark, right: Parser.Mark) -> Bool {
 
 extension Parser.Mark.Range {
     
-    func rangeInString(string: String) -> Swift.Range<String.UTF8Index> {
+    func rangeInString(_ string: String) -> Swift.Range<String.UTF8Index> {
         let start = self.start.indexInString(string)
         let end = self.end.indexInString(string)
         return start ..< end
     }
     
-    func substringFromString(string: String) -> String {
+    func substringFromString(_ string: String) -> String {
         let range = self.rangeInString(string)
-        return String(string.utf8[range])
+        return String(string.utf8[range])!
     }
     
-    static func union(ranges: Parser.Mark.Range? ...) -> Parser.Mark.Range {
+    static func union(_ ranges: Parser.Mark.Range? ...) -> Parser.Mark.Range {
         var start: Parser.Mark?
         var end: Parser.Mark?
         

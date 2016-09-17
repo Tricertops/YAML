@@ -12,15 +12,15 @@
 
 
 enum Event {
-    case StreamStart
-    case StreamEnd
-    case DocumentStart(hasVersion: Bool, tags: [Tag.Directive], isImplicit: Bool)
-    case DocumentEnd(isImplicit: Bool)
-    case Alias(anchor: String)
-    case Scalar(anchor: String, tag: String, content: String, style: Node.Scalar.Style)
-    case SequenceStart(anchor: String, tag: String, style: Node.Sequence.Style)
-    case SequenceEnd
-    case MappingStart(anchor: String, tag: String, style: Node.Mapping.Style)
-    case MappingEnd
+    case streamStart
+    case streamEnd
+    case documentStart(hasVersion: Bool, tags: [Tag.Directive], isImplicit: Bool)
+    case documentEnd(isImplicit: Bool)
+    case alias(anchor: String)
+    case scalar(anchor: String, tag: String, content: String, style: Node.Scalar.Style)
+    case sequenceStart(anchor: String, tag: String, style: Node.Sequence.Style)
+    case sequenceEnd
+    case mappingStart(anchor: String, tag: String, style: Node.Mapping.Style)
+    case mappingEnd
 }
 

@@ -34,23 +34,23 @@ public class Parser {
     
     /// Error that occured during parsing.
     /// - Note: Even if error occured, the `.stream` could be valid object.
-    public let error: ErrorType?
+    public let error: Swift.Error?
     
     /// Error states of the Parser.
-    public struct Error: ErrorType {
+    public struct Error: Swift.Error {
         
         /// Type of error. Some types are mediated from the underlaying C library.
         public enum Kind: String {
             /// No better information is known.
-            case Unspecified
+            case unspecified
             /// Mediated from C library: Cannot allocate or reallocate a block of memory.
-            case Allocation
+            case allocation
             /// Mediated from C library: Cannot read or decode the input string.
-            case Decoding
+            case decoding
             /// Mediated from C library: Cannot scan the input string.
-            case Scanning
+            case scanning
             /// Mediated from C library: Cannot parse the input string.
-            case Parsing
+            case parsing
         }
         
         /// Type of error.
@@ -70,12 +70,12 @@ public class Parser {
     //MARK: Parser: Reverse Lookup
     
     /// Returns range of given parsed object in the source string or `nil` when the object didn’t come from this `Parser`.
-    public func rangeOf(object: Node) -> Mark.Range? {
+    public func rangeOf(_ object: Node) -> Mark.Range? {
         return self.lookup[ObjectIdentifier(object)]
     }
     
     /// Returns source string of given parsed object in or `nil` when the object didn’t come from this `Parser`.
-    public func stringOf(object: Node) -> String? {
+    public func stringOf(_ object: Node) -> String? {
         return self.rangeOf(object)?.substringFromString(self.string)
     }
     

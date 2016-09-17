@@ -13,7 +13,7 @@
 
 extension Emitter {
     
-    func internal_emit(stream: Stream) throws -> String {
+    func internal_emit(_ stream: Stream) throws -> String {
         return try Internal(settings: self).emit(stream)
     }
     
@@ -28,7 +28,7 @@ extension Emitter {
         var emitter = yaml_emitter_t()
         var output: String = ""
         
-        func emit(stream: Stream) throws -> String {
+        func emit(_ stream: Stream) throws -> String {
             setup()
             defer {
                 cleanup()
@@ -55,19 +55,19 @@ extension Emitter {
             yaml_emitter_set_unicode(&emitter, Int32(settings.allowsUnicode))
             yaml_emitter_set_break(&emitter, .from(settings.lineBreaks))
             
-            let boxed = UnsafeMutablePointer<Internal>.alloc(1)
-            boxed.initialize(self)
+            let boxed = UnsafeMutablePointer<Internal>.allocate(capacity: 1)
+            boxed.initialize(to: self)
             
             yaml_emitter_set_output(&emitter, {
                 (boxed, bytes, count) -> Int32 in
-                let `self` = UnsafePointer<Internal>(boxed).memory
+                let `self` = UnsafePointer<Internal>(OpaquePointer(boxed)!).pointee
                 
                 let buffer = UnsafeBufferPointer(start: bytes, count: count)
-                var generator = buffer.generate()
+                var generator = buffer.makeIterator()
                 var string = ""
                 
                 var decoder = UTF8()
-                while case .Result(let scalar) = decoder.decode(&generator) {
+                while case .scalarValue(let scalar) = decoder.decode(&generator) {
                     string.unicodeScalars.append(scalar)
                 }
                 
@@ -77,7 +77,7 @@ extension Emitter {
                 }, boxed)
         }
         
-        func appendString(string: String) {
+        func appendString(_ string: String) {
             output += string
         }
         
@@ -92,32 +92,32 @@ extension Emitter {
             }
         }
         
-        func eventsForStream(stream: Stream) -> [Event] {
+        func eventsForStream(_ stream: Stream) -> [Event] {
             var events: [Event] = []
-            events.append(.StreamStart)
+            events.append(.streamStart)
             
             var index = 0 // This is safer, because documents could be duplicated.
             for node in stream.documents {
                 let isFirst = (index == 0)
                 let isLast = (index == stream.documents.count - 1)
                 
-                events.append(.DocumentStart(
+                events.append(.documentStart(
                     hasVersion: isFirst && stream.hasVersion,
                     tags: isFirst ? stream.tags : [],
                     isImplicit: !(isFirst && stream.hasStartMark)))
                 
                 events += eventsForNode(node)
                 
-                events.append(.DocumentEnd(isImplicit: !(isLast && stream.hasEndMark)))
+                events.append(.documentEnd(isImplicit: !(isLast && stream.hasEndMark)))
                 
                 index += 1
             }
             
-            events.append(.StreamEnd)
+            events.append(.streamEnd)
             return events
         }
         
-        func eventsForNode(node: Node) -> [Event] {
+        func eventsForNode(_ node: Node) -> [Event] {
             if let scalar = node as? Node.Scalar { return eventsForScalar(scalar) }
             if let sequence = node as? Node.Sequence { return eventsForSequence(sequence) }
             if let mapping = node as? Node.Mapping { return eventsForMapping(mapping) }
@@ -125,9 +125,9 @@ extension Emitter {
             return []
         }
         
-        func eventsForScalar(scalar: Node.Scalar) -> [Event] {
+        func eventsForScalar(_ scalar: Node.Scalar) -> [Event] {
             return [
-                .Scalar(
+                .scalar(
                     anchor: scalar.anchor,
                     tag: scalar.tag.stringForEmit,
                     content: scalar.content,
@@ -135,10 +135,10 @@ extension Emitter {
             ]
         }
         
-        func eventsForSequence(sequence: Node.Sequence) -> [Event] {
+        func eventsForSequence(_ sequence: Node.Sequence) -> [Event] {
             var events: [Event] = []
             
-            events.append(.SequenceStart(
+            events.append(.sequenceStart(
                 anchor: sequence.anchor,
                 tag: sequence.tag.stringForEmit,
                 style: sequence.style ?? settings.style.sequence))
@@ -147,14 +147,14 @@ extension Emitter {
                 events += eventsForNode(node)
             }
             
-            events.append(.SequenceEnd)
+            events.append(.sequenceEnd)
             return events
         }
         
-        func eventsForMapping(mapping: Node.Mapping) -> [Event] {
+        func eventsForMapping(_ mapping: Node.Mapping) -> [Event] {
             var events: [Event] = []
             
-            events.append(.MappingStart(
+            events.append(.mappingStart(
                 anchor: mapping.anchor,
                 tag: mapping.tag.stringForEmit,
                 style: mapping.style ?? settings.style.mapping))
@@ -164,7 +164,7 @@ extension Emitter {
                 events += eventsForNode(pair.value)
             }
             
-            events.append(.MappingEnd)
+            events.append(.mappingEnd)
             return events
         }
         
@@ -175,7 +175,7 @@ extension Emitter {
 
 extension yaml_break_t {
     
-    static func from(lineBreaks: Emitter.LineBreaks) -> yaml_break_t {
+    static func from(_ lineBreaks: Emitter.LineBreaks) -> yaml_break_t {
         switch lineBreaks {
         case .LF: return YAML_LN_BREAK
         case .CR: return YAML_CR_BREAK
@@ -190,12 +190,12 @@ extension Tag {
     
     var stringForEmit: String {
         switch self {
-        case .None: return ""
-        case .Explicit: return "!"
-        case .Custom(let name): return "!" + name
-        case .HandledCustom(let tag): return "!" + tag.handle + "!" + tag.name
-        case .Standard(let name): return "!!" + name.rawValue
-        case .URI(let content): return "!<" + content + ">"
+        case .none: return ""
+        case .explicit: return "!"
+        case .custom(let name): return "!" + name
+        case .handledCustom(let tag): return "!" + tag.handle + "!" + tag.name
+        case .standard(let name): return "!!" + name.rawValue
+        case .uri(let content): return "!<" + content + ">"
         }
     }
     
@@ -209,7 +209,7 @@ extension Emitter.Error {
             return nil
         }
         self.kind = kind
-        self.message = String.fromCString(emitter.problem) ?? ""
+        self.message = String(cString: emitter.problem)
     }
     
 }
@@ -217,7 +217,7 @@ extension Emitter.Error {
 
 extension Emitter.Error.Kind {
     
-    static func from(yaml_error: yaml_error_type_t) -> Emitter.Error.Kind? {
+    static func from(_ yaml_error: yaml_error_type_t) -> Emitter.Error.Kind? {
         switch yaml_error {
             
         case YAML_NO_ERROR:

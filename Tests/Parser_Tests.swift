@@ -72,13 +72,13 @@ class Parser_Tests: XCTestCase {
         do {
             guard let sequence1 = stream.documents[0] as? Node.Sequence else { XCTFail(); return }
             XCTAssertEqual(sequence1.count, 4)
-            XCTAssertEqual(sequence1.style, .Block)
+            XCTAssertEqual(sequence1.style, .block)
             XCTAssertTrue(sequence1[1] === sequence1[3])
         }
         do {
             guard let sequence2 = stream.documents[1] as? Node.Sequence else { XCTFail(); return }
             XCTAssertEqual(sequence2.count, 4)
-            XCTAssertEqual(sequence2.style, .Flow)
+            XCTAssertEqual(sequence2.style, .flow)
             XCTAssertTrue(sequence2[1] === sequence2[3])
         }
     }
@@ -99,7 +99,7 @@ class Parser_Tests: XCTestCase {
         
         guard let mapping = stream.documents[0] as? Node.Mapping else { XCTFail(); return }
         XCTAssertEqual(mapping.count, 6)
-        XCTAssertEqual(mapping.style, .Block)
+        XCTAssertEqual(mapping.style, .block)
     }
     
     func test_scalar() {
@@ -119,24 +119,24 @@ class Parser_Tests: XCTestCase {
         guard let mapping = stream.documents[0] as? Node.Mapping else { XCTFail(); return }
         
         guard let plain = mapping["plain"] as? Node.Scalar else { XCTFail(); return }
-        XCTAssertEqual(plain.style, .Plain)
+        XCTAssertEqual(plain.style, .plain)
         
         guard let singleQuoted = mapping["single quoted"] as? Node.Scalar else { XCTFail(); return }
-        XCTAssertEqual(singleQuoted.style, .SingleQuoted)
-        XCTAssertFalse(singleQuoted.content.containsString("\u{27}")) // APOSTROPHE
+        XCTAssertEqual(singleQuoted.style, .singleQuoted)
+        XCTAssertFalse(singleQuoted.content.contains("\u{27}")) // APOSTROPHE
         
         guard let doubleQuoted = mapping["double quoted"] as? Node.Scalar else { XCTFail(); return }
-        XCTAssertEqual(doubleQuoted.style, .DoubleQuoted)
-        XCTAssertFalse(doubleQuoted.content.containsString("\u{22}")) // QUOTATION MARK
+        XCTAssertEqual(doubleQuoted.style, .doubleQuoted)
+        XCTAssertFalse(doubleQuoted.content.contains("\u{22}")) // QUOTATION MARK
         
         guard let folded = mapping["folded"] as? Node.Scalar else { XCTFail(); return }
-        XCTAssertEqual(folded.style, .Folded)
-        let prelast = folded.content.endIndex.predecessor() // Ends with newline.
-        XCTAssertFalse(folded.content.substringToIndex(prelast).containsString("\n"))
+        XCTAssertEqual(folded.style, .folded)
+        let prelast = folded.content.characters.index(before: folded.content.endIndex) // Ends with newline.
+        XCTAssertFalse(folded.content.substring(to: prelast).contains("\n"))
         
         guard let literal = mapping["literal"] as? Node.Scalar else { XCTFail(); return }
-        XCTAssertEqual(literal.style, .Literal)
-        XCTAssertTrue(literal.content.containsString("\n"))
+        XCTAssertEqual(literal.style, .literal)
+        XCTAssertTrue(literal.content.contains("\n"))
     }
     
     func test_marks() {
@@ -185,16 +185,16 @@ class Parser_Tests: XCTestCase {
         
         guard let sequence = stream.documents[0] as? Node.Sequence else { XCTFail(); return }
         XCTAssertEqual(sequence.count, 7)
-        XCTAssertEqual(sequence.tag, Tag.Standard(.seq))
+        XCTAssertEqual(sequence.tag, Tag.standard(.seq))
         
-        XCTAssertTrue(sequence[0].tag == Tag.None)
-        XCTAssertTrue(sequence[1].tag == Tag.Standard(.str))
-        XCTAssertTrue(sequence[2].tag == Tag.Custom("message"))
-        XCTAssertTrue(sequence[3].tag == Tag.URI(URI + "message"))
+        XCTAssertTrue(sequence[0].tag == Tag.none)
+        XCTAssertTrue(sequence[1].tag == Tag.standard(.str))
+        XCTAssertTrue(sequence[2].tag == Tag.custom("message"))
+        XCTAssertTrue(sequence[3].tag == Tag.uri(URI + "message"))
         
-        XCTAssertTrue(sequence[4].tag == Tag.Standard(.str), "Explicit should be resolved.")
-        XCTAssertTrue(sequence[5].tag == Tag.Custom("message"), "Local verbatim tag should be resolved.")
-        XCTAssertTrue(sequence[6].tag == Tag.URI(URI + "message"), "Named handle should be resolved.")
+        XCTAssertTrue(sequence[4].tag == Tag.standard(.str), "Explicit should be resolved.")
+        XCTAssertTrue(sequence[5].tag == Tag.custom("message"), "Local verbatim tag should be resolved.")
+        XCTAssertTrue(sequence[6].tag == Tag.uri(URI + "message"), "Named handle should be resolved.")
     }
     
     func test_alias() {

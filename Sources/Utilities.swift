@@ -14,36 +14,42 @@
 extension String {
     
     /// Creates String from mutable libyaml char array.
-    init(_ string: UnsafeMutablePointer<yaml_char_t>) {
-        let casted = UnsafePointer<CChar>(string)
-        self.init(String.fromCString(casted) ?? "")
+    init(_ string: UnsafeMutablePointer<yaml_char_t>?) {
+        guard let string = string else {
+            self.init()
+            return
+        }
+        
+        let casted = UnsafePointer<CChar>(OpaquePointer(string))
+        self.init(cString: casted)
     }
     
-    /// Substring from an index as Int.
-    func substring(from index: Int) -> String {
-        return self.substring(from: self.startIndex + index)
+    /// Convenience function for obtaining indexes.
+    func index(_ offset: Int) -> String.Index {
+        return self.index(self.startIndex, offsetBy: offset)
+    }
+    
+    /// Convenience function for obtaining indexes from the end.
+    func index(backwards offset: Int) -> String.Index {
+        return self.index(self.endIndex, offsetBy: -offset)
     }
     
     /// Substring from a native String.Index.
-    func substring(from index: Index) -> String {
-        return String(self[index ..< self.endIndex])
-    }
-    
-    /// Substring to an index as Int.
-    func substring(to index: Int) -> String {
-        return self.substring(to: self.startIndex + index)
+    func substring(from offset: Int) -> String {
+        return String(self[self.index(offset) ..< self.endIndex])
     }
     
     /// Substring to a native String.Index.
-    func substring(to index: Index) -> String {
-        return String(self[self.startIndex ..< index])
+    func substring(to offset: Int) -> String {
+        return String(self[self.startIndex ..< self.index(backwards: offset)])
     }
     
     /// Invoke block on the contents of this string, represented as a nul-terminated array of char, ensuring the array's lifetime until return.
-    func withMutableCString<Result>(@noescape block: (UnsafeMutablePointer<UInt8>) throws -> Result) rethrows -> Result {
-        var array = self.nulTerminatedUTF8
+    func withMutableCString<Result>(_ block: @escaping (UnsafeMutablePointer<UInt8>) throws -> Result) rethrows -> Result {
+        var array = self.utf8CString
         return try array.withUnsafeMutableBufferPointer { buffer in
-            return try block(buffer.baseAddress)
+            let casted = UnsafeMutablePointer<UInt8>(OpaquePointer(buffer.baseAddress!))
+            return try block(casted)
         }
     }
     
@@ -53,41 +59,19 @@ extension String {
 extension Array {
     
     /// Creates array from libyaml array of arbitrary type.
-    init(start: UnsafeMutablePointer<Element>, end: UnsafeMutablePointer<Element>) {
+    init(start: UnsafeMutablePointer<Element>?, end: UnsafeMutablePointer<Element>?) {
         self.init()
+        
+        guard let start = start else { return }
+        guard let end = end else { return }
         
         var current = start
         while current < end {
-            self.append(current.memory)
+            self.append(current.pointee)
             current += 1
         }
     }
     
-}
-
-
-func +
-    <IndexType: ForwardIndexType>
-    (index: IndexType,
-     increment: IndexType.Distance)
-    -> IndexType {
-        return index.advancedBy(increment)
-}
-
-func -
-    <IndexType: BidirectionalIndexType>
-    (index: IndexType,
-     decrement: IndexType.Distance)
-    -> IndexType {
-        return index.advancedBy(decrement)
-}
-
-func -
-    <IndexType: ForwardIndexType>
-    (larger: IndexType,
-     smaller: IndexType)
-    -> IndexType.Distance {
-        return smaller.distanceTo(larger)
 }
 
 

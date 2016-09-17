@@ -15,21 +15,21 @@ import XCTest
 
 extension XCTestCase {
     
-    var projectURL: NSURL {
-        let path = NSBundle(forClass: self.dynamicType).objectForInfoDictionaryKey("YAMLProjectPath") as! String
-        return NSURL(fileURLWithPath: path)
+    var projectURL: URL {
+        let path = Bundle(for: type(of: self)).object(forInfoDictionaryKey: "YAMLProjectPath") as! String
+        return URL(fileURLWithPath: path)
     }
     
-    var testsURL: NSURL {
-        return self.projectURL.URLByAppendingPathComponent("Tests", isDirectory: true)!
+    var testsURL: URL {
+        return self.projectURL.appendingPathComponent("Tests", isDirectory: true)
     }
     
-    func URLForFile(name: String) -> NSURL {
-        return self.testsURL.URLByAppendingPathComponent(name + ".yaml", isDirectory: false)!
+    func URLForFile(_ name: String) -> URL {
+        return self.testsURL.appendingPathComponent(name + ".yaml", isDirectory: false)
     }
     
-    func file(name: String) -> String {
-        return (try? String(contentsOfURL: self.URLForFile(name))) ?? ""
+    func file(_ name: String) -> String {
+        return (try? String(contentsOf: self.URLForFile(name))) ?? ""
     }
     
 }

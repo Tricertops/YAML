@@ -13,9 +13,9 @@
 
 extension Parser {
     
-    typealias Result = (stream: Stream?, error: ErrorType?, lookup: Lookup)
+    typealias Result = (stream: Stream?, error: Swift.Error?, lookup: Lookup)
     
-    static func parse(string: String) -> Result {
+    static func parse(_ string: String) -> Result {
         return Internal().parse(string: string)
     }
     
@@ -30,9 +30,9 @@ extension Parser {
         var stack: [Node] = []
         var mappingKey: Node?
         
-        func parse(string string: String) -> Result {
+        func parse(string: String) -> Result {
             do {
-                try string.nulTerminatedUTF8.withUnsafeBufferPointer {
+                try string.utf8CString.withUnsafeBufferPointer {
                     buffer in
                     // We do the parsing within this block, because the pointer is valid only here.
                     
@@ -50,12 +50,13 @@ extension Parser {
             return (self.stream, nil, self.lookup)
         }
         
-        func setup(buffer: UnsafeBufferPointer<UTF8.CodeUnit>) throws {
+        func setup(_ buffer: UnsafeBufferPointer<CChar>) throws {
             yaml_parser_initialize(&parser)
             try self.checkError()
             
+            let base = UnsafePointer<UInt8>(OpaquePointer(buffer.baseAddress))
             let length = buffer.count - 1 // Ignore termination \0.
-            yaml_parser_set_input_string(&parser, buffer.baseAddress, length)
+            yaml_parser_set_input_string(&parser, base, length)
         }
         
         func cleanup() {
@@ -99,14 +100,14 @@ extension Parser {
             
             switch event {
                 
-            case .StreamStart:
+            case .streamStart:
                 assert(stream == nil, "Already has Stream.")
                 stream = Stream()
                 
-            case .StreamEnd:
+            case .streamEnd:
                 assert(stream != nil, "No Stream.")
                 
-            case .DocumentStart(let hasVersion, let tags, let isImplicit):
+            case .documentStart(let hasVersion, let tags, let isImplicit):
                 guard let stream = self.stream else { fatalError("No Stream.") }
                 
                 let isFirst = stream.documents.isEmpty
@@ -116,15 +117,15 @@ extension Parser {
                     stream.prefersStartMark = !isImplicit
                 }
                 
-            case .DocumentEnd(let isImplicit):
+            case .documentEnd(let isImplicit):
                 stream?.hasEndMark = !isImplicit
                 anchors = [:] // Reset anchors.
                 
-            case .Alias(let anchor):
+            case .alias(let anchor):
                 guard let node = self.anchors[anchor] else { fatalError("No node for anchor “\(anchor)”") }
                 addNode(node)
                 
-            case .Scalar(let anchor, let tag, let content, let style):
+            case .scalar(let anchor, let tag, let content, let style):
                 let scalar = Node.Scalar()
                 scalar.anchor = anchor
                 scalar.content = content
@@ -133,7 +134,7 @@ extension Parser {
                 addNode(scalar)
                 addRange(range, node: scalar)
                 
-            case .SequenceStart(let anchor, let tag, let style):
+            case .sequenceStart(let anchor, let tag, let style):
                 let sequence = Node.Sequence()
                 sequence.anchor = anchor
                 sequence.style = style
@@ -142,12 +143,12 @@ extension Parser {
                 addRange(range, node: sequence)
                 stack.append(sequence)
                 
-            case .SequenceEnd:
+            case .sequenceEnd:
                 let last = self.stack.popLast()
                 guard let sequence = last as? Node.Sequence else { fatalError("Expected Sequence node.") }
                 addRange(range, node: sequence)
                 
-            case .MappingStart(let anchor, let tag, let style):
+            case .mappingStart(let anchor, let tag, let style):
                 let mapping = Node.Mapping()
                 mapping.anchor = anchor
                 mapping.style = style
@@ -156,14 +157,14 @@ extension Parser {
                 addRange(range, node: mapping)
                 stack.append(mapping)
                 
-            case .MappingEnd:
+            case .mappingEnd:
                 let last = self.stack.popLast()
                 guard let mapping = last as? Node.Mapping else { fatalError("Expected Mapping node.") }
                 addRange(range, node: mapping)
             }
         }
         
-        func addNode(node: Node) {
+        func addNode(_ node: Node) {
             guard let stream = self.stream else { fatalError("No Stream.") }
             
             if stack.isEmpty {
@@ -190,7 +191,7 @@ extension Parser {
             }
         }
         
-        func addRange(range: Mark.Range, node: Node) {
+        func addRange(_ range: Mark.Range, node: Node) {
             let key = ObjectIdentifier(node)
             lookup[key] = Mark.Range.union(lookup[key], range)
         }

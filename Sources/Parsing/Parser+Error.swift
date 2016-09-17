@@ -19,8 +19,8 @@ extension Parser.Error {
         }
         self.kind = kind
         
-        self.message = String.fromCString(parser.problem) ?? ""
-        self.contextMessage = String.fromCString(parser.context) ?? ""
+        self.message = String(cString: parser.problem)
+        self.contextMessage = String(cString: parser.context)
         
         let value = Int(parser.problem_value)
         self.value = (value == -1 ? nil : value)
@@ -34,26 +34,26 @@ extension Parser.Error {
 
 extension Parser.Error.Kind {
     
-    static func from(yaml_error: yaml_error_type_t) -> Parser.Error.Kind? {
+    static func from(_ yaml_error: yaml_error_type_t) -> Parser.Error.Kind? {
         switch yaml_error {
             
         case YAML_NO_ERROR:
             return nil
             
         case YAML_MEMORY_ERROR:
-            return .Allocation
+            return .allocation
             
         case YAML_READER_ERROR:
-            return .Decoding
+            return .decoding
             
         case YAML_SCANNER_ERROR:
-            return .Scanning
+            return .scanning
             
         case YAML_PARSER_ERROR:
-            return .Parsing
+            return .parsing
             
         default:
-            return .Unspecified
+            return .unspecified
         }
     }
     
