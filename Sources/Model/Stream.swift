@@ -35,9 +35,11 @@ public class Stream {
     /// Whether the stream has explicit `...` mark at the end.
     public var hasEndMark: Bool = false
     
+    /// Creates sn empty Stream.
+    public init() {}
     
     /// Creates a Stream with a list of document Nodes.
-    convenience init(documents: [Node]) {
+    public convenience init(documents: [Node]) {
         self.init()
         self.documents = documents
     }

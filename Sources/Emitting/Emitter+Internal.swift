@@ -55,8 +55,8 @@ extension Emitter {
             yaml_emitter_set_unicode(&emitter, Int32(settings.allowsUnicode))
             yaml_emitter_set_break(&emitter, .from(settings.lineBreaks))
             
-            let boxed: UnsafeMutablePointer<Internal> = nil
-            boxed.memory = self
+            let boxed = UnsafeMutablePointer<Internal>.alloc(1)
+            boxed.initialize(self)
             
             yaml_emitter_set_output(&emitter, {
                 (boxed, bytes, count) -> Int32 in

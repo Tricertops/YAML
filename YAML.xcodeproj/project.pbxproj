@@ -27,6 +27,7 @@
 		5B89BA031CFAD53600E820CF /* alias.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 5B89BA021CFAD53600E820CF /* alias.yaml */; };
 		5B89BA051CFADCC000E820CF /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89BA041CFADCC000E820CF /* Event.swift */; };
 		5B89BA071CFADD3100E820CF /* Emitter+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89BA061CFADD3100E820CF /* Emitter+Event.swift */; };
+		5B89BA091CFB338100E820CF /* Emitter_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89BA081CFB338100E820CF /* Emitter_Tests.swift */; };
 		5B98844D1CD6665A0008A67D /* api.c in Sources */ = {isa = PBXBuildFile; fileRef = CB26AC4B59DC4F9AA9AB3E06 /* api.c */; };
 		5B98844E1CD6665A0008A67D /* dumper.c in Sources */ = {isa = PBXBuildFile; fileRef = 7583DB20E9964EDA92A290D5 /* dumper.c */; };
 		5B98844F1CD6665A0008A67D /* emitter.c in Sources */ = {isa = PBXBuildFile; fileRef = 6C4C0112593341D5B5A19F0F /* emitter.c */; };
@@ -80,6 +81,7 @@
 		5B89BA021CFAD53600E820CF /* alias.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = alias.yaml; sourceTree = "<group>"; };
 		5B89BA041CFADCC000E820CF /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		5B89BA061CFADD3100E820CF /* Emitter+Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Emitter+Event.swift"; sourceTree = "<group>"; };
+		5B89BA081CFB338100E820CF /* Emitter_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emitter_Tests.swift; sourceTree = "<group>"; };
 		5B9884331CD65A8B0008A67D /* yaml.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = yaml.h; sourceTree = "<group>"; };
 		5B9884391CD661F60008A67D /* YAML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YAML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B9884431CD6623D0008A67D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				5B35DDEE1CDE38AA001B30B0 /* Info.plist */,
 				5B35DDF21CDE3C52001B30B0 /* YAML_Tests.swift */,
 				5B35DDEF1CDE38AA001B30B0 /* Parser_Tests.swift */,
+				5B89BA081CFB338100E820CF /* Emitter_Tests.swift */,
 				5B2214291CE73F1100B2DD40 /* stream_simple.yaml */,
 				5B2214281CE73F1100B2DD40 /* stream_multiple.yaml */,
 				5B22142B1CE7800F00B2DD40 /* sequence.yaml */,
@@ -339,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B35DDF31CDE3C52001B30B0 /* YAML_Tests.swift in Sources */,
+				5B89BA091CFB338100E820CF /* Emitter_Tests.swift in Sources */,
 				5B35DDF01CDE3932001B30B0 /* Parser_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

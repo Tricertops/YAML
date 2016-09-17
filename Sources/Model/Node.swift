@@ -51,9 +51,11 @@ extension Node {
             public static let Auto: Style? = nil
         }
         
+        /// Creates an empty Scalar node.
+        public override init() {}
         
         /// Creates a Scalar node with string content and optional style.
-        convenience init(content: String, style: Style? = nil) {
+        public convenience init(content: String, style: Style? = nil) {
             self.init()
             self.content = content
             self.style = style
@@ -82,9 +84,11 @@ extension Node {
             public static let Auto: Style? = nil
         }
         
+        /// Creates an empty Sequence node.
+        public override init() {}
         
         /// Creates a Sequence node with list of nodes and optional style.
-        convenience init(items: [Node], style: Style? = nil) {
+        public convenience init(items: [Node], style: Style? = nil) {
             self.init()
             self.items = items
             self.style = style
@@ -143,9 +147,11 @@ extension Node {
             public static let Auto: Style? = nil
         }
         
+        /// Creates an empty Mapping node.
+        public override init() {}
         
         /// Creates a Mapping node with pairs of nodes and optional style.
-        convenience init(pairs: [Pair], style: Style? = nil) {
+        public convenience init(pairs: [Pair], style: Style? = nil) {
             self.init()
             self.pairs = pairs
             self.style = style
