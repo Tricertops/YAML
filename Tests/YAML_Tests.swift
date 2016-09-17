@@ -21,11 +21,11 @@ extension XCTestCase {
     }
     
     var testsURL: NSURL {
-        return self.projectURL.URLByAppendingPathComponent("Tests", isDirectory: true)
+        return self.projectURL.URLByAppendingPathComponent("Tests", isDirectory: true)!
     }
     
     func URLForFile(name: String) -> NSURL {
-        return self.testsURL.URLByAppendingPathComponent(name + ".yaml", isDirectory: false)
+        return self.testsURL.URLByAppendingPathComponent(name + ".yaml", isDirectory: false)!
     }
     
     func file(name: String) -> String {
