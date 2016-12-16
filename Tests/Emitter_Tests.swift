@@ -16,25 +16,17 @@ import YAML
 class Emitter_Tests: XCTestCase {
 
     func test_empty_stream() {
-        let stream = YAML.Stream()
-        stream.hasVersion = true
-        stream.prefersStartMark = true
-        stream.hasEndMark = true
-        stream.documents = [
-            Node.Scalar(),
-            Node.Scalar(),
-            Node.Scalar(),
-        ]
-        
-        let emitter = Emitter()
-        do {
-            let string = try emitter.emit(stream)
-            XCTAssertNotNil(string)
-        }
-        catch {
-            XCTAssertNil(error)
-        }
+        let string = try! Emitter().emit(YAML.Stream())
+        XCTAssertTrue(string.isEmpty)
     }
-
+    
+    func test_stream_simple() {
+        let emitter = Emitter()
+        let content = Node.Scalar(content: "Hello, YAML!")
+        let result = try! emitter.emit(content)
+        
+        let sample = self.file("stream_simple")
+        XCTAssertEqual(sample, result)
+    }
 }
 

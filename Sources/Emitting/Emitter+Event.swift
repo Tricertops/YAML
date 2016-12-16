@@ -67,7 +67,12 @@ extension yaml_event_t {
             
             let _ = sequence.anchor.withMutableCString { anchor in
                 let _ = sequence.tag.withMutableCString { tag in
-                    yaml_sequence_start_event_initialize(&event, anchor, tag, Int32(isTagImplicit), .from(sequence.style))
+                    yaml_sequence_start_event_initialize(
+                        &event,
+                        (sequence.anchor.isEmpty ? nil : anchor),
+                        tag,
+                        Int32(isTagImplicit),
+                        .from(sequence.style))
                 }
             }
             
@@ -79,7 +84,12 @@ extension yaml_event_t {
             
             let _ = mapping.anchor.withMutableCString { anchor in
                 let _ = mapping.tag.withMutableCString { tag in
-                    yaml_mapping_start_event_initialize(&event, anchor, tag, Int32(isTagImplicit), .from(mapping.style))
+                    yaml_mapping_start_event_initialize(
+                        &event,
+                        (mapping.anchor.isEmpty ? nil : anchor),
+                        tag,
+                        Int32(isTagImplicit),
+                        .from(mapping.style))
                 }
             }
             

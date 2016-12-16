@@ -113,7 +113,10 @@ extension Emitter {
                 index += 1
             }
             
-            events.append(.streamEnd)
+            //NOTE: For some reason, the underlaying emitter writer "..." even if requested not to.
+            if stream.hasEndMark {
+                events.append(.streamEnd)
+            }
             return events
         }
         
