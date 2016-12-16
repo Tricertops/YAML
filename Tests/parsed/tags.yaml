@@ -1,0 +1,11 @@
+%TAG !handle! tag:tricertops.com,2016:
+---
+- None
+- !!str  Standard
+- !message  Custom
+- !<tag:tricertops.com,2016:message>  URI
+
+- !  Explicit  # Parsed as Standard.
+- !<!message>  Verbatim  # Parsed as Custom.
+- !handle!message  HandledCustom  # Parsed as URI.
+...

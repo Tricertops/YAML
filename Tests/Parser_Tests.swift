@@ -15,6 +15,10 @@ import YAML
 
 class Parser_Tests: XCTestCase {
     
+    override var subdirectory: String {
+        return "parsed"
+    }
+    
     func test_stream_simple() {
         let string = self.file("stream_simple")
         let parser = Parser(string: string)
@@ -80,6 +84,18 @@ class Parser_Tests: XCTestCase {
             XCTAssertEqual(sequence2.count, 4)
             XCTAssertEqual(sequence2.style, .flow)
             XCTAssertTrue(sequence2[1] === sequence2[3])
+        }
+        do {
+            guard let sequence3 = stream.documents[2] as? Node.Sequence else { XCTFail(); return }
+            XCTAssertEqual(sequence3.count, 3)
+            XCTAssertEqual(sequence3.style, .block)
+            XCTAssertTrue(sequence3[0] is Node.Sequence)
+            XCTAssertTrue(sequence3[1] is Node.Sequence)
+            XCTAssertTrue(sequence3[2] is Node.Sequence)
+            guard let sequence33 = sequence3[2] as? Node.Sequence else { XCTFail(); return }
+            XCTAssertTrue(sequence33[0] === sequence3[0])
+            XCTAssertTrue(sequence33[1] === sequence3[0])
+            XCTAssertTrue(sequence33[2] === sequence3[0])
         }
     }
     

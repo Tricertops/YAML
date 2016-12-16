@@ -1,0 +1,9 @@
+--- # Recursive sequence.
+&0 [ *0 ]
+--- # Recursive mapping.
+&0
+key: *0
+--- # Recursive key.
+&0
+*0: value
+...
