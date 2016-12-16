@@ -224,16 +224,16 @@ extension Emitter.Error.Kind {
             return nil
             
         case YAML_MEMORY_ERROR:
-            return .Allocation
+            return .allocation
             
         case YAML_WRITER_ERROR:
-            return .Writing
+            return .writing
             
         case YAML_EMITTER_ERROR:
-            return .Emitting
+            return .emitting
             
         default:
-            return .Unspecified
+            return .unspecified
         }
     }
     

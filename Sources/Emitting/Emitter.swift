@@ -61,7 +61,7 @@ public class Emitter {
     //MARK: Emitter: Node Style
     
     /// Node styles used when the Node doesn’t specify one.
-    public var style: Style = .YAML
+    public var style: Style = .yaml
     
     /// Collection of optional Node styles.
     public struct Style {
@@ -73,9 +73,9 @@ public class Emitter {
         public var mapping: Node.Mapping.Style
         
         /// Style collection with default YAML styles: plain scalars, block sequences and mappings.
-        public static let YAML = Style(scalar: .plain, sequence: .block, mapping: .block)
+        public static let yaml = Style(scalar: .plain, sequence: .block, mapping: .block)
         /// Style collection with JSON styles: double-quoted scalars, flow sequences nad mappings.
-        public static let JSON = Style(scalar: .doubleQuoted, sequence: .flow, mapping: .flow)
+        public static let json = Style(scalar: .doubleQuoted, sequence: .flow, mapping: .flow)
     }
     
     //MARK: Emitter: Error
@@ -86,13 +86,13 @@ public class Emitter {
         /// Type of error. Some types are mediated from the underlaying C library.
         public enum Kind: String {
             /// No better information is known.
-            case Unspecified
+            case unspecified
             /// Mediated from C library: Cannot allocate or reallocate a block of memory.
-            case Allocation
+            case allocation
             /// Mediated from C library: Cannot write to the output string.
-            case Writing
+            case writing
             /// Mediated from C library: Cannot emit a YAML stream.
-            case Emitting
+            case emitting
         }
         
         /// Type of error.
