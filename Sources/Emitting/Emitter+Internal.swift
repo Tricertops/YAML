@@ -114,6 +114,7 @@ extension Emitter {
                 
                 events.append(.documentEnd(isImplicit: !(isLast && stream.hasEndMark)))
                 
+                self.resetAnchors()
                 index += 1
             }
             
@@ -203,6 +204,12 @@ extension Emitter {
             }
             
             return [.alias(anchor: anchor)]
+        }
+        
+        func resetAnchors() {
+            self.emittedNodes = []
+            self.usedAnchors = []
+            self.anchorsByNode = [:]
         }
         
         func generateAnchor(base: String = "") -> String {
