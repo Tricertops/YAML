@@ -148,7 +148,21 @@ class Emitter_Tests: XCTestCase {
         let C = Node.Scalar(content: "C", anchor: "b")
         let document1 = Node.Sequence(items: [A, B, C, B, C, B])
         
-        let stream = YAML.Stream(documents: [document1])
+        let document2 = Node.Sequence()
+        document2.anchor = "a"
+        document2.append(document2)
+        
+        let document3 = Node.Mapping()
+        document3.anchor = "a"
+        document3.pairs.append((Node.Scalar(content: "key"), document3))
+        
+        let document4 = Node.Mapping()
+        document4.anchor = "a"
+        document4.pairs.append((document4, Node.Scalar(content: "value")))
+        
+        let stream = YAML.Stream(documents: [document1, document2, document3, document4])
+        stream.prefersStartMark = true
+        stream.hasEndMark = true
         let result = try! Emitter().emit(stream)
         let sample = self.file("alias")
         XCTAssertEqual(sample, result, "")
