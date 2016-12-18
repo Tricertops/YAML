@@ -52,14 +52,14 @@ class Emitter_Tests: XCTestCase {
         XCTAssertEqual(sample, result, "")
     }
     
-    func test_sequences() {
+    func test_sequence() {
         let stream = YAML.Stream()
         stream.documents = [
             Node.Sequence(items: [
                 Node.Scalar(content: "Apple"),
                 Node.Scalar(content: "Banana"),
                 Node.Scalar(content: "Citrus"),
-                ], style: .block),
+                ]),
             Node.Sequence(items: [
                 Node.Scalar(content: "Apple"),
                 Node.Scalar(content: "Banana"),
@@ -75,12 +75,51 @@ class Emitter_Tests: XCTestCase {
                     Node.Scalar(content: "Apple"),
                     Node.Scalar(content: "Banana"),
                     Node.Scalar(content: "Citrus"),
-                    ], style: .block),
+                    ]),
                 ], style: .block),
         ]
         
         let result = try! Emitter().emit(stream)
         let sample = self.file("sequence")
+        XCTAssertEqual(sample, result, "")
+    }
+    
+    func test_mapping() {
+        let content = Node.Mapping(pairs: [
+            (Node.Scalar(content: "model"), Node.Scalar(content: "MacBook Pro Retina")),
+            (Node.Scalar(content: "size"), Node.Scalar(content: "13-inch")),
+            (Node.Scalar(content: "year"), Node.Scalar(content: "2014")),
+            (Node.Scalar(content: "processor"), Node.Mapping(pairs: [
+                (Node.Scalar(content: "model"), Node.Scalar(content: "Intel Core i5")),
+                (Node.Scalar(content: "speed"), Node.Scalar(content: "2.6 GHz")),
+                ])),
+            (Node.Scalar(content: "memory"), Node.Mapping(pairs: [
+                (Node.Scalar(content: "size"), Node.Scalar(content: "8 GB")),
+                (Node.Scalar(content: "speed"), Node.Scalar(content: "1600 MHz")),
+                (Node.Scalar(content: "type"), Node.Scalar(content: "DDR3")),
+                ], style: .block)),
+            (Node.Scalar(content: "graphics"), Node.Mapping(pairs: [
+                (Node.Scalar(content: "type"), Node.Scalar(content: "Intel Iris")),
+                (Node.Scalar(content: "memory"), Node.Scalar(content: "1536 MB")),
+                ], style: .flow)),
+            ])
+        
+        let result = try! Emitter().emit(content)
+        let sample = self.file("mapping")
+        XCTAssertEqual(sample, result, "")
+    }
+    
+    func test_scalar() {
+        let content = Node.Mapping(pairs: [
+            (Node.Scalar(content: "plain"), Node.Scalar(content: "Lorem ipsum dolor sit amet.", style: .plain)),
+            (Node.Scalar(content: "single quoted"), Node.Scalar(content: "Lorem ipsum dolor sit amet.", style: .singleQuoted)),
+            (Node.Scalar(content: "double quoted"), Node.Scalar(content: "Lorem ipsum dolor sit amet.", style: .doubleQuoted)),
+            (Node.Scalar(content: "folded"), Node.Scalar(content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore\nmagna aliqua.", style: .folded)),
+            (Node.Scalar(content: "literal"), Node.Scalar(content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit,\nsed do eiusmod tempor incididunt ut labore et dolore magna\naliqua.", style: .literal)),
+            ])
+        
+        let result = try! Emitter().emit(content)
+        let sample = self.file("scalar")
         XCTAssertEqual(sample, result, "")
     }
 }
