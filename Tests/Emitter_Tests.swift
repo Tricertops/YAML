@@ -145,7 +145,8 @@ class Emitter_Tests: XCTestCase {
     func test_alias() {
         let A = Node.Scalar(content: "A", anchor: "a")
         let B = Node.Scalar(content: "B", anchor: "a")
-        let document1 = Node.Sequence(items: [A, B, B, B])
+        let C = Node.Scalar(content: "C", anchor: "b")
+        let document1 = Node.Sequence(items: [A, B, C, B, C, B])
         
         let stream = YAML.Stream(documents: [document1])
         let result = try! Emitter().emit(stream)

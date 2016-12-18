@@ -25,6 +25,10 @@ extension Emitter {
             self.settings = settings
         }
         
+        var emittedNodes: Set<ObjectIdentifier> = []
+        var usedAnchors: Set<String> = []
+        var anchorsByNode: [ObjectIdentifier: String] = [:]
+        
         var emitter = yaml_emitter_t()
         var output: String = ""
         
@@ -118,6 +122,12 @@ extension Emitter {
         }
         
         func eventsForNode(_ node: Node) -> [Event] {
+            let nodeID = ObjectIdentifier(node)
+            if self.emittedNodes.contains(nodeID) {
+                return eventsForAlias(node)
+            }
+            self.emittedNodes.insert(nodeID)
+            
             if let scalar = node as? Node.Scalar { return eventsForScalar(scalar) }
             if let sequence = node as? Node.Sequence { return eventsForSequence(sequence) }
             if let mapping = node as? Node.Mapping { return eventsForMapping(mapping) }
@@ -166,6 +176,37 @@ extension Emitter {
             
             events.append(.mappingEnd)
             return events
+        }
+        
+        func eventsForAlias(_ node: Node) -> [Event] {
+            let nodeID = ObjectIdentifier(node)
+            
+            // Reuse anchor
+            var anchor = self.anchorsByNode[nodeID] ?? ""
+            if anchor.isEmpty {
+                // Use assigned anchor
+                anchor = node.anchor
+                if anchor.isEmpty {
+                    // Generate new anchor
+                    anchor = self.generateAnchor()
+                }
+                else {
+                    // Check for duplicates
+                    if self.usedAnchors.contains(anchor) {
+                        // Generate derived anchor
+                        anchor = self.generateAnchor(base: anchor)
+                    }
+                }
+                self.usedAnchors.insert(anchor)
+                self.anchorsByNode[nodeID] = anchor
+                assert(!anchor.isEmpty)
+            }
+            
+            return [.alias(anchor: anchor)]
+        }
+        
+        func generateAnchor(base: String = "") -> String {
+            fatalError("Generating anchor is not yet supported")
         }
         
     }
