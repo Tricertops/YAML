@@ -1,9 +1,14 @@
+--- # Simple alias
+- &a A
+- &a B
+- *a
+- *a
 --- # Recursive sequence.
-&0 [ *0 ]
+&a [ *a ]
 --- # Recursive mapping.
-&0
-key: *0
+&a
+key: *a
 --- # Recursive key.
-&0
-*0: value
+&a
+*a: value
 ...

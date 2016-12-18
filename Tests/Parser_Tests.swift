@@ -116,6 +116,16 @@ class Parser_Tests: XCTestCase {
         guard let mapping = stream.documents[0] as? Node.Mapping else { XCTFail(); return }
         XCTAssertEqual(mapping.count, 6)
         XCTAssertEqual(mapping.style, .block)
+        
+        XCTAssertEqual((mapping["model"] as! Node.Scalar).content, "MacBook Pro Retina")
+        XCTAssertEqual((mapping["size"] as! Node.Scalar).content, "13-inch")
+        XCTAssertEqual((mapping["year"] as! Node.Scalar).content, "2014")
+        
+        let processor = mapping["year"] as! Node.Mapping
+        XCTAssertEqual(processor.count, 2)
+        XCTAssertEqual(processor.style, .block)
+        XCTAssertEqual((processor["model"] as! Node.Scalar).content, "Intel Core i5")
+        XCTAssertEqual((processor["speed"] as! Node.Scalar).content, "2.6 GHz")
     }
     
     func test_scalar() {
@@ -220,7 +230,28 @@ class Parser_Tests: XCTestCase {
         XCTAssertNil(parser.error)
         
         guard let stream = parser.stream else { XCTFail(); return }
-        XCTAssertEqual(stream.documents.count, 3)
+        XCTAssertEqual(stream.documents.count, 4)
+        
+        let document1 = stream.documents[0] as! Node.Sequence
+        let item1 = document1[0] as! Node.Scalar
+        let item2 = document1[1] as! Node.Scalar
+        let item3 = document1[2] as! Node.Scalar
+        let item4 = document1[3] as! Node.Scalar
+        XCTAssertEqual(item1.content, "A")
+        XCTAssertEqual(item2.content, "B")
+        XCTAssertEqual(item3.content, "B")
+        XCTAssertEqual(item4.content, "B")
+        XCTAssertTrue(item2 === item3)
+        XCTAssertTrue(item3 === item4)
+        
+        let document2 = stream.documents[1] as! Node.Sequence
+        XCTAssertTrue(document2 === document2[0])
+        
+        let document3 = stream.documents[2] as! Node.Mapping
+        XCTAssertTrue(document3 === document3["key"])
+        
+        let document4 = stream.documents[3] as! Node.Mapping
+        XCTAssertTrue(document4 === document4.pairs[0].key)
     }
     
 }

@@ -141,5 +141,17 @@ class Emitter_Tests: XCTestCase {
         let sample = self.file("tags")
         XCTAssertEqual(sample, result, "")
     }
+    
+    func test_alias() {
+        let A = Node.Scalar(content: "A", anchor: "a")
+        let B = Node.Scalar(content: "B", anchor: "a")
+        let document1 = Node.Sequence(items: [A, B, B, B])
+        
+        let stream = YAML.Stream(documents: [document1])
+        let result = try! Emitter().emit(stream)
+        let sample = self.file("alias")
+        XCTAssertEqual(sample, result, "")
+    }
+    
 }
 

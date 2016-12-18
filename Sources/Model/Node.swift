@@ -55,11 +55,12 @@ extension Node {
         public override init() {}
         
         /// Creates a Scalar node with string content and optional style.
-        public convenience init(content: String, style: Style? = nil, tag: Tag = .none) {
+        public convenience init(content: String, style: Style? = nil, tag: Tag = .none, anchor: String = "") {
             self.init()
             self.content = content
             self.style = style
             self.tag = tag
+            self.anchor = anchor
         }
     }
 }
@@ -89,10 +90,12 @@ extension Node {
         public override init() {}
         
         /// Creates a Sequence node with list of nodes and optional style.
-        public convenience init(items: [Node], style: Style? = nil) {
+        public convenience init(items: [Node], style: Style? = nil, tag: Tag = .none, anchor: String = "") {
             self.init()
             self.items = items
             self.style = style
+            self.tag = tag
+            self.anchor = anchor
         }
     }
 }
@@ -152,10 +155,12 @@ extension Node {
         public override init() {}
         
         /// Creates a Mapping node with pairs of nodes and optional style.
-        public convenience init(pairs: [Pair], style: Style? = nil) {
+        public convenience init(pairs: [Pair], style: Style? = nil, tag: Tag = .none, anchor: String = "") {
             self.init()
             self.pairs = pairs
             self.style = style
+            self.tag = tag
+            self.anchor = anchor
         }
     }
 }
