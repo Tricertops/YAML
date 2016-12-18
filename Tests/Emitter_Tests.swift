@@ -122,5 +122,24 @@ class Emitter_Tests: XCTestCase {
         let sample = self.file("scalar")
         XCTAssertEqual(sample, result, "")
     }
+    
+    func test_tags() {
+        let content = Node.Sequence(items: [
+            Node.Scalar(content: "None"),
+            Node.Scalar(content: "Standard", tag: .standard(.str)),
+            Node.Scalar(content: "Custom", tag: .custom("message")),
+            Node.Scalar(content: "URI", tag: .uri("tag:full.tricertops.com,2016:message")),
+            Node.Scalar(content: "ShortenedURI", tag: .uri("tag:tricertops.com,2016:message")),
+            ])
+        
+        let stream = YAML.Stream()
+        stream.tags = [Tag.Directive(handle: "handle", URI: "tag:tricertops.com,2016")]
+        stream.documents = [content]
+        stream.hasEndMark = true
+        
+        let result = try! Emitter().emit(stream)
+        let sample = self.file("tags")
+        XCTAssertEqual(sample, result, "")
+    }
 }
 

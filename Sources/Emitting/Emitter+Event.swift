@@ -44,7 +44,7 @@ extension yaml_event_t {
             }
             
         case .scalar(let scalar):
-            let isTagImplicit = true //TODO: Test
+            let isTagImplicit = scalar.tag.isEmpty
             
             let _ = scalar.anchor.withMutableCString { anchor in
                 let _ = scalar.tag.withMutableCString { tag in

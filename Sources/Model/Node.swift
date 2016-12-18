@@ -55,10 +55,11 @@ extension Node {
         public override init() {}
         
         /// Creates a Scalar node with string content and optional style.
-        public convenience init(content: String, style: Style? = nil) {
+        public convenience init(content: String, style: Style? = nil, tag: Tag = .none) {
             self.init()
             self.content = content
             self.style = style
+            self.tag = tag
         }
     }
 }

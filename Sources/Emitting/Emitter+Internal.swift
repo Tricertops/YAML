@@ -129,7 +129,7 @@ extension Emitter {
             return [
                 .scalar(
                     anchor: scalar.anchor,
-                    tag: scalar.tag.stringForEmit,
+                    tag: scalar.tag.stringForEmitter,
                     content: scalar.content,
                     style: scalar.style ?? settings.style.scalar)
             ]
@@ -140,7 +140,7 @@ extension Emitter {
             
             events.append(.sequenceStart(
                 anchor: sequence.anchor,
-                tag: sequence.tag.stringForEmit,
+                tag: sequence.tag.stringForEmitter,
                 style: sequence.style ?? settings.style.sequence))
             
             for node in sequence.items {
@@ -156,7 +156,7 @@ extension Emitter {
             
             events.append(.mappingStart(
                 anchor: mapping.anchor,
-                tag: mapping.tag.stringForEmit,
+                tag: mapping.tag.stringForEmitter,
                 style: mapping.style ?? settings.style.mapping))
             
             for pair in mapping.pairs {
@@ -188,14 +188,12 @@ extension yaml_break_t {
 
 extension Tag {
     
-    var stringForEmit: String {
+    var stringForEmitter: String {
         switch self {
         case .none: return ""
-        case .explicit: return "!"
         case .custom(let name): return "!" + name
-        case .handledCustom(let tag): return "!" + tag.handle + "!" + tag.name
-        case .standard(let name): return "!!" + name.rawValue
-        case .uri(let content): return "!<" + content + ">"
+        case .standard(let name): return Tag.Standardized.prefix + name.rawValue
+        case .uri(let content): return content
         }
     }
     

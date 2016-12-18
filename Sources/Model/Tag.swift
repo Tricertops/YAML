@@ -17,27 +17,19 @@ public enum Tag: Equatable {
     /// No tag is provided. This is the default.
     case none  // ""
     
-    /// Non-specific tag is provided. Used to suppress implicit tag resolution.
-    /// - Note: For example, scalar with content “true” is normally resolved to a Boolean type.
-    /// Assigning it an .Explicit tag causes it to become String with “true” content.
-    /// - Note: This Tag case will not be produced by Parser, since it will be resolved to .Standard case.
-    case explicit  // "!"
-    
     /// Application-specific tag with name. Will be prefixed with “!”.
     /// - Note: This is the most common use case for archivation of nonstandard types.
     /// - Important: Do not attempt to misuse this case. Any existing “!” marks will be escaped.
     case custom(String)  // !name
     
-    /// Application-specific tag with handle and name. Both will be prefixed with “!” and concatenated.
-    /// - Important: Handle must be defined by %TAG directive in the same YAML stream.
-    /// - Note: This Tag case will not be produced by Parser, since it will be resolved to .URI case.
-    case handledCustom(handle: String, name: String)  // !handle!name
-    
     /// Standard YAML-defined tag, for example String, Integer, Boolean. Will be prefixed with “!!”.
+    /// - Note: When parsing, an explicit non-specified tag "!" will be parsed as .standard tag.
     /// - Note: Full name of this tag is prefixed with “tag:yaml.org,2002:”.
     case standard(Tag.Standardized)  // !!name
     
     /// Tag with fully resolved name that is not resolved further. Will be enclosed in “<>” and prefixed with “!”.
+    /// - Note: When parsing, any shortened tags using handles will be returned as full URI tags.
+    /// - Note: When emitting, this tag will be shortened, if possible, using tag directives of Stream.
     case uri(String)  // !<content>
     
 }
@@ -88,6 +80,12 @@ extension Tag {
         /// - Note: Prefixes should should follow this pattern: “tag:yaml.org,2002:”
         public var URI: String = ""
         
+        /// Initializer for both optional members.
+        public init(handle: String = "", URI: String = "") {
+            self.handle = handle
+            self.URI = URI
+        }
+        
     }
 }
 
@@ -97,10 +95,6 @@ public func == (left: Tag, right: Tag) -> Bool {
         
     case (.none
         , .none)
-        : return true
-        
-    case (.explicit
-        , .explicit)
         : return true
         
     case (.custom(let left)
@@ -116,12 +110,6 @@ public func == (left: Tag, right: Tag) -> Bool {
     case (.uri(let left)
         , .uri(let right))
         where left == right
-        : return true
-        
-    case (.handledCustom(let leftHandler , let leftName)
-        , .handledCustom(let rightHandler, let rightName))
-        where leftHandler == rightHandler
-            && leftName == rightName
         : return true
         
     default:
@@ -142,7 +130,7 @@ extension Tag {
             if node is Node.Scalar { return .standard(.str) }
             if node is Node.Sequence { return .standard(.seq) }
             if node is Node.Mapping { return .standard(.map) }
-            return .explicit // Should not reach this.
+            fatalError("This Node type is not handled \(type(of: node))")
         }
         let prefix = Tag.Standardized.prefix
         if tag.hasPrefix("!!") {
