@@ -28,6 +28,7 @@ extension Emitter {
         var emittedNodes: Set<ObjectIdentifier> = []
         var usedAnchors: Set<String> = []
         var anchorsByNode: [ObjectIdentifier: String] = [:]
+        var generatedAnchorIndex: Int = 1
         
         var emitter = yaml_emitter_t()
         var output: String = ""
@@ -37,13 +38,13 @@ extension Emitter {
             defer {
                 cleanup()
             }
-            try self.checkError()
+            try checkError()
             
             for event in eventsForStream(stream) {
                 var rawEvent: yaml_event_t = .from(event)
                 yaml_emitter_emit(&emitter, &rawEvent)
                 
-                try self.checkError()
+                try checkError()
             }
             
             return output
@@ -100,6 +101,8 @@ extension Emitter {
             var events: [Event] = []
             events.append(.streamStart)
             
+            resetAnchors()
+            
             var index = 0 // This is safer, because documents could be duplicated.
             for node in stream.documents {
                 let isFirst = (index == 0)
@@ -110,11 +113,13 @@ extension Emitter {
                     tags: isFirst ? stream.tags : [],
                     isImplicit: !(isFirst && stream.hasStartMark)))
                 
+                collectAnchors(node)
+                self.emittedNodes = []
                 events += eventsForNode(node)
                 
                 events.append(.documentEnd(isImplicit: !(isLast && stream.hasEndMark)))
                 
-                self.resetAnchors()
+                resetAnchors()
                 index += 1
             }
             
@@ -125,7 +130,11 @@ extension Emitter {
         func eventsForNode(_ node: Node) -> [Event] {
             let nodeID = ObjectIdentifier(node)
             if self.emittedNodes.contains(nodeID) {
-                return eventsForAlias(node)
+                // Node is referenced multiple times, it already have anchor.
+                guard let anchor = self.anchorsByNode[nodeID] else {
+                    fatalError("YAML Emitter anchor inconsistency")
+                }
+                return [.alias(anchor: anchor)]
             }
             self.emittedNodes.insert(nodeID)
             
@@ -137,9 +146,10 @@ extension Emitter {
         }
         
         func eventsForScalar(_ scalar: Node.Scalar) -> [Event] {
+            let nodeID = ObjectIdentifier(scalar)
             return [
                 .scalar(
-                    anchor: scalar.anchor,
+                    anchor: self.anchorsByNode[nodeID] ?? "",
                     tag: scalar.tag.stringForEmitter,
                     content: scalar.content,
                     style: scalar.style ?? settings.style.scalar)
@@ -147,10 +157,11 @@ extension Emitter {
         }
         
         func eventsForSequence(_ sequence: Node.Sequence) -> [Event] {
+            let nodeID = ObjectIdentifier(sequence)
             var events: [Event] = []
             
             events.append(.sequenceStart(
-                anchor: sequence.anchor,
+                anchor: self.anchorsByNode[nodeID] ?? "",
                 tag: sequence.tag.stringForEmitter,
                 style: sequence.style ?? settings.style.sequence))
             
@@ -163,10 +174,11 @@ extension Emitter {
         }
         
         func eventsForMapping(_ mapping: Node.Mapping) -> [Event] {
+            let nodeID = ObjectIdentifier(mapping)
             var events: [Event] = []
             
             events.append(.mappingStart(
-                anchor: mapping.anchor,
+                anchor: self.anchorsByNode[nodeID] ?? "",
                 tag: mapping.tag.stringForEmitter,
                 style: mapping.style ?? settings.style.mapping))
             
@@ -179,31 +191,48 @@ extension Emitter {
             return events
         }
         
-        func eventsForAlias(_ node: Node) -> [Event] {
+        func collectAnchors(_ node: Node) {
             let nodeID = ObjectIdentifier(node)
-            
-            // Reuse anchor
-            var anchor = self.anchorsByNode[nodeID] ?? ""
-            if anchor.isEmpty {
-                // Use assigned anchor
-                anchor = node.anchor
+            if self.emittedNodes.contains(nodeID) {
+                // Node is referenced multiple times, it needs anchor.
+                
+                let anchor = self.anchorsByNode[nodeID] ?? ""
                 if anchor.isEmpty {
-                    // Generate new anchor
-                    anchor = self.generateAnchor()
+                    self.anchorsByNode[nodeID] = createAnchor(for: node)
                 }
-                else {
-                    // Check for duplicates
-                    if self.usedAnchors.contains(anchor) {
-                        // Generate derived anchor
-                        anchor = self.generateAnchor(base: anchor)
+            }
+            else {
+                // Node is referenced first time.
+                self.emittedNodes.insert(nodeID)
+                
+                if let sequence = node as? Node.Sequence {
+                    for item in sequence.items {
+                        collectAnchors(item)
                     }
                 }
-                self.usedAnchors.insert(anchor)
-                self.anchorsByNode[nodeID] = anchor
-                assert(!anchor.isEmpty)
+                if let mapping = node as? Node.Mapping {
+                    for (key, value) in mapping.pairs {
+                        collectAnchors(key)
+                        collectAnchors(value)
+                    }
+                }
             }
+        }
+        
+        func createAnchor(for node: Node) -> String {
+            var anchor = node.anchor
             
-            return [.alias(anchor: anchor)]
+            if anchor.isEmpty {
+                (anchor, self.generatedAnchorIndex) = generateAnchor(index: self.generatedAnchorIndex)
+            }
+            else {
+                if self.usedAnchors.contains(anchor) {
+                    //TODO: Regenerate also the conflicted one.
+                    (anchor, _) = generateAnchor(generator: .numeric(digits: 1), base: anchor)
+                }
+            }
+            self.usedAnchors.insert(anchor)
+            return anchor
         }
         
         func resetAnchors() {
@@ -212,10 +241,45 @@ extension Emitter {
             self.anchorsByNode = [:]
         }
         
-        func generateAnchor(base: String = "") -> String {
-            fatalError("Generating anchor is not yet supported")
+        func generateAnchor(generator: AnchorGenerator? = nil, base: String = "", index: Int = 1) -> (anchor: String, index: Int) {
+            let generator = generator ?? self.settings.anchorGenerator
+            var index = index
+            var anchor = base
+            let prefix = base.isEmpty ? "" : (base + "-")
+            
+            while anchor.isEmpty || self.usedAnchors.contains(anchor) {
+                anchor = prefix + generator.generate(index: index)
+                index += 1
+            }
+            
+            return (anchor, index)
         }
         
+    }
+    
+}
+
+
+extension Emitter.AnchorGenerator {
+    
+    func generate(index: Int) -> String {
+        switch self {
+        case .numeric(let digits):
+            var string = "\(index)"
+            while string.characters.count < digits {
+                string = "0" + string
+            }
+            return string
+            
+        case .random(let length):
+            let characters = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"]
+            var string = ""
+            for _ in 0..<length {
+                let random = Int(arc4random_uniform(UInt32(characters.count)))
+                string += characters[random]
+            }
+            return string
+        }
     }
     
 }

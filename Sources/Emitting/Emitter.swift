@@ -78,6 +78,22 @@ public class Emitter {
         public static let json = Style(scalar: .doubleQuoted, sequence: .flow, mapping: .flow)
     }
     
+    
+    //MARK: Anchor Generation
+    
+    /// Describes strategy used to create anchors when none are assigned to emitted nodes with multiple references.
+    /// - Note: Nodes in the emitted tree are allowed to have conflicting anchors. They will be handled by appending unique suffix.
+    public var anchorGenerator: AnchorGenerator = .numeric(digits: 3)
+    
+    /// Possible anchor generator techniques.
+    public enum AnchorGenerator {
+        /// Generates sequential anchors that begin with 1, padded to at least given number of digits. (001, 002, 003, 004, …)
+        case numeric(digits: Int)
+        /// Generates anchors of pseudo-random hexadecimal numbers with given length. (33e7aa, 5513b1, 6f9a22, …)
+        case random(length: Int)
+    }
+    
+    
     //MARK: Emitter: Error
     
     /// Errors thrown by the Emitter

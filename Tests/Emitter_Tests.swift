@@ -168,5 +168,36 @@ class Emitter_Tests: XCTestCase {
         XCTAssertEqual(sample, result, "")
     }
     
+    func test_generated_anchors() {
+        let A = Node.Scalar(content: "A")
+        let B = Node.Scalar(content: "B")
+        let C = Node.Scalar(content: "C")
+        let D = Node.Scalar(content: "D", anchor: "D")
+        let E = Node.Scalar(content: "E", anchor: "E")
+        
+        let sequence = Node.Sequence()
+        sequence.style = .flow
+        sequence.anchor = "sequence"
+        sequence.items = [A, sequence]
+        let mapping = Node.Mapping()
+        mapping.style = .flow
+        mapping.anchor = "mapping"
+        mapping.pairs = [(B, mapping)]
+        
+        let F = Node.Scalar(content: "F", anchor: "004")
+        let G = Node.Scalar(content: "G")
+        let H = Node.Scalar(content: "H", anchor: "004")
+        
+        let document = Node.Sequence(items: [
+            A,B,C, C,A,B, D,E, C,
+            sequence, mapping,
+            F, G, G, H, F, H,
+            ])
+        
+        let result = try! Emitter().emit(document)
+        let sample = self.file("generated_anchors")
+        XCTAssertEqual(sample, result, "")
+    }
+    
 }
 
