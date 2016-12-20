@@ -10,7 +10,7 @@
 //
 
 import XCTest
-import YAML
+@testable import YAML
 
 
 class Emitter_Tests: XCTestCase {
@@ -202,6 +202,21 @@ class Emitter_Tests: XCTestCase {
         let result = try! Emitter().emit(stream)
         let sample = self.file("numeric_anchors")
         XCTAssertEqual(sample, result, "")
+    }
+    
+    func test_random_anchors() {
+        let generator: Emitter.AnchorGenerator = .random(length: 2)
+        
+        XCTAssertEqual(generator.generate(index: 0).characters.count, 2)
+        XCTAssertEqual(generator.generate(index: 0).characters.count, 2)
+        XCTAssertEqual(generator.generate(index: 0).characters.count, 2)
+        XCTAssertEqual(generator.generate(index: 0).characters.count, 2)
+        
+        // With too many existing anchors, the generator will adjust the length, so it avoids conflicts.
+        XCTAssertEqual(generator.generate(index: 0, existingCount: 150).characters.count, 2)
+        XCTAssertEqual(generator.generate(index: 0, existingCount: 160).characters.count, 3)
+        XCTAssertEqual(generator.generate(index: 0, existingCount: 2500).characters.count, 3)
+        XCTAssertEqual(generator.generate(index: 0, existingCount: 2600).characters.count, 4)
     }
     
 }

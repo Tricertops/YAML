@@ -249,7 +249,7 @@ extension Emitter {
             let prefix = base.isEmpty ? "" : (base + "-")
             
             while anchor.isEmpty || self.usedAnchors.contains(anchor) {
-                anchor = prefix + generator.generate(index: index)
+                anchor = prefix + generator.generate(index: index, existingCount: self.usedAnchors.count)
                 index += 1
             }
             
@@ -263,7 +263,7 @@ extension Emitter {
 
 extension Emitter.AnchorGenerator {
     
-    func generate(index: Int) -> String {
+    func generate(index: Int, existingCount: Int = 0) -> String {
         switch self {
         case .numeric(let digits):
             var string = "\(index)"
@@ -275,6 +275,16 @@ extension Emitter.AnchorGenerator {
         case .random(let length):
             let characters = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"]
             var string = ""
+            
+            // With random of fixed length, we risk running out of combinations.
+            var length = length
+            if existingCount > 0 {                
+                let minimalLength = Int(ceil(log(Double(existingCount) * 1.618) / log(Double(characters.count))))
+                if length < minimalLength {
+                    length = minimalLength
+                }
+            }
+            
             for _ in 0..<length {
                 let random = Int(arc4random_uniform(UInt32(characters.count)))
                 string += characters[random]
