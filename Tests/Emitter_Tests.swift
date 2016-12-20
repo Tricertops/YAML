@@ -188,13 +188,18 @@ class Emitter_Tests: XCTestCase {
         let G = Node.Scalar(content: "G")
         let H = Node.Scalar(content: "H", anchor: "004")
         
-        let document = Node.Sequence(items: [
+        let document1 = Node.Sequence(items: [
             A,B,C, C,A,B, D,E, C,
             sequence, mapping,
             F, G, G, H, F, H,
             ])
         
-        let result = try! Emitter().emit(document)
+        let document2 = Node.Sequence(items: [
+            A,A, B,B,
+            ])
+        
+        let stream = YAML.Stream(documents: [document1, document2])
+        let result = try! Emitter().emit(stream)
         let sample = self.file("numeric_anchors")
         XCTAssertEqual(sample, result, "")
     }

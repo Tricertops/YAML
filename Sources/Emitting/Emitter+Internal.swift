@@ -239,6 +239,7 @@ extension Emitter {
             self.emittedNodes = []
             self.usedAnchors = []
             self.anchorsByNode = [:]
+            self.generatedAnchorIndex = 1
         }
         
         func generateAnchor(generator: AnchorGenerator? = nil, base: String = "", index: Int = 1) -> (anchor: String, index: Int) {
