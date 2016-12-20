@@ -49,8 +49,6 @@ extension Event {
             
         case YAML_SCALAR_EVENT:
             let scalar = event.data.scalar
-            //TODO: .plain_implicit
-            //TODO: .quoted_implicit
             return .scalar(
                 anchor: String(scalar.anchor),
                 tag: String(scalar.tag),
@@ -59,7 +57,6 @@ extension Event {
             
         case YAML_SEQUENCE_START_EVENT:
             let sequence = event.data.sequence_start
-            //TODO: .implicit
             return .sequenceStart(
                 anchor: String(sequence.anchor),
                 tag: String(sequence.tag),
@@ -70,7 +67,6 @@ extension Event {
             
         case YAML_MAPPING_START_EVENT:
             let mapping = event.data.mapping_start
-            //TODO: .implicit
             return .mappingStart(
                 anchor: String(mapping.anchor),
                 tag: String(mapping.tag),

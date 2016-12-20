@@ -63,7 +63,7 @@ extension yaml_event_t {
             }
             
         case .sequenceStart(let sequence):
-            let isTagImplicit = true //TODO: Test
+            let isTagImplicit = sequence.tag.isEmpty
             
             let _ = sequence.anchor.withMutableCString { anchor in
                 let _ = sequence.tag.withMutableCString { tag in
@@ -80,7 +80,7 @@ extension yaml_event_t {
             yaml_sequence_end_event_initialize(&event)
             
         case .mappingStart(let mapping):
-            let isTagImplicit = true //TODO: Test
+            let isTagImplicit = mapping.tag.isEmpty
             
             let _ = mapping.anchor.withMutableCString { anchor in
                 let _ = mapping.tag.withMutableCString { tag in
