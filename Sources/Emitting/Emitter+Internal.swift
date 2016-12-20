@@ -27,6 +27,7 @@ extension Emitter {
         
         var emittedNodes: Set<ObjectIdentifier> = []
         var usedAnchors: Set<String> = []
+        var anchorAdjustments: [String: String] = [:]
         var anchorsByNode: [ObjectIdentifier: String] = [:]
         var generatedAnchorIndex: Int = 1
         
@@ -131,9 +132,8 @@ extension Emitter {
             let nodeID = ObjectIdentifier(node)
             if self.emittedNodes.contains(nodeID) {
                 // Node is referenced multiple times, it already have anchor.
-                guard let anchor = self.anchorsByNode[nodeID] else {
-                    fatalError("YAML Emitter anchor inconsistency")
-                }
+                let anchor = anchorForNode(node)
+                assert(!anchor.isEmpty)
                 return [.alias(anchor: anchor)]
             }
             self.emittedNodes.insert(nodeID)
@@ -146,10 +146,9 @@ extension Emitter {
         }
         
         func eventsForScalar(_ scalar: Node.Scalar) -> [Event] {
-            let nodeID = ObjectIdentifier(scalar)
             return [
                 .scalar(
-                    anchor: self.anchorsByNode[nodeID] ?? "",
+                    anchor: anchorForNode(scalar),
                     tag: scalar.tag.stringForEmitter,
                     content: scalar.content,
                     style: scalar.style ?? settings.style.scalar)
@@ -157,11 +156,10 @@ extension Emitter {
         }
         
         func eventsForSequence(_ sequence: Node.Sequence) -> [Event] {
-            let nodeID = ObjectIdentifier(sequence)
             var events: [Event] = []
             
             events.append(.sequenceStart(
-                anchor: self.anchorsByNode[nodeID] ?? "",
+                anchor: anchorForNode(sequence),
                 tag: sequence.tag.stringForEmitter,
                 style: sequence.style ?? settings.style.sequence))
             
@@ -174,11 +172,10 @@ extension Emitter {
         }
         
         func eventsForMapping(_ mapping: Node.Mapping) -> [Event] {
-            let nodeID = ObjectIdentifier(mapping)
             var events: [Event] = []
             
             events.append(.mappingStart(
-                anchor: self.anchorsByNode[nodeID] ?? "",
+                anchor: anchorForNode(mapping),
                 tag: mapping.tag.stringForEmitter,
                 style: mapping.style ?? settings.style.mapping))
             
@@ -219,6 +216,16 @@ extension Emitter {
             }
         }
         
+        func anchorForNode(_ node: Node) -> String {
+            let nodeID = ObjectIdentifier(node)
+            let original = self.anchorsByNode[nodeID] ?? ""
+            
+            if let adjustment = self.anchorAdjustments[original] {
+                return adjustment
+            }
+            return original
+        }
+        
         func createAnchor(for node: Node) -> String {
             var anchor = node.anchor
             
@@ -227,8 +234,10 @@ extension Emitter {
             }
             else {
                 if self.usedAnchors.contains(anchor) {
-                    //TODO: Regenerate also the conflicted one.
-                    (anchor, _) = generateAnchor(generator: .numeric(digits: 1), base: anchor)
+                    // In case of conflict, adjust the existing one and new one.
+                    let (adjustment, index) = generateAnchor(generator: .numeric(digits: 1), base: anchor)
+                    self.anchorAdjustments[anchor] = adjustment
+                    (anchor, _) = generateAnchor(generator: .numeric(digits: 1), base: anchor, index: index)
                 }
             }
             self.usedAnchors.insert(anchor)
@@ -238,6 +247,7 @@ extension Emitter {
         func resetAnchors() {
             self.emittedNodes = []
             self.usedAnchors = []
+            self.anchorAdjustments = [:]
             self.anchorsByNode = [:]
             self.generatedAnchorIndex = 1
         }
