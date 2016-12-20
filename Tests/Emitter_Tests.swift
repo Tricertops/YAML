@@ -168,7 +168,7 @@ class Emitter_Tests: XCTestCase {
         XCTAssertEqual(sample, result, "")
     }
     
-    func test_generated_anchors() {
+    func test_numeric_anchors() {
         let A = Node.Scalar(content: "A")
         let B = Node.Scalar(content: "B")
         let C = Node.Scalar(content: "C")
@@ -195,7 +195,7 @@ class Emitter_Tests: XCTestCase {
             ])
         
         let result = try! Emitter().emit(document)
-        let sample = self.file("generated_anchors")
+        let sample = self.file("numeric_anchors")
         XCTAssertEqual(sample, result, "")
     }
     
