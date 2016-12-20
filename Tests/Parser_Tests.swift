@@ -121,7 +121,7 @@ class Parser_Tests: XCTestCase {
         XCTAssertEqual((mapping["size"] as! Node.Scalar).content, "13-inch")
         XCTAssertEqual((mapping["year"] as! Node.Scalar).content, "2014")
         
-        let processor = mapping["year"] as! Node.Mapping
+        let processor = mapping["processor"] as! Node.Mapping
         XCTAssertEqual(processor.count, 2)
         XCTAssertEqual(processor.style, .block)
         XCTAssertEqual((processor["model"] as! Node.Scalar).content, "Intel Core i5")
