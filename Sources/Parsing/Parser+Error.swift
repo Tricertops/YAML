@@ -20,7 +20,7 @@ extension Parser.Error {
         self.kind = kind
         
         self.message = String(cString: parser.problem)
-        self.contextMessage = String(cString: parser.context)
+        self.contextMessage = parser.context == nil ? "" : String(cString: parser.context)
         
         let value = Int(parser.problem_value)
         self.value = (value == -1 ? nil : value)

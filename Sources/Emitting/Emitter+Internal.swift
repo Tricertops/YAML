@@ -325,8 +325,13 @@ extension Tag {
         switch self {
         case .none: return ""
         case .custom(let name): return "!" + name
-        case .standard(let name): return Tag.Standardized.prefix + name.rawValue
         case .uri(let content): return content
+        case .standard(let name):
+            // These two tags probably never need to be emitted.
+            if name == .seq || name == .map {
+                return ""
+            }
+            return Tag.Standardized.prefix + name.rawValue
         }
     }
     
