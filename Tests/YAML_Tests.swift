@@ -21,23 +21,22 @@ extension XCTestCase {
     }
     
     var testsURL: URL {
-        let url = self.projectURL.appendingPathComponent("Tests", isDirectory: true)
-        if self.subdirectory.isEmpty {
-            return url
-        }
-        return url.appendingPathComponent(self.subdirectory, isDirectory: true)
+        return self.projectURL.appendingPathComponent("Tests", isDirectory: true)
     }
     
     var subdirectory: String {
         return ""
     }
     
-    func URLForFile(_ name: String) -> URL {
-        return self.testsURL.appendingPathComponent(name + ".yaml", isDirectory: false)
+    func URLForFile(dir: String = "", _ name: String) -> URL {
+        var directoryURL = self.testsURL
+        let subdirectory = dir.isEmpty ? self.subdirectory : dir
+        directoryURL = directoryURL.appendingPathComponent(subdirectory, isDirectory: true)
+        return directoryURL.appendingPathComponent(name + ".yaml", isDirectory: false)
     }
     
-    func file(_ name: String) -> String {
-        return (try? String(contentsOf: self.URLForFile(name))) ?? ""
+    func file(dir: String = "", _ name: String) -> String {
+        return (try? String(contentsOf: self.URLForFile(dir: dir, name))) ?? ""
     }
     
 }

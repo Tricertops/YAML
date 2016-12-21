@@ -23,6 +23,7 @@
 		5B35DDF01CDE3932001B30B0 /* Parser_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35DDEF1CDE38AA001B30B0 /* Parser_Tests.swift */; };
 		5B35DDF31CDE3C52001B30B0 /* YAML_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35DDF21CDE3C52001B30B0 /* YAML_Tests.swift */; };
 		5B35DDF51CE05EA4001B30B0 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B35DDF41CE05EA4001B30B0 /* Log.swift */; };
+		5B6149AA1E09753900EDAAAA /* Roundtrip_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6149A91E09753900EDAAAA /* Roundtrip_Tests.swift */; };
 		5B76ADA41CD67883003EE030 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B76ADA21CD67883003EE030 /* Version.swift */; };
 		5B76ADA51CD67883003EE030 /* YAML.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B76ADA31CD67883003EE030 /* YAML.h */; };
 		5B89BA011CF991BD00E820CF /* Emitter+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89BA001CF991BD00E820CF /* Emitter+Internal.swift */; };
@@ -71,6 +72,7 @@
 		5B35DDEF1CDE38AA001B30B0 /* Parser_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser_Tests.swift; sourceTree = "<group>"; };
 		5B35DDF21CDE3C52001B30B0 /* YAML_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YAML_Tests.swift; sourceTree = "<group>"; };
 		5B35DDF41CE05EA4001B30B0 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		5B6149A91E09753900EDAAAA /* Roundtrip_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Roundtrip_Tests.swift; sourceTree = "<group>"; };
 		5B76ADA21CD67883003EE030 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		5B76ADA31CD67883003EE030 /* YAML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAML.h; sourceTree = "<group>"; };
 		5B89BA001CF991BD00E820CF /* Emitter+Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Emitter+Internal.swift"; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				5B35DDF21CDE3C52001B30B0 /* YAML_Tests.swift */,
 				5B35DDEF1CDE38AA001B30B0 /* Parser_Tests.swift */,
 				5B89BA081CFB338100E820CF /* Emitter_Tests.swift */,
+				5B6149A91E09753900EDAAAA /* Roundtrip_Tests.swift */,
 				5B04F0DC1E045BA70070055F /* parsed */,
 				5B04F0DB1E045BA70070055F /* emitted */,
 			);
@@ -334,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B35DDF31CDE3C52001B30B0 /* YAML_Tests.swift in Sources */,
+				5B6149AA1E09753900EDAAAA /* Roundtrip_Tests.swift in Sources */,
 				5B89BA091CFB338100E820CF /* Emitter_Tests.swift in Sources */,
 				5B35DDF01CDE3932001B30B0 /* Parser_Tests.swift in Sources */,
 			);
